@@ -1,2 +1,13 @@
-<h1>About</h1>
-<p>This is the about page.</p>
+<% provide(:title, "about") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>playsette | <%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>about</h1>
+    <p>
+      Should be wavy.
+    </p>
+  </body>
+</html>
