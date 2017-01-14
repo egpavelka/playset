@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,600i,700,700i|Michroma');
+
+body {
+  color: #341911;
+  font-family: 'Josefin Sans';
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.song {
+}
+
+.song-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  max-width: 900px;
+  width: 90vw;
+  border-top: 2px dotted #341911;
+}
+
+.song-entry {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-bottom: 2px dotted #341911;
+  padding: 20px 0 10px;
+}
+
+.song-header {
+  flex: 3 0 250px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.song-title {
+  font-size: 2rem;
+}
+
+.song-details {
+  flex: 2 2 200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.song-artist,
+.song-album {
+  margin: 0 20px;
+  padding: 7px 0 10px 30px;
+  border-top: 2px solid #4873B9;
+  text-align: right;
+}
+.song-artist {
+}
+
+.song-album {
+}
