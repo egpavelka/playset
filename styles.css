@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,600i,700,700i|Michroma');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 body {
   color: #341911;
   font-family: 'Josefin Sans';
+  font-weight: 500;
 }
 
 .wrapper {
@@ -13,7 +21,44 @@ body {
   align-content: center;
 }
 
-.song {
+.header-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: #b91307;
+  width: 90vw;
+  max-width: 900vw;
+  padding: 10px 20px;
+  margin-top: 20px;
+  box-shadow: 1.5px 1.75px 1px 0 #341911,
+  -.5px -.5px 1px 0 #341911;
+}
+
+h1.header-title {
+  font-family: 'Michroma';
+  font-size: 3rem;
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-family: 'Josefin Sans';
+  font-weight: 600;
+  font-style: italic;
+  color: white;
+}
+
+.header-nav-item {
+  margin-left: 20px;
+}
+
+.nav-divider {
+  color: #4873B9;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .song-list {
@@ -22,15 +67,17 @@ body {
   align-items: stretch;
   max-width: 900px;
   width: 90vw;
-  border-top: 2px dotted #341911;
+  margin-top: 20px;
 }
 
 .song-entry {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  border-bottom: 2px dotted #341911;
+  box-shadow: 1.5px 1.75px 1px 0 #341911,
+  -.5px -.5px 1px 0 #341911;
   padding: 20px 0 10px;
+  margin-top: 10px;
 }
 
 .song-header {
@@ -56,8 +103,10 @@ body {
   padding: 7px 0 10px 30px;
   border-top: 2px solid #4873B9;
   text-align: right;
+  font-family: 'Michroma';
 }
 .song-artist {
+  text-transform: uppercase;
 }
 
 .song-album {
