@@ -1,0 +1,33 @@
+.header-block {
+  @extend %flex-h-space-between;
+  @extend %align-items-flex-end;
+  @extend %kona-shadow;
+
+  width: 90vw;
+  max-width: 900vw;
+  padding: 10px 20px;
+  margin-top: 20px;
+
+  background-color: $coral;
+  color: $white;
+}
+
+h1.header-title {
+  font-family: 'Michroma', sans-serif;
+  font-size: 3rem;
+}
+
+.header-nav {
+  @extend %body-italic;
+  @extend %flex-h-center;
+}
+
+.header-nav-item {
+  margin-left: 20px;
+}
+
+.nav-divider {
+  color: $cornflower;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
