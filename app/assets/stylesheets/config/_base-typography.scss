@@ -11,3 +11,12 @@ body,
   font-weight: 600;
   font-style: italic;
 }
+
+a {
+  &:active,
+  &:visited,
+  &:hover,
+  &:link {
+    text-decoration: none;
+  }
+}

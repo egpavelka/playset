@@ -1,3 +1,5 @@
+@import 'config/MASTER';
+
 .song-entry {
   @extend %flex-h-space-between;
   @extend %kona-shadow;

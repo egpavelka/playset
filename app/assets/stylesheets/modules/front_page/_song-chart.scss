@@ -1,3 +1,5 @@
+@import 'config/MASTER';
+
 .song-list {
   @extend %flex-v;
   @extend %align-items-stretch;

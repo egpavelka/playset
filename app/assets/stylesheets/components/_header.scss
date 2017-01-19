@@ -1,3 +1,5 @@
+@import 'config/MASTER';
+
 .header-block {
   @extend %flex-h-space-between;
   @extend %align-items-flex-end;
@@ -8,7 +10,7 @@
   padding: 10px 20px;
   margin-top: 20px;
 
-  background-color: $coral;
+  background: $coral;
   color: $white;
 }
 
@@ -30,4 +32,13 @@ h1.header-title {
   color: $cornflower;
   font-size: 1.3rem;
   font-weight: 700;
+}
+
+a {
+  &:active,
+  &:visited,
+  &:hover,
+  &:link {
+    color: $white;
+  }
 }
