@@ -1,3 +1,6 @@
+@import '../config/base-mixins';
+@import '../config/base-colors';
+
 %kona-shadow {
   @include box-shadow(1.5px 1.75px 1px 0 $kona,
   -.5px -.5px 1px 0 $kona);
