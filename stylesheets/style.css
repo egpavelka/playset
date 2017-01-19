@@ -1,0 +1,213 @@
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+/*
+    Display
+ */
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,600i,700,700i|Michroma");
+.header-nav, .header-block, .song-entry, .song-details, .wrapper, .song-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+/*
+    Flex direction
+ */
+.header-nav, .header-block, .song-entry, .song-details {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.wrapper, .song-list {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+/*
+    Flex wrap
+ */
+.wrapper, .song-list {
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: none;
+  flex-wrap: nowrap; }
+
+.header-nav, .header-block, .song-entry, .song-details {
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+/*
+    Flex flow
+ */
+/*
+    Order
+ */
+/*
+    Flex grow
+ */
+/*
+    Flex shrink
+ */
+/*
+    Flex basis
+ */
+/*
+    Flex
+ */
+/*
+    Justify content
+ */
+.song-details {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -webkit-flex-pack: end;
+  -ms-flex-pack: end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end; }
+
+.header-nav, .wrapper {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-flex-pack: center;
+  -ms-flex-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+.header-block, .song-entry {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-flex-pack: justify;
+  -ms-flex-pack: justify;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between; }
+
+/*
+    Align items
+ */
+.header-block {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  align-items: flex-end; }
+
+.header-nav, .wrapper {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+
+.song-list {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  align-items: stretch; }
+
+/*
+    Align self
+ */
+/*
+    Align content
+ */
+.header-nav, .header-block, .song-entry, .song-details, .wrapper, .song-list {
+  -ms-flex-line-pack: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  align-content: center; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+body {
+  overflow-x: hidden; }
+
+.header-block, .song-entry {
+  -webkit-box-shadow: 1.5px 1.75px 1px 0 #341911, -0.5px -0.5px 1px 0 #341911;
+  -moz-box-shadow: 1.5px 1.75px 1px 0 #341911, -0.5px -0.5px 1px 0 #341911;
+  box-shadow: 1.5px 1.75px 1px 0 #341911, -0.5px -0.5px 1px 0 #341911; }
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500; }
+
+.header-nav {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-style: italic; }
+
+.header-block {
+  width: 90vw;
+  max-width: 900vw;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #e0584a;
+  color: #fff; }
+
+h1.header-title {
+  font-family: 'Michroma', sans-serif;
+  font-size: 3rem; }
+
+.header-nav-item {
+  margin-left: 20px; }
+
+.nav-divider {
+  color: #4873b9;
+  font-size: 1.3rem;
+  font-weight: 700; }
+
+.song-list {
+  max-width: 900px;
+  width: 90vw;
+  margin-top: 20px; }
+
+.song-entry {
+  padding: 20px 0 10px;
+  margin-top: 10px; }
+
+.song-header {
+  flex: 3 0 250px;
+  text-align: left;
+  padding-left: 10px; }
+
+.song-title {
+  font-size: 2rem; }
+
+.song-details {
+  flex: 2 2 200px; }
+
+.song-artist,
+.song-album {
+  margin: 0 20px;
+  padding: 7px 0 10px 30px;
+  border-top: 2px solid #4873b9;
+  text-align: right; }
+
+.song-artist {
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=style.css.map */

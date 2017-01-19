@@ -1,0 +1,33 @@
+%flex-h {
+  @extend %display-flex;
+  @extend %align-content-center;
+  @include flex-flow(row, wrap);
+}
+
+%flex-v {
+  @extend %display-flex;
+  @extend %align-content-center;
+  @include flex-flow(column, nowrap);
+}
+
+%flex-h-center {
+  @extend %flex-h;
+  @extend %align-items-center;
+  @extend %justify-content-center;
+}
+
+%flex-v-center {
+  @extend %flex-v;
+  @extend %justify-content-center;
+  @extend %align-items-center;
+}
+
+%flex-h-space-between {
+  @extend %flex-h;
+  @extend %justify-content-space-between;
+}
+
+%flex-h-flex-end {
+  @extend %flex-h;
+  @extend %justify-content-flex-end;
+}

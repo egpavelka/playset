@@ -1,0 +1,7 @@
+.song-list {
+  @extend %flex-v;
+  @extend %align-items-stretch;
+  max-width: 900px;
+  width: 90vw;
+  margin-top: 20px;
+}
