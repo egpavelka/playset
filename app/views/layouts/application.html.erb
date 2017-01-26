@@ -5,28 +5,44 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <!--[if lt IE 9]> <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"> </script> <![endif]-->
   </head>
-
   <body>
-
-<div class="wrapper">
-  <header class="header-block">
-    <h1 class="header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
-    <nav class="header-nav">
-      <span class="header-nav-item"><%= link_to "Home",   '#' %></span>
-      <span class="header-nav-item"><%= link_to "Help",   '#' %></span>
-      <span class="header-nav-item"><%= link_to "Log in", '#' %></span>
-    </nav>
-  </header>
-
-      <div class="container">
-    <%= yield %>
+    <div class="wrapper">
+      <header class="header-block">
+        <h1 class="header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
+        <nav class="header-app-nav">
+          <span class="header-nav-item">
+            <%= link_to "Home",   '#' %>
+          </span>
+          <span class="header-app-nav-item">
+            <%= link_to "Help",   '#' %>
+          </span>
+          <span class="header-app-nav-item">
+            <%= link_to "Log In", '#' %> /
+            <%= link_to "Sign Up", '#' %>
+          </span>
+        </nav>
+      </header>
+      <div class="app-container">
+          <%= yield %>
       </div>
-</div>
-
+      <footer class="footer-block">
+        <nav class="footer-app-nav">
+          <span class="footer-nav-item">
+            <%= link_to "Home",   '#' %>
+          </span>
+          <span class="footer-app-nav-item">
+            <%= link_to "About",   '#' %>
+          </span>
+          <span class="footer-app-nav-item">
+            <%= link_to "Contact",   '#' %>
+          </span>
+          <span class="footer-app-nav-item">
+            <%= link_to "Help",   '#' %>
+          </span>
+        </nav>
+      </footer>
+    </div>
   </body>
 </html>
