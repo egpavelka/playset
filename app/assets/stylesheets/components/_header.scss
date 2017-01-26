@@ -5,40 +5,40 @@
   @extend %align-items-flex-end;
   @extend %kona-shadow;
 
-  width: 90vw;
-  max-width: 900vw;
-  padding: 10px 20px;
-  margin-top: 20px;
-
   background: $coral;
   color: $white;
+
+  margin-top: 20px;
+  max-width: 900vw;
+  padding: 10px 20px;
+  width: 90vw;
+
+  a {
+    &:active,
+    &:visited,
+    &:hover,
+    &:link {
+      color: $white;
+    }
+  }
 }
 
-h1.header-title {
+.header-title {
   font-family: 'Michroma', sans-serif;
   font-size: 3rem;
 }
 
-.header-nav {
+.header-app-nav {
   @extend %body-italic;
   @extend %flex-h-center;
 }
 
-.header-nav-item {
+.header-app-nav-item {
   margin-left: 20px;
 }
 
-.nav-divider {
+.header-app-nav-divider {
   color: $cornflower;
   font-size: 1.3rem;
   font-weight: 700;
-}
-
-a {
-  &:active,
-  &:visited,
-  &:hover,
-  &:link {
-    color: $white;
-  }
 }

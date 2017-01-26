@@ -3,3 +3,8 @@
 .wrapper {
   @extend %flex-v-center;
 }
+
+.app-container {
+  max-width: 900vw;
+  width: 90vw;
+}
