@@ -1,0 +1,24 @@
+@import 'config/MASTER';
+
+.charts-header-nav {
+  @extend %justify-content-flex-end;
+
+  color: $kona;
+  padding: 20px;
+
+  a {
+    &:active,
+    &:visited,
+    &:hover,
+    &:link {
+      @extend %bold-upper;
+      color: $kona;
+      font-size: 1.15rem;
+      padding-top: 5px;
+    }
+
+    &:hover {
+      border-bottom: $single-border $cornflower;
+    }
+  }
+}

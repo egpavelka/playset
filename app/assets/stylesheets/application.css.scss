@@ -14,10 +14,13 @@
  *= require_self
  */
 
-  @import 'config/MASTER';
+@import 'config/MASTER';
 
-  @import 'components/wrapper';
-  @import 'components/header';
+@import 'components/wrapper';
+@import 'components/navigation';
+@import 'components/header';
+@import 'components/footer';
 
-  @import 'modules/front_page/song-chart';
-  @import 'modules/front_page/song-entry';
+@import 'modules/front_page/chart-navigation';
+@import 'modules/front_page/chart-container';
+@import 'modules/front_page/chart-entry';

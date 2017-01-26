@@ -1,0 +1,27 @@
+@import 'config/MASTER';
+
+.app-footer {
+  @extend %container-width;
+  @extend %flex-h-space-between;
+  @extend %align-items-flex-end;
+
+  background: $white;
+  border-top: $single-border $coral;
+  color: $kona;
+
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  a {
+    &:active,
+    &:visited,
+    &:hover,
+    &:link {
+      color: $kona;
+    }
+
+    &:hover {
+      border-bottom: $single-border $cornflower;
+    }
+  }
+}

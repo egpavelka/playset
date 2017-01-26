@@ -9,36 +9,38 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header-block">
-        <h1 class="header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
-        <nav class="header-app-nav">
-          <span class="header-nav-item">
-            <%= link_to "Home",   '#' %>
+      <header class="app-header">
+        <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
+        <nav class="app-header-nav">
+          <span class="nav-item">
+            <%= link_to "Charts", '#' %>
           </span>
-          <span class="header-app-nav-item">
-            <%= link_to "Help",   '#' %>
-          </span>
-          <span class="header-app-nav-item">
+            <span class="nav-item">
+              <%= link_to "Playlists", '#' %>
+            </span>
+          <span class="nav-item nav-login">
             <%= link_to "Log In", '#' %> /
             <%= link_to "Sign Up", '#' %>
           </span>
         </nav>
       </header>
-      <div class="app-container">
+
+      <div class="container">
           <%= yield %>
       </div>
-      <footer class="footer-block">
-        <nav class="footer-app-nav">
+
+      <footer class="app-footer">
+        <nav class="app-footer-nav">
           <span class="footer-nav-item">
             <%= link_to "Home",   '#' %>
           </span>
-          <span class="footer-app-nav-item">
+          <span class="nav-item">
             <%= link_to "About",   '#' %>
           </span>
-          <span class="footer-app-nav-item">
+          <span class="nav-item">
             <%= link_to "Contact",   '#' %>
           </span>
-          <span class="footer-app-nav-item">
+          <span class="nav-item">
             <%= link_to "Help",   '#' %>
           </span>
         </nav>

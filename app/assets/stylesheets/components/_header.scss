@@ -1,6 +1,7 @@
 @import 'config/MASTER';
 
-.header-block {
+.app-header {
+  @extend %container-width;
   @extend %flex-h-space-between;
   @extend %align-items-flex-end;
   @extend %kona-shadow;
@@ -9,9 +10,7 @@
   color: $white;
 
   margin-top: 20px;
-  max-width: 900vw;
-  padding: 10px 20px;
-  width: 90vw;
+  padding: 20px;
 
   a {
     &:active,
@@ -23,22 +22,18 @@
   }
 }
 
-.header-title {
+.app-header-title {
   font-family: 'Michroma', sans-serif;
   font-size: 3rem;
+  margin-bottom: -10px;
+  padding: 20px 10px 0 0;
 }
 
-.header-app-nav {
+.app-header-nav {
   @extend %body-italic;
-  @extend %flex-h-center;
+  padding-top: 20px;
 }
 
-.header-app-nav-item {
-  margin-left: 20px;
-}
-
-.header-app-nav-divider {
-  color: $cornflower;
-  font-size: 1.3rem;
-  font-weight: 700;
+.nav-login {
+  font-size: .875rem;
 }
