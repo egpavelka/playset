@@ -1,10 +1,6 @@
 @import 'config/MASTER';
 
 .wrapper {
-  @extend %flex-v-center;
-}
-
-.app-container {
-  max-width: 900vw;
-  width: 90vw;
+  @extend %flex-v-flex-start;
+  min-height: 100vh;
 }
