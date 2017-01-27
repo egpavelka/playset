@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700i|Michroma|Oswald:300,400');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700i|Michroma');
 
 body,
 %body {
@@ -16,14 +16,8 @@ body,
   font-weight: 700;
 }
 
-%alt-body {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 300;
-}
-
-%alt-bold-upper {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
+%body-upper {
+  @extend %body;
   text-transform: uppercase;
 }
 

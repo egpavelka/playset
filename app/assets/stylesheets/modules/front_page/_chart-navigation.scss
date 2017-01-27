@@ -2,13 +2,12 @@
 
 .charts-header-nav {
   @extend %align-self-flex-start;
-  margin-top: 20px;
+  margin-top: 27px;
 
   .nav-item {
     background-color: $block-solid;
     border-top: $single-border transparent;
     margin-right: 5px;
-    margin-top: 5px;
     padding: 3px 11px 5px;
 
     &:hover {
@@ -19,9 +18,9 @@
     a:visited,
     a:hover,
     a:link {
-      @extend %alt-bold-upper;
-      color: $highlight-1;
-      font-size: 1.125rem;
+      @extend %body-upper;
+      color: $block-backer;
+      font-size: .875rem;
       }
 
     &:not(:first-child).active {

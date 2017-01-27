@@ -6,13 +6,14 @@ nav {
 }
 
 .app-nav {
-  padding: 15px 0 0;
   @extend %body-bold-italic;
   font-size: 1.1rem;
 
   .nav-item {
+    padding: 5px;
+
     &:not(:first-child) {
-      margin-left: 20px;
+      margin-left: 5px;
     }
 
     a:hover {
@@ -29,9 +30,13 @@ nav {
     &:visited,
     &:hover,
     &:link {
-      // color: $light-text;
-      color: $text;
-      padding: 5px 5px 2px;
+      color: $block-backer;
     }
   }
+}
+
+.nav-divider {
+  @extend %body-bold-italic;
+  color: $background;
+  font-size: 1.5rem;
 }
