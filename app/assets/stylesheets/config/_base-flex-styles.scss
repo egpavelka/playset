@@ -3,6 +3,12 @@
 %flex-h {
   @extend %display-flex;
   @extend %align-content-center;
+  @include flex-flow(row, nowrap);
+}
+
+%flex-h-wrap {
+  @extend %display-flex;
+  @extend %align-content-center;
   @include flex-flow(row, wrap);
 }
 
@@ -29,8 +35,13 @@
   @extend %justify-content-space-between;
 }
 
+%flex-h-space-between-wrap {
+  @extend %flex-h-wrap;
+  @extend %justify-content-space-between;
+}
+
 %flex-h-flex-end {
-  @extend %flex-h;
+  @extend %flex-h-wrap;
   @extend %justify-content-flex-end;
 }
 

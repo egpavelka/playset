@@ -1,9 +1,14 @@
 @import '../config/base-mixins';
 @import '../config/base-colors';
 
-%kona-shadow {
-  @include box-shadow(1.5px 1.75px 1px 0 $kona,
-  -.5px -.5px 1px 0 $kona);
+%charcoal-shadow {
+  @include box-shadow(1.5px 1.75px 1px 0 $charcoal,
+  -.5px -.5px 1px 0 $charcoal);
+}
+
+%soft-charcoal-shadow {
+  @include box-shadow(1.5px 1.75px 1px 0 transparentize($charcoal, .7),
+  -.5px -.5px 1px 0 transparentize($charcoal, .7));
 }
 
 $single-border: 2px solid;

@@ -1,19 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:300|Josefin+Sans:400,600,600i|Michroma');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i|Michroma|Oswald:300,400');
 
 body,
 %body {
   font-family: 'Josefin Sans', sans-serif;
+  font-size: 17px;
 }
 
 %body-italic {
-  font-family: 'Josefin Sans', sans-serif;
+  @extend %body;
   font-style: italic;
+  letter-spacing: .02rem;
+}
+
+%body-bold-italic {
+  @extend %body-italic;
   font-weight: 600;
 }
 
-%bold-upper {
+%alt-bold-upper {
   font-family: 'Oswald', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
