@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,9 +13,8 @@
   <body>
     <div class="wrapper">
       <header class="app-header">
-        <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
-        <nav class="app-header-nav">
-          <span class="nav-item">
+        <nav class="app-nav">
+          <span class="active nav-item">
             <%= link_to "Charts", '#' %>
           </span>
             <span class="nav-item">
@@ -22,6 +24,7 @@
             <%= link_to "Account", '#' %>
           </span>
         </nav>
+        <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
       </header>
 
       <div class="container">
@@ -29,8 +32,8 @@
       </div>
 
       <footer class="app-footer">
-        <nav class="app-footer-nav">
-          <span class="footer-nav-item">
+        <nav class="app-nav">
+          <span class="active nav-item">
             <%= link_to "Home",   '#' %>
           </span>
           <span class="nav-item">

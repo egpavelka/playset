@@ -1,0 +1,58 @@
+@import 'config/MASTER';
+
+.chart-entry-song {
+  @extend %flex-h-flex-start-wrap;
+  @extend %align-items-center;
+  @include flex(2, 1, 340px);
+}
+
+.song-header,
+.song-details {
+  margin: 5px 20px 0;
+}
+
+.song-header {
+  min-width: 150px;
+  text-align: left;
+  width: 30%;
+}
+
+.song-title {
+  // @include flex(1, 1, 240px);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.song-details {
+  @extend %flex-h-flex-start-wrap;
+  @extend %align-items-flex-start;
+  font-size: 1.2rem;
+}
+
+.song-artist,
+.song-album {
+  @extend %flex-h-flex-start;
+  margin: 5px 20px 0 0;
+}
+
+.song-artist {
+  min-width: 180px;
+  width: 25%;
+}
+
+.song-album {
+  min-width: 240px;
+  width: 45%;
+}
+
+.chart-dash {
+  border-bottom: $single-border $highlight-1;
+  height: 10px;
+  margin-right: 5px;
+  width: 40px;
+}
+
+.song-year {
+  @extend %body-italic;
+  padding-left: 5px;
+}

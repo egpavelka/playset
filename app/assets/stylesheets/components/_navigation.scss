@@ -5,12 +5,33 @@ nav {
   @extend %flex-wrap-nowrap;
 }
 
-.nav-item:not(:first-child) {
-  margin-left: 20px;
-}
+.app-nav {
+  padding: 15px 0 0;
+  @extend %body-bold-italic;
+  font-size: 1.1rem;
 
-.nav-divider {
-  color: $cornflower;
-  font-size: 1.3rem;
-  font-weight: 700;
+  .nav-item {
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    a:hover {
+      border-bottom: $single-border $highlight-1;
+    }
+  }
+
+  .active a {
+    border-bottom: $single-border $highlight-2;
+  }
+
+  a {
+    &:active,
+    &:visited,
+    &:hover,
+    &:link {
+      // color: $light-text;
+      color: $text;
+      padding: 5px 5px 2px;
+    }
+  }
 }

@@ -40,9 +40,24 @@
   @extend %justify-content-space-between;
 }
 
+%flex-h-space-around-wrap {
+  @extend %flex-h-wrap;
+  @extend %justify-content-space-around;
+}
+
 %flex-h-flex-end {
   @extend %flex-h-wrap;
   @extend %justify-content-flex-end;
+}
+
+%flex-h-flex-start {
+  @extend %flex-h;
+  @extend %justify-content-flex-start;
+}
+
+%flex-h-flex-start-wrap {
+  @extend %flex-h-wrap;
+  @extend %justify-content-flex-start;
 }
 
 %flex-v-flex-start {
