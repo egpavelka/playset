@@ -5,7 +5,7 @@
   @extend %align-items-center;
   background-color: $block-solid;
   color: $text;
-  padding: 20px 10px;
+  padding: 30px 0 30px 20px;
 
   &:not(:first-child) {
     border-top: $single-border $background;
@@ -18,8 +18,7 @@
   background-color: $highlight-2;
   border-radius: 50%;
   color: $block-solid;
-  font-size: 1.75rem;
-  height: 2.5rem;
-  margin-left: 20px;
-  min-width: 2.5rem;
+  font-size: 2rem;
+  height: 3rem;
+  min-width: 3rem;
 }
