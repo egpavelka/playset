@@ -2,26 +2,30 @@
 
 .app-footer {
   @extend %container-width;
-  @extend %flex-h-space-between;
-  @extend %align-items-flex-end;
-
-  background: $white;
-  border-top: $single-border $coral;
-  color: $kona;
-
-  margin-top: 20px;
-  padding: 10px 20px;
+  @extend %flex-h-flex-end;
+  // @extend %charcoal-shadow;
+  background: $rose;
+  color: $robin;
+  margin-bottom: 20px;
+  padding: 15px;
 
   a {
     &:active,
     &:visited,
     &:hover,
     &:link {
-      color: $kona;
+      color: $robin;
+      padding: 5px 3px;
     }
+  }
+}
 
-    &:hover {
-      border-bottom: $single-border $cornflower;
-    }
+.app-footer-nav {
+  @extend %body-bold-italic;
+  font-size: 1.1rem;
+
+  .nav-item a:hover {
+    background-color: $robin;
+    color: $rose;
   }
 }
