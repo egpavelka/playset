@@ -3,54 +3,67 @@
 .chart-entry-song {
   @extend %flex-h-flex-start-wrap;
   @extend %align-items-center;
-  @include flex(2, 1, 340px);
+  @include flex(6, 1, 280px);
+  border-top: $single-border $highlight-1;
+  padding-top: 5px;
 }
 
 .song-header,
 .song-details {
-  margin: 5px 20px 0;
+  margin: 0 10px;
 }
 
 .song-header {
-  min-width: 270px;
+  min-width: 280px;
   text-align: left;
 }
 
 .song-title {
-  // @include flex(1, 1, 240px);
-  font-size: 1.125rem;
-  text-transform: uppercase;
+  @extend %body-italic;
+  font-size: 1.25rem;
+  margin-left: 10px;
+  padding-top: 5px;
 }
 
 .song-details {
   @extend %flex-h-flex-start-wrap;
   @extend %align-items-flex-start;
-  font-size: 1.07rem;
+  font-size: 1.0625rem;
 }
 
 .song-artist,
 .song-album {
   @extend %flex-h-flex-start;
   @extend %align-items-center;
-  margin: 5px 20px 0 0;
+  margin: 5px 0 0 10px;
 }
 
 .song-artist {
-  min-width: 180px;
+  min-width: 210px;
+
+  .chart-dash {
+    width: 60px;
+  }
 }
 
 .song-album {
-  min-width: 240px;
+  min-width: 210px;
+
+  .chart-dash {
+    width: 30px;
+  }
 }
 
 .chart-dash {
   border-bottom: $single-border $highlight-1;
   height: 0;
   margin-right: 7px;
-  width: 40px;
 }
 
 .song-year {
   @extend %body-italic;
-  padding-left: 5px;
+  background-color: transparentize($highlight-2, .8);
+  font-size: .75rem;
+  margin-left: 3px;
+  padding: 4px;
 }
