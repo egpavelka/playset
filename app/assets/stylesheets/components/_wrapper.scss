@@ -4,3 +4,8 @@
   @extend %flex-v-flex-start;
   min-height: 100vh;
 }
+
+.container {
+  @extend %container-width;
+  @extend %flex-v-center;
+}

@@ -3,29 +3,13 @@
 .app-footer {
   @extend %container-width;
   @extend %flex-h-flex-end;
-  // @extend %charcoal-shadow;
-  background: $rose;
-  color: $robin;
+  @include box-shadow(10px 10px 0 0 $block-backer);
+  background: $block-solid;
+  border-top: $single-border $background;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 15px 25px 20px 15px;
 
-  a {
-    &:active,
-    &:visited,
-    &:hover,
-    &:link {
-      color: $robin;
-      padding: 5px 3px;
-    }
-  }
-}
-
-.app-footer-nav {
-  @extend %body-bold-italic;
-  font-size: 1.1rem;
-
-  .nav-item a:hover {
-    background-color: $robin;
-    color: $rose;
+  .nav-item a {
+    font-size: 1rem;
   }
 }

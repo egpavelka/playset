@@ -2,40 +2,23 @@
 
 .app-header {
   @extend %container-width;
-  @extend %flex-h-space-between-wrap;
-  @extend %align-items-flex-end;
-  // @extend %charcoal-shadow;
-  background: $rose;
-  color: $robin;
+  @extend %flex-h-space-around-wrap;
+  @include box-shadow(-10px -10px 0 0 $block-backer);
+  background: $block-solid;
+  padding: 20px;
   margin-top: 20px;
-  padding: 15px;
-
-  a {
-    &:active,
-    &:visited,
-    &:hover,
-    &:link {
-      color: $robin;
-      padding: 5px 3px;
-    }
-  }
 }
 
 .app-header-title {
+  // @include box-shadow(5px 5px 0 0 $block-backer);
+  background-color: $highlight-1;
   font-family: 'Michroma', sans-serif;
-  font-size: 2.125rem;
-  margin-bottom: -5px;
-  padding: 10px 10px 0 0;
+  font-size: 2rem;
+  margin: 20px 0 -36px;
+  padding: 10px;
   text-transform: uppercase;
-}
 
-.app-header-nav {
-  @extend %body-bold-italic;
-  font-size: 1.3rem;
-  padding-top: 10px;
-
-  .nav-item a:hover {
-    background-color: $robin;
-    color: $rose;
+  a {
+    color: $block-solid;
   }
 }

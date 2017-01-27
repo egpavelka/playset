@@ -1,47 +1,25 @@
 @import 'config/MASTER';
 
 .chart-entry {
-  @extend %flex-h-space-between-wrap;
-  @extend %align-items-flex-end;
-  // @extend %soft-charcoal-shadow;
-  // background-color: $white;
-  padding: 20px 0 10px;
+  @extend %flex-h-flex-start;
+  @extend %align-items-center;
+  background-color: $block-solid;
+  color: $text;
+  padding: 20px 10px;
 
   &:not(:first-child) {
-    border-top: $single-border $white;
+    border-top: $single-border $background;
   }
 }
 
-.song-header,
-.song-details {
-  margin: 5px 20px;
-}
-
-.song-header {
-  text-align: left;
-}
-
-.song-title {
+.chart-entry-rank {
+  @extend %flex-v-center;
+  @extend %body-italic;
+  background-color: $highlight-2;
+  border-radius: 50%;
+  color: $block-solid;
   font-size: 1.75rem;
-}
-
-.song-details {
-  @extend %flex-h-space-between;
-  @include flex(2, 0, 240px);
-  font-size: 1.25rem;
-}
-
-.song-artist,
-.song-album {
-  @extend %flex-h-center;
-  @include flex(2, 0, 120px);
-  margin: 0 20px 0 0;
-}
-
-.chart-dash {
-  @include flex(1, 1, 40px);
-  max-width: 120px;
-  border-top: $single-border $rose;
-  height: 0;
-  margin-right: 5px;
+  height: 2.5rem;
+  margin-left: 20px;
+  min-width: 2.5rem;
 }
