@@ -6,7 +6,7 @@ nav {
 }
 
 .app-nav {
-  @extend %body-bold-italic;
+  @extend %alt-bold-upper;
   font-size: 1.1rem;
 
   .nav-item {

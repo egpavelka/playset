@@ -1,0 +1,25 @@
+<header class="app-header">
+  <nav class="app-nav">
+    <span class="active nav-item">
+      <%= link_to "Charts", 'static_pages' %>
+    </span>
+
+    <span class="nav-item">
+      <%= link_to "Playlists", '#' %>
+    </span>
+
+    <span class="nav-item">
+      <%= link_to "Account", '#' %>
+    </span>
+
+    <span class="nav-subitem">
+      <%= link_to "Log in", 'account_pages/login' %>
+    </span>
+
+    <span class="nav-subitem">
+      <%= link_to "Log in", 'account_pages/signup' %>
+    </span>
+
+  </nav>
+  <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
+</header>

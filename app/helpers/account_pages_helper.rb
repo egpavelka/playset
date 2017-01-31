@@ -1,0 +1,2 @@
+module AccountPagesHelper
+end
