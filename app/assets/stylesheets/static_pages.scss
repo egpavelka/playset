@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'modules/front_page/chart-navigation';
-@import 'modules/front_page/chart-container';
-@import 'modules/front_page/chart-entry';
-@import 'modules/front_page/chart-entry-song';
+@import 'modules/charts/chart-navigation';
+@import 'modules/charts/chart-container';
+@import 'modules/charts/chart-entry';
+@import 'modules/charts/chart-entry-song';
+
+@import 'components/standards';

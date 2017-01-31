@@ -39,6 +39,8 @@
 }
 
 .song-artist {
+  @extend %alt;
+  font-size: 1.5rem;
   min-width: 210px;
 
   .chart-dash {

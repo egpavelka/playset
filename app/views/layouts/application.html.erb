@@ -12,44 +12,15 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="app-header">
-        <nav class="app-nav">
-          <span class="active nav-item">
-            <%= link_to "Charts", '#' %>
-          </span>
 
-          <span class="nav-item">
-            <%= link_to "Playlists", '#' %>
-          </span>
-
-          <span class="nav-item">
-            <%= link_to "Account", '#' %>
-          </span>
-
-        </nav>
-        <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
-      </header>
+      <%= render 'static_pages/main-menu-header' %>
 
       <div class="container">
           <%= yield %>
       </div>
 
-      <footer class="app-footer">
-        <nav class="app-nav">
-          <span class="active nav-item">
-            <%= link_to "Home",   '#' %>
-          </span>
-          <span class="nav-item">
-            <%= link_to "About",   '#' %>
-          </span>
-          <span class="nav-item">
-            <%= link_to "Contact",   '#' %>
-          </span>
-          <span class="nav-item">
-            <%= link_to "Help",   '#' %>
-          </span>
-        </nav>
-      </footer>
+      <%= render 'static_pages/main-menu-footer' %>
+
     </div>
   </body>
 </html>

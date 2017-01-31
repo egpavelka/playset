@@ -8,4 +8,6 @@
 .container {
   @extend %container-width;
   @extend %flex-v-center;
+  background-color: $block-backer;
+  z-index: -50;
 }
