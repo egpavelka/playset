@@ -6,10 +6,12 @@ nav {
 }
 
 .app-nav {
-  @extend %alt-bold-upper;
   font-size: 1.1rem;
 
   .nav-item {
+    @extend %alt-bold-upper;
+    display: inline;
+    list-style: none;
     padding: 5px;
 
     &:not(:first-child) {
@@ -19,6 +21,19 @@ nav {
     a:hover {
       border-bottom: $single-border $highlight-1;
     }
+  }
+
+  .nav-subitem {
+    @extend %body-italic;
+    display: inline;
+    font-size: .875rem;
+    margin-left: 2px;
+    padding: 5px 2px;
+
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+
   }
 
   .active a {

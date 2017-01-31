@@ -2,37 +2,37 @@ require 'test_helper'
 
 class AccountPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get login" do
-    get account_pages_login_url
+    get login_path
     assert_response :success
   end
 
   test "should get signup" do
-    get account_pages_signup_url
+    get signup_path
     assert_response :success
   end
 
-  test "should get public-profile" do
-    get account_pages_public-profile_url
+  test "should get publicprofile" do
+    get profile_path
     assert_response :success
   end
 
-  test "should get my-profile" do
-    get account_pages_my-profile_url
+  test "should get myprofile" do
+    get profile_view_path
     assert_response :success
   end
 
-  test "should get manage-profile" do
-    get account_pages_manage-profile_url
+  test "should get manageprofile" do
+    get profile_edit_path
     assert_response :success
   end
 
-  test "should get manage-account" do
-    get account_pages_manage-account_url
+  test "should get manageaccount" do
+    get account_edit_path
     assert_response :success
   end
 
-  test "should get account-home" do
-    get account_pages_account-home_url
+  test "should get accounthome" do
+    get account_path
     assert_response :success
   end
 

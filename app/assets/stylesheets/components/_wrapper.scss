@@ -11,3 +11,11 @@
   background-color: $block-backer;
   z-index: -50;
 }
+
+.content-container {
+  @extend %container-width;
+  @extend %flex-v;
+  @extend %align-items-stretch;
+  background-color: $block-solid;
+  border-top: $single-border $background;
+}
