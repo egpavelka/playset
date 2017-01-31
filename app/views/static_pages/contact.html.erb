@@ -1,6 +1,46 @@
 <% provide(:title, "contact") %>
 
-    <h1>contact</h1>
-    <p>
-      Should be wavy.
-    </p>
+<section class="content-container static-pages">
+  <div class="page-header">Contact</div>
+  <form method="post" action="#" class="contact-form">
+    <ul>
+      <li>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name" required="">
+      </li>
+      <li>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required="">
+      </li>
+      <li class="radio-button-label">
+        <span>Subject</span><br>
+        <span>
+          <input type="radio" name="feedback" value="Feedback">
+          <label for="feedback">Feedback</label>
+        </span>
+        <span>
+          <input type="radio" name="support" value="Support">
+          <label for="support">Support</label>
+        </span>
+
+        <span>
+          <input type="radio" name="bugreport" value="bugreport">
+          <label for="bugreport">Report bug</label>
+        </span>
+
+        <span>
+          <input type="radio" name="other" value="Other">
+          <label for="other">Other</label>
+        </span>
+
+      </li>
+      <li>
+        <label for="message" class="text-area-label">Message</label><br>
+        <textarea name="message" placeholder="Message" required=""></textarea>
+      </li>
+      <li>
+        <button class="submit-button" type="submit" value="Submit">Submit</button>
+      </li>
+    </ul>
+  </form>
+</section>

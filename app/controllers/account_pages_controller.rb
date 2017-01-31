@@ -5,18 +5,18 @@ class AccountPagesController < ApplicationController
   def signup
   end
 
-  def public-profile
+  def publicprofile
   end
 
-  def my-profile
+  def myprofile
   end
 
-  def manage-profile
+  def manageprofile
   end
 
-  def manage-account
+  def manageaccount
   end
 
-  def account-home
+  def accounthome
   end
 end

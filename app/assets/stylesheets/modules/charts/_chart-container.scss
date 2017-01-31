@@ -1,8 +1,0 @@
-@import 'config/MASTER';
-
-.chart-container {
-  @extend %container-width;
-  @extend %flex-v;
-  @extend %align-items-stretch;
-  border-top: $single-border $background;
-}

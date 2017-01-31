@@ -1,0 +1,12 @@
+@import 'config/MASTER';
+
+.page-header {
+  @extend %alt-bold;
+  border-bottom: $single-border $highlight-2;
+  font-size: 1.75rem;
+  padding: 3px 10px;
+}
+
+.static-pages.content-container {
+  padding: 25px;
+}
