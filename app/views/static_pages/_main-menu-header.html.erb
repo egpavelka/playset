@@ -3,26 +3,26 @@
 
   <ul>
     <li class="active nav-item">
-      <%= link_to "Charts", charts_top_path %>
+      <%= link_to "Charts", '#' %>
     </li>
 
     <li class="nav-item">
-      <%= link_to "Playlists", playlists_path %>
+      <%= link_to "Playlists", '#' %>
     </li>
 
     <li class="nav-item">
-      <%= link_to "Account", account_path %>
+      <%= link_to "Account", '#' %>
     </li>
 
     <li class="nav-subitem">
-      <%= link_to "Log in", login_path %>
+      <%= link_to "Log in", '#' %>
     </li>
 
     <li class="nav-subitem">
-      <%= link_to "Sign up", signup_path %>
+      <%= link_to "Sign up", '#' %>
     </li>
   </ul>
 
   </nav>
-  <h1 class="app-header-title"><%= link_to "playsette", '#', id: "logo" %></h1>
+  <h1 class="app-header-title"><%= link_to "playsette", root_path, id: "logo" %></h1>
 </header>
