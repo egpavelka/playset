@@ -3,10 +3,10 @@
 form {
   @extend %flex-v-flex-start;
   @extend %align-items-stretch;
+  margin-top: 35px;
   max-width: 850px;
   padding: 10px 20px;
   width: 80vw;
-  margin-top: 35px;
 
   li {
     color: $block-backer;
@@ -26,19 +26,11 @@ form {
   }
 
   input {
-    background: transparentize($highlight-1, .7);
     border-bottom: $single-border $highlight-2;
 
     &:focus {
       border-bottom-color: $background;
     }
-  }
-
-  input[type="text"],
-  input[type="email"] {
-    min-width: 85%;
-    margin-top: 20px;
-    padding: 2px 5px;
   }
 
   textarea {
