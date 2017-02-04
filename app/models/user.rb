@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # before_save { email.downcase! }
+  before_save { email.downcase! }
 
   # Name must be between 5 and 51 characters and can contain upper and lowercase letters, spaces, periods (for initials), and hyphens (for combined last names). Must begin and end with a letter.
   VALID_NAME_REGEX = /\A[a-zA-Z]+[a-zA-Z\s\.-]*[a-zA-Z]+\z/
@@ -27,6 +27,14 @@ class User < ApplicationRecord
   format: { with: VALID_USERNAME_REGEX },
   uniqueness: { case_sensitive: false }
 
-  # has_secure_password
+  # Password must be between 6 and 50 characters, must contain one uppercase letter, one lowercase letter, one number, and is not restricted to a set of characters.
+  VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+\z/
+
+  validates :password,
+  presence: true,
+  length: { in: 6..50 }
+  # format: { with: VALID_PASSWORD_REGEX }
+
+  has_secure_password
 
 end
