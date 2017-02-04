@@ -5,20 +5,23 @@
   @extend %flex-h-space-around-wrap;
   @include box-shadow(-10px -10px 0 0 $block-backer);
   background: $block-solid;
-  padding: 20px;
   margin-top: 20px;
+  padding: 20px;
 }
 
 .app-header-title {
   // @include box-shadow(5px 5px 0 0 $block-backer);
-  background-color: $highlight-1;
+  background-color: $highlight-2;
   font-family: 'Michroma', sans-serif;
   font-size: 1.75rem;
   margin: 10px 0 -35px;
-  padding: 10px;
+  padding: 10px 17px;
   text-transform: uppercase;
+  z-index: 50;
 
   a {
-    color: $block-solid;
+    border: $single-border $background;
+    color: $background;
+    padding: 1px 7px;
   }
 }

@@ -7,12 +7,19 @@
 // $highlight-2: #B14140;
 
 // pastel
-$background: #68c4a7;
-$text: #111;
-$block-solid: #fff;
-$block-backer: #424141;
-$highlight-1: #779dd6;
-$highlight-2: #f6b0b0;
+// $background: #68c4a7;    //---aqua
+// $text: #111;             //---darkest grey
+// $block-solid: #fff;      //---white
+// $block-backer: #424141;  //---dark grey
+// $highlight-2: #779dd6;   //---light blue
+// $highlight-1: #f6b0b0;   //---pink
+
+$highlight-2: #ff294c;    //---orange
+$background: #1e2f4f;   //---crimson
+$block-solid: #fff;      //---white
+$text: #1e2f4f;          //---dark purple
+$block-backer: #afffcc;  //---royal purple
+$highlight-1: #4745d1;   //---yellow
 
 body {
   background-color: $background;
