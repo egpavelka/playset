@@ -65,6 +65,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  # TODO consider using password.create (or whatever) function of bcrypt instead of "has_secure_password" to allow character requirements--check relative security
   # test "password accept validation" do
   #   valid_passwords = %w[joSeph1 !dArth_vadeR7 s8o.O8s _n0_Way_jose t?9Hab88]
   #   valid_passwords.each do | valid_password |

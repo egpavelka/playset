@@ -27,12 +27,12 @@ class User < ApplicationRecord
   format: { with: VALID_USERNAME_REGEX },
   uniqueness: { case_sensitive: false }
 
-  # Password must be between 6 and 50 characters, must contain one uppercase letter, one lowercase letter, one number, and is not restricted to a set of characters.
+  # Password must be between 6 and 72 (implicit) characters, must contain one uppercase letter, one lowercase letter, one number, and is not restricted to a set of characters.
   VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+\z/
 
   validates :password,
   presence: true,
-  length: { in: 6..50 }
+  length: { minimum: 6 }
   # format: { with: VALID_PASSWORD_REGEX }
 
   has_secure_password

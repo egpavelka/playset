@@ -26,7 +26,8 @@ form {
   }
 
   input {
-    border-bottom: $single-border $highlight-1;
+    background: transparentize($highlight-1, .7);
+    border-bottom: $single-border $highlight-2;
 
     &:focus {
       border-bottom-color: $background;
