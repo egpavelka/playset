@@ -4,7 +4,7 @@
   @extend %flex-h-flex-start-wrap;
   @extend %align-items-center;
   @include flex(6, 1, 280px);
-  border-top: $single-border $highlight-1;
+  border-top: $single-border $block-backer;
   padding-top: 5px;
 }
 

@@ -19,7 +19,7 @@ nav {
     }
 
     a:hover {
-      border-bottom: $single-border $highlight-2;
+      border-bottom: $single-border $highlight-1;
     }
   }
 
@@ -34,10 +34,6 @@ nav {
       margin-left: 0;
     }
 
-  }
-
-  .active a {
-    border-bottom: $single-border $highlight-1;
   }
 
   a {

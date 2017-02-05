@@ -12,11 +12,13 @@
   </head>
   <body>
     <div class="wrapper">
-
       <%= render 'layouts/main-menu-header' %>
+      <% flash.each do |response_type, response| %>
+        <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
+      <% end %>
 
       <div class="container">
-          <%= yield %>
+        <%= yield %>
       </div>
 
       <%= render 'layouts/main-menu-footer' %>
