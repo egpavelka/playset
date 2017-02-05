@@ -3,10 +3,10 @@
 .app-footer {
   @extend %container-width;
   @extend %flex-h-flex-end;
-  @include box-shadow(10px 10px 0 0 $block-backer);
+  @include box-shadow(14px 10px 0 0 $block-backer);
   background: $block-solid;
   border-top: $single-border $background;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding: 15px 25px 20px 15px;
 
   .nav-item a {

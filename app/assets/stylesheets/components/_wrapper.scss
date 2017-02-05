@@ -3,11 +3,13 @@
 .wrapper {
   @extend %flex-v-flex-start;
   min-height: 100vh;
+  padding: 30px 10px;
 }
 
 .container {
   @extend %container-width;
   @extend %flex-v-center;
+  @include flex(10, 0, auto);
   // background-color: $block-backer;
 }
 
@@ -15,6 +17,6 @@
   @extend %container-width;
   @extend %flex-v;
   @extend %align-items-stretch;
+  @include flex(10, 0, auto);
   background-color: $block-solid;
-  border-top: $single-border $background;
 }

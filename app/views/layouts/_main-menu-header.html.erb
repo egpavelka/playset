@@ -10,17 +10,26 @@
       <%= link_to "Playlists", '#' %>
     </li>
 
-    <li class="nav-item">
-      <%= link_to "Account", '#' %>
+    <% if logged_in? %>
+
+    <li class="nav-subitem">
+      <%= link_to "#{current_user.username}", current_user %>
     </li>
 
     <li class="nav-subitem">
-      <%= link_to "Log in", '#' %>
+      <%= link_to "Log out", logout_path, method: "delete" %>
+    </li>
+
+  <% else %>
+    <li class="nav-subitem">
+      <%= link_to "Log in", login_path %>
     </li>
 
     <li class="nav-subitem">
       <%= link_to "Sign up", new_user_path %>
     </li>
+    <% end %>
+
   </ul>
 
   </nav>

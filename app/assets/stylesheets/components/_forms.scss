@@ -3,13 +3,12 @@
 form {
   @extend %flex-v-flex-start;
   @extend %align-items-flex-start;
-  margin-top: 35px;
   max-width: 850px;
   padding: 10px 20px;
   width: 80vw;
 
   li {
-    @extend %align-self-flex-start;
+    // @extend %align-self-flex-start;
     border-bottom: $single-border $highlight-2;
     list-style: none;
     margin-top: 30px;
@@ -73,4 +72,9 @@ form {
   font-size: 1.125rem;
   margin-top: 30px;
   padding: 5px 7px;
+}
+
+.more-info {
+  @extend %body-italic;
+  font-size: .8rem;
 }
