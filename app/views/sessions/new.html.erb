@@ -1,0 +1,26 @@
+<% provide(:title, "log in") %>
+
+<section class="content-container static-pages">
+  <div class="page-header">Log in</div>
+
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <li class="form-entry">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </li>
+
+      <li class="form-entry">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
+
+      <%= f.submit "Log in", class: "submit-button" %>
+
+      <div class="more-info">
+        Not registered? <%= link_to "Sign up.", signup_path %>
+      </div>
+
+    <% end %>
+
+</section>

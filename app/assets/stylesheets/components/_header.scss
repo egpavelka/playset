@@ -3,19 +3,20 @@
 .app-header {
   @extend %container-width;
   @extend %flex-h-space-around-wrap;
-  @include box-shadow(-10px -10px 0 0 $block-backer);
+  @include box-shadow(-14px -10px 0 0 $block-backer);
   background: $block-solid;
-  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
 }
 
 .app-header-title {
-  @include box-shadow(5px 5px 0 0 $block-backer);
+  @include box-shadow(10px 7px 0 0 $block-backer);
   background-color: $highlight-2;
   font-family: 'Michroma', sans-serif;
   font-size: 1.75rem;
   margin: 10px 0 -35px;
   padding: 10px 17px;
+  text-shadow: 3px 2px $text;
   text-transform: uppercase;
   z-index: 50;
 
