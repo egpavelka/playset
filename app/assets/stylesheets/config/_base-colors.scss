@@ -14,13 +14,35 @@
 // $highlight-2: #779dd6;   //---light blue
 // $highlight-1: #f6b0b0;   //---pink
 
-$highlight-2: #ff294c;    //---orange
-$background: #1e2f4f;   //---crimson
+// pink/blue
+// $background: #fcd6ef;
+// $text: #16113a;
+// $block-solid: #fff;
+// $block-backer: #19328f;
+// $highlight-1: #e38ace;
+// $highlight-2: #19328f;
+
+// bold 90s
+// $background: #000;       //---black
+// $text: #000;             //---black
+// $block-solid: #fff;      //---white
+// // $block-backer: #f60f7f;  //---pink
+// // $highlight-1: #68e2cb;   //---aqua
+// $block-backer: #ffd460;  //---gold
+// $highlight-1: #68e2cb;   //---aqua
+// $highlight-2: #5c39b5;   //---purple
+// $bg-img: 'config/backgrounds/geometric-stripe-bw-xs.jpg';
+
+// jungle
+$background: #000;       //---black
+$text: #000;             //---black
 $block-solid: #fff;      //---white
-$text: #1e2f4f;          //---dark purple
-$block-backer: #afffcc;  //---royal purple
-$highlight-1: #4745d1;   //---yellow
+$block-backer: #2c6255;  //---dark green
+$highlight-1: #9fcbb2;   //---light green
+$highlight-2: #ff8a7f;   //---coral
+$bg-img: 'config/backgrounds/palm-geometric-stripe-bw.jpg';
 
 body {
-  background-color: $background;
+  background-image: image-url($bg-img);
+  background-repeat: repeat;
 }

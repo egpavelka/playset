@@ -3,20 +3,30 @@
   <div class="page-header">Sign up</div>
     <%= form_for(@user, url: signup_path, class: "signup-form") do |f| %>
     <%= render 'shared/error_messages' %>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+      <li class="form-entry">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </li>
+      <li class="form-entry">
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+      </li>
 
-      <%= f.label :name %>
-      <%= f.text_field :name%>
+      <li class="form-entry">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </li>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <li class="form-entry">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <li class="form-entry">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      </li>
 
       <%= f.submit "Create account", class: "submit-button" %>
 

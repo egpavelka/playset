@@ -10,7 +10,7 @@
 }
 
 .app-header-title {
-  // @include box-shadow(5px 5px 0 0 $block-backer);
+  @include box-shadow(5px 5px 0 0 $block-backer);
   background-color: $highlight-2;
   font-family: 'Michroma', sans-serif;
   font-size: 1.75rem;
@@ -20,8 +20,20 @@
   z-index: 50;
 
   a {
-    border: $single-border $background;
-    color: $background;
+    border: $single-border $block-solid;
+    color: $block-solid;
     padding: 1px 7px;
+  }
+}
+
+.app-nav {
+
+  .nav-item a {
+    color: $text;
+  }
+
+  .nav-item.active a {
+    border-bottom: $single-border $highlight-1;
+    color: $text;
   }
 }
