@@ -1,29 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700i|Michroma|Economica:400,700');
+// @import 'config/fonts/avenir/base-avenir';
+// @import 'config/fonts/knockout/base-knockout';
+@import 'config/fonts/brother-1816/base-brother-1816';
+@import 'config/fonts/heroic-condensed/base-heroic-condensed';
+
+@import url('https://fonts.googleapis.com/css?family=Michroma');
 
 body,
 %body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-family: 'Brother 1816 Regular', sans-serif;
 }
 
 %alt {
-  font-family: 'Economica', sans-serif;
-  font-weight: 400;
+  font-family: 'Heroic Condensed Regular', sans-serif;
 }
 
 %alt-bold {
-  font-family: 'Economica', sans-serif;
-  font-weight: 700;
+  font-family: 'Heroic Condensed Medium', sans-serif;
+}
+
+%body-bold{
+  font-family: 'Brother 1816 Medium', sans-serif;
 }
 
 %body-italic {
-  @extend %body;
-  font-style: italic;
+  font-family: 'Brother 1816 Regular Italic', sans-serif;
 }
 
 %body-bold-italic {
-  @extend %body-italic;
-  font-weight: 700;
+  font-family: 'Brother 1816 Medium Italic', sans-serif;
 }
 
 %body-upper {
