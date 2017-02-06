@@ -30,11 +30,16 @@ class User < ApplicationRecord
   # Password must be between 6 and 72 (implicit) characters, must contain one uppercase letter, one lowercase letter, one number, and is not restricted to a set of characters.
   VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+\z/
 
+  has_secure_password
+
   validates :password,
   presence: true,
   length: { minimum: 6 }
   # format: { with: VALID_PASSWORD_REGEX }
 
-  has_secure_password
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 end
