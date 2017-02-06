@@ -26,12 +26,16 @@ nav {
   .nav-subitem {
     @extend %body-italic;
     display: inline;
-    font-size: .875rem;
     margin-left: 2px;
     padding: 5px 2px;
 
     &:not(:first-child) {
       margin-left: 0;
+    }
+
+    a {
+      font-size: 1rem;
+      text-transform: none;
     }
 
   }

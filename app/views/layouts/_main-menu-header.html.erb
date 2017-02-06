@@ -3,7 +3,7 @@
 
   <ul>
     <li class="active nav-item">
-      <%= link_to "Charts", '#' %>
+      <%= link_to "Charts", root_path %>
     </li>
 
     <li class="nav-item">
@@ -12,12 +12,21 @@
 
     <% if logged_in? %>
 
-    <li class="nav-subitem">
+    <li class="nav-item menu">
       <%= link_to "#{current_user.username}", current_user %>
-    </li>
+      <ul>
+        <li class="nav-subitem">
+          <%= link_to "Profile", current_user %>
+        </li>
 
-    <li class="nav-subitem">
-      <%= link_to "Log out", logout_path, method: "delete" %>
+        <li class="nav-subitem">
+          <%= link_to "Settings", '#' %>
+        </li>
+
+        <li class="nav-subitem">
+          <%= link_to "Log out", logout_path, method: "delete" %>
+        </li>
+      </ul>
     </li>
 
   <% else %>

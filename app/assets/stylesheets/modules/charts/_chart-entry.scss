@@ -24,12 +24,14 @@
   @extend %flex-v-center;
   @extend %body-bold-italic;
   background-color: $highlight-2;
+  border: $single-border $text;
   border-radius: 50%;
   color: $block-solid;
   font-size: 1.5rem;
   height: 2.75rem;
   min-width: 2.75rem;
   padding-bottom: 4px;
+  text-shadow: -2px 2px $block-backer;
 }
 
 .spoiler {
