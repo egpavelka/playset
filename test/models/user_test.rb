@@ -65,15 +65,6 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  # TODO consider using password.create (or whatever) function of bcrypt instead of "has_secure_password" to allow character requirements--check relative security
-  # test "password accept validation" do
-  #   valid_passwords = %w[joSeph1 !dArth_vadeR7 s8o.O8s _n0_Way_jose t?9Hab88]
-  #   valid_passwords.each do | valid_password |
-  #     @user.password = valid_password
-  #     assert @user.valid?, "#{valid_password.inspect} should be valid"
-  #   end
-  # end
-
   # REGEX REJECTION
 
   test "name reject validation" do
@@ -100,14 +91,6 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  # test "password reject validation" do
-  #   invalid_passwords = %w[2335666  Norway br3nda password t9Ha]
-  #   invalid_passwords.each do | invalid_password |
-  #     @user.password = invalid_password
-  #     assert_not @user.valid?, "#{invalid_password.inspect} should be invalid"
-  #   end
-  # end
-
   # REQUIRE UNIQUENESS
 
   test "email require unique" do
@@ -122,6 +105,11 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.username = @user.username.upcase
     @user.save
     assert_not duplicate_user.valid?
+  end
+
+  test "authenticated reject validation" do
+    #testuser has no digest
+    assert_not @user.authenticated?('')
   end
 
 end
