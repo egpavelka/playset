@@ -109,7 +109,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "authenticated reject validation" do
     #testuser has no digest
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 
 end
