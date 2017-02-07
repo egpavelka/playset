@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   # (Remember me?)
-  attr_accessor :remember_token
-  before_save { email ? email.downcase! : nil }
+  attr_accessor :remember_token, :activation_token
+  before_create :create_activation_digest
+  before_save { email ? :downcase_email : nil }
 
   # Name must be between 5 and 51 characters and can contain upper and lowercase letters, spaces, periods (for initials), and hyphens (for combined last names). Must begin and end with a letter.
   VALID_NAME_REGEX = /\A[a-zA-Z]+[a-zA-Z\s\.-]*[a-zA-Z]+\z/
@@ -44,22 +45,37 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+  # Token for browser remembering
   def self.new_token
     SecureRandom.urlsafe_base64
   end
 
+  # Set browser to remember
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # Check if remembered on this browser
   def authenticated?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  # Clear remember
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+
+    def downcase_email
+      email.downcase!
+    end
+
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 
 end
