@@ -2,7 +2,7 @@
 
 class UserMailerTest < ActionMailer::TestCase
   test "account_activation" do
-    user = User.find_by(username: 'egpavelka')
+    user = users(:testuser)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)
     assert_equal "Activate your account", mail.subject

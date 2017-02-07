@@ -7,3 +7,11 @@ testuser:
   password_digest: <%= User.digest('TestPassword1') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+
+otheruser:
+  username: other_user
+  name: Other User
+  email: other@testemail.com
+  password_digest: <%= User.digest('TestPassword2') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
