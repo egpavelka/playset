@@ -1,0 +1,32 @@
+// Brother 1816 Regular
+$b-1816-regular: 'brother-1816/Brother-1816-Regular-Italic';
+@font-face {
+  font-family: 'Brother 1816 Regular';
+  src: font-url('#{$b-1816-regular}.ttf'),
+  font-url('#{$b-1816-regular}.woff'),
+  font-url('#{$b-1816-regular}.woff2');
+}
+// Brother 1816 Regular
+$b-1816-regular-italic: 'brother-1816/Brother-1816-Regular-Italic';
+@font-face {
+  font-family: 'Brother 1816 Regular Italic';
+  src: font-url('#{$b-1816-regular-italic}.ttf'),
+  font-url('#{$b-1816-regular-italic}.woff'),
+  font-url('#{$b-1816-regular-italic}.woff2');
+}
+// Brother 1816 Medium
+$b-1816-medium: 'brother-1816/Brother-1816-Medium';
+@font-face {
+  font-family: 'Brother 1816 Medium';
+  src: font-url('#{$b-1816-medium}.ttf'),
+  font-url('#{$b-1816-medium}.woff'),
+  font-url('#{$b-1816-medium}.woff2');
+}
+// Brother 1816 Medium Italic
+$b-1816-medium-italic: 'brother-1816/Brother-1816-Medium-Italic';
+@font-face {
+  font-family: 'Brother 1816 Medium Italic';
+  src: font-url('#{$b-1816-medium-italic}.ttf'),
+  font-url('#{$b-1816-medium-italic}.woff'),
+  font-url('#{$b-1816-medium-italic}.woff2');
+}

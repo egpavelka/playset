@@ -1,0 +1,24 @@
+// Heroic Condensed Book
+$hc-book: 'heroic-condensed/heroic-condensed-book';
+@font-face {
+  font-family: 'Heroic Condensed Book';
+  src: font-url('#{$hc-book}.ttf'),
+  font-url('#{$hc-book}.woff'),
+  font-url('#{$hc-book}.woff2');
+}
+// Heroic Condensed Regular
+$hc-regular: 'heroic-condensed/heroic-condensed-regular';
+@font-face {
+  font-family: 'Heroic Condensed Regular';
+  src: font-url('#{$hc-regular}.ttf'),
+  font-url('#{$hc-regular}.woff'),
+  font-url('#{$hc-regular}.woff2');
+}
+// Heroic Condensed Medium
+$hc-medium: 'heroic-condensed/heroic-condensed-medium';
+@font-face {
+  font-family: 'Heroic Condensed Medium';
+  src: font-url('#{$hc-medium}.ttf'),
+  font-url('#{$hc-medium}.woff'),
+  font-url('#{$hc-medium}.woff2');
+}
