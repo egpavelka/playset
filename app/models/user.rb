@@ -37,12 +37,22 @@ class User < ApplicationRecord
 
   validates :password,
   presence: true,
-  length: { minimum: 6 }
+  length: { minimum: 6 },
+  allow_nil: true
   # format: { with: VALID_PASSWORD_REGEX }
+
+  validates :profile_bio,
+  length: { maximum: 500 }
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Token for browser remembering
@@ -56,17 +66,21 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  # Check if remembered on this browser
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
-  end
-
   # Clear remember
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  # activation
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
 
   private
 
