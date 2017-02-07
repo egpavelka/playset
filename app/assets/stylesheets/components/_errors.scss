@@ -25,6 +25,12 @@
   width: 80vw;
 }
 
+.debug_dump {
+  background-color: transparentize($block-solid, .3);
+  margin: 20px auto;
+  padding: 20px;
+}
+
 .field_with_errors {
 
   label {

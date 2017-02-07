@@ -1,0 +1,42 @@
+// Avenir Light
+$av-lt: 'avenir/avenir-light';
+@font-face {
+  font-family: 'Avenir Light';
+  src: url('#{$av-lt}.ttf'),
+  url('#{$av-lt}.woff');
+}
+// Avenir Book
+$av-book: 'avenir/avenir-book';
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('#{$av-book}.ttf'),
+  url('#{$av-book}.woff');
+}
+// Avenir Book Oblique
+$av-book-ob: 'avenir/avenir-book-oblique';
+@font-face {
+  font-family: 'Avenir Book Oblique';
+  src: url('#{$av-book-ob}.ttf'),
+  url('#{$av-book-ob}.woff');
+}
+// Avenir Medium
+$av-med: 'avenir/avenir-medium';
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('#{$av-med}.ttf'),
+  url('#{$av-med}.woff');
+}
+// Avenir Medium Oblique
+$av-med-ob: 'avenir/avenir-medium-oblique';
+@font-face {
+  font-family: 'Avenir Medium Oblique';
+  src: url('#{$av-med-ob}.ttf'),
+  url('#{$av-med-ob}.woff');
+}
+// Avenir Heavy
+$av-hv: 'avenir/avenir-heavy';
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('#{$av-hv}.ttf'),
+  url('#{$av-hv}.woff');
+}
