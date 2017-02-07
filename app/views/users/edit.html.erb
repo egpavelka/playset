@@ -1,0 +1,43 @@
+<% provide(:title, "edit profile") %>
+<section class="content-container static-pages">
+
+  <div class="page-header">Settings</div>
+
+    <%= form_for(@user) do |f| %>
+
+    <%= render 'shared/error_messages' %>
+
+    <div class="page-subheader">Edit your profile</div>
+
+      <li class="form-entry">
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+      </li>
+
+      <li class="form-entry">
+        <%= f.label :profile_bio %>
+        <%= f.text_field :profile_bio %>
+      </li>
+
+      <div class="page-subheader">Edit your profile</div>
+
+      <li class="form-entry">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </li>
+
+      <li class="form-entry">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
+
+      <li class="form-entry">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </li>
+
+      <%= f.submit "Save", class: "submit-button" %>
+
+    <% end %>
+
+</section>

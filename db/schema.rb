@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206123218) do
+ActiveRecord::Schema.define(version: 20170207122057) do
 
   create_table "submissions", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170206123218) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
+    t.text     "profile_bio"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
