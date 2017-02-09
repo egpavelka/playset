@@ -12,6 +12,10 @@
 
     <% if logged_in? %>
 
+    <li class="nav-subitem">
+      <%= link_to "Users", users_path %>
+    </li>
+
     <li class="nav-item menu">
       <%= link_to "#{current_user.username}", current_user %>
       <ul>

@@ -16,10 +16,12 @@
 
 @import 'config/MASTER';
 
-@import 'components/wrapper';
-@import 'components/navigation';
-@import 'components/header';
-@import 'components/footer';
+@import 'components/app-header';
+@import 'components/app-footer';
+@import 'components/app-wrapper';
 
+@import 'components/navigation';
+@import 'components/headers';
 @import 'components/errors';
 @import 'components/forms';
+@import 'components/pagination';

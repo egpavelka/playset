@@ -1,0 +1,6 @@
+@import 'config/MASTER';
+
+.pagination {
+  @extend %body-italic;
+  margin: 15px auto;
+}

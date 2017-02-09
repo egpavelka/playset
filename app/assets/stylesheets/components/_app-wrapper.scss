@@ -16,7 +16,7 @@
 .content-container {
   @extend %container-width;
   @extend %flex-v;
-  @extend %align-items-stretch;
+  @extend %align-items-center;
   @include flex(10, 0, auto);
   background-color: $block-solid;
 }
