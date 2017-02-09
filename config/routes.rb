@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  root 'tracks#top'
+  root 'tracks#index'
 
   get '/about', to:'static_pages#about'
   get '/help', to:'static_pages#help'
