@@ -1,0 +1,24 @@
+@import 'config/MASTER';
+
+.directory {
+
+  li {
+    list-style: none;
+  }
+
+  .li-username {
+    @extend %alt;
+  }
+
+  .li-name {
+    @extend %body-bold;
+  }
+
+  .li-liked {
+
+  }
+
+  .li-submitted {
+
+  }
+}

@@ -2,10 +2,11 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 User.create!(name:  "Test User",
-             username: "test_user",
-             email: "test@testemail.com",
+             username: "test.user",
+             email: "email@testemail.com",
              password: "TestPassword1",
              password_confirmation: "TestPassword1",
+             admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
