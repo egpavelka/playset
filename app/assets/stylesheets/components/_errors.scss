@@ -15,14 +15,18 @@
 
 .alert {
   @extend %flex-v-center;
-  @extend %body-bold-italic;
+  @extend %container-width;
+  @extend %body-italic;
   background: $block-solid;
   border: 4px solid $text;
   color: $text;
-  margin: 30px auto 10px;
-  max-width: 900vw;
+  margin: 20px auto 10px;
   min-height: 100px;
-  width: 80vw;
+  padding: 10px 25px;
+}
+
+.alert-warning {
+  background: transparentize($highlight-2, .3);
 }
 
 .debug_dump {
