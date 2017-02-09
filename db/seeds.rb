@@ -2,11 +2,10 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 User.create!(name:  "Test User",
-             username: "test_user"
+             username: "test_user",
              email: "test@testemail.com",
              password: "TestPassword1",
              password_confirmation: "TestPassword1",
-            #  admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -15,10 +14,9 @@ User.create!(name:  "Test User",
   username = "test_user#{n+1}"
   email = "test_#{n+1}@testemail.com"
   password = "TestPassword1"
-  User.create!(name:  name,
+  User.create!(name: name,
+              username: username,
               email: email,
               password: password,
-              password_confirmation: password,
-              activated: true,
-              activated_at: Time.zone.now)
+              password_confirmation: password)
 end

@@ -38,6 +38,10 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def index
+    @users = User.paginate(page: params[:page], per_page: 10)
+  end
+
   private
 
   def user_params
@@ -46,6 +50,7 @@ class UsersController < ApplicationController
 
   def logged_in_user
     unless logged_in?
+      store_location
       flash[:danger] = "You must log in to do that."
       redirect_to login_path
     end

@@ -5,13 +5,19 @@ gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use Bootstrap for modularity
-gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Autoprefixer - I ADDED
+# Autoprefixer - I
 gem 'autoprefixer-rails', '~> 6.6.1'
 # PG - heroku asked for (postgresql as database adapter)
 gem 'pg'
+# Fill database with random data for testing
+gem 'faker'
+# Add paging to datasets
+gem 'will_paginate'
+# Access spotify API
+gem 'rspotify'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
