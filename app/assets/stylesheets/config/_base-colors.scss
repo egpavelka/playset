@@ -37,4 +37,10 @@ $bg-img: 'backgrounds/palm-geometric-stripe-bw.jpg';
 body {
   background-image: image-url($bg-img);
   background-repeat: repeat;
+  color: $text;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
 }
