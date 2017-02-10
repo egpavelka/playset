@@ -7,7 +7,7 @@ testuser:
   password_digest: <%= User.digest('TestPassword1') %>
   admin: true
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
 otheruser:
   username: other_user
@@ -15,14 +15,14 @@ otheruser:
   email: other@testemail.com
   password_digest: <%= User.digest('TestPassword1') %>
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
-# <% 99.times do |n| %>
-#   user_<%= n %>:
-#     username: <%= "test_user#{n+1}" %>
-#     name: Test User
-#     email: <%= "test_#{n+1}@testemail.com" %>
-#     password_digest: <%= User.digest('TestPassword1') %>
-#     activated: true
-#     activated_at: Time.zone.now
-# <% end %>
+<% 50.times do |n| %>
+user_<%= n %>:
+  name: This User
+  username:  <%= "test_user#{n + 1}" %>
+  email: <%= "test_user#{n + 1}@test_email.com" %>
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+<% end %>
