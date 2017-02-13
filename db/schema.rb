@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209072451) do
+ActiveRecord::Schema.define(version: 20170213044208) do
 
   create_table "submissions", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170209072451) do
     t.datetime "activated_at"
     t.text     "profile_bio"
     t.boolean  "admin",             default: false
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
