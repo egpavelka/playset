@@ -4,7 +4,7 @@ class TrackTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:testuser)
-    @track = Track.new(url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA", user_id: @user.id)
+    @track = @user.tracks.build(url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA", user_id: @user.id)
   end
 
   test "should be valid" do
