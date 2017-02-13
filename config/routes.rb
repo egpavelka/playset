@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  root 'tracks#index'
+  root 'static_pages#about'
 
   get '/about', to:'static_pages#about'
   get '/help', to:'static_pages#help'
@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
-  get '/tracks/recommended', to: 'tracks#recommended'
 
   resources :users
   resources :account_activations, only: [:edit]
