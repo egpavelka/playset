@@ -112,4 +112,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
+  test "user's tracks should be destroyed" do
+    @user.save
+    @user.tracks.create!(url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA", user_id: @user.id)
+    assert_difference 'Track.count', -1 do
+      @user.destroy
+    end
+  end
+
 end
