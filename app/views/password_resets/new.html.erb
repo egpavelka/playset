@@ -1,0 +1,17 @@
+<% provide(:title, "forgot password") %>
+<section class="content-container static-pages">
+
+  <div class="page-header">forgot password</div>
+
+    <%= form_for(:password_reset, url: password_resets_path, class: "password-reset-form") do |f| %>
+
+      <li class="form-entry">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </li>
+
+      <%= f.submit "Reset password", class: "submit-button" %>
+
+    <% end %>
+
+</section>
