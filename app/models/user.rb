@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # (Remember me?)
+  has_many :tracks
   attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   before_save { email ? :downcase_email : nil }
