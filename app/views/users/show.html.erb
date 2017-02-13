@@ -4,7 +4,15 @@
   <div><%= @user.name %></div>
   <div><%= @user.profile_bio %></div>
   <div class="page-subheader">loved tracks</div>
-  <!-- <%= render @user.loved => -->
-  <div class="page-subheader">submitted tracks</div>
-  <!-- <%= render @user.loved => -->
+
+  <% if @user.tracks.any? %>
+    <div class="page-subheader">
+      submitted tracks
+    </div>
+    <ol>
+      <%= render @tracks %>
+    </ol>
+    <%= will_paginate @tracks %>
+  <% end %>
+
 </section>

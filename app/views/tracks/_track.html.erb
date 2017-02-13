@@ -1,4 +1,4 @@
-<div class="chart-entry">
+<div id="track-<%= track.id %>" class="chart-entry">
   <div class="chart-entry-rank">
     <div class="rank-number">
       <span>1</span>
@@ -24,6 +24,13 @@
 
       </div>
     </div>
+  </div>
+  <div>
+    <span class="track-timestamp">
+      - <text>posted by</text>
+      <%= track.user.username %>
+      | <%= time_ago_in_words(track.created_at) %> ago
+    </span>
   </div>
   <div class="spoiler"></div>
 </div>

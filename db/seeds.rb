@@ -23,3 +23,9 @@ User.create!(name:  "Grace Pavelka",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  url_src = "https://www.youtube.com/watch?v=WMljPLpFUMA"
+  users.each { | user | user.tracks.create!(url_src: url_src) }
+end
