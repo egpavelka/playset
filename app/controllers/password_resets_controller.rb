@@ -1,7 +1,9 @@
 class PasswordResetsController < ApplicationController
+  before_action :get_user, only: [:edit, :update]
+  before_action :valid_user, only: [:edit, :update]
+  before_action :check_expiration, only: [:edit, :update]
 
   def new
-    User.find_by(username: params[:username])
   end
 
   def create
@@ -20,22 +22,42 @@ class PasswordResetsController < ApplicationController
   def edit
   end
 
-end
-
-def edit
-  user = User.find_by(username: params[:username])
-  if user && user.authenticated?(:activation, params[:id])
-    if !user.activated?
-      user.activate
-      message = "Welcome! Your account has been activated.  You can now save and vote on tracks or submit your own."
+  def update
+    if params[:user][:password].empty?
+      flash[:danger] = "Password can't be empty."
+      render 'edit'
+    elsif @user.update_attributes(user_params)
+      log_in @user
+      @user.update_attribute(:reset_digest, nil)
+      flash[:success] = "Your password has been updated successfully."
+      redirect_to @user
     else
-      message = "This account is already activated."
+      render 'edit'
     end
-    log_in user
-    flash[:success] = message
-    redirect_to user
-  else
-    flash[:danger] = "Invalid activation link.  Please check the link or request a new code."
-    redirect_to root_path
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:password, :password_confirmation)
+    end
+
+    def get_user
+      @user = User.find_by(email: params[:email])
+    end
+
+    def valid_user
+      unless (@user && @user.activated? &&
+              @user.authenticated?(:reset, params[:id]))
+        redirect_to root_url
+      end
+    end
+
+    def check_expiration
+      if @user.password_reset_expired?
+        flash[:danger] = "This password reset request has expired.  Reset links are valid for two hours."
+        redirect_to new_password_reset_path
+      end
+    end
+
 end
