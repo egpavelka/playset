@@ -1,0 +1,12 @@
+<% provide(:title, "top") %>
+
+<%= render 'tracks/charts-nav' %>
+
+<section class="content-container">
+  
+  <ol>
+    <%= render @tracks %>
+  </ol>
+  <%= will_paginate @tracks %>
+
+</section>
