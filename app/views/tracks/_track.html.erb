@@ -1,7 +1,7 @@
 <div id="track-<%= track.id %>" class="chart-entry">
   <div class="chart-entry-rank">
     <div class="rank-number">
-      <span>1</span>
+      <span><%= track.id %></span>
     </div>
   </div>
   <div class="chart-entry-song">
@@ -28,7 +28,7 @@
   <div>
     <span class="track-timestamp">
       - <text>posted by</text>
-      <%= track.user.username %>
+      (user)
       | <%= time_ago_in_words(track.created_at) %> ago
     </span>
   </div>
