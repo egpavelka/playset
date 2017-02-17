@@ -3,10 +3,16 @@
   <div class="page-header">submit track</div>
     <%= form_for(@track) do |f| %>
 
+    <li class="form-entry">
+      <%= f.radio_button :src_type, 'url_src' %> Web link
+      <%= f.radio_button :src_type, 'file_src' %>Upload a file
+    </li>
+
       <li class="form-entry">
         <%= f.label "Link to source" %>
         <%= f.text_field :url_src %>
       </li>
+
       <li class="form-entry">
         <%= f.label :title %>
         <%= f.text_field :title %>

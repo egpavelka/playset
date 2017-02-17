@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213122739) do
+ActiveRecord::Schema.define(version: 20170217045006) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170213122739) do
     t.string   "artist"
     t.string   "album"
     t.string   "year"
+    t.string   "src_type"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
