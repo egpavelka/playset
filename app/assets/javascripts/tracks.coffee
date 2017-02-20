@@ -3,14 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
  # Switch between link validation and file upload fields based on radio button selection for source type
- 
+
 $ ->
   # set up function to switch between submission types
   select_src_type = (v) ->
-    console.log v
     # hide both entry fields
-    $('.url_src').hide()
-    $('.file_src').hide()
+    $('.embedded').hide()
+    $('.upload').hide()
     # display field corresponding to checked radio button
     $(".#{v}").show()
 
