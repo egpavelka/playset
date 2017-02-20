@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217045006) do
+ActiveRecord::Schema.define(version: 20170220090927) do
+
+  create_table "embeddeds", force: :cascade do |t|
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "url_src"
+    t.string   "src_api"
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170217045006) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "url_src"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +40,13 @@ ActiveRecord::Schema.define(version: 20170217045006) do
     t.string   "src_type"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tracks_on_user_id"
+  end
+
+  create_table "uploads", force: :cascade do |t|
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "file_src"
   end
 
   create_table "users", force: :cascade do |t|

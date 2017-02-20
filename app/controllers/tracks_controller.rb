@@ -22,7 +22,7 @@ class TracksController < ApplicationController
   private
 
     def tracks_params
-      params.require(:track).permit(:url_src, :title, :artist, :album, :year)
+      params.require(:track).permit(:src_type, :title, :artist, :album, :year, embedded_attributes: [:url_src, :src_api, :_destroy], upload_attributes: [:file_src, :_destroy])
     end
 
 
