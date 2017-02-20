@@ -4,37 +4,20 @@
     <%= form_for(@track) do |f| %>
 
     <li class="form-entry">
-      <%= f.radio_button :src_type, 'url_src', class: 'src_type', :checked => true %> Web link
-      <%= f.radio_button :src_type, 'file_src', class: 'src_type', :disabled => false %>Upload a file
+      <%= f.radio_button :src_type, 'upload', class: 'src_type', :checked => true %> Web link
+      <%= f.radio_button :src_type, 'embedded', class: 'src_type', :disabled => false %>Upload a file
     </li>
 
-      <li class="file_src" class="form-entry">
-          <%= f.label "Upload file" %>
-          <%= f.text_field :url_src %>
+      <li class="upload" class="form-entry">
+          <%= render 'tracks/forms/upload', f: f %>
       </li>
 
-      <li class="url_src" class="form-entry">
-          <%= f.label "Link to source" %>
-          <%= f.text_field :url_src %>
+      <li class="embedded" class="form-entry">
+          <%= render 'tracks/forms/embedded', f: f %>
       </li>
 
-      <% if logged_in? %>
-        <li class="form-entry">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-        </li>
-        <li class="form-entry">
-          <%= f.label :artist %>
-          <%= f.email_field :artist %>
-        </li>
-        <li class="form-entry">
-          <%= f.label :album %>
-          <%= f.password_field :album %>
-        </li>
-        <li class="form-entry">
-          <%= f.label :year %>
-          <%= f.password_field :year %>
-        </li>
+      <% if @track.track_loaded? %>
+        <%= render 'tracks/forms/metadata', f: f %>
       <% end %>
 
       <%= f.submit "Submit", class: "submit-button" %>
