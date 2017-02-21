@@ -4,37 +4,44 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# Autoprefixer
+gem 'autoprefixer-rails', '~> 6.6.1'
+# postgresql as database adapter (for Heroku)
+gem 'pg'
+# Add paging to datasets
+gem 'will_paginate'
 # Use Bootstrap for modularity
 # gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Autoprefixer - I
-gem 'autoprefixer-rails', '~> 6.6.1'
-# PG - heroku asked for (postgresql as database adapter)
-gem 'pg'
-# Fill database with random data for testing
-gem 'faker'
-# Add paging to datasets
-gem 'will_paginate'
-# Access spotify API
-gem 'rspotify'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Fill database with random data for testing
+gem 'faker', '~> 1.7.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Use Paperclip to upbload files
+gem 'paperclip', '~> 5.0.0'
+# Use Amazon S3 for image and audio storage
+gem 'aws-s3'
+# Access Spotify API for embedding
+gem 'rspotify'
+# Access Discogs API for track data lookup
+gem 'discogs-wrapper'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
