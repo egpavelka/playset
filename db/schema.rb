@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220090927) do
+ActiveRecord::Schema.define(version: 20170221162742) do
 
   create_table "embeddeds", force: :cascade do |t|
     t.string   "type"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(version: 20170220090927) do
     t.string   "artist"
     t.string   "album"
     t.string   "year"
-    t.string   "src_type"
+    t.string   "media_type"
+    t.integer  "media_id"
+    t.index ["media_type", "media_id"], name: "index_tracks_on_media_type_and_media_id"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
