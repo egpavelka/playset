@@ -1,0 +1,2 @@
+class DiscogsApi < ApplicationRecord
+end

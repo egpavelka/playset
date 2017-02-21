@@ -10,14 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221162742) do
+ActiveRecord::Schema.define(version: 20170221191034) do
+
+  create_table "bandcamp_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discogs_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "embeddeds", force: :cascade do |t|
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "url_src"
-    t.string   "src_api"
+    t.string   "api_src_type"
+    t.integer  "api_src_id"
+    t.index ["api_src_type", "api_src_id"], name: "index_embeddeds_on_api_src_type_and_api_src_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -27,6 +39,16 @@ ActiveRecord::Schema.define(version: 20170221162742) do
     t.datetime "updated_at", null: false
     t.index ["track_id"], name: "index_likes_on_track_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "soundcloud_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spotify_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -67,6 +89,11 @@ ActiveRecord::Schema.define(version: 20170221162742) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "youtube_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
