@@ -5,7 +5,7 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = current_user.tracks.build(tracks_params)
+    @track = current_user.tracks.build(track_params)
     if @track.save
       flash[:success] = "Track posted successfully."
       redirect_to root_path
@@ -21,8 +21,8 @@ class TracksController < ApplicationController
 
   private
 
-    def tracks_params
-      params.require(:track).permit(:src_type, :title, :artist, :album, :year, embedded_attributes: [:url_src, :src_api, :_destroy], upload_attributes: [:file_src, :_destroy])
+    def track_params
+      params.require(:track).permit(:title, :artist, :album, :year)
     end
 
 
