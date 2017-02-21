@@ -3,10 +3,10 @@
   <div class="page-header">submit track</div>
     <%= form_for(@track) do |f| %>
 
-    <li class="form-entry">
+    <!-- <li class="form-entry">
       <%= f.radio_button :src_type, 'upload', class: 'src_type', :checked => true %> Web link
       <%= f.radio_button :src_type, 'embedded', class: 'src_type', :disabled => false %>Upload a file
-    </li>
+    </li> -->
 
       <li class="upload" class="form-entry">
           <%= render 'tracks/forms/upload', f: f %>

@@ -1,0 +1,2 @@
+class BandcampApi < ApplicationRecord
+end
