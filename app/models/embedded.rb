@@ -1,10 +1,10 @@
 class Embedded < ApplicationRecord
-
+  belongs_to :api_src, polymorphic: true
   has_one :track, as: :media
   # User enters URL
   validates :url_src, presence: true
   # Assign to service so API can be called
-  validates :src_api, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
+  # validates :api_src, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
 
   # Basic check that URLs belong to a supported service and contain the base
   def check_url_src
