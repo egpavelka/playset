@@ -35,9 +35,9 @@ gem 'faker', '~> 1.7.3'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use Paperclip to upbload files
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.1.0'
 # Use Amazon S3 for image and audio storage
-gem 'aws-s3'
+#gem 'aws-s3'
 # Access Spotify API for embedding
 gem 'rspotify'
 # Access Discogs API for track data lookup
