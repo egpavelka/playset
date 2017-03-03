@@ -5,19 +5,12 @@
  # Switch between link validation and file upload fields based on radio button selection for source type
 
 $ ->
-  # set up function to switch between submission types
-  select_src_type = (v) ->
-    # hide both entry fields
-    $('.embedded').hide()
-    $('.upload').hide()
-    # display field corresponding to checked radio button
-    $(".#{v}").show()
 
-  # select initial value on page load
-  $('.src_type').ready ->
-    v = $('.src_type:checked')[0].value
-    select_src_type(v)
+  # on page load, show link submission
+  $('#embedded-form').show()
+  $('#upload-form').hide()
 
-  # switch when radio button selection changes
-  $('.src_type').change ->
-    select_src_type(@value)
+  # clicking nav buttons toggles between forms
+  $('.select-track-type').click ->
+    $('#embedded-form').toggle()
+    $('#upload-form').toggle()
