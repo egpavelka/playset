@@ -1,13 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA"
+  title: "Vogue"
+  artist: "Madonna"
+  album: "Vogue"
+  year: "1990"
   created_at: <%= 10.minutes.ago %>
 
 two:
-  url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA"
+  title: "After Midnight"
+  artist: "Patsy Cline"
+  album: "Live"
+  year: "1952"
   created_at: <%= 2.years.ago %>
 
 most_recent:
-  url_src: "https://www.youtube.com/watch?v=WMljPLpFUMA"
+  title: "Crazy In Love"
+  artist: "Beyonce"
+  album: "[unknown]"
+  year: "2005"
   created_at: <%= Time.zone.now %>
