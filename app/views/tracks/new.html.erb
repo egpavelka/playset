@@ -3,14 +3,19 @@
   <div class="page-header">submit track</div>
     <%= form_for(@track) do |f| %>
 
+      <div class="track-submission-nav">
+        <span class="nav-item select-track-type">Submit link</span>
+        <span class="nav-item select-track-type">Upload file</span>
+      </div>
 
-      <li class="upload" class="form-entry">
-          <%= render 'tracks/forms/upload', f: f %>
-      </li>
 
-      <li class="embedded" class="form-entry">
+      <div id="embedded-form" class="form-entry">
           <%= render 'tracks/forms/embedded', f: f %>
-      </li>
+      </div>
+
+      <div id="upload-form" class="form-entry">
+          <%= render 'tracks/forms/upload', f: f %>
+      </div>
 
       <% if @track.track_loaded? %>
         <%= render 'tracks/forms/metadata', f: f %>
