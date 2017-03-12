@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DiscogsApiTest < ActiveSupport::TestCase
+class MediaSourceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

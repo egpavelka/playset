@@ -1,2 +1,0 @@
-class SoundcloudApi < ApplicationRecord
-end

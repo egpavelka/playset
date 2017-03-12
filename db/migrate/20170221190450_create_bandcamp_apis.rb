@@ -1,8 +1,0 @@
-class CreateBandcampApis < ActiveRecord::Migration[5.0]
-  def change
-    create_table :bandcamp_apis do |t|
-
-      t.timestamps
-    end
-  end
-end

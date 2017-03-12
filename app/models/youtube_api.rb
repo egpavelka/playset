@@ -1,2 +1,0 @@
-class YoutubeApi < ApplicationRecord
-end

@@ -1,2 +1,0 @@
-class DiscogsApi < ApplicationRecord
-end
