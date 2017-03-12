@@ -2,7 +2,10 @@ class Track < ApplicationRecord
   # Submission: ownership and validation
   belongs_to :user
   validates :user_id, presence: true
-  belongs_to :media, polymorphic: true, dependent: :destroy
+  has_many :media_sources
+  has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
+  has_many :embeddeds, :through :media_sources, source: :media, source_type: 'Embedded'
+
   # Track metadata
   # validates :title, presence: true
   # validates :album, presence: true
