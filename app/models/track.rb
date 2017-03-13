@@ -3,6 +3,7 @@ class Track < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   has_many :media_sources
+  accepts_nested_attributes_for :media_sources, dependent: :destroy
   has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
   has_many :embeddeds, :through :media_sources, source: :media, source_type: 'Embedded'
 
@@ -18,6 +19,10 @@ class Track < ApplicationRecord
 
   def track_loaded?
     # upload_successful? or embed_successful?
+  end
+
+  def has_metadata?
+    # autofill, disable form for title/artist/album/year
   end
 
 end

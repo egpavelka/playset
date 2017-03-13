@@ -23,7 +23,7 @@ class TracksController < ApplicationController
   private
 
     def track_params
-      params.require(:track).permit(:title, :artist, :album, :year)
+      params.require(:track).permit(:title, :artist, :album, :year, media_source_attributes[:file_src, :url_src])
     end
 
 

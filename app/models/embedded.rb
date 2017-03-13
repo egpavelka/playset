@@ -1,4 +1,6 @@
 class Embedded < ApplicationRecord
+  has_one :media_source, as: :media
+  has_one :track, through: :media_source
 
   # User enters URL
   validates :url_src, presence: true
