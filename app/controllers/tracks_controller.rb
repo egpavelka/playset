@@ -3,6 +3,8 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    #
+    # @track.media_source.create(media: source_kind.new)
   end
 
   def create
@@ -40,9 +42,11 @@ class TracksController < ApplicationController
     end
 
     def msa
+
     end
 
     def source_kind
+
     end
 
 end
