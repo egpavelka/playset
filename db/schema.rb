@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312090440) do
+ActiveRecord::Schema.define(version: 20170315081535) do
 
   create_table "embeddeds", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170312090440) do
     t.integer  "media_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "track_id"
     t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id"
   end
 
