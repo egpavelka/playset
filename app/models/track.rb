@@ -6,8 +6,8 @@ class Track < ApplicationRecord
   # MEDIA
   has_one :media_source
   accepts_nested_attributes_for :media_source, allow_destroy: true
-  has_many :uploads, through: :media_source, source: :media, source_type: 'Upload'
-  has_many :embeddeds, through: :media_source, source: :media, source_type: 'Embedded'
+  has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
+  has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
 
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true

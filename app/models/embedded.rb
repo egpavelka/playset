@@ -3,29 +3,26 @@ class Embedded < ApplicationRecord
   has_one :track, through: :media_source
 
   # User enters URL
-  validates :url_src, presence: true
+  validates :url_source, presence: true
   # Assign to service so API can be called
-  # validates :api_src, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
+  # validates :api_source, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
 
   # Basic check that URLs belong to a supported service and contain the base
-  def check_url_src
-    # if "bandcamp.com/track/".in? url_src
-    #   api_src = 'bandcamp'
-    # elsif "soundcloud.com/".in? url_src
-    #   api_src = 'soundcloud'
-    # elsif "spotify.com/".in? url_src
-    #   api_src = 'spotify'
-    # elsif "youtube.com/watch?v=".in? url_src
-    #   api_src = 'youtube'
-    # else
-    #   flash[:danger] = title_error
-    #   render 'new'
-    # end
+  def validate_url_source
+    if "bandcamp.com/track/".in? url_source
+      api_source = 'bandcamp'
+    elsif "soundcloud.com/".in? url_source
+      api_source = 'soundcloud'
+    elsif "spotify.com/".in? url_source
+      api_source = 'spotify'
+    elsif "youtube.com/watch?v=".in? url_source
+      api_source = 'youtube'
+    else
+      flash[:danger] = title_error
+      render 'new'
+    end
   end
 
   title_error = "Please enter a valid link to a single Bandcamp, Soundcloud, or Spotify track or a YouTube video."
-
-  def upload_successful?
-  end
 
 end
