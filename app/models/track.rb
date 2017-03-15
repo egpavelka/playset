@@ -1,21 +1,25 @@
 class Track < ApplicationRecord
-  # Submission: ownership and validation
+  # USER
   belongs_to :user
   validates :user_id, presence: true
-  has_many :media_sources
-  accepts_nested_attributes_for :media_sources, dependent: :destroy
-  has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
-  has_many :embeddeds, :through :media_sources, source: :media, source_type: 'Embedded'
 
-  # Track metadata
-  # validates :title, presence: true
-  # validates :album, presence: true
-  # validates :artist, presence: true
-  # validates :year, length: { is: 4 }
+  # MEDIA
+  has_one :media_source
+  accepts_nested_attributes_for :media_source, allow_destroy: true
+  has_many :uploads, through: :media_source, source: :media, source_type: 'Upload'
+  has_many :embeddeds, through: :media_source, source: :media, source_type: 'Embedded'
+
+  # LIKES
+  has_and_belongs_to_many :likes #, numericality: true
   # Display (on user profile, main index)
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
-  has_and_belongs_to_many :likes #, numericality: true
+
+  # Track metadata
+  validates :title, presence: true
+  validates :album, presence: true
+  validates :artist, presence: true
+  validates :year, length: { is: 4 }
 
   def track_loaded?
     # upload_successful? or embed_successful?

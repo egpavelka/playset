@@ -18,8 +18,12 @@
       </div>
 
       <% if @track.track_loaded? %>
-        <%= render 'tracks/forms/metadata', f: f %>
+
       <% end %>
+
+
+
+      <%= render 'tracks/forms/metadata', f: f %>
 
       <%= f.submit "Submit", class: "submit-button" %>
 

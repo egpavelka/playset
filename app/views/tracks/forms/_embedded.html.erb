@@ -1,5 +1,8 @@
 <%= f.fields_for :embedded do |emb| %>
-  <%= emb.label :url_src %>
-  <%= emb.text_field :url_src %>
+  <li class="form-entry">
+    <%= emb.label :url_src %>
+    <%= emb.text_field :url_src %>
+  </li>
+
   <%= emb.submit "Check link", class: "submit-button" %>
 <% end %>

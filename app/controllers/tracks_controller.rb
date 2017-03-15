@@ -16,15 +16,33 @@ class TracksController < ApplicationController
     end
   end
 
+  def show
+    @track = Track.find(params[:id]).media_source.media
+  end
+
   def index
     @tracks = Track.paginate(page: params[:page])
   end
 
+  def destroy
+    track = Track.find(params[:id])
+    track.destroy
+    flash[:success] = "Track deleted."
+    submitter = User.find(params[:user_id])
+    redirect_to submitter_path
+  end
+
+
   private
 
     def track_params
-      params.require(:track).permit(:title, :artist, :album, :year, media_source_attributes[:file_src, :url_src])
+      params.require(:track).permit(:title, :artist, :album, :year, media_source_attributes: msa)
     end
 
+    def msa
+    end
+
+    def source_kind
+    end
 
 end
