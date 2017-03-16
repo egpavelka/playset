@@ -4,8 +4,8 @@
     <%= form_for(@track) do |f| %>
 
       <div class="track-submission-nav">
-        <span class="nav-item select-track-type">Submit link</span>
-        <span class="nav-item select-track-type">Upload file</span>
+        <%= f.radio_button :source_kind, 'Embedded', class: 'source_kind', checked: true %> Submit from link
+        <%= f.radio_button :source_kind, 'Upload', class: 'source_kind', checked: false %> Upload file
       </div>
 
       <div id="embedded-form" class="form-entry">
@@ -15,12 +15,6 @@
       <div id="upload-form" class="form-entry">
           <%= render 'tracks/forms/upload', f: f %>
       </div>
-
-      <% if @track.track_loaded? %>
-
-      <% end %>
-
-
 
       <%= render 'tracks/forms/metadata', f: f %>
 
