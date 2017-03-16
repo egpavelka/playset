@@ -5,22 +5,38 @@
  # Switch between link validation and file upload fields based on radio button selection for source type
 
  $ ->
-   # set up function to switch between submission types
-   select_source_kind = (v) ->
-     # hide both entry fields
-     $('#upload-form').hide()
-     $('#embedded-form').hide()
-     # clear metadata fields
-     $('.response-data').val('')
-     # display field corresponding to checked radio button
-     $("##{v.toLowerCase()}-form").show()
 
-   # select initial value on page load
-   $('.source_kind').ready ->
-     v = $('.source_kind:checked')[0].value
-     select_source_kind(v)
+  # ..... EMBED VS. UPLOAD .....
+  # set up function to switch between submission types
+  select_source_kind = (v) ->
+    # hide both entry fields
+    $('#upload-form').hide()
+    $('#embedded-form').hide()
+    # clear metadata/source fields
+    $('.response-data').val('')
+    # display field corresponding to checked radio button
+    $("##{v.toLowerCase()}-form").show()
 
-   # switch when radio button selection changes
-   $('.source_kind').change ->
-     # switch submission type
-     select_source_kind(@value)
+  # select initial value on page load
+  $('.source_kind').ready ->
+    v = $('.source_kind:checked')[0].value
+    select_source_kind(v)
+
+  # switch when radio button selection changes
+  $('.source_kind').change ->
+    # switch submission type
+    select_source_kind(@value)
+
+  # ..... INLINE VALIDATION .....
+  # for embeddeds
+  $('.check-embedded-source').click ->
+    console.log 'hello'
+      # check url type
+      # extract track identifier from url to query the appropriate service
+      # autopopulate metadata fields if available, disable fields
+
+  # for uploads
+  $('.check-upload-source').click ->
+      # check file type
+      # check for audio metadata
+      # autopopulate metadata fields if available, disable fields
