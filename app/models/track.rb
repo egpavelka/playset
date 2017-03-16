@@ -8,6 +8,7 @@ class Track < ApplicationRecord
   accepts_nested_attributes_for :media_source, allow_destroy: true
   has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
   has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
+  has_one :video, through: :media_source, source: :media, source_type: 'Video'
 
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
@@ -20,10 +21,10 @@ class Track < ApplicationRecord
   validates :album, presence: true
   validates :artist, presence: true
   validates :year, length: { is: 4 }
-  validates :kind, presence: true, inclusion: { in: %w(Upload Embedded), message: "%{value} is not a supported service" }
+  validates :kind, presence: true, inclusion: { in: %w(Upload Embedded Video), message: "%{value} is not a supported service" }
 
   def self.kinds
-    [Upload, Embedded]
+    [Upload, Embedded, Video]
   end
 
   def media
