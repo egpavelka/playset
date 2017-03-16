@@ -23,6 +23,9 @@ class Embedded < ApplicationRecord
     end
   end
 
+  def get_info
+  end
+
   title_error = "Please enter a valid link to a single Bandcamp, Soundcloud, or Spotify track or a YouTube video."
 
 end
