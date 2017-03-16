@@ -3,7 +3,7 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
-    #
+
     @track.media_source.build(media: track_kind.new)
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316064958) do
+ActiveRecord::Schema.define(version: 20170316120719) do
 
   create_table "embeddeds", force: :cascade do |t|
     t.datetime "created_at", null: false
