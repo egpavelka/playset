@@ -20,6 +20,15 @@ class Track < ApplicationRecord
   validates :album, presence: true
   validates :artist, presence: true
   validates :year, length: { is: 4 }
+  validates :kind, presence: true, inclusion: { in: %w(Upload Embedded), message: "%{value} is not a supported service" }
+
+  def self.kinds
+    [Upload, Embedded]
+  end
+
+  def media
+    media_source&.media
+  end
 
   def track_loaded?
     # upload_successful? or embed_successful?

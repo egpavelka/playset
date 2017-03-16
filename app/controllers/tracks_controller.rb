@@ -4,11 +4,12 @@ class TracksController < ApplicationController
   def new
     @track = Track.new
     #
-    # @track.media_source.create(media: source_kind.new)
+    @track.media_source.build(media: track_kind.new)
   end
 
   def create
     @track = current_user.tracks.build(track_params)
+    @track.media_source.build(media: track_kind.new(track_params[:media_source_attributes]))
     if @track.save
       flash[:success] = "Track posted successfully."
       redirect_to root_path
@@ -38,15 +39,16 @@ class TracksController < ApplicationController
   private
 
     def track_params
-      params.require(:track).permit(:title, :artist, :album, :year, media_source_attributes: msa)
+      params.require(:track).permit(:kind, :title, :artist, :album, :year, media_source_attributes: msa)
     end
 
+    # Retrieve
     def msa
-
+      track_kind&.column_defaults&.keys.try(:-,[:id,:created_at,:updated_at])
     end
 
-    def source_kind
-
+    def track_kind
+      Track.kinds.detect {|k| k.name == params.dig(:track, :kind)}
     end
 
 end
