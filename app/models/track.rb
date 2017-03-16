@@ -16,31 +16,34 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
 
-  # Track metadata
-  validates :title, presence: true
-  validates :album, presence: true
-  validates :artist, presence: true
-  validates :year, length: { is: 4 }
-  validates :kind, presence: true, inclusion: { in: %w(Upload Embedded Video), message: "%{value} is not a supported service" }
-
   def self.kinds
     [Upload, Embedded, Video]
   end
 
-  def media
-    media_source&.media
+  def track_source
+    validates :kind, presence: true
+    # make sure kind corresponds with file/link source field
+    # check that it's a valid member of that class
+    # if track_loaded? show metadata fields
+    # else
   end
 
   def track_loaded?
-    # upload_successful? or embed_successful?
+    # upload_successful? or embed_successful? (got api response?)
   end
 
   def has_metadata?
-    # autofill, disable form for title/artist/album/year
+    # retrieve metadata from embedded sources
+    # check mp3 for metadata
+    # populate metadata form with retrieved values, disable populated fields
+  end
+
+  # Track metadata
+  def track_metadata
+    validates :title, presence: true
+    validates :album, presence: true
+    validates :artist, presence: true
+    validates :year, length: { is: 4 }
   end
 
 end
-
-# -----------[ REQUIRE ]----------------
-require 'embedded'
-require 'upload'
