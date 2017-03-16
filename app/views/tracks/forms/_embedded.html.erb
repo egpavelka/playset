@@ -1,8 +1,8 @@
 <%= f.fields_for :embedded do |emb| %>
   <li class="form-entry">
-    <%= emb.label :url_source, "Track URL" %>
+    <%= emb.label :url_source, 'Track URL' %>
     <%= emb.text_field :url_source %>
   </li>
 
-  <%= emb.submit "Check link", class: "submit-button" %>
+  <%= emb.submit 'Check link', class: 'submit-button' %>
 <% end %>
