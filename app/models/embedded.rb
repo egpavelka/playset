@@ -10,17 +10,20 @@ class Embedded < ApplicationRecord
   # Basic check that URLs belong to a supported service and contain the base
   def validate_url_source
     if "bandcamp.com/track/".in? url_source
-      api_source = 'bandcamp'
+      puts 'bandcamp'
+      # api_source = 'bandcamp'
     elsif "soundcloud.com/".in? url_source
-      api_source = 'soundcloud'
+      # api_source = 'soundcloud'
     elsif "spotify.com/".in? url_source
-      api_source = 'spotify'
-    elsif "youtube.com/watch?v=".in? url_source
-      api_source = 'youtube'
+      # api_source = 'spotify'
     else
       flash[:danger] = title_error
       render 'new'
     end
+  end
+
+  def self.api_sources
+    [Soundcloud, Spotify, Bandcamp]
   end
 
   def get_info

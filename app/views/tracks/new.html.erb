@@ -4,9 +4,9 @@
     <%= form_for(@track) do |f| %>
 
       <div class="track-submission-nav">
-        <%= f.radio_button :source_kind, 'Embedded', class: 'source_kind', checked: true %> Submit audio from URL
-        <%= f.radio_button :source_kind, 'Video', class: 'source_kind', checked: true %> Submit video from URL
-        <%= f.radio_button :source_kind, 'Upload', class: 'source_kind', checked: false %> Upload audio file
+        <%= f.radio_button :kind, 'Embedded', class: 'track_kind', checked: true %> Submit audio from URL
+        <%= f.radio_button :kind, 'Video', class: 'track_kind', checked: true %> Submit video from URL
+        <%= f.radio_button :kind, 'Upload', class: 'track_kind', checked: false %> Upload audio file
       </div>
 
       <div id="embedded-form" class="form-entry">
