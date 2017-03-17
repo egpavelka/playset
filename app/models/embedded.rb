@@ -5,30 +5,37 @@ class Embedded < ApplicationRecord
   # User enters URL
   validates :url_source, presence: true
   # Assign to service so API can be called
-  # validates :api_source, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
+  # validates :embed_kind, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
 
   # Basic check that URLs belong to a supported service and contain the base
-  def validate_url_source
-    if "bandcamp.com/track/".in? url_source
-      puts 'bandcamp'
-      # api_source = 'bandcamp'
-    elsif "soundcloud.com/".in? url_source
-      # api_source = 'soundcloud'
-    elsif "spotify.com/".in? url_source
-      # api_source = 'spotify'
-    else
-      flash[:danger] = title_error
-      render 'new'
-    end
+  def check_api_source
+    # valid base URLs for supported services
+    embed_kinds = {
+      'bandcamp.com/track/' => 'Bandcamp',
+      'soundcloud.com' => 'Soundcloud',
+      'spotify.com/' => 'Spotify'
+    }
+    # check if the url belongs to a supported service
+    embed_kinds.each { |base, api|
+      if "#{base}".in? self.url_source.to_s
+        self.api_source = "#{api}"
+      end
+    }
+    # send to appropriate validation/http get method
+    # unless api_source.nil?
+    #   check_api_response = "get_from_#{self.api_source.downcase}"
+    #   self.check_api_response
+    # end
   end
 
-  def self.api_sources
-    [Soundcloud, Spotify, Bandcamp]
+  def get_from_bandcamp
+    puts 'gotcha'
   end
 
-  def get_info
+  def get_from_soundcloud
   end
 
-  title_error = "Please enter a valid link to a single Bandcamp, Soundcloud, or Spotify track or a YouTube video."
+  def get_from_spotify
+  end
 
 end

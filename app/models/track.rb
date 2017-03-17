@@ -4,11 +4,11 @@ class Track < ApplicationRecord
   validates :user_id, presence: true
 
   # MEDIA
-  has_one :media_source
-  accepts_nested_attributes_for :media_source, allow_destroy: true
+  has_one :media_source, dependent: :destroy
   has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
   has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
   has_one :video, through: :media_source, source: :media, source_type: 'Video'
+  accepts_nested_attributes_for :media_source, allow_destroy: true
 
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
@@ -16,12 +16,10 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
 
-  def self.kinds
-    [Upload, Embedded, Video]
-  end
+  validates :kind, presence: true
 
   def track_source
-    validates :kind, presence: true
+
     # make sure kind corresponds with file/link source field
     # check that it's a valid member of that class
     # if track_loaded? show metadata fields
