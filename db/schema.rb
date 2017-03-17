@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316120719) do
+ActiveRecord::Schema.define(version: 20170317104801) do
 
   create_table "embeddeds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "url_source"
+    t.string   "api_source"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170316120719) do
     t.string   "artist"
     t.string   "album"
     t.string   "year"
+    t.string   "kind"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
