@@ -18,8 +18,7 @@ class Track < ApplicationRecord
 
   validates :kind, presence: true
 
-  def track_source
-
+  def track_kind
     # make sure kind corresponds with file/link source field
     # check that it's a valid member of that class
     # if track_loaded? show metadata fields
