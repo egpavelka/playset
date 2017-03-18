@@ -5,10 +5,10 @@ class Embedded < ApplicationRecord
   # User enters URL
   validates :url_source, presence: true
   # Assign to service so API can be called
-  # validates :embed_kind, presence: true, inclusion: { in: %w(bandcamp soundclound spotify youtube), message: "%{value} is not a supported service" }
+
 
   # Basic check that URLs belong to a supported service and contain the base
-  def check_api_source
+  def embed_source_info
     # valid base URLs for supported services
     embed_kinds = {
       'bandcamp.com/track/' => 'Bandcamp',

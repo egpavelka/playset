@@ -3,20 +3,20 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
-
-    # @track.media_source.build(media: @track.kind.new)
+    # @track.media = params[:kind].new
   end
 
   def create
     @track = current_user.tracks.build(track_params)
-    @track.media_source.build(media: track_kind.new(track_params[:media_source_attributes]))
-    if @track.save
-      flash[:success] = "Track posted successfully."
-      redirect_to root_path
-    else
-      flash[:danger] = "Submission had errors."
-      render 'new'
-    end
+    @track.build_media_source(media: @track.kind.constantize.new)
+    # if @track.save
+    #   # @track.media = params[:kind].safe_constantize.new
+    #   flash[:success] = "Track posted successfully."
+    #   redirect_to root_path
+    # else
+    #   flash[:danger] = "Submission had errors."
+    #   render 'new'
+    # end
   end
 
   def show
@@ -39,16 +39,13 @@ class TracksController < ApplicationController
   private
 
     def track_params
-      params.require(:track).permit(:kind, :title, :artist, :album, :year, media_source_attributes: msa)
+      params.require(:track).permit(:kind, :title, :artist, :album, :year, media_source_attributes: media_params)
     end
 
-    # Retrieve
-    def msa
-      track_kind&.column_defaults&.keys.try(:-,[:id,:created_at,:updated_at])
-    end
-
-    def track_kind
-      Track.kinds.detect {|k| k.name == params.dig(:track, :kind)}
+    def media_params
+      unless params[:id].nil?
+        Track.find(params[:id]).kind.constantize.column_names
+      end
     end
 
 end
