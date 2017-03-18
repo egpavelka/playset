@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :tracks do
     resources :embeddeds
     resources :uploads
+    resources :videos
   end
 
 end
