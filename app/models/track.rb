@@ -16,9 +16,16 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
 
-  validates :kind, presence: true
+  validates :kind, presence: true, on: :set_source_kind
 
-  def track_kind
+  def set_source_kind
+    if params[:commit] == 'Embedded'
+      self.kind = 'Embedded'
+    elsif params[:commit] == 'Upload'
+      render 'new'
+    elsif params[:commit] == 'Video'
+      render 'new'
+    end
     # make sure kind corresponds with file/link source field
     # check that it's a valid member of that class
     # if track_loaded? show metadata fields
