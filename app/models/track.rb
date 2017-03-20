@@ -16,38 +16,13 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
 
-  validates :kind, presence: true, on: :set_source_kind
+  # def statuses
+  #   ['new', 'pending', 'active', 'flagged', 'broken']
+  # end
 
-  def set_source_kind
-    if params[:commit] == 'Embedded'
-      self.kind = 'Embedded'
-    elsif params[:commit] == 'Upload'
-      render 'new'
-    elsif params[:commit] == 'Video'
-      render 'new'
-    end
-    # make sure kind corresponds with file/link source field
-    # check that it's a valid member of that class
-    # if track_loaded? show metadata fields
-    # else
-  end
-
-  def track_loaded?
-    # upload_successful? or embed_successful? (got api response?)
-  end
-
-  def has_metadata?
-    # retrieve metadata from embedded sources
-    # check mp3 for metadata
-    # populate metadata form with retrieved values, disable populated fields
-  end
-
-  # Track metadata
-  def track_metadata
-    validates :title, presence: true
-    validates :album, presence: true
-    validates :artist, presence: true
-    validates :year, length: { is: 4 }
+  # Determines whether track is visible
+  def active?
+    status == 'active'
   end
 
 end

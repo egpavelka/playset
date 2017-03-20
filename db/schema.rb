@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317104801) do
+ActiveRecord::Schema.define(version: 20170320083447) do
 
   create_table "embeddeds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "url_source"
     t.string   "api_source"
   end
 
@@ -31,10 +30,16 @@ ActiveRecord::Schema.define(version: 20170317104801) do
   create_table "media_sources", force: :cascade do |t|
     t.string   "media_type"
     t.integer  "media_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "track_id"
+    t.string   "source_path"
+    t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id"
+  end
+
+  create_table "track_submissions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "track_id"
-    t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id"
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -46,14 +51,14 @@ ActiveRecord::Schema.define(version: 20170317104801) do
     t.string   "album"
     t.string   "year"
     t.string   "kind"
+    t.string   "status"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "file_source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,9 +80,8 @@ ActiveRecord::Schema.define(version: 20170317104801) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "video_source"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
