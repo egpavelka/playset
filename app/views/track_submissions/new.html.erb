@@ -1,27 +1,19 @@
 <% provide(:title, "submit track") %>
 <section class="content-container static-pages">
   <div class="page-header">submit track</div>
-    <%= form_for(@submission) do |f| %>
+    <%= form_for(@track_submission) do |f| %>
 
-      <div class="track-submission-nav">
-        <%= f.radio_button :kind, 'Embedded', class: 'track_kind', checked: true %> Submit audio from URL
-        <%= f.radio_button :kind, 'Video', class: 'track_kind', checked: false %> Submit video from URL
-        <%= f.radio_button :kind, 'Upload', class: 'track_kind', checked: false %> Upload audio file
-      </div>
-
-      <li><%= f.submit 'Embedded' %></li>
-      <li><%= f.submit 'Upload' %></li>
-      <li><%= f.submit 'Video' %></li>
+      <%= f.select [:track][:kind], [['Embedded', 1], ['Video', 2], ['Upload', 3]] %>
 
       <div id="embedded-form" class="form-entry">
-          <%= render "tracks/forms/embedded", f: f %>
+          <%= render "track_submissions/forms/embedded", f: f %>
       </div>
 
       <div id="upload-form" class="form-entry">
-          <%= render 'tracks/forms/upload', f: f %>
+          <%= render 'track_submissions/forms/upload', f: f %>
       </div>
 
-      <%= render 'tracks/forms/metadata', f: f %>
+      <%= render 'track_submissions/forms/metadata', f: f %>
 
       <%= f.submit "Submit", class: "submit-button" %>
 
