@@ -8,15 +8,15 @@ class TracksController < ApplicationController
 
   def create
     @track = current_user.tracks.build(track_params)
-    @track.build_media_source(media: @track.kind.constantize.new)
-    if @track.save
-      # @track.media = params[:kind].safe_constantize.new
-      flash[:success] = "Track posted successfully."
-      redirect_to root_path
-    else
-      flash[:danger] = "Submission had errors."
-      render 'new'
-    end
+    # @track.build_media_source(media: @track.kind.constantize.new)
+    # if @track.save
+    #   # @track.media = params[:kind].safe_constantize.new
+    #   flash[:success] = "Track posted successfully."
+    #   redirect_to root_path
+    # else
+    #   flash[:danger] = "Submission had errors."
+    #   render 'new'
+    # end
   end
 
   def show
@@ -39,7 +39,7 @@ class TracksController < ApplicationController
   private
 
     def track_params
-      params.require(:track).permit(:kind, :title, :artist, :album, :year, media_source_attributes: media_params)
+      params.require(:track).permit(:kind, :status, :title, :artist, :album, :year, media_source_attributes: media_params)
     end
 
     def media_params
