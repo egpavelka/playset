@@ -52,18 +52,14 @@ class TrackSubmissionsController < ApplicationController
     TrackSubmission::STEPS[TrackSubmission::STEPS.index(step) + 1]
   end
 
-  def set_up(src)
-    return
-  end
-
   def source(src)
     src.kind.safe_constantize.new(params[:media_source])
   end
 
-  def media
+  def media(src)
   end
 
-  def metadata
+  def metadata(src)
   end
 
 end
