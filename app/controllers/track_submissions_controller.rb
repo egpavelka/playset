@@ -2,10 +2,11 @@ class TrackSubmissionsController < ApplicationController
 
   def new
     @submission = TrackSubmission.new
+    @submission.track = Track.new
   end
 
   def create
-    @submission = TrackSubmission.new(track_params)
+    @submission = TrackSubmission.new(params[:track_submission])
     if @submission.save
       # @track.media = params[:kind].safe_constantize.new
       flash[:success] = "Track posted successfully."

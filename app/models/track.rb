@@ -2,6 +2,13 @@ class Track < ApplicationRecord
   # USER
   belongs_to :user
   validates :user_id, presence: true
+  validates :status, inclusion: { in: %w(new pending active flagged broken) }
+  validates :kind, inclusion: { in: %w(Embedded Upload Video) }
+  validates :source_path, presence: true
+  validates :title, presence: true
+  validates :album, presence: true
+  validates :artist, presence: true
+  validates :year, length: { is: 4 }
 
   # MEDIA
   has_one :media_source, dependent: :destroy
