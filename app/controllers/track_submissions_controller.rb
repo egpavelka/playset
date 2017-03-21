@@ -3,7 +3,8 @@ class TrackSubmissionsController < ApplicationController
   before_action :load_track_submission, except: %i(validate_current)
 
   def validate_current
-    @track_submission = current_step_submission(params[:current_step])
+    current_step = params[:current_step]
+    @track_submission = current_step_submission(current_step)
     @track_submission.track.attributes = track_submission_params
     session[:track_attributes] = @track_submission.track.attributes
 
@@ -24,14 +25,14 @@ class TrackSubmissionsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Submission had errors."
-      render 'new'
+      redirect_to({ action: TrackSubmission::STEPS.first })
     end
   end
 
   private
 
   def track_submission_params
-    params.require(:track_submission).permit(:status, :kind, :source_path, :title, :artist, :album, :year)
+    params.require(:track_submission).permit(:status, :kind, :media_source, :title, :artist, :album, :year)
   end
 
   def load_track_submission
@@ -40,13 +41,14 @@ class TrackSubmissionsController < ApplicationController
 
   def current_step_submission(step)
     if step.in?(TrackSubmission::STEPS)
-      step(session[:track_attributes])
+      "TrackSubmission::#{step.camelize}".constantize.new(session[:track_attributes])
     else
+      flash[:danger] = "TrackSubmission::#{step.camelize}"
     end
   end
 
   def next_step_submission(step)
-    track_submission.steps[track_submission.steps.index(step + 1)]
+    TrackSubmission::STEPS[TrackSubmission::STEPS.index(step) + 1]
   end
 
 end
