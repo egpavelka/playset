@@ -1,6 +1,10 @@
 class TracksController < ApplicationController
   # before_action :logged_in_user, only: [:destroy]
 
+  def create
+    @track = Track.new(track_params)
+  end
+
   def show
     @track = Track.find(params[:id]).media_source.media
   end
@@ -18,5 +22,15 @@ class TracksController < ApplicationController
   end
 
   private
+
+  def track_params
+    params.require(:track).permit(:status, :kind, :source_path, :title, :artist, :album, :year, media_source_attributes: media_params)
+  end
+
+  def media_params
+    unless params[:id].nil?
+      Track.find(params[:id]).kind.constantize.column_names
+    end
+  end
 
 end

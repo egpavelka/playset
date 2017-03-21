@@ -1,7 +1,6 @@
 module TrackSubmissionsHelper
 
   # Allowed validations
-  steps = %w(add_source add_media add_metadata)
 
   def current_step
     @current_step || steps.first

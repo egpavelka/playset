@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'track_submissions/add_source'
-
-  get 'track_submissions/add_media'
-
-  get 'track_submissions/publish'
-
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -25,19 +19,27 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/submit', to: 'track_submissions#new'
-  post '/submit', to: 'track_submissions#create'
+  # get '/submit/1', to: 'track_submissions#set_up'
+  # get '/submit/2', to: 'track_submissions#add_source'
+  # get '/submit/3', to: 'track_submissions#add_media'
+  # get '/submit/4', to: 'track_submissions#add_metadata'
+  # post '/submit/success', to: 'track_submissions#validate_current'
 
 
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
-  resources :track_submissions, only: [:new, :create]
+  resource :track_submissions do
+    get :set_up
+    get :add_source
+    get :add_media
+    get :add_metadata
+    post :validate_current
+  end
+
   resources :tracks do
-    resources :embeddeds
-    resources :uploads
-    resources :videos
+    resources :embeddeds, :uploads, :videos
   end
 
 end
