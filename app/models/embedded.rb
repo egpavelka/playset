@@ -1,14 +1,11 @@
 class Embedded < ApplicationRecord
   has_one :media_source, as: :media
   has_one :track, through: :media_source
-
-  # User enters URL
-  validates :url_source, presence: true
   # Assign to service so API can be called
 
 
   # Basic check that URLs belong to a supported service and contain the base
-  def embed_source_info
+  def validate_child(source_path)
     # valid base URLs for supported services
     embed_kinds = {
       'bandcamp.com/track/' => 'Bandcamp',
@@ -17,8 +14,8 @@ class Embedded < ApplicationRecord
     }
     # check if the url belongs to a supported service
     embed_kinds.each { |base, api|
-      if "#{base}".in? self.url_source.to_s
-        self.api_source = "#{api}"
+      if "#{base}".in? source_path.to_s
+        "#{api}".new(source_path)
       end
     }
     # send to appropriate validation/http get method
@@ -28,14 +25,13 @@ class Embedded < ApplicationRecord
     # end
   end
 
-  def get_from_bandcamp
-    puts 'gotcha'
-  end
+end
 
-  def get_from_soundcloud
-  end
+class Bandcamp < Embedded
+end
 
-  def get_from_spotify
-  end
+class Soundcloud < Embedded
+end
 
+class Spotify < Embedded
 end

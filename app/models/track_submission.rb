@@ -15,14 +15,13 @@ class TrackSubmission < ApplicationRecord
     end
   end
 
-
   class AddSource < SetUp
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
     validates :source_path, presence: true
   end
 
   class AddMedia < AddSource
-    validates :media_source, presence: true
+    validates :status, inclusion: { in: %w(new pending active flagged broken) }
   end
 
   class AddMetadata < AddMedia
