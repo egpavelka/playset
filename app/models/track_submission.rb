@@ -2,11 +2,13 @@ class TrackSubmission < ApplicationRecord
 
   STEPS = %w(set_up add_source add_media add_metadata).freeze
 
+  KINDS = [['Embedded', 'embedded'], ['Video', 'video'], ['Upload', 'upload']].freeze
+
   class SetUp
     include ActiveModel::Model
 
     attr_accessor :track
-    delegate :kind, :status, :title, :artist, :album, :year, to: :track
+    delegate :kind, :status, :media_source, :title, :artist, :album, :year, to: :track
 
     def initialize(track_attributes)
       @track = Track.new(track_attributes)

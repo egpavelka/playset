@@ -1,0 +1,20 @@
+<% provide(:title, "submit track") %>
+<section class="content-container static-pages">
+  <div class="page-header">submit track</div>
+    <%= form_for(@track_submission, as: :track_submission, url: validate_current_track_submission_path)  do |f| %>
+
+      <%= hidden_field_tag :current_step, 'set_up' %>
+
+      <%= f.select :kind, TrackSubmission::KINDS %>
+
+      <li class="form-entry">
+      <%= f.fields_for :media_source do |msf| %>
+        <%= msf.label :source_path, 'URL' %>
+        <%= msf.text_field :source_path %>
+      <% end %>
+      </li>
+
+      <%= f.submit 'Continue', class: 'submit-button' %>
+
+    <% end %>
+</section>
