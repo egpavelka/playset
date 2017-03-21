@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   resource :track_submission do
-    get :set_up
     get :add_source
     get :add_media
     get :add_metadata

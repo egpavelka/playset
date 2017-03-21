@@ -1,10 +1,10 @@
 class TrackSubmission < ApplicationRecord
 
-  STEPS = %w(set_up add_source add_media add_metadata).freeze
+  STEPS = %w(add_source add_media add_metadata).freeze
 
   KINDS = [['Embedded', 'embedded'], ['Video', 'video'], ['Upload', 'upload']].freeze
 
-  class SetUp
+  class AddSource
     include ActiveModel::Model
 
     attr_accessor :track
@@ -13,11 +13,9 @@ class TrackSubmission < ApplicationRecord
     def initialize(track_attributes)
       @track = Track.new(track_attributes)
     end
-  end
 
-  class AddSource < SetUp
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-    validates :source_path, presence: true
+    validates :media_source, presence: true
   end
 
   class AddMedia < AddSource

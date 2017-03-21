@@ -1,0 +1,16 @@
+<% provide(:title, "submit track") %>
+<section class="content-container static-pages">
+  <div class="page-header">submit track</div>
+    <%= form_for(@track_submission, as: :track_submission, url: validate_current_track_submission_path)  do |f| %>
+
+      <%= hidden_field_tag :current_step, 'add_media' %>
+
+      <li class="form-entry">
+        <%= f.label :status %>
+        <%= f.text_field :status %>
+      </li>
+
+      <%= f.submit 'Continue', class: 'submit-button' %>
+
+    <% end %>
+</section>
