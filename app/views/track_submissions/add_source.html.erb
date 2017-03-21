@@ -5,9 +5,13 @@
 
       <%= hidden_field_tag :current_step, 'add_source' %>
 
+      <%= f.select :kind, TrackSubmission::KINDS %>
+
       <li class="form-entry">
-        <%= f.label :status %>
-        <%= f.text_field :status %>
+      <%= f.fields_for :media_source do |msf| %>
+        <%= msf.label :source_path, 'URL' %>
+        <%= msf.text_field :source_path %>
+      <% end %>
       </li>
 
       <%= f.submit 'Continue', class: 'submit-button' %>
