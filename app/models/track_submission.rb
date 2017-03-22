@@ -15,7 +15,7 @@ class TrackSubmission < ApplicationRecord
     end
 
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-    validates :media_source, presence: true
+    validates :media_source, presence: true # validates nested attribute source_path
   end
 
   class AddMedia < AddSource

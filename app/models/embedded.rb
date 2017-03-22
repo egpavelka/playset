@@ -5,7 +5,7 @@ class Embedded < ApplicationRecord
 
 
   # Basic check that URLs belong to a supported service and contain the base
-  def validate_child(source_path)
+  def new(source_path)
     # valid base URLs for supported services
     embed_kinds = {
       'bandcamp.com/track/' => 'Bandcamp',
@@ -15,7 +15,7 @@ class Embedded < ApplicationRecord
     # check if the url belongs to a supported service
     embed_kinds.each { |base, api|
       if "#{base}".in? source_path.to_s
-        "#{api}".new(source_path)
+        @media = "#{api}".new(source_path)
       end
     }
     # send to appropriate validation/http get method
