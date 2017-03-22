@@ -2,7 +2,7 @@
 <section class="content-container static-pages">
   <div class="page-header">Sign up</div>
     <%= form_for(@user, url: signup_path, class: "signup-form") do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages', object: f.object %>
       <li class="form-entry">
         <%= f.label :username %>
         <%= f.text_field :username %>
