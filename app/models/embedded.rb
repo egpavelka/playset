@@ -5,7 +5,7 @@ class Embedded < ApplicationRecord
 
 
   # Basic check that URLs belong to a supported service and contain the base
-  def new(source_path)
+  def check_source_path(source_path)
     # valid base URLs for supported services
     embed_kinds = {
       'bandcamp.com/track/' => 'Bandcamp',
@@ -15,7 +15,7 @@ class Embedded < ApplicationRecord
     # check if the url belongs to a supported service
     embed_kinds.each { |base, api|
       if "#{base}".in? source_path.to_s
-        @media = "#{api}".new(source_path)
+        api_source = "#{api}".new(source_path)
       end
     }
     # send to appropriate validation/http get method
@@ -24,6 +24,21 @@ class Embedded < ApplicationRecord
     #   self.check_api_response
     # end
   end
+
+  # def source_path_must_be_supported
+  #   if kind == Upload
+  #     return
+  #   elsif kind == Embedded
+  #     media = Embedded.new(media_source.source_path)
+  #     unless media.api_source
+  #       errors.add(:media_source, "Please supply a link for a song on Spotify, Soundcloud, or Bandcamp.")
+  #     end
+  #   elsif kind == Video
+  #     unless "youtube.com".in?(media_source.source_path)
+  #       errors.add(:media_source, "Please supply a valid YouTube URL.")
+  #     end
+  #   end
+  # end
 
 end
 
