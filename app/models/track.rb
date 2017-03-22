@@ -12,11 +12,11 @@ class Track < ApplicationRecord
 
   # MEDIA
   has_one :media_source, dependent: :destroy
+  store :media_source, accessors: [:source_path, :media]
   has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
   has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
   has_one :video, through: :media_source, source: :media, source_type: 'Video'
-  accepts_nested_attributes_for :media_source, allow_destroy: true
-
+  
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
   # Display (on user profile, main index)
