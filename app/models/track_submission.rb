@@ -10,6 +10,7 @@ class TrackSubmission < ApplicationRecord
     include ActiveModel::Validations::Callbacks
 
     attr_accessor :track
+
     delegate :kind, :status, :title, :artist, :album, :year, :media_id, :media_type, :source_path, to: :track
 
     def initialize(track_attributes)
@@ -22,7 +23,7 @@ class TrackSubmission < ApplicationRecord
 
     def set_media_source
       @media = @track.create_media_source(media: kind.safe_constantize.new)
-      # @media.source_path = media_source[:source_path]
+      @media.source_path = @track.source_path
       puts @media.attributes
     end
 
