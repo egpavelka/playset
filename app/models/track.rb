@@ -12,24 +12,17 @@ class Track < ApplicationRecord
 
   # MEDIA
   has_one :media_source, dependent: :destroy
-  store :media_source, accessors: [:source_path, :media]
+  attr_accessor :media_source
+  store_accessor :media_source, :source_path, :media_id, :media_type
+
   has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
   has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
   has_one :video, through: :media_source, source: :media, source_type: 'Video'
-  
+
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
   # Display (on user profile, main index)
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
-
-  # def statuses
-  #   ['new', 'pending', 'active', 'flagged', 'broken']
-  # end
-
-  # Determines whether track is visible
-  def active?
-    status == 'active'
-  end
 
 end

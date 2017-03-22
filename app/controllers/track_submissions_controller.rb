@@ -13,8 +13,7 @@ class TrackSubmissionsController < ApplicationController
       create and return unless next_step
       redirect_to action: next_step
     else
-      flash[:danger] = "There were errors."
-      redirect_to action: current_step
+      render current_step
     end
   end
 
@@ -32,7 +31,7 @@ class TrackSubmissionsController < ApplicationController
   private
 
   def track_submission_params
-    params.require(:track_submission).permit(:status, :kind, :media_source, :title, :artist, :album, :year)
+    params.require(:track_submission).permit(:status, :kind, :title, :artist, :album, :year, media_source_attributes: [:media_id, :media_type, :source_path])
   end
 
   def load_track_submission

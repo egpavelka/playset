@@ -24,13 +24,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:status, :kind, :source_path, :title, :artist, :album, :year, media_source_attributes: media_params)
-  end
-
-  def media_params
-    unless params[:id].nil?
-      Track.find(params[:id]).kind.constantize.column_names
-    end
+    params.require(:track).permit(:status, :kind, :title, :artist, :album, :year, media_source_attributes: [:media_id, :media_type, :source_path])
   end
 
 end
