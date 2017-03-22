@@ -7,8 +7,6 @@ class TrackSubmissionsController < ApplicationController
     @track_submission = current_step_submission(current_step)
     @track_submission.track.attributes = track_submission_params
     session[:track_attributes] = @track_submission.track.attributes
-    # Execute additional intermediate assignments and complex validations.
-    %i(current_step(session[:track_attributes]))
 
     if @track_submission.valid?
       next_step = next_step_submission(current_step)
@@ -16,12 +14,13 @@ class TrackSubmissionsController < ApplicationController
       redirect_to action: next_step
     else
       flash[:danger] = "There were errors."
-      render current_step
+      redirect_to action: current_step
     end
   end
 
   def create
     if @track_submission.save
+      @track = current_user.track.build(session[:track_attributes])
       flash[:success] = "Track posted successfully."
       redirect_to root_path
     else
@@ -50,16 +49,6 @@ class TrackSubmissionsController < ApplicationController
 
   def next_step_submission(step)
     TrackSubmission::STEPS[TrackSubmission::STEPS.index(step) + 1]
-  end
-
-  def add_source(src)
-    src.kind.safe_constantize.new(params[:media_source])
-  end
-
-  def add_media(src)
-  end
-
-  def add_metadata(src)
   end
 
 end
