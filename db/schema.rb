@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170322095906) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "embeddeds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170322095906) do
     t.integer  "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["track_id"], name: "index_likes_on_track_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["track_id"], name: "index_likes_on_track_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "media_sources", force: :cascade do |t|
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170322095906) do
     t.datetime "updated_at",  null: false
     t.integer  "track_id"
     t.string   "source_path"
-    t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id"
+    t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id", using: :btree
   end
 
   create_table "track_submissions", force: :cascade do |t|
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170322095906) do
     t.string   "year"
     t.string   "kind"
     t.string   "status"
-    t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_tracks_on_user_id"
+    t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -75,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170322095906) do
     t.boolean  "admin",             default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
   create_table "videos", force: :cascade do |t|
@@ -83,4 +86,8 @@ ActiveRecord::Schema.define(version: 20170322095906) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "likes", "tracks"
+  add_foreign_key "likes", "users"
+  add_foreign_key "media_sources", "tracks"
+  add_foreign_key "tracks", "users"
 end
