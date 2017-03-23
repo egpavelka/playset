@@ -13,7 +13,8 @@ class Track < ApplicationRecord
   # MEDIA
   has_one :media_source, dependent: :destroy
   attr_accessor :media_source
-  store_accessor :media_source, :source_path, :media_id, :media_type
+  store :media_source, accessors: [:media_id, :media_type, :source_path], coder: JSON
+  # store_accessor :media_source, :source_path, :media_id, :media_type
 
   has_one :upload, through: :media_source, source: :media, source_type: 'Upload'
   has_one :embedded, through: :media_source, source: :media, source_type: 'Embedded'
