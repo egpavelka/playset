@@ -10,10 +10,10 @@
       <%= f.select :kind, TrackSubmission::KINDS %>
 
       <li class="form-entry">
-      <!-- <%= f.fields_for :media_source do |msf| %> -->
-        <%= f.label :source_path, 'URL' %>
-        <%= f.text_field :source_path %>
-      <!-- <% end %> -->
+      <%= f.fields_for :media_sources do |msf| %>
+        <%= msf.label :source_path, 'URL' %>
+        <%= msf.text_field :source_path %>
+      <% end %>
       </li>
 
       <%= f.submit 'Continue', class: 'submit-button' %>
