@@ -11,6 +11,7 @@ class TracksController < ApplicationController
 
   def index
     @tracks = Track.paginate(page: params[:page])
+    render json: @tracks
   end
 
   def destroy
@@ -24,7 +25,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:status, :kind, :title, :artist, :album, :year, media_source_attributes: [:media_id, :media_type, :source_path])
+    params.require(:track).permit(:status, :kind, :media_sources, :title, :artist, :album, :year)
   end
 
 end

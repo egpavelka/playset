@@ -1,6 +1,6 @@
 class Embedded < ApplicationRecord
   has_one :media_source, as: :media
-  has_one :track, through: :media_source
+  has_one :track, through: :media_sources
   # Assign to service so API can be called
 
 

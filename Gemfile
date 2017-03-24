@@ -6,6 +6,8 @@ gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Serializer for ActiveModel
+gem 'active_model_serializers', '~> 0.10.0'
 # Autoprefixer
 gem 'autoprefixer-rails', '~> 6.6.1'
 # Add paging to datasets

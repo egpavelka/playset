@@ -6,22 +6,25 @@ class TrackSubmission < ApplicationRecord
 
   class AddSource
     include ActiveModel::Model
-    include ActiveModel::Validations
+    # include ActiveModel::Validations
     include ActiveModel::Validations::Callbacks
 
     attr_accessor :track
-    delegate :kind, :status, :title, :artist, :album, :year, :media_id, :media_type, :source_path, to: :track
+
+    delegate :kind, :status, :title, :artist, :album, :year, :media_sources, to: :track
 
     def initialize(track_attributes)
-      puts track_attributes
       @track = Track.new(track_attributes)
+      @track.media_sources
+      puts @track.attributes
     end
 
     before_validation :set_media_source
 
     def set_media_source
-      @media = @track.create_media_source(media: kind.safe_constantize.new, source_path: source_path)
-      # @media.source_path = media_source.source_path
+      media_kind = @track.kind.safe_constantize.new
+      @media = @track.media_sources.build(media: media_kind)
+      puts @track.attributes
       puts @media.attributes
     end
 
@@ -29,8 +32,8 @@ class TrackSubmission < ApplicationRecord
     validate :media_source_has_source_path
 
     def media_source_has_source_path
-      if @media.source_path.nil?
-        errors.add(:media_source, "Link to media is required.")
+      if @media.media_sources.media.source_path.nil?
+        errors.add(:media_sources, "Link to media is required.")
       end
     end
 
