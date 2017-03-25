@@ -23,11 +23,11 @@ class TrackSubmission < ApplicationRecord
     def set_media_source
       puts @track.submission_source
       media_kind = @track.kind.safe_constantize.new
-      @media = @track.media_sources.build(media: media_kind)
+      @media = @track.media_sources.build(media: media_kind, source_path: submission_source)
     end
 
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-    # validate :media_source_has_source_path
+    validate :media_source_has_source_path
 
     def media_source_has_source_path
       if @media.source_path.nil?
