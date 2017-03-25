@@ -1,4 +1,4 @@
 class TrackSerializer < ActiveModel::Serializer
   attributes :status, :kind, :title, :artist, :album, :year
-  has_one :media
+  has_many :media_sources
 end

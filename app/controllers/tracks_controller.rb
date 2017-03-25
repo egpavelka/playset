@@ -1,17 +1,20 @@
 class TracksController < ApplicationController
   # before_action :logged_in_user, only: [:destroy]
 
+  # def new
+  #   @track = TrackSubmission.new(submission: [Track.new])
+  # end
+
   def create
     @track = Track.new(track_params)
   end
 
   def show
-    @track = Track.find(params[:id]).media_source.media
+    @track = Track.find(params[:id]).media_sources.media
   end
 
   def index
     @tracks = Track.paginate(page: params[:page])
-    render json: @tracks
   end
 
   def destroy
@@ -25,7 +28,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:status, :kind, :media_sources, :title, :artist, :album, :year)
+    params.require(:track).permit(:status, :kind,  :submission_source, :title, :artist, :album, :year)
   end
 
 end

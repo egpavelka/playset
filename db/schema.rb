@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322071231) do
+ActiveRecord::Schema.define(version: 20170325075828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,10 @@ ActiveRecord::Schema.define(version: 20170322071231) do
     t.integer  "media_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "track_id"
     t.string   "source_path"
+    t.integer  "track_id"
     t.index ["media_type", "media_id"], name: "index_media_sources_on_media_type_and_media_id", using: :btree
+    t.index ["track_id"], name: "index_media_sources_on_track_id", using: :btree
   end
 
   create_table "track_submissions", force: :cascade do |t|
@@ -46,14 +47,15 @@ ActiveRecord::Schema.define(version: 20170322071231) do
 
   create_table "tracks", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "title"
     t.string   "artist"
     t.string   "album"
     t.string   "year"
     t.string   "kind"
     t.string   "status"
+    t.string   "submission_source"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end

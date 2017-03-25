@@ -1,17 +1,12 @@
 class Track < ApplicationRecord
   # USER
   belongs_to :user
-  validates :user_id, presence: true
-
   # STATUS
   validates :status, inclusion: { in: %w(new pending active flagged broken) }
 
-  # METADATA
+  # SUBMISSION
   validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-  validates :title, presence: true
-  validates :album, presence: true
-  validates :artist, presence: true
-  validates :year, length: { is: 4 }
+  validates :submission_source, presence: true
 
   # MEDIA
   has_many :media_sources
@@ -19,10 +14,24 @@ class Track < ApplicationRecord
   has_many :embeddeds, through: :media_sources, source: :media, source_type: 'Embedded'
   has_many :videos, through: :media_sources, source: :media, source_type: 'Video'
 
+  # METADATA
+  validates :title, presence: true
+  validates :album, presence: true
+  validates :artist, presence: true
+  validates :year, length: { is: 4 }
+
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
   # Display (on user profile, main index)
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
+
+  def source_path_key
+    self.media_sources[:source_path]
+  end
+
+  def source_path_key= value
+    self.media_sources[:source_path] = value
+  end
 
 end

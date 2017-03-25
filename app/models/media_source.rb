@@ -4,4 +4,5 @@ class MediaSource < ApplicationRecord
   # validates :source_path, presence: true
   # attr_reader :kind
   # attr_accessor :title, :artist, :album, :year
+
 end
