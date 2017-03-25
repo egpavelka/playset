@@ -11,28 +11,26 @@ class TrackSubmission < ApplicationRecord
 
     attr_accessor :track
 
-    delegate :kind, :status, :title, :artist, :album, :year, :media_sources, to: :track
+    delegate :id, :status, :kind, :submission_source, :title, :artist, :album, :year, to: :track
 
     def initialize(track_attributes)
       @track = Track.new(track_attributes)
       @track.media_sources
-      puts @track.attributes
     end
 
     before_validation :set_media_source
 
     def set_media_source
+      puts @track.submission_source
       media_kind = @track.kind.safe_constantize.new
       @media = @track.media_sources.build(media: media_kind)
-      puts @track.attributes
-      puts @media.attributes
     end
 
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-    validate :media_source_has_source_path
+    # validate :media_source_has_source_path
 
     def media_source_has_source_path
-      if @media.media_sources.media.source_path.nil?
+      if @media.source_path.nil?
         errors.add(:media_sources, "Link to media is required.")
       end
     end
