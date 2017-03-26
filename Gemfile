@@ -6,8 +6,6 @@ gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Serializer for ActiveModel
-gem 'active_model_serializers', '~> 0.10.0'
 # Autoprefixer
 gem 'autoprefixer-rails', '~> 6.6.1'
 # Add paging to datasets
@@ -38,10 +36,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip', '~> 5.1.0'
 # Use Amazon S3 for image and audio storage
 #gem 'aws-s3'
-# Access Spotify API for embedding
-gem 'rspotify'
-# Access Discogs API for track data lookup
-gem 'discogs-wrapper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
