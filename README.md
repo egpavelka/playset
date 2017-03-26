@@ -34,6 +34,16 @@ This is the testing ground for PLAYSETTE, a sort of social network for music dis
 
 ### CHANGELOG
 
+#### [unreleased] 2016.03.25
+
+##### COMPLETED
+
+- Added submission_source as an attribute of track and replaced fields_for :media_source -> :source_path on TrackSubmission form with it; Track.media_source is built before_validation of TrackSubmission::AddSource.  (Direct access of nested attribute Track -> MediaSource -> source_path was a problem because of ActiveModel::Model and the weird polymorphic usage of MediaSources.)
+
+##### IN PROGRESS
+
+- Instead of using API wrappers/gems for each external source the app will make calls to, create a base API service and include specifics in controllers.
+
 #### [unreleased] 2016.03.19
 
 ##### IN PROGRESS
