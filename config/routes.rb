@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'uploads/new'
+
+  get 'uploads/create'
+
+  get 'embeddeds/new'
+
   get 'videos/new'
 
   get 'password_resets/new'
