@@ -1,7 +1,0 @@
-<%= f.fields_for :upload do |upl| %>
-  <li class="form-entry">
-    <%= upl.label :file_src, 'File' %>
-    <%= upl.text_field :file_src %>
-  </li>
-  <%= upl.button 'Browse...', class: 'submit-button check-upload-source' %>
-<% end %>
