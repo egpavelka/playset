@@ -7,6 +7,8 @@ module Adapters
 
     attr_accessor :video, :embedded
 
+    YT_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
+
     def parse_source(source_path)
       # Find parameters for API lookup within supplied source path
       #
