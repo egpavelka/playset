@@ -4,13 +4,14 @@ class Video < ApplicationRecord
 
   attr_accessor :media_source
 
-  VALID_YT_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  VALID_VIMEO_FORMAT = /^[https?:\/\/vimeo\.com\/]+([^#\&\?\/]*)/i
+  # https://vimeo.com/209507887
+
+  VALID_YOUTUBE_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
   # https://www.youtube.com/watch?v=8KkW8Ul7Q1I
   # https://youtu.be/8KkW8Ul7Q1I?t=1m
   # First match group will be 'watch?v=' or '&v='
   # Second match group will be video ID
-
-  YT_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
 
   # validates :source_path, presence: true, format: VALID_YT_FORMAT
 
@@ -30,14 +31,10 @@ class Video < ApplicationRecord
 end
 
 class YouTube < Video
-
   def video_id
     source_path.match.(VALID_YT_FORMAT).captures[1]
   end
+end
 
-  def query_params
-    # way to take arbitray number of arguments in controller/Adapter
-    # api.to_constantize.new()
-  end
-
+class Vimeo < Video
 end
