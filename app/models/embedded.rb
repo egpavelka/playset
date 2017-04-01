@@ -1,44 +1,25 @@
 class Embedded < ApplicationRecord
   has_one :media_source, as: :media
   has_one :track, through: :media_sources
+
+  VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
+  # https://ARTIST.bandcamp.com/track/TITLE
+  # (first match group is artist, second is title)
+
+  VALID_SOUNDCLOUD_FORMAT = /^[https?:\/\/\soundcloud\.com]+\/([^#\&\?\/]*)\/([^#\&\?\/]*)/
+  # https://soundcloud.com/ARTIST/TITLE
+  # (first match group is artist, second is title)
+
+  VALID_SPOTIFY_FORMAT = /^(spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/)([^#\&\?\/]*)/i
+  # spotify:track:2TpxZ7JUBn3uw46aR7qd6V
+  # http://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V (or https)
+  # (first match group is type (uri vs url), second is track id)
+
   # Assign to service so API can be called
+  def assign_api
 
-
-  # Basic check that URLs belong to a supported service and contain the base
-  def check_source_path(source_path)
-    # valid base URLs for supported services
-    embed_kinds = {
-      'bandcamp.com/track/' => 'Bandcamp',
-      'soundcloud.com' => 'Soundcloud',
-      'spotify.com/' => 'Spotify'
-    }
-    # check if the url belongs to a supported service
-    embed_kinds.each { |base, api|
-      if "#{base}".in? source_path.to_s
-        api_source = "#{api}".new(source_path)
-      end
-    }
-    # send to appropriate validation/http get method
-    # unless api_source.nil?
-    #   check_api_response = "get_from_#{self.api_source.downcase}"
-    #   self.check_api_response
-    # end
   end
 
-  # def source_path_must_be_supported
-  #   if kind == Upload
-  #     return
-  #   elsif kind == Embedded
-  #     media = Embedded.new(media_source.source_path)
-  #     unless media.api_source
-  #       errors.add(:media_source, "Please supply a link for a song on Spotify, Soundcloud, or Bandcamp.")
-  #     end
-  #   elsif kind == Video
-  #     unless "youtube.com".in?(media_source.source_path)
-  #       errors.add(:media_source, "Please supply a valid YouTube URL.")
-  #     end
-  #   end
-  # end
 
 end
 
