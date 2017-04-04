@@ -9,7 +9,7 @@ end
 class YouTubeController < VideosController
 
   def create
-    # @yt_video = Video.new(api: 'youtube', query: video_id)?
+    @video = Video.new(youtube_params)
   end
 
   def show
@@ -23,6 +23,10 @@ class YouTubeController < VideosController
 end
 
 class VimeoController < VideosController
+
+  def create
+    @video = Video.new(vimeo_params)
+  end
 
   private
   def vimeo_params

@@ -20,10 +20,15 @@ class Embedded < ApplicationRecord
 
   end
 
+  def new
+    @embedded = Embedded.new()
+  end
+
 
 end
 
 class Bandcamp < Embedded
+
 end
 
 class Soundcloud < Embedded
