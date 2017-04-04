@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   def new
-    @video = Video.new()
+    @video = Video.new
   end
 
 end
@@ -10,9 +10,6 @@ class YouTubeController < VideosController
 
   def create
     @video = Video.new(youtube_params)
-  end
-
-  def show
   end
 
   private
