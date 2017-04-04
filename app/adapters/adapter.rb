@@ -7,6 +7,20 @@ module Adapters
 
     attr_accessor :video, :embedded
 
+    # Call immediately on submission of TrackSubmission::AddSource; validates
+    def assign_api(api_list, url)
+      api_list.each(|url_format, api|)
+      if url_format.match?(url)
+        # reference to parent media type (embedded or video)
+        api.safe_constantize.new
+        # or ditch controllers/models for each api, put all under
+      else
+        # Error with info on valid link formats for media type
+    end
+
+    # API KEYS
+    ## EMBEDDEDS
+    ## VIDEOS
     YT_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
 
     def parse_source(source_path)
