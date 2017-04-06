@@ -5,6 +5,8 @@ module Adapters
 ## VIDEO
   class API < Adapter
 
+    # Structure
+
     attr_accessor :video, :embedded
 
     # Call immediately on submission of TrackSubmission::AddSource; validates
