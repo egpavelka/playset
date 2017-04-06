@@ -22,6 +22,7 @@ module Adapters
 
     # API KEYS
     ## EMBEDDEDS
+    SPOTIFY_CLIENT_ID = '05343128829c43e19407fc13849136c8'
     ## VIDEOS
     YT_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
 
