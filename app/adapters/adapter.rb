@@ -24,7 +24,7 @@ module Adapters
     ## EMBEDDEDS
     SPOTIFY_CLIENT_ID = '05343128829c43e19407fc13849136c8'
     ## VIDEOS
-    YT_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
+    YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
 
     def parse_source(source_path)
       # Find parameters for API lookup within supplied source path
