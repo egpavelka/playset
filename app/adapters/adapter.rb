@@ -1,6 +1,5 @@
 module Adapters
-  require 'net/http'
-  require 'json'
+  require 'httparty'
 
 ## VIDEO
   class API < Adapter
@@ -20,12 +19,6 @@ module Adapters
         # Error with info on valid link formats for media type
     end
 
-    # API KEYS
-    ## EMBEDDEDS
-    SPOTIFY_CLIENT_ID = '05343128829c43e19407fc13849136c8'
-    ## VIDEOS
-    YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
-
     def parse_source(source_path)
       # Find parameters for API lookup within supplied source path
       #
@@ -39,22 +32,33 @@ module Adapters
       # show: build embedded video/song player
     end
 
-    def build_uri
-      # Build url for get
-      # url = 'base' + param....
-      # To response
-      # get_response(URI(url))
-    end
-
-    def get_response(uri)
-      response = Net::HTTP.get(uri)
-      JSON.parse(response)
-      # Do something...
-    end
-
   end
 
-  ## EMBEDDED
+  # Specification for instances to be included in respective models
+
+  ## EMBEDDEDS
+
+  class SpotifyApi < API
+    CLIENT_ID = '05343128829c43e19407fc13849136c8'
+    self.base_url = '-url-'
+    self.data_post = track_id
+    # data_get
+    self.data_save = {
+      'title' => data_get.title,
+      'artist' => data_get.artist,
+      'album' => data_get.album,
+      'year' => data_get.year
+    }
+  end
+
+  ## VIDEOS
+
+  class YouTubeApi < API
+    YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
+    self.base_url = '-url-'
+    self.data_post = video_id
+    # data_get
+  end
 
 
 end
