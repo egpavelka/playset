@@ -15,10 +15,11 @@ class Embedded < ApplicationRecord
   # Assign to service so API can be called
   def assign_api
     embedded_sources = {
-      VALID_BANDCAMP_FORMAT => :bandcamp,
-      VALID_SOUNDCLOUD_FORMAT => :soundcloud,
-      VALID_SPOTIFY_FORMAT => :spotify
+      VALID_BANDCAMP_FORMAT => Bandcamp,
+      VALID_SOUNDCLOUD_FORMAT => Soundcloud,
+      VALID_SPOTIFY_FORMAT => Spotify
     }
+    ADAPTER.assign_api(embedded_sources, source_path)
   end
 
 end

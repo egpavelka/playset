@@ -33,7 +33,7 @@ gem 'faker', '~> 1.7.3'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use HTTParty to manage external API calls
-gem 'httparty', '~> 2.6.10'
+gem 'httparty', '~> 0.14.0'
 # Use Paperclip to upbload files
 gem 'paperclip', '~> 5.1.0'
 # Use Amazon S3 for image and audio storage
