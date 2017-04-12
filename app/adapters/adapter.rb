@@ -32,6 +32,9 @@ module Adapters
       # show: build embedded video/song player
     end
 
+    def save_track_data
+      # push response to media_source, track
+    end
   end
 
   # Specification for instances to be included in respective models
@@ -57,7 +60,11 @@ module Adapters
     YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
     self.base_url = '-url-'
     self.data_post = video_id
-    # data_get
+    # data_get ....
+    # data_save ....
+    # metadata must be manually provided,
+    # nothing is pulled straight from api up into track
+    # video_id used directly in view
   end
 
 
