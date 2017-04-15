@@ -26,6 +26,7 @@ end
 
 class Bandcamp < Embedded
 
+  # API parameters from input url
   def artist_path
     source_path.match.(VALID_BANDCAMP_FORMAT).captures[0]
     # regex conversion to lookup syntax
@@ -36,10 +37,15 @@ class Bandcamp < Embedded
     # regex conversion to lookup syntax
   end
 
+  # API url structure with parameters
+  def api_url
+  end
+
 end
 
 class Soundcloud < Embedded
 
+  # API parameters from input url
   def artist_path
     source_path.match.(VALID_SOUNDCLOUD_FORMAT).captures[0]
     # regex conversion to lookup syntax
@@ -50,13 +56,22 @@ class Soundcloud < Embedded
     # regex conversion to lookup syntax
   end
 
+  # API url structure with parameters
+  def api_url
+  end
+
 end
 
 class Spotify < Embedded
 
+  # API parameters from input url
   def track_id
     source_path.match.(VALID_YT_FORMAT).captures[1]
     # (first match group is type (uri vs url), second is track id)
+  end
+
+  # API url structure with parameters
+  def api_url
   end
 
 end
