@@ -1,22 +1,5 @@
 @import 'config/MASTER';
 
 .wrapper {
-  @extend %flex-v-flex-start;
   min-height: 100vh;
-  padding: 30px 10px;
-}
-
-.container {
-  @extend %container-width;
-  @extend %flex-v-center;
-  @include flex(10, 0, auto);
-  // background-color: $block-backer;
-}
-
-.content-container {
-  @extend %container-width;
-  @extend %flex-v;
-  @extend %align-items-center;
-  @include flex(10, 0, auto);
-  background-color: $block-solid;
 }

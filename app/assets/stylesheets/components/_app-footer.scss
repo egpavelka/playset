@@ -1,8 +1,6 @@
 @import 'config/MASTER';
 
 .app-footer {
-  @extend %container-width;
-  @extend %flex-h-flex-end;
   @include box-shadow(14px 10px 0 0 $block-backer);
   background: $block-solid;
   border-top: $single-border $background;
