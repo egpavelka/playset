@@ -14,8 +14,6 @@
 }
 
 .alert {
-  @extend %flex-v-center;
-  @extend %container-width;
   @extend %body-italic;
   background: $block-solid;
   border: 4px solid $text;
