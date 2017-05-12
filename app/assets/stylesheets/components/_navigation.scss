@@ -1,22 +1,15 @@
 @import 'config/MASTER';
 
-nav {
-  @extend %flex-h-center;
-  @extend %flex-wrap-nowrap;
-}
+.navbar-nav {
+  font-size: 1.5rem;
 
-.app-nav {
-  font-size: 1.1rem;
+  .active > a {
+    background-color: $background;
+    border-bottom: $single-border $highlight-2;
+  }
 
-  .nav-item {
+  li {
     @extend %alt-bold-upper;
-    display: inline;
-    list-style: none;
-    padding: 5px;
-
-    &:not(:first-child) {
-      margin-left: 5px;
-    }
 
     a:hover {
       border-bottom: $single-border $highlight-1;
@@ -25,13 +18,6 @@ nav {
 
   .nav-subitem {
     @extend %body-italic;
-    display: inline;
-    margin-left: 2px;
-    padding: 5px 2px;
-
-    &:not(:first-child) {
-      margin-left: 0;
-    }
 
     a {
       font-size: 1rem;
@@ -48,10 +34,4 @@ nav {
       color: $text;
     }
   }
-}
-
-.nav-divider {
-  @extend %body-bold-italic;
-  color: $background;
-  font-size: 1.5rem;
 }

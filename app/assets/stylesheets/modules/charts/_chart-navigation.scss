@@ -1,7 +1,6 @@
 @import 'config/MASTER';
 
 .charts-header-nav {
-  @extend %align-self-flex-start;
   margin-top: 27px;
 
   .nav-item {

@@ -1,8 +1,6 @@
 @import 'config/MASTER';
 
 .app-header {
-  @extend %container-width;
-  @extend %flex-h-space-around-wrap;
   @include box-shadow(-14px -10px 0 0 $block-backer);
   background: $block-solid;
   margin-bottom: 20px;
@@ -10,7 +8,7 @@
 }
 
 .app-header-title {
-  @extend %align-self-flex-end;
+  // @extend %align-self-flex-end;
   @include box-shadow(10px 7px 0 0 $block-backer);
   background-color: $highlight-2;
   font-family: 'Michroma', sans-serif;
