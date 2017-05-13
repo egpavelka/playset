@@ -1,40 +1,16 @@
-@import 'config/MASTER';
-
-.app-header {
-  @include box-shadow(-14px -10px 0 0 $block-backer);
-  background: $block-solid;
-  margin-bottom: 20px;
-  padding: 20px 10px;
-}
-
-.app-header-title {
-  // @extend %align-self-flex-end;
-  @include box-shadow(10px 7px 0 0 $block-backer);
-  background-color: $highlight-2;
+.ps-app-title {
   font-family: 'Michroma', sans-serif;
-  font-size: 1.75rem;
-  margin: 10px 0 -35px;
-  padding: 10px 17px;
-  text-shadow: 3px 2px $text;
-  text-transform: uppercase;
-  z-index: 50;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-transform: lowercase;
 
   a {
-    border: $single-border $block-solid;
-    color: $block-solid;
-    padding: 1px 7px;
+    color: $azul;
   }
 }
 
-.app-nav {
-
-  .nav-item > a {
-    color: $text;
-    font-size: 1.75rem;
-  }
-
-  .nav-item.active a {
-    border-bottom: $single-border $highlight-1;
-    color: $text;
+.app-header .app-nav {
+  li {
+    font-size: 2.5rem;
   }
 }

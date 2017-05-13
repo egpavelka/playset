@@ -1,0 +1,22 @@
+.app-nav {
+
+  a {
+    @extend %alt-bold-upper;
+    border-bottom: $single-border $block-solid; // add for box sizing
+
+    &:hover {
+      border-bottom: $single-border $highlight-1;
+    }
+  }
+
+  .active > a {
+    border-bottom: $single-border $highlight-2;
+  }
+
+
+  .dropdown-menu > li > a,
+  .app-nav-subitem {
+    @extend %body-upper;
+    font-size: 1.25rem;
+  }
+}

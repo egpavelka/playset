@@ -2,11 +2,11 @@ class Track < ApplicationRecord
   # USER
   belongs_to :user
   # STATUS
-  validates :status, inclusion: { in: %w(new pending active flagged broken) }
+  # validates :status, inclusion: { in: %w(new pending active flagged broken) }
 
   # SUBMISSION
   validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-  validates :submission_source, presence: true
+  # validates :submission_source, presence: true
 
   # MEDIA
   has_many :media_sources
@@ -19,6 +19,10 @@ class Track < ApplicationRecord
   validates :album, presence: true
   validates :artist, presence: true
   validates :year, length: { is: 4 }
+
+  #ALBUM ART
+  has_attached_file :album_art, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\z/
 
   # LIKES
   has_and_belongs_to_many :likes #, numericality: true
