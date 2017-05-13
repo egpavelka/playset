@@ -11,9 +11,13 @@ gem 'autoprefixer-rails', '~> 6.6.1'
 # Add paging to datasets
 gem 'will_paginate'
 # Use Bootstrap for modularity
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Tooltips and popovers require tether
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -63,4 +67,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

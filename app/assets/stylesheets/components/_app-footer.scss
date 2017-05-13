@@ -1,13 +1,5 @@
-@import 'config/MASTER';
-
-.app-footer {
-  @include box-shadow(14px 10px 0 0 $block-backer);
-  background: $block-solid;
-  border-top: $single-border $background;
-  margin-top: 20px;
-  padding: 20px 10px;
-
-  .nav-item a {
-    font-size: 1.5rem;
+.navbar-footer .app-nav {
+  li > a {
+    font-size: 2rem;
   }
 }

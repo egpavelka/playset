@@ -14,24 +14,20 @@
   <body>
     <div class="container wrapper">
       <div class="row">
-        <div class="column">
           <%= render 'layouts/main-header' %>
-          <% flash.each do |response_type, response| %>
-            <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
-          <% end %>
-        </div> <!-- column -->
+          <!-- <div class="well">
+            <% flash.each do |response_type, response| %>
+              <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
+            <% end %>
+          </div> -->
       </div> <!-- row -->
 
-      <div class="row">
         <%= yield %>
-      </div>
 
       <div class="row">
-        <div class="column">
           <%= render 'layouts/main-footer' %>
-          <%= debug(params) if Rails.env.development? %>
-        </div> <!-- column -->
       </div> <!-- row -->
     </div> <!-- container/wrapper -->
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

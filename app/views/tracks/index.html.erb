@@ -1,12 +1,12 @@
 <% provide(:title, "top") %>
 
-<%= render 'tracks/index-nav' %>
 
-<section class="content-container">
+<div class="row">
+  <%= render 'tracks/index-nav' %>
+</div>
 
-  <ol>
-    <%= render @tracks %>
-  </ol>
+<%= render @tracks %>
+
+<div class="row">
   <%= will_paginate @tracks %>
-
-</section>
+</div>

@@ -19,13 +19,11 @@
 }
 
 // UNIVERSAL
-* {
-  @include box-sizing(border-box);
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   @include box-sizing(border-box);
+//   border: 0;
+// }
 
-body {
-  overflow-x: hidden;
-}
+// body {
+//   overflow-x: hidden;
+// }

@@ -25,7 +25,11 @@ User.create!(name:  "Grace Pavelka",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
-  url_src = "https://www.youtube.com/watch?v=WMljPLpFUMA"
-  users.each { | user | user.tracks.create!(url_src: url_src) }
-end
+
+Track.create!(title: "Song Title",
+              artist: "Artist",
+              album: "Album",
+              year: "1996",
+              kind: "Upload",
+              user_id: "1"
+              )
