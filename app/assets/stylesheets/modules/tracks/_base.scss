@@ -1,0 +1,96 @@
+.track {
+  background-color: $highlight-2;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.track > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+%track-circle {
+  border-radius:50%;
+	display: table;
+
+  span {
+  	display: table-cell;
+  	vertical-align: middle;
+  	text-align: center;
+  }
+
+}
+
+.track-rank {
+  @extend %track-circle;
+  @extend %body-bold;
+  background-color: $block-backer;
+  font-size: 2.75rem;
+	min-height: 80px;
+  margin: 10px;
+
+  span {
+	min-height: 80px;
+	min-width: 80px;
+  padding: 0 10px;
+  }
+}
+
+.track-info {
+  @extend %body-bold;
+  text-transform: lowercase;
+  margin-top: 20px;
+}
+
+.track-title {
+  font-size: 2.5rem;
+  border-bottom: 4px solid $text;
+}
+
+.track-artist {
+  @extend %alt-bold;
+  font-size: 2.75rem;
+}
+
+.track-details {
+  background-color: $highlight-1;
+  padding: 7px 0;
+  margin-top: 25px;
+  -webkit-clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
+}
+
+.track-timestamp {
+  font-size: 1.25rem;
+}
+
+.track-reactions-container {
+  margin: 25px 0 10px;
+}
+
+.track-reactions-container > div {
+  display: inline-block;
+  float: right;
+
+  &:first-child {
+  margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-right: 3px;
+  }
+}
+
+.track-reaction {
+  @extend %track-circle;
+  @extend %body-bold;
+  background-color: $block-backer;
+  font-size: 2rem;
+	min-height: 40px;
+
+  span {
+	min-height: 40px;
+	min-width: 40px;
+  padding: 0 5px;
+  }
+}

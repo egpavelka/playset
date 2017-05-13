@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325100324) do
+ActiveRecord::Schema.define(version: 20170513194347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20170325100324) do
 
   create_table "tracks", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "title"
     t.string   "artist"
     t.string   "album"
@@ -56,6 +56,10 @@ ActiveRecord::Schema.define(version: 20170325100324) do
     t.string   "kind"
     t.string   "status"
     t.string   "submission_source"
+    t.string   "album_art_file_name"
+    t.string   "album_art_content_type"
+    t.integer  "album_art_file_size"
+    t.datetime "album_art_updated_at"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end

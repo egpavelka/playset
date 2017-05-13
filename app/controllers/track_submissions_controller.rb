@@ -31,7 +31,7 @@ class TrackSubmissionsController < ApplicationController
   private
 
   def track_submission_params
-    params.require(:track_submission).permit(:status, :kind, :submission_source, :title, :artist, :album, :year)
+    params.require(:track_submission).permit(:status, :kind, :submission_source, :title, :artist, :album, :year, :album_art)
   end
 
   def load_track_submission
