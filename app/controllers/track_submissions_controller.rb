@@ -17,9 +17,13 @@ class TrackSubmissionsController < ApplicationController
     end
   end
 
+  def new
+    @track_submission = Track_Submission.new
+  end
+
   def create
-    if @track_submission.save
-      @track = current_user.track.build(session[:track_attributes])
+    @track = current_user.tracks.build(params[:track_attributes])
+    if @track.save
       flash[:success] = "Track posted successfully."
       redirect_to root_path
     else
