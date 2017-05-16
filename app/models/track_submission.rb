@@ -6,7 +6,6 @@ class TrackSubmission < ApplicationRecord
 
   class AddSource
     include ActiveModel::Model
-    # include ActiveModel::Validations
     include ActiveModel::Validations::Callbacks
 
     attr_accessor :track
@@ -23,8 +22,6 @@ class TrackSubmission < ApplicationRecord
     def set_media_source
       media_kind = @track.kind.safe_constantize.new
       @media = @track.media_sources.build(media: media_kind, source_path: submission_source)
-      puts @media.attributes
-      puts @track.attributes
     end
 
     validates :kind, inclusion: { in: %w(Embedded Upload Video) }
