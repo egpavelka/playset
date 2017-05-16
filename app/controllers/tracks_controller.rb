@@ -1,9 +1,9 @@
 class TracksController < ApplicationController
-  # before_action :logged_in_user, only: [:destroy]
+  before_action :logged_in_user, only: [:destroy]
 
-  def new
-    @track = TrackSubmission.new(submission: [Track.new])
-  end
+  # def new
+  #   @track = TrackSubmission.new(submission: [Track.new])
+  # end
 
   def create
     @track = Track.new(track_params)
@@ -28,7 +28,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:status, :kind,  :submission_source, :title, :artist, :album, :year, :album_art)
+    params.require(:track).permit(:status, :kind, :user_id, :submission_source, :title, :artist, :album, :year, :album_art)
   end
 
 end

@@ -1,4 +1,5 @@
 class TrackSubmissionsController < ApplicationController
+  # before_action :logged_in_user
   # Before 'create' is triggered, run load method.
   before_action :load_track_submission, except: %i(validate_current)
 
@@ -7,7 +8,6 @@ class TrackSubmissionsController < ApplicationController
     @track_submission = current_step_submission(current_step)
     @track_submission.track.attributes = track_submission_params
     session[:track_attributes] = @track_submission.track.attributes
-
     if @track_submission.valid?
       next_step = next_step_submission(current_step)
       create and return unless next_step
@@ -18,12 +18,13 @@ class TrackSubmissionsController < ApplicationController
   end
 
   def new
-    @track_submission = Track_Submission.new
+    @track_submission = TrackSubmission.new
   end
 
   def create
-    @track = current_user.tracks.build(params[:track_attributes])
-    if @track.save
+    @track_submission = TrackSubmission.new(session[:track_submission])
+    if @track_submission.save
+      @track = current_user.tracks.create!(session[:track_attributes])
       flash[:success] = "Track posted successfully."
       redirect_to root_path
     else

@@ -2,7 +2,7 @@ class Track < ApplicationRecord
   require 'open-uri'
 
   belongs_to :user
-  # validates :user_id, presence: true
+  validates :user_id, presence: true
 
   # STATUS
   # validates :status, inclusion: { in: %w(new pending active flagged broken) }
@@ -33,7 +33,6 @@ class Track < ApplicationRecord
 
   validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\z/
 
-  #
   def art_from_url(url)
     self.album_art = URI.parse(url)
   end
