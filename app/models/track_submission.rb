@@ -11,7 +11,7 @@ class TrackSubmission < ApplicationRecord
 
     attr_accessor :track
 
-    delegate :id, :status, :kind, :submission_source, :title, :artist, :album, :year, to: :track
+    delegate :id, :status, :kind, :submission_source, :title, :artist, :album, :year, :album_art, to: :track
 
     def initialize(track_attributes)
       @track = Track.new(track_attributes)
@@ -47,6 +47,7 @@ class TrackSubmission < ApplicationRecord
     validates :album, presence: true
     validates :artist, presence: true
     validates :year, length: { is: 4 }
+    validates :album_art, presence: true
   end
 
 end

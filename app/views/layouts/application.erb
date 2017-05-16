@@ -15,11 +15,11 @@
     <div class="container wrapper">
       <div class="row">
           <%= render 'layouts/main-header' %>
-          <!-- <div class="well">
+          <div class="well">
             <% flash.each do |response_type, response| %>
               <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
             <% end %>
-          </div> -->
+          </div>
       </div> <!-- row -->
 
         <%= yield %>

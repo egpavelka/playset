@@ -1,7 +1,9 @@
 class Track < ApplicationRecord
   require 'open-uri'
-  # USER
+
   belongs_to :user
+  # validates :user_id, presence: true
+
   # STATUS
   # validates :status, inclusion: { in: %w(new pending active flagged broken) }
 
@@ -23,17 +25,17 @@ class Track < ApplicationRecord
 
   #ALBUM ART
   has_attached_file :album_art,
-  styles: { medium: {geometry: '300x300>', convert_options: '-colorspace Gray'},
+  styles: { medium: {geometry: '400x400>', convert_options: '-colorspace Gray'},
   large: {geometry: '800x800>', convert_options: '-colorspace Gray'} },
   url: "/assets/images/album_art/:id/:style/:basename.:extension",
-  path: ":rails_root/public/assets/images/album_art/:id/:style/:basename.:extension",
-  default_url: 'assets/album_arts/aa_test.jpg'
+  path: ":rails_root/public/assets/album_art/:id/:style/:basename.:extension",
+  default_url: 'assets/album_art/aa_test.jpg'
 
   validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\z/
 
   #
   def art_from_url(url)
-    self.album_art = URI.parse(url).open
+    self.album_art = URI.parse(url)
   end
 
   # LIKES

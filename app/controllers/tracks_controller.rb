@@ -1,9 +1,9 @@
 class TracksController < ApplicationController
   # before_action :logged_in_user, only: [:destroy]
 
-  # def new
-  #   @track = TrackSubmission.new(submission: [Track.new])
-  # end
+  def new
+    @track = TrackSubmission.new(submission: [Track.new])
+  end
 
   def create
     @track = Track.new(track_params)

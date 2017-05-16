@@ -1,7 +1,7 @@
 <% provide(:title, "submit track") %>
 <section class="content-container static-pages">
   <div class="page-header">submit track</div>
-    <%= form_for(@track_submission, as: :track_submission, url: validate_current_track_submission_path)  do |f| %>
+    <%= form_for(@track_submission, as: :track_submission, html: { multipart: true }, url: validate_current_track_submission_path)  do |f| %>
 
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -24,6 +24,10 @@
       <li class="form-entry">
         <%= f.label :year %>
         <%= f.number_field :year, class: 'response-data' %>
+      </li>
+      <li class="form-entry">
+        <%= f.label :album_art %>
+        <%= f.file_field :album_art, class: 'response-data' %>
       </li>
 
       <%= f.submit 'Submit', class: 'submit-button' %>
