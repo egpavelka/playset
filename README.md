@@ -2,25 +2,33 @@
 
 This is the testing ground for PLAYSETTE, a sort of social network for music discovery.
 
+Custom features include:
+
+-   Calls to multiple external APIs
+-   Posts can receive comments and likes; comments can be replied to and liked
+-   Data scraper for Bandcamp
+-   Automatic retrieval of metadata for track submissions
+-   Users can follow one another
+
 #### Main Features
 
-- Site collects user-submitted audio tracks into a single feed on its homepage to be listened to and voted on by the user base. (Index will be sorted with standard tabs hot, top, and new, as well as a section populated with submissions from the user's followed users.)
+-   Site collects user-submitted audio tracks into a single feed on its homepage to be listened to and voted on by the user base. (Index will be sorted with standard tabs hot, top, and new, as well as a section populated with submissions from the user's followed users.)
 
-- Users will be able to submit songs from various streaming services and by file uploads and listen to all in one cohesive place.
+-   Users will be able to submit songs from various streaming services and by file uploads and listen to all in one cohesive place.
 
-- User profiles will display timelines of their submissions and liked tracks, lists of followers/following, and (optionally) a short bio, photo, social media links, etc.
+-   User profiles will display timelines of their submissions and liked tracks, lists of followers/following, and (optionally) a short bio, photo, social media links, etc.
 
 #### Track Submission Methods
 
-- Upload MP3 and detect metadata if available. (flags: not music, spam, broken; prevent: by audio length, file size, file type, user's total upload size)
+-   Upload MP3 and detect metadata if available. (flags: not music, spam, broken; prevent: by audio length, file size, file type, user's total upload size)
 
-- Submit video via YouTube or Vimeo. (flags: not music, spam; prevent: < 1 min or > 25min; warn: > 10min)
+-   Submit video via YouTube or Vimeo. (flags: not music, spam; prevent: < 1 min or > 25min; warn: > 10min)
 
 #### Later Features
 
-- Genre/custom tags (allow following?)
+-   Genre/custom tags (allow following?)
 
-- Possible Discogs metadata lookup for untagged uploads and YouTube links.
+-   Possible Discogs metadata lookup for untagged uploads and YouTube links.
 
 ---
 
@@ -30,11 +38,11 @@ This is the testing ground for PLAYSETTE, a sort of social network for music dis
 
 ##### COMPLETED
 
-- Added submission_source as an attribute of track and replaced fields_for :media_source -> :source_path on TrackSubmission form with it; Track.media_source is built before_validation of TrackSubmission::AddSource.  (Direct access of nested attribute Track -> MediaSource -> source_path was a problem because of ActiveModel::Model and the weird polymorphic usage of MediaSources.)
+-   Added submission_source as an attribute of track and replaced fields_for :media_source -> :source_path on TrackSubmission form with it; Track.media_source is built before_validation of TrackSubmission::AddSource.  (Direct access of nested attribute Track -> MediaSource -> source_path was a problem because of ActiveModel::Model and the weird polymorphic usage of MediaSources.)
 
 ##### IN PROGRESS
 
-- Instead of using API wrappers/gems for each external source the app will make calls to, create a base API service and include specifics in controllers.
+-   Instead of using API wrappers/gems for each external source the app will make calls to, create a base API service and include specifics in controllers.
 
 #### [unreleased] 2016.03.19
 
@@ -42,11 +50,11 @@ This is the testing ground for PLAYSETTE, a sort of social network for music dis
 
 Track submission requires multi-step validation:
 
-- Click :submission_type "panel" on form to set track.kind and render corresponding partial for media source path.  Submission builds track.media_source.media as [:kind].new and validates source path accordingly (regex checks for urls, extraction of track ID or whatever is necessary for media loading check.)
+-   Click :submission_type "panel" on form to set track.kind and render corresponding partial for media source path.  Submission builds track.media_source.media as [:kind].new and validates source path accordingly (regex checks for urls, extraction of track ID or whatever is necessary for media loading check.)
 
-- Get media using Paperclip/Carrierwave for uploads and API calls for embeddeds and videos, basically verify that it will play on track#show. If media source was loaded successfully, scan for and retrieve track metadata (validation for this belongs to media source type as above).
+-   Get media using Paperclip/Carrierwave for uploads and API calls for embeddeds and videos, basically verify that it will play on track#show. If media source was loaded successfully, scan for and retrieve track metadata (validation for this belongs to media source type as above).
 
-- Return metadata partial form showing fields that have already been filled.  (Disable filled fields by default, but allow editing for metadata retrieved from uploads; notify that embedded sources cannot be edited/renamed.)  Final submission from here.
+-   Return metadata partial form showing fields that have already been filled.  (Disable filled fields by default, but allow editing for metadata retrieved from uploads; notify that embedded sources cannot be edited/renamed.)  Final submission from here.
 
 To manage this, a sort of state machine will keep track of track status.  Status will primarily be used in the submission process but also manage report flags once track has been published (e.g. submitted track becomes 'active', but users can report infringement/dead link/etc. to switch it to 'pending review' or whatever.)
 

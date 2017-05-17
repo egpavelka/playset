@@ -1,27 +1,26 @@
 <% provide(:title, "submit track") %>
 <section class="content-container static-pages">
   <div class="page-header">submit track</div>
-    <%= form_for(@track) do |f| %>
+    <%= form_for(@track, html: { multipart: true }, url: submit_path) do |f| %>
 
       <div class="track-submission-nav">
-        <%= f.radio_button :kind, 'Embedded', class: 'track_kind', checked: true %> Submit audio from URL
-        <%= f.radio_button :kind, 'Video', class: 'track_kind', checked: false %> Submit video from URL
-        <%= f.radio_button :kind, 'Upload', class: 'track_kind', checked: false %> Upload audio file
+        <li class="select-submission-type" id="select-url"></li>
+        <li class="select-submission-type" id="select-upload"></li>
       </div>
 
-      <li><%= f.submit 'Embedded' %></li>
-      <li><%= f.submit 'Upload' %></li>
-      <li><%= f.submit 'Video' %></li>
-
-      <div id="embedded-form" class="form-entry">
-          <%= render "tracks/forms/embedded", f: f %>
+      <div id="submit-url">
+        <%= hidden_field_tag :kind, '' %>
+        <%= render 'tracks/forms/link-source', f: f %>
       </div>
 
-      <div id="upload-form" class="form-entry">
-          <%= render 'tracks/forms/upload', f: f %>
+      <div id="submit-upload">
+        <%= hidden_field_tag :kind, 'Upload' %>
+        <%= render 'tracks/forms/upload-source', f: f %>
       </div>
 
-      <%= render 'tracks/forms/metadata', f: f %>
+      <% if f.source_missing_metadata? %>
+        <%= render 'tracks/forms/metadata', f: f %>
+      <% end %>
 
       <%= f.submit "Submit", class: "submit-button" %>
 

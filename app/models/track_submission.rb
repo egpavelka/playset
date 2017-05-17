@@ -10,7 +10,7 @@ class TrackSubmission < ApplicationRecord
 
     attr_accessor :track
 
-    delegate :id, :status, :kind, :submission_source, :title, :artist, :album, :year, :album_art, to: :track
+    delegate :id, :status, :kind, :submission_source, :title, :artist, :album, :year, :album_art, :album_art_file_name, :album_art_content_type, :album_art_size, to: :track
 
     def initialize(track_attributes)
       @track = Track.new(track_attributes)
@@ -44,7 +44,22 @@ class TrackSubmission < ApplicationRecord
     validates :album, presence: true
     validates :artist, presence: true
     validates :year, length: { is: 4 }
-    validates :album_art, presence: true
+  end
+
+
+  #ALBUM ART
+  do_not_validate_attachment_file_type :album_art
+    # has_attached_file :album_art,
+    # styles: { medium: {geometry: '400x400>', convert_options: '-colorspace Gray'},
+    # large: {geometry: '800x800>', convert_options: '-colorspace Gray'} },
+    # url: '/public/assets/images/album_art/:id/:style/:basename.:extension',
+    # path: ':rails_root/public/assets/images/album_art/:id/:style/:basename.:extension',
+    # default_url: 'assets/album_art/aa_test.jpg',
+    # content_type: { content_type: /\Aimage\/.*\z/ },
+    # size: { in: 0..100.kilobytes }
+
+  def art_from_url(url)
+    self.album_art = URI.parse(url)
   end
 
 end

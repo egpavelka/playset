@@ -1,5 +1,5 @@
 class TrackSubmissionsController < ApplicationController
-  # before_action :logged_in_user
+    before_action :logged_in_user, only: [:initialize, :new, :create]
   # Before 'create' is triggered, run load method.
   before_action :load_track_submission, except: %i(validate_current)
 
@@ -23,9 +23,11 @@ class TrackSubmissionsController < ApplicationController
 
   def create
     @track_submission = TrackSubmission.new(session[:track_submission])
+    session[:track_submission] = nil
     if @track_submission.save
       @track = current_user.tracks.create!(session[:track_attributes])
       flash[:success] = "Track posted successfully."
+      session[:track_attributes] = nil
       redirect_to root_path
     else
       flash[:danger] = "Submission had errors."
@@ -36,7 +38,7 @@ class TrackSubmissionsController < ApplicationController
   private
 
   def track_submission_params
-    params.require(:track_submission).permit(:status, :kind, :submission_source, :title, :artist, :album, :year, :album_art)
+    params.require(:track_submission).permit(:status, :kind, :submission_source, :title, :artist, :album, :year, :album_art, :album_art_file_name, :album_art_content_type, :album_art_size)
   end
 
   def load_track_submission
