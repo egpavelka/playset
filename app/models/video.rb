@@ -9,7 +9,7 @@ class Video < ApplicationRecord
 
   def set_video_source
     if source_path.validate(VALID_YOUTUBE_FORMAT)
-      Video::YouTube.new
+      media = Video::YouTube.new
     elsif source_path.validates(VALID_VIMEO_FORMAT)
       Video::Vimeo.new
     else

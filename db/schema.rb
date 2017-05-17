@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517102942) do
+ActiveRecord::Schema.define(version: 20170517203952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +40,6 @@ ActiveRecord::Schema.define(version: 20170517102942) do
     t.index ["track_id"], name: "index_media_sources_on_track_id", using: :btree
   end
 
-  create_table "track_submissions", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "album_art_file_name"
-    t.string   "album_art_content_type"
-    t.integer  "album_art_file_size"
-    t.datetime "album_art_updated_at"
-  end
-
   create_table "tracks", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at",                               null: false
@@ -64,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170517102942) do
     t.integer  "album_art_file_size"
     t.datetime "album_art_updated_at"
     t.string   "state",                  default: "draft"
+    t.string   "playback"
     t.index ["user_id", "created_at"], name: "index_tracks_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end
@@ -89,11 +81,6 @@ ActiveRecord::Schema.define(version: 20170517102942) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-  end
-
-  create_table "videos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "likes", "tracks"
