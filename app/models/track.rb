@@ -1,54 +1,81 @@
 class Track < ApplicationRecord
+  # Allow Paperclip to gather album art from URLs.
   require 'open-uri'
 
-  belongs_to :user
-  validates :user_id, presence: true
+### DISPLAY SCOPES
+  default_scope -> { order(created_at: :desc) } # on user profile
+  # (scope for ordering by likes) # on index - top
 
-  # STATUS
-  # validates :status, inclusion: { in: %w(new pending active flagged broken) }
-
-  # SUBMISSION
-  validates :kind, inclusion: { in: %w(Embedded Upload Video) }
-  # validates :submission_source, presence: true
-
-  # MEDIA
+####################
+# SETUP: PROPERTIES,
+# RELATIONSHIPS
+####################
+  # Tracks belong to a user and will be deleted if the account is deactivated.
+  belongs_to :user, dependent: :destroy
+  # media_source is a polymorhpic object, allowing different media_kinds to be stored under single "media" column.
   has_many :media_sources
   has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
   has_many :embeddeds, through: :media_sources, source: :media, source_type: 'Embedded'
   has_many :videos, through: :media_sources, source: :media, source_type: 'Video'
+  # Set options for form selection
+  KINDS = [['Embedded'], ['Video'], ['Upload']].freeze
 
-  # METADATA
+####################
+# INITIALIZE TRACK:
+# USER, SOURCE, MEDIA
+####################
+  validates :user_id, presence: true
+  validates :submission_source, presence: true
+  validates :kind, inclusion: { in: %w(Embedded Upload Video) }
+
+  # Build appropriate media_kind from submission_source and validate
+  before_validation :set_media_source
+
+  def set_media_source
+    media_kind = @track.kind.safe_constantize.new
+    @media = @track.media_sources.build(media: media_kind, source_path: submission_source)
+  end
+
+  # First click to submit should validate the link or file, create the appropriate media from it, and check for track information via API or metadata.
+
+  # Errors for missing metadata and album art are expected (mostly for uploads and video links), and the redirect will reveal fields for manual entry.
+
+####################
+# AFTER MEDIA SOURCE:
+# METADATA AND ARTWORK
+####################
+  validate :source_has_metadata
+
+  def source_has_metadata
+    track.title && track.artist && track.album && track.year && track.album_art
+  end
+
+  # Metadata
   validates :title, presence: true
   validates :album, presence: true
   validates :artist, presence: true
   validates :year, length: { is: 4 }
 
-  #ALBUM ART
+  # Album art managed by Paperclip; URL fetching with open-uri
   has_attached_file :album_art,
   styles: { medium: {geometry: '400x400>', convert_options: '-colorspace Gray'},
   large: {geometry: '800x800>', convert_options: '-colorspace Gray'} },
-  url: "/assets/images/album_art/:id/:style/:basename.:extension",
-  path: ":rails_root/public/assets/album_art/:id/:style/:basename.:extension",
-  default_url: 'assets/album_art/aa_test.jpg'
+  url: '/public/assets/images/album_art/:id/:style/:basename.:extension',
+  path: ':rails_root/public/assets/images/album_art/:id/:style/:basename.:extension',
+  default_url: 'assets/album_art/aa_test.jpg',
+  content_type: { content_type: /\Aimage\/.*\z/ },
+  size: { in: 0..100.kilobytes }
 
-  validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\z/
-
+  # Fetch from API response or URL input
   def art_from_url(url)
     self.album_art = URI.parse(url)
   end
 
-  # LIKES
+####################
+# SOCIAL ATTRIBUTES:
+# LIKES AND COMMENTS
+####################
   has_and_belongs_to_many :likes #, numericality: true
   # Display (on user profile, main index)
-  default_scope -> { order(created_at: :desc) } # on user profile
-  # (scope for ordering by likes) # on index - top
-
-  def source_path_key
-    self.media_sources[:source_path]
-  end
-
-  def source_path_key= value
-    self.media_sources[:source_path] = value
-  end
 
 end

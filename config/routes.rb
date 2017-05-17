@@ -27,11 +27,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/submit/1', to: 'track_submissions#set_up'
-  get '/submit/2', to: 'track_submissions#add_source'
-  get '/submit/3', to: 'track_submissions#add_media'
-  get '/submit/4', to: 'track_submissions#add_metadata'
-  post '/submit/success', to: 'track_submissions#validate_current'
+  get '/submit', to: 'tracks#new'
+  get '/submit/manual', to: 'tracks#add_metadata'
+  post '/submit/success', to: 'tracks#create'
+  # get '/submit/1', to: 'track_submissions#add_source'
+  # get '/submit/2', to: 'track_submissions#add_media'
+  # get '/submit/3', to: 'track_submissions#add_metadata'
+  # post '/submit/success', to: 'track_submissions#validate_current'
 
 
   resources :users
