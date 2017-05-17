@@ -28,13 +28,10 @@
     switch_submit_form('url', 'upload')
 
   # ..... INLINE VALIDATION .....
-
-  # for uploads
-  # $('#url-source').change ->
-  #   console.log @value
-  #   if @value !== ''
-  #   if /youtu/.test @value || /vimeo/.test @value
-  #     select
-      # check file type
-      # check for audio metadata
-      # autopopulate metadata fields if available, disable fields
+  $('#url_source').change ->
+    console.log @value
+    if /youtu/.test @value || /vimeo/.test @value
+      document.getElementById('track_kind').value = 'Video'
+    else
+      document.getElementById('track_kind').value = 'Embedded'
+    console.log document.getElementById('track_kind').value

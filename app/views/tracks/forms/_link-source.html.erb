@@ -1,14 +1,14 @@
-<%= form_for(@track, url: submit_path)  do |f| %>
+<%= form_for(@track, as: :track, url: submit_path)  do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= hidden_field_tag :kind, '' %>
+  <%= f.hidden_field :kind, value: 'Embedded' %>
 
   <li class="form-entry">
     <%= f.label :submission_source, 'URL' %>
-    <%= f.text_field :submission_source, id: 'url-source' %>
+    <%= f.text_field :submission_source, id: 'url_source' %>
   </li>
 
-  <%= f.submit 'Continue', class: 'submit-button' %>
+  <%= f.submit 'Submit', class: 'submit-button' %>
 
 <% end %>
