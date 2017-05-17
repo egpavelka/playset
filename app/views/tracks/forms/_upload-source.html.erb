@@ -1,0 +1,10 @@
+<%= fields_for(@track, url: submit_path)  do |f| %>
+
+  <%= hidden_field_tag :kind, 'Upload' %>
+
+  <li class="form-entry">
+    <%= f.label :submission_source, 'File' %>
+    <%= f.file_field :submission_source, id: 'upload-source' %>
+  </li>
+
+<% end %>
