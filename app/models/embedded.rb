@@ -2,6 +2,19 @@ class Embedded < ApplicationRecord
   has_one :media_source, as: :media
   has_one :track, through: :media_sources
 
+  before_validation :set_embedded_source
+
+  def set_embedded_source
+    if source_path.validate(VALID_BANDCAMP_FORMAT)
+      Embedded::Bandcamp.new
+    elsif source_path.validates(VALID_SOUNDCLOUD_FORMAT)
+      Embedded::Soundcloud.new
+    elsif source_path.validates(VALID_SPOTIFY_FORMAT)
+      Embedded::Spotify.new
+    else
+    end
+  end
+
   VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
   # https://ARTIST.bandcamp.com/track/TITLE
 
@@ -11,16 +24,6 @@ class Embedded < ApplicationRecord
   VALID_SPOTIFY_FORMAT = /^(spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/)([^#\&\?\/]*)/i
   # spotify:track:2TpxZ7JUBn3uw46aR7qd6V
   # http://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V (or https)
-
-  # Assign to service so API can be called
-  def assign_api
-    embedded_sources = {
-      VALID_BANDCAMP_FORMAT => Bandcamp,
-      VALID_SOUNDCLOUD_FORMAT => Soundcloud,
-      VALID_SPOTIFY_FORMAT => Spotify
-    }
-    ADAPTER.assign_api(embedded_sources, source_path)
-  end
 
 end
 
