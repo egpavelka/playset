@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'uploads/new'
-
-  get 'uploads/create'
-
-  get 'embeddeds/new'
-
-  get 'videos/new'
-
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -29,25 +21,15 @@ Rails.application.routes.draw do
 
   get '/submit', to: 'tracks#new'
   post '/submit', to: 'tracks#create'
-  # get '/submit/1', to: 'track_submissions#add_source'
-  # get '/submit/2', to: 'track_submissions#add_media'
-  # get '/submit/3', to: 'track_submissions#add_metadata'
-  # post '/submit/success', to: 'track_submissions#validate_current'
 
 
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :tracks
 
-  resource :track_submission do
-    get :add_source
-    get :add_media
-    get :add_metadata
-    post :validate_current
-  end
-
-  resources :tracks do
-    resources :embeddeds, :uploads, :videos
-  end
+  # resources :tracks do
+  #   resources :embeddeds, :uploads, :videos
+  # end
 
 end

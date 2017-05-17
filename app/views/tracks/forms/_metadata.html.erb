@@ -1,4 +1,5 @@
-<%= form_for(@track, url: submit_path)  do |f| %>
+<%= @track.media_sources.media.source_path %>
+<%= form_for(@track)  do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
 
