@@ -1,28 +1,20 @@
 <% provide(:title, "submit track") %>
 <section class="content-container static-pages">
   <div class="page-header">submit track</div>
-    <%= form_for(@track, html: { multipart: true }, url: submit_path) do |f| %>
 
-      <div class="track-submission-nav">
-        <li class="select-submission-type" id="select-url"></li>
-        <li class="select-submission-type" id="select-upload"></li>
-      </div>
+  <nav class="nav navbar-default">
+    <ul class="nav nav-tabs page-nav">
+      <li class="track_kind" id="select_url" val="url"><a>Submit link</a></li>
+      <li class="track_kind" id="select_upload" val="upload"><a>Upload file</a></li>
+    </ul>
+  </nav>
 
-      <div id="submit-url">
-        <%= hidden_field_tag :kind, '' %>
-        <%= render 'tracks/forms/link-source', f: f %>
-      </div>
+  <div id="submit_url">
+    <%= render 'tracks/forms/link-source' %>
+  </div>
 
-      <div id="submit-upload">
-        <%= hidden_field_tag :kind, 'Upload' %>
-        <%= render 'tracks/forms/upload-source', f: f %>
-      </div>
+  <div id="submit_upload">
+    <%= render 'tracks/forms/upload-source' %>
+  </div>
 
-      <% if f.source_missing_metadata? %>
-        <%= render 'tracks/forms/metadata', f: f %>
-      <% end %>
-
-      <%= f.submit "Submit", class: "submit-button" %>
-
-    <% end %>
 </section>

@@ -28,8 +28,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/submit', to: 'tracks#new'
-  get '/submit/manual', to: 'tracks#add_metadata'
-  post '/submit/success', to: 'tracks#create'
+  post '/submit', to: 'tracks#create'
   # get '/submit/1', to: 'track_submissions#add_source'
   # get '/submit/2', to: 'track_submissions#add_media'
   # get '/submit/3', to: 'track_submissions#add_metadata'
