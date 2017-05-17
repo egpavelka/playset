@@ -4,14 +4,14 @@ class TracksController < ApplicationController
   def new
     @track = Track.new
     # Initialize media params
-    @track.media_sources
+    @track.media_sources.new
   end
 
   def create
     @track = current_user.tracks.create!(track_params)
     if @track.save
       # If metadata was retrieved from source, publish the track and render its view.
-      if @track.source_has_metadata?
+      if source_has_metadata?
         @track.state = 'published'
         flash[:success] = "Track posted successfully."
         redirect_to root_path
@@ -59,10 +59,11 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:status, :kind, :submission_source, :title, :artist, :album, :year, :album_art)
+    params.require(:track).permit(:state, :kind, :submission_source, :title, :artist, :album, :year, :album_art)
   end
 
   def source_has_metadata?
+    @track.title && @track.artist && @track.album && @track.year && @track.album_art
   end
 
 end

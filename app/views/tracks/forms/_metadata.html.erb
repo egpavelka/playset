@@ -1,8 +1,8 @@
-<%= form_for(@track, html: { multipart: true }, url: submit_path)  do |f| %>
+<%= form_for(@track, url: submit_path)  do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= @track.media_sources.media %>
+  <%= f.hidden_field :kind, value: 'Upload' %>
 
   <li class="form-entry">
     <%= f.label :title %>

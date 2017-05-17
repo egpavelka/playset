@@ -26,12 +26,14 @@ class Track < ApplicationRecord
 ####################
   validates :user_id, presence: true
   validates :submission_source, presence: true
-  validates :kind, inclusion: { in: %w(Embedded Upload Video) }
+  # validates :kind, inclusion: { in: %w(Embedded Upload Video) }
 
   # Build appropriate media_kind from submission_source and validate
+  before_validation :kind, presence: true
   before_validation :set_media_source
 
   def set_media_source
+    @track = Track.new(kind: kind)
     media_kind = @track.kind.safe_constantize.new
     @media = @track.media_sources.build(media: media_kind, source_path: submission_source)
   end
@@ -44,17 +46,12 @@ class Track < ApplicationRecord
 # AFTER MEDIA SOURCE:
 # METADATA AND ARTWORK
 ####################
-  validate :source_has_metadata
-
-  def source_has_metadata
-    track.title && track.artist && track.album && track.year && track.album_art
-  end
 
   # Metadata
-  validates :title, presence: true
-  validates :album, presence: true
-  validates :artist, presence: true
-  validates :year, length: { is: 4 }
+  # validates :title, presence: true
+  # validates :album, presence: true
+  # validates :artist, presence: true
+  # validates :year, length: { is: 4 }
 
   # Album art managed by Paperclip; URL fetching with open-uri
   has_attached_file :album_art,
