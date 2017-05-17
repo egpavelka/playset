@@ -13,12 +13,14 @@ class Track < ApplicationRecord
   # Tracks belong to a user and will be deleted if the account is deactivated.
   belongs_to :user, dependent: :destroy
   # media_source is a polymorhpic object, allowing different media_kinds to be stored under single "media" column.
-  has_many :media_sources
+
+  has_many :media_sources, dependent: :destroy
   has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
   has_many :embeddeds, through: :media_sources, source: :media, source_type: 'Embedded'
-  has_many :videos, through: :media_sources, source: :media, source_type: 'Video'
-  # Set options for form selection
-  KINDS = [['Embedded'], ['Video'], ['Upload']].freeze
+
+  def media
+    media_sources&.media
+  end
 
 ####################
 # INITIALIZE TRACK:
@@ -29,7 +31,8 @@ class Track < ApplicationRecord
   # validates :kind, inclusion: { in: %w(Embedded Upload Video) }
 
   # Build appropriate media_kind from submission_source and validate
-  before_validation :kind, presence: true
+  before_validation :playback, inclusion: { in: %w(Audio Video) }
+  before_validation :kind, inclusion: { in: %w(Embedded Upload) }
   before_validation :set_media_source
 
   def self.media
