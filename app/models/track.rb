@@ -32,6 +32,9 @@ class Track < ApplicationRecord
   before_validation :kind, presence: true
   before_validation :set_media_source
 
+  def self.media
+  end
+
   def set_media_source
     @track = Track.new(kind: kind)
     media_kind = @track.kind.safe_constantize.new
