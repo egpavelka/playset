@@ -26,10 +26,10 @@ end
 
 users = User.order(:created_at).take(6)
 
-Track.create!(title: "Song Title",
-              artist: "Artist",
-              album: "Album",
-              year: "1996",
-              kind: "Upload",
-              user_id: "1"
-              )
+# Track.create!(title: "Song Title",
+#               artist: "Artist",
+#               album: "Album",
+#               year: "1996",
+#               kind: "Upload",
+#               user_id: "1"
+#               )

@@ -29,9 +29,7 @@
 
   # ..... INLINE VALIDATION .....
   $('#url_source').change ->
-    console.log @value
     if /youtu/.test @value || /vimeo/.test @value
-      document.getElementById('track_kind').value = 'Video'
+      document.getElementById('track_playback').value = 'Video'
     else
-      document.getElementById('track_kind').value = 'Embedded'
-    console.log document.getElementById('track_kind').value
+      document.getElementById('track_playback').value = 'Audio'
