@@ -53,7 +53,7 @@ class Vimeo < Embedded
     source_path.match(VALID_SPOTIFY_FORMAT).captures[0]
   end
 
-  player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
+  # player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
 
   # API url structure with parameters
   def api_url

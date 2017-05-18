@@ -59,7 +59,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:state, :kind, :submission_source, :title, :artist, :album, :year, :album_art)
+    params.require(:track).permit(:state, :kind, :playback, :submission_source, :title, :artist, :album, :year, :album_art)
   end
 
   def source_has_metadata?
