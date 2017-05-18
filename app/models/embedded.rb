@@ -27,9 +27,9 @@ class Embedded < ApplicationRecord
       # http://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V (or https)
 
   # Check that source_path is in a valid format for a supported service and initialize variables for that service.
-  before_validation :set_video_source
+  before_validation :set_embedded_source
 
-  def set_video_source
+  def set_embedded_source
     if source_path.validate(VALID_VIMEO_FORMAT)
       Embedded::Vimeo.new
     elsif source_path.validates(VALID_YOUTUBE_FORMAT)
@@ -41,89 +41,8 @@ class Embedded < ApplicationRecord
     elsif source_path.validates(VALID_SPOTIFY_FORMAT)
       Embedded::Spotify.new
     else
+      flash[:error] = "Please submit a link to a single track or video from a supported site."
     end
-  end
-
-end
-
-class Vimeo < Embedded
-
-  # API parameters from input url
-  def video_id
-    source_path.match(VALID_SPOTIFY_FORMAT).captures[0]
-  end
-
-  # player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
-
-  # API url structure with parameters
-  def api_url
-  end
-
-
-end
-
-class YouTube < Embedded
-  # API parameters from input url
-  def video_id
-    source_path.match.(VALID_YT_FORMAT).captures[1]
-    # First match group will be 'watch?v=' or '&v='
-    # Second match group will be video ID
-  end
-
-  # API url structure with parameters
-  def api_url
-  end
-
-end
-
-class Bandcamp < Embedded
-
-  # API parameters from input url
-  def artist_path
-    source_path.match.(VALID_BANDCAMP_FORMAT).captures[0]
-    # regex conversion to lookup syntax
-  end
-
-  def title_path
-    source_path.match.(VALID_BANDCAMP_FORMAT).captures[1]
-    # regex conversion to lookup syntax
-  end
-
-  # API url structure with parameters
-  def api_url
-  end
-
-end
-
-class Soundcloud < Embedded
-
-  # API parameters from input url
-  def artist_path
-    source_path.match.(VALID_SOUNDCLOUD_FORMAT).captures[0]
-    # regex conversion to lookup syntax
-  end
-
-  def title_path
-    source_path.match.(VALID_SOUNDCLOUD_FORMAT).captures[1]
-    # regex conversion to lookup syntax
-  end
-
-  # API url structure with parameters
-  def api_url
-  end
-
-end
-
-class Spotify < Embedded
-
-  # API parameters from input url
-  def track_id
-    source_path.match.(VALID_YT_FORMAT).captures[1]
-    # (first match group is type (uri vs url), second is track id)
-  end
-
-  # API url structure with parameters
-  def api_url
   end
 
 end

@@ -12,43 +12,62 @@ class EmbeddedsController < ApplicationController
     end
   end
 
-end
+  ####################
+  # EMBED SOURCES:
+  # PARSE SOURCE_PATH,
+  # CREATE API_URL and IFRAME_URL
+  ####################
 
-class BandcampController < EmbeddedsController
+  def vimeo
+    # API parameters from input url
+    video_id = source_path.match(VALID_SPOTIFY_FORMAT).captures[0]
+    # player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
+    # API url structure with parameters
+    def api_url
+    end
+  end
 
-  def create
-    @embedded = Embedded.new(bandcamp_params)
+  def youtube
+    # API parameters from input url
+    video_id = source_path.match.(VALID_YT_FORMAT).captures[1]
+      # First match group will be 'watch?v=' or '&v='
+      # Second match group will be video ID
+    # API url structure with parameters
+    def api_url
+    end
+  end
+
+  def bandcamp
+    # API parameters from input url
+    artist_path = source_path.match.(VALID_BANDCAMP_FORMAT).captures[0]
+    title_path = source_path.match.(VALID_BANDCAMP_FORMAT).captures[1]
+    # API url structure with parameters
+    def api_url
+    end
+  end
+
+  def soundcloud
+    # API parameters from input url
+    artist_path = source_path.match.(VALID_SOUNDCLOUD_FORMAT).captures[0]
+    title_path = source_path.match.(VALID_SOUNDCLOUD_FORMAT).captures[1]
+    # API url structure with parameters
+    def api_url
+    end
+  end
+
+  def spotify
+    # API parameters from input url
+    track_id = source_path.match.(VALID_SPOTIFY_FORMAT).captures[1]
+      # (first match group is type (uri vs url), second is track id)
+    # API url structure with parameters
+    def api_url
+    end
   end
 
   private
-  def bandcamp_params
-    params.require(:bandcamp).permit(:artist, :title)
+
+  def embedded_params
+    params.require(:embedded).permit(:state, :kind, :playback, :source_path, :title, :artist, :album, :year, :album_art)
   end
-
-end
-
-class SoundcloudController < EmbeddedsController
-
-  def create
-    @embedded = Embedded.new(soundcloud_params)
-  end
-
-  private
-  def soundcloud_params
-    params.require(:soundcloud_params).permit(:artist, :title)
-  end
-
-end
-
-class SpotifyController < EmbeddedsController
-
-    def create
-      @embedded = Embedded.new(spotify_params)
-    end
-
-    private
-    def spotify_params
-      params.require(:spotify).permit(:track_id)
-    end
 
 end
