@@ -1,10 +1,14 @@
 class TracksController < ApplicationController
-  # before_action :logged_in_user, only: [:new, :create, :update, :destroy]
+  # before_action :set_media
 
   def new
-    @track = Track.new
-    @track.media_sources.new
+    # @track = @media.track.create
+    @track = Track.new(track_params)
+    # @track.media =
   end
+
+def set_media
+end
 
   def create
   # Initialize media params
@@ -36,7 +40,7 @@ class TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
     if @track.update_attributes(track_params)
-      flash[:success] = "Track has been submitted."
+      flash[:success] = "Track has been published."
       redirect_to root_path
     else
       render 'edit'
@@ -52,7 +56,7 @@ class TracksController < ApplicationController
   end
 
   def show
-    @track = Track.find(params[:id]).media_sources.media
+    @track = Track.find(params[:id]).media
   end
 
   def index
@@ -62,11 +66,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:state, :kind, :playback, :submission_source, :title, :artist, :album, :year, :album_art)
-  end
-
-  def source_has_metadata?
-    @track.title && @track.artist && @track.album && @track.year && @track.album_art
+    params.require(:track).permit(:playback, :title, :artist, :album, :year, :album_art)
   end
 
 end
