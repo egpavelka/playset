@@ -3,11 +3,12 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
-    # Initialize media params
     @track.media_sources.new
   end
 
   def create
+  # Initialize media params
+  # @track.media_sources.build(media: media_kind, source_path: submission_source)
     @track = current_user.tracks.create!(track_params)
     if @track.save
       # If metadata was retrieved from source, publish the track and render its view.
@@ -18,6 +19,7 @@ class TracksController < ApplicationController
       # If media was created successfully from source but metadata was not retrieved, track state remains as 'draft' and edit page is rendered.
       else
         flash[:error] = "Metadata could not be retrieved.  Please fill out the fields below."
+        @track.new_record?
         render 'edit'
       end
     # Catch any other errors
@@ -32,9 +34,10 @@ class TracksController < ApplicationController
   end
 
   def update
+    @track = Track.find(params[:id])
     if @track.update_attributes(track_params)
-      flash[:success] = "Your profile has been updated."
-      redirect_to @user
+      flash[:success] = "Track has been submitted."
+      redirect_to root_path
     else
       render 'edit'
     end
