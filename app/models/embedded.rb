@@ -31,15 +31,15 @@ class Embedded < ApplicationRecord
 
   def set_embedded_source
     if source_path.validate(VALID_VIMEO_FORMAT)
-      Embedded::Vimeo.new
+      vimeo(source_path)
     elsif source_path.validates(VALID_YOUTUBE_FORMAT)
-      Embedded::YouTube.new
+      youtube(source_path)
     elsif source_path.validate(VALID_BANDCAMP_FORMAT)
-      Embedded::Bandcamp.new
+      bandcamp(source_path)
     elsif source_path.validates(VALID_SOUNDCLOUD_FORMAT)
-      Embedded::Soundcloud.new
+      soundcloud(source_path)
     elsif source_path.validates(VALID_SPOTIFY_FORMAT)
-      Embedded::Spotify.new
+      spotify(source_path)
     else
       flash[:error] = "Please submit a link to a single track or video from a supported site."
     end
