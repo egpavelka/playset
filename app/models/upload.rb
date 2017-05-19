@@ -1,13 +1,7 @@
 class Upload < ApplicationRecord
-  has_one :media_source, as: :media
-  has_one :track, through: :media_sources
-  # validates :file_source, presence: true
+  belongs_to :user
+  has_one :track, as: :media
+
   # has_attached_file :audio
-  #, :styles => lambda { |attachment| {m4a}}
-
-
-
-  def upload_successful?
-  end
 
 end

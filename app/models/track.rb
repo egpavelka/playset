@@ -16,36 +16,17 @@ class Track < ApplicationRecord
 ####################
   # Tracks belong to a user and will be deleted if the account is deactivated.
   belongs_to :user, dependent: :destroy
-  # media_source is a polymorhpic object, allowing different media_kinds to be stored under single "media" column.
-
-  has_many :media_sources, dependent: :destroy
-  has_many :uploads, through: :media_sources, source: :media, source_type: 'Upload'
-  has_many :embeddeds, through: :media_sources, source: :media, source_type: 'Embedded'
-
-  def media
-    media_sources&.media
-  end
+  # Set up
+  belongs_to :media, polymorphic: true
 
 ####################
 # INITIALIZE TRACK:
 # USER, SOURCE, MEDIA
 ####################
   validates :user_id, presence: true
-  validates :submission_source, presence: true
-  validates :kind, inclusion: { in: %w(Embedded Upload) }
+  validates :playback, inclusion: { in: %w(Audio Video) }
 
-  # Build appropriate media_kind from submission_source and validate
-  before_validation :playback, inclusion: { in: %w(Audio Video) }
-  before_validation :kind, inclusion: { in: %w(Embedded Upload) }
-  before_validation :set_media_source
-
-  def set_media_source
-    @track = Track.new(kind: kind)
-    media_kind = @track.kind.safe_constantize.new
-    @media = @track.media_sources.build(media: media_kind, source_path: submission_source)
-  end
-
-  # First click to submit should validate the link or file, create the appropriate media from it, and check for track information via API or metadata.
+  # First click to submit should validate the link or file, equip the view, and check for track information via API or metadata.
 
   # Errors for missing metadata and album art are expected (mostly for uploads and video links), and the redirect will reveal fields for manual entry.
 
@@ -55,10 +36,10 @@ class Track < ApplicationRecord
 ####################
 
   # Metadata
-  # validates :title, presence: true
-  # validates :album, presence: true
-  # validates :artist, presence: true
-  # validates :year, length: { is: 4 }
+  validates :title, presence: true
+  validates :album, presence: true
+  validates :artist, presence: true
+  validates :year, length: { is: 4 }
 
   # Album art managed by Paperclip; URL fetching with open-uri
   has_attached_file :album_art,
