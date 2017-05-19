@@ -1,4 +1,5 @@
 class EmbeddedsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :update, :destroy]
   require 'httparty'
 
   def new
@@ -6,7 +7,7 @@ class EmbeddedsController < ApplicationController
   end
 
   def create
-    set_embedded_source
+    # Check source_path for appropriate service and create a corresponding object to generate player_url and query track data.
     @embedded = Embedded.new(embedded_params)
     if @embedded.save
     else
@@ -22,9 +23,19 @@ class EmbeddedsController < ApplicationController
 
   def vimeo
     # API parameters from input url
-    video_id = self.source_path.match(VALID_SPOTIFY_FORMAT).captures[0]
-    player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
+    video_id = self.source_path.match(VALID_VIMEO_FORMAT).captures[0]
     # API url structure with parameters
+    api_url = ""
+    response = api_call(api_url)
+    self.auto_metadata = {
+      :title => '',
+      :artist => '',
+      :album => '',
+      :year => '',
+      'album_art_url' =>''
+    }
+    # Generate url with options for iframe
+    self.player_url = "https://player.vimeo.com/video/#{video_id}?color=ffffff&title=0&byline=0&portrait=0"
   end
 
   def youtube
@@ -33,7 +44,18 @@ class EmbeddedsController < ApplicationController
     video_id = self.source_path.match.(VALID_YT_FORMAT).captures[1]
       # First match group will be 'watch?v=' or '&v='
       # Second match group will be video ID
-    # API url structure with parameters
+      # API url structure with parameters
+      api_url = ""
+      response = api_call(api_url)
+      self.auto_metadata = {
+        :title => '',
+        :artist => '',
+        :album => '',
+        :year => '',
+        'album_art_url' =>''
+      }
+      # Generate url with options for iframe
+      self.player_url = ""
   end
 
   def bandcamp
@@ -41,11 +63,17 @@ class EmbeddedsController < ApplicationController
     artist_path = self.source_path.match.(VALID_BANDCAMP_FORMAT).captures[0]
     title_path = self.source_path.match.(VALID_BANDCAMP_FORMAT).captures[1]
     # API url structure with parameters
-    def api_url
-    end
-
-    def api_function
-    end
+    api_url = ""
+    response = api_call(api_url)
+    self.auto_metadata = {
+      :title => '',
+      :artist => '',
+      :album => '',
+      :year => '',
+      'album_art_url' =>''
+    }
+    # Generate url with options for iframe
+    self.player_url = ""
   end
 
   def soundcloud
@@ -64,7 +92,7 @@ class EmbeddedsController < ApplicationController
       :artist => response["username"],
       :album => response["release"],
       :year => response["release_year"],
-      "album_art_url" => response["artwork_url"]
+      'album_art_url' => response["artwork_url"]
     }
     # Generate url with options for iframe
     self.player_url = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{track_id}&amp;color=333333&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"
@@ -83,7 +111,7 @@ class EmbeddedsController < ApplicationController
       :artist => response.values["artists"][0]["name"],
       :album => response["album"]["name"],
       :year => '',
-      "album_art_url" => response["album"]["images"][0]["url"]
+      'album_art_url' => response["album"]["images"][0]["url"]
     }
     # Generate url with options for iframe
     self.player_url = ""
@@ -92,33 +120,15 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:state, :kind, :playback, :source_path, :title, :artist, :album, :year, :album_art)
+    params.require(:embedded).permit(:source_path, :player_url, :auto_metadata)
   end
 
   # Check that source_path is in a valid format for a supported service and initialize variables for that service.
-  def set_embedded_source
-    puts self
-    if media_sources.source_path.validate(VALID_VIMEO_FORMAT)
-      vimeo
-    elsif source_path.validates(VALID_YOUTUBE_FORMAT)
-      youtube
-    elsif source_path.validate(VALID_BANDCAMP_FORMAT)
-      bandcamp
-    elsif source_path.validates(VALID_SOUNDCLOUD_FORMAT)
-      soundcloud
-    elsif source_path.validates(VALID_SPOTIFY_FORMAT)
-      spotify
-    else
-      flash[:error] = "Please submit a link to a single track or video from a supported site."
-    end
-  end
 
   def api_call(url)
     response = HTTParty.get(url)
     response.parsed_response
  end
 
-  def assign_metadata
-  end
 
 end
