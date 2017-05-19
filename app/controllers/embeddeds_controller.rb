@@ -6,6 +6,7 @@ class EmbeddedsController < ApplicationController
   end
 
   def create
+    set_embedded_source
     @embedded = Embedded.new(embedded_params)
     if @embedded.save
     else
@@ -92,6 +93,24 @@ class EmbeddedsController < ApplicationController
 
   def embedded_params
     params.require(:embedded).permit(:state, :kind, :playback, :source_path, :title, :artist, :album, :year, :album_art)
+  end
+
+  # Check that source_path is in a valid format for a supported service and initialize variables for that service.
+  def set_embedded_source
+    puts self
+    if media_sources.source_path.validate(VALID_VIMEO_FORMAT)
+      vimeo
+    elsif source_path.validates(VALID_YOUTUBE_FORMAT)
+      youtube
+    elsif source_path.validate(VALID_BANDCAMP_FORMAT)
+      bandcamp
+    elsif source_path.validates(VALID_SOUNDCLOUD_FORMAT)
+      soundcloud
+    elsif source_path.validates(VALID_SPOTIFY_FORMAT)
+      spotify
+    else
+      flash[:error] = "Please submit a link to a single track or video from a supported site."
+    end
   end
 
   def api_call(url)

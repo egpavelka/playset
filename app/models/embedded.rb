@@ -2,10 +2,8 @@ class Embedded < ApplicationRecord
   has_one :media_source, as: :media
   has_one :track, through: :media_sources
 
-  before_validation :set_embedded_source
-  # Player_url will be generated to insert into iframe
-  # Playback_function will map play and stop from embedded player to uniform player
-  store :source_settings, accessors: [ :player_url, :playback_function]
+  attr_accessor :track, :media_sources
+  delegate :title, :artist, :album, :year, :album_art, to: :track
 
   ####################
   # SETUP: SOURCES,
@@ -25,24 +23,5 @@ class Embedded < ApplicationRecord
   VALID_SPOTIFY_FORMAT = /^(spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/)([^#\&\?\/]*)/i
       # spotify:track:2TpxZ7JUBn3uw46aR7qd6V
       # http://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V (or https)
-
-  # Check that source_path is in a valid format for a supported service and initialize variables for that service.
-  before_validation :set_embedded_source
-
-  def set_embedded_source
-    if source_path.validate(VALID_VIMEO_FORMAT)
-      vimeo(source_path)
-    elsif source_path.validates(VALID_YOUTUBE_FORMAT)
-      youtube(source_path)
-    elsif source_path.validate(VALID_BANDCAMP_FORMAT)
-      bandcamp(source_path)
-    elsif source_path.validates(VALID_SOUNDCLOUD_FORMAT)
-      soundcloud(source_path)
-    elsif source_path.validates(VALID_SPOTIFY_FORMAT)
-      spotify(source_path)
-    else
-      flash[:error] = "Please submit a link to a single track or video from a supported site."
-    end
-  end
 
 end

@@ -5,6 +5,10 @@ class Track < ApplicationRecord
 ### DISPLAY SCOPES
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
+  scope :popularity, -> { order(likes: :desc) }
+  scope :published, -> { where(state: 'published') }
+  scope :audio, -> { where(playback: 'audio') }
+  scope :video, -> { where(playback: 'video') }
 
 ####################
 # SETUP: PROPERTIES,
@@ -28,15 +32,12 @@ class Track < ApplicationRecord
 ####################
   validates :user_id, presence: true
   validates :submission_source, presence: true
-  # validates :kind, inclusion: { in: %w(Embedded Upload Video) }
+  validates :kind, inclusion: { in: %w(Embedded Upload) }
 
   # Build appropriate media_kind from submission_source and validate
   before_validation :playback, inclusion: { in: %w(Audio Video) }
   before_validation :kind, inclusion: { in: %w(Embedded Upload) }
   before_validation :set_media_source
-
-  def self.media
-  end
 
   def set_media_source
     @track = Track.new(kind: kind)
