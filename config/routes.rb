@@ -23,10 +23,12 @@ Rails.application.routes.draw do
   post '/submit', to: 'tracks#create'
 
 
+
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :tracks
+
 
   # resources :tracks do
   #   resources :embeddeds, :uploads, :videos
