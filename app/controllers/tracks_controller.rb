@@ -7,8 +7,8 @@ class TracksController < ApplicationController
     # @track.media =
   end
 
-def set_media
-end
+  def submit
+  end
 
   def create
   # Initialize media params

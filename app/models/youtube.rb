@@ -1,9 +1,9 @@
 require_relative 'embedded'
 
 class Youtube < Embedded
+  YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
 
-  def initialize(url)
-    YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
+  def set_parameters(url)
     # API parameters from input url
     @video_id = url.match.(VALID_YT_FORMAT).captures[1]
       # First match group will be 'watch?v=' or '&v='
@@ -16,13 +16,14 @@ class Youtube < Embedded
   end
 
   def auto_metadata
-    => {
+    values = [{
     :title => '',
     :artist => '',
     :album => '',
     :year => '',
     'album_art_url' => ''
-    }
+    }]
+    @metadata = values[0]
   end
 
   # Generate url with options for iframe
