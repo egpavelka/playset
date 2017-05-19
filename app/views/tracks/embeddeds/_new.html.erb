@@ -1,13 +1,12 @@
-<%= form_for(@track)  do |f| %>
+<%= form_for Embedded.new do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.hidden_field :kind, value: 'Upload' %>
   <%= f.hidden_field :playback, value: 'Audio' %>
 
   <li class="form-entry">
-    <%= f.label :submission_source, 'File' %>
-    <%= f.file_field :submission_source, id: 'upload-source' %>
+    <%= f.label :source_path, 'URL' %>
+    <%= f.text_field :source_path, id: 'url_source' %>
   </li>
 
   <%= f.submit 'Submit', class: 'submit-button' %>

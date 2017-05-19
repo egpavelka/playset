@@ -19,19 +19,18 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/submit', to: 'tracks#new'
-  post '/submit', to: 'tracks#create'
-
+  get '/submit', to: 'tracks#submit'
+  post '/submit/embed', to: 'embedded#create'
+  post '/submit/upload', to: 'upload#create'
 
 
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :tracks
-
+  resources :tracks, :embeddeds, :uploads
 
   # resources :tracks do
-  #   resources :embeddeds, :uploads, :videos
+  #   resources :embeddeds, :uploads
   # end
 
 end

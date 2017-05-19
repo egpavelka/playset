@@ -2,7 +2,7 @@ require_relative 'embedded'
 
 class Vimeo < Embedded
 
-  attr_accessor :embedded
+  attr_accessor :embeddeds
 
   def set_parameters(url)
     # API parameters from input url

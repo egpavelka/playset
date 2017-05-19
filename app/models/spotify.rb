@@ -3,7 +3,7 @@ require_relative 'embedded'
 class Spotify < Embedded
   SPOTIFY_CLIENT_ID = '05343128829c43e19407fc13849136c8'
 
-  def initialize(url)
+  def set_parameters(url)
     # API parameters from input url
     @track_id = url.match.(VALID_SPOTIFY_FORMAT).captures[1]
       # (first match group is type (uri vs url), second is track id)
@@ -16,13 +16,14 @@ class Spotify < Embedded
   end
 
   def auto_metadata
-    => {
+    values = [{
     :title => @data["name"],
     :artist => @data.values["artists"][0]["name"],
     :album => @data["album"]["name"],
     :year => '',
     'album_art_url' => @data["album"]["images"][0]["url"]
-    }
+    }]
+    @metadata = values[0]
   end
 
   # Generate url with options for iframe
