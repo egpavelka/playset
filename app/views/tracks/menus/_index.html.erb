@@ -1,0 +1,8 @@
+<nav class="nav navbar-default">
+  <ul class="nav nav-tabs page-nav">
+    <li class="<%= current_class?(root_path) %>"><%= link_to 'Top', root_path %></li>
+    <li class="<%= current_class?(root_path) %>"><%= link_to 'New', '#', class: current_class?(users_path) %></li>
+    <li class="<%= current_class?(root_path) %>"><%= link_to 'All time', '#' %></li>
+    <li class="<%= current_class?(root_path) %>"><%= link_to 'Following', '#' %></li>
+  </ul>
+</nav>

@@ -1,0 +1,23 @@
+<% provide(:title, "submit track") %>
+
+<section class="content-container static-pages">
+  <div class="page-header">submit track</div>
+
+  <%= render 'tracks/menus/submit' %>
+
+  <%= form_for Embedded.new do |f| %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.hidden_field :playback, value: 'Audio' %>
+
+    <li class="form-entry">
+      <%= f.label :source_path, 'URL' %>
+      <%= f.text_field :source_path, id: 'url_source' %>
+    </li>
+
+    <%= f.submit 'Submit', class: 'submit-button' %>
+
+  <% end %>
+
+</section>

@@ -1,0 +1,23 @@
+<% provide(:title, "submit track") %>
+
+<section class="content-container static-pages">
+  <div class="page-header">submit track</div>
+
+  <%= render 'tracks/menus/submit' %>
+  
+  <%= form_for Upload.new do |f| %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.hidden_field :playback, value: 'Audio' %>
+
+    <li class="form-entry">
+      <%= f.label :submission_source, 'File' %>
+      <%= f.file_field :submission_source, id: 'upload-source' %>
+    </li>
+
+    <%= f.submit 'Submit', class: 'submit-button' %>
+
+  <% end %>
+
+</section>

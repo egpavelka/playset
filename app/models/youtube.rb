@@ -28,6 +28,6 @@ class Youtube < Embedded
 
   # Generate url with options for iframe
   def player_url
-    ""
+    "https://www.youtube.com/embed/#{@video_id}?enablejsapi=1&color=white&controls=0&playsinline=1&showinfo=0&rel=0"
   end
 end

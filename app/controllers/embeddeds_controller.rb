@@ -25,15 +25,18 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :player_url, :auto_metadata)
+    params.require(:embedded).permit(:source_path, :player_url, :title, :artist, :album, :year, :album_art)
   end
 
   # Check that source_path is in a valid format for a supported service and initialize variables for that service.
 
-  def api_call(url)
-    response = HTTParty.get(url)
-    response.parsed_response
- end
+   def api_call(url)
+     response = HTTParty.get(url)
+     response.parsed_response
+   end
+
+   def assign_auto_metadata
+   end
 
 
 end
