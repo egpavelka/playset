@@ -1,6 +1,6 @@
 class Upload < ApplicationRecord
   belongs_to :user
-  has_one :track, as: :media
+  has_one :track, as: :media, dependent: :destroy
 
   attr_accessor :tracks
 

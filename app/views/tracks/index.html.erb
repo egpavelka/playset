@@ -2,10 +2,12 @@
 
 
 <div class="row">
-  <%= render 'tracks/index-nav' %>
+  <%= render 'tracks/menus/index' %>
 </div>
 
 <%= render @tracks %>
+<%= render 'tracks/iframe-tests' %>
+
 
 <div class="row">
   <%= will_paginate @tracks %>

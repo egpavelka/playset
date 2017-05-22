@@ -10,4 +10,9 @@ module ApplicationHelper
     end
   end
 
+  # Manage "active" class for menus
+  def current_class?(test_path)
+    'active' if request.path == test_path
+  end
+
 end
