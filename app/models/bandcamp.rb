@@ -30,7 +30,7 @@ class Bandcamp < Embedded
     :year => Date.strptime(data["album_release_date"], '%d %b %Y').year,
     :album_art => album_art_url
     },
-    player_url]
+    self.player_url]
     values
   end
 
