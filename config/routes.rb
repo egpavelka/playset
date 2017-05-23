@@ -29,10 +29,16 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :tracks, :embeddeds, :uploads
+  resources :tracks, :uploads, :embeddeds
 
-  # resources :tracks do
-  #   resources :embeddeds, :uploads
+  # namespace :submit do
+  #   resources :embeddeds, only: [:new, :create]
+  #   resources :uploads, only: [:new, :create]
   # end
+
+  resources :tracks do
+    resources :embddeds, only: [:index, :show, :edit, :update, :destroy]
+    resources :uploads, only: [:index, :show, :edit, :update, :destroy]
+  end
 
 end

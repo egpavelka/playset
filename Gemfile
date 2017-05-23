@@ -38,6 +38,11 @@ gem 'faker', '~> 1.7.3'
 gem 'bcrypt', '~> 3.1.7'
 # Use HTTParty to manage external API calls
 gem 'httparty', '~> 0.14.0'
+# Nokogiri to scrape data from pages
+gem 'nokogiri'
+# RKelly to parse js in bandcamp pages
+gem 'rkelly-remix'
+gem 'watir-rails'
 # Use Paperclip to upbload files
 gem 'paperclip', '~> 5.1.0'
 # Use Amazon S3 for image and audio storage

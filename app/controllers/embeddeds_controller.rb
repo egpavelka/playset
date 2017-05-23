@@ -1,18 +1,21 @@
 class EmbeddedsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :update, :destroy]
-  require 'httparty'
+  # before_action :logged_in_user, only: [:new, :create, :update, :destroy]
 
   def new
     @embedded = Embedded.new
+    # @embedded.build_track(user_id: current_user)
   end
 
   def create
-    # Check source_path for appropriate service and create a corresponding object to generate player_url and query track data.
+    # Initialize embedded object belonging to current_user
     @embedded = Embedded.new(embedded_params)
-    if @embedded.save
-    else
-
-    end
+      if @embedded.save
+        # Check source_path for appropriate service and create a corresponding object to generate player_url and query track data.
+        @embedded.build_track(auto_metadata[0])
+        flash[:success] = "Track submitted successfully."
+      else
+        render 'new'
+      end
   end
 
   ####################
@@ -25,18 +28,7 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :player_url, :title, :artist, :album, :year, :album_art)
+    params.require(:embedded).permit(:source_path, :playback, :player_url, :title, :artist, :album, :year, :album_art)
   end
-
-  # Check that source_path is in a valid format for a supported service and initialize variables for that service.
-
-   def api_call(url)
-     response = HTTParty.get(url)
-     response.parsed_response
-   end
-
-   def assign_auto_metadata
-   end
-
 
 end
