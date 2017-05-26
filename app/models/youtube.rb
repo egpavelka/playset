@@ -1,7 +1,7 @@
 require_relative 'embedded'
 
 class Youtube < Embedded
-  YOUTUBE_API_KEY = 'AIzaSyD_-CYPWp2DgQ6VeEqPpZtCgQksSWaUU14'
+  YOUTUBE_API_KEY =
 
   def get_data(url)
     # API parameters from input url

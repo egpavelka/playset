@@ -3,16 +3,20 @@ class EmbeddedsController < ApplicationController
 
   def new
     @embedded = Embedded.new
-    # @embedded.build_track(user_id: current_user)
+    @embedded.build_track()
   end
 
   def create
     # Initialize embedded object belonging to current_user
     @embedded = Embedded.new(embedded_params)
       if @embedded.save
-        # Check source_path for appropriate service and create a corresponding object to generate player_url and query track data.
-        @embedded.build_track(auto_metadata[0])
-        flash[:success] = "Track submitted successfully."
+        @track = @embedded.build_track(@embedded.auto_metadata["text_data"])
+        # @track.album_art = @track.art_from_url(auto_metadata["album_art_url"])
+        @track.save
+        if @track.save
+          flash[:success] = "Track submitted successfully."
+        else
+        end
       else
         render 'new'
       end
@@ -23,7 +27,6 @@ class EmbeddedsController < ApplicationController
   # PARSE SOURCE_PATH,
   # CREATE API_URL and IFRAME_URL
   ####################
-
 
   private
 

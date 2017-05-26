@@ -24,11 +24,13 @@ class Bandcamp < Embedded
     album_art_url = 'https://f4.bcbits.com/img/a' + data["art_id"].to_s + '_16.jpg'
     # Hash to return for track_params
     values = [{
-    :title => data["current"]["title"],
-    :artist => data["artist"],
-    :album => data["packages"][0]["album_title"],
-    :year => Date.strptime(data["album_release_date"], '%d %b %Y').year,
-    :album_art => album_art_url
+      "text_data": {
+      :title => data["current"]["title"],
+      :artist => data["artist"],
+      :album => data["packages"][0]["album_title"],
+      :year => Date.strptime(data["album_release_date"], '%d %b %Y').year
+      },
+      "album_art_url" => album_art_url
     },
     self.player_url]
     values
