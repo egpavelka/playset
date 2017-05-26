@@ -1,12 +1,14 @@
 require_relative 'embedded'
 
 class Spotify < Embedded
-  SPOTIFY_CLIENT_ID = '05343128829c43e19407fc13849136c8'
-
+  SPOTIFY_CLIENT_ID =
+  
   def get_data(url)
+    # Acceptable URL examples
+    # https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC
+    # spotify:track:4uLU6hMCjMI75M1A2tKUQC
     # API parameters from input url
-    @track_id = url.match.(VALID_SPOTIFY_FORMAT).captures[1]
-      # (first match group is type (uri vs url), second is track id)
+    @track_id = url.match.(VALID_SPOTIFY_FORMAT).captures[0]
     # API url structure with parameters
     api_url = "https://api.spotify.com/v1/tracks/#{@track_id}"
     # Return API response
