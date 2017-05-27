@@ -3,9 +3,9 @@
 
 User.create!(name:  "Grace Pavelka",
              username: "egpavelka",
-             email: "egpavelka@gmail.com",
-             password: "Magnolia1",
-             password_confirmation: "Magnolia1",
+             email: "test@newtestemail.com",
+             password: "TestPassword1",
+             password_confirmation: "TestPassword1",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
