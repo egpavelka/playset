@@ -1,7 +1,7 @@
 require_relative 'embedded'
 
 class Youtube < Embedded
-  YOUTUBE_API_KEY =
+  api_key =  Rails.application.secrets.youtube_api_key
 
   def get_data(url)
     # API parameters from input url
