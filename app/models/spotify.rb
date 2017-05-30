@@ -1,8 +1,10 @@
 require_relative 'embedded'
 
 class Spotify < Embedded
-  SPOTIFY_CLIENT_ID =
-  
+  client_id =  Rails.application.secrets.spotify_client_id
+  client_secret =  Rails.application.secrets.spotify_client_secret
+
+
   def get_data(url)
     # Acceptable URL examples
     # https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC
@@ -17,11 +19,11 @@ class Spotify < Embedded
 
   def get_metadata(data)
     values = [{
-    :title => data["name"],
-    :artist => data.values["artists"][0]["name"],
-    :album => data["album"]["name"],
+    :title => data['name'],
+    :artist => data.values['artists'][0]['name'],
+    :album => data['album']['name'],
     :year => '',
-    'album_art_url' => data["album"]["images"][0]["url"]
+    'album_art_url' => data['album']['images'][0]['url']
     },
     player_url]
     values

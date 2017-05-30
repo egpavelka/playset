@@ -1,6 +1,10 @@
 require_relative 'embedded'
 
 require 'nokogiri'
+require 'capybara'
+require 'capybara/dsl'
+require 'capybara/poltergeist'
+require 'phantomjs'
 require 'date'
 
 class Bandcamp < Embedded
@@ -8,6 +12,8 @@ class Bandcamp < Embedded
   attr_accessor :embeddeds, :tracks
 
   def get_data(url)
+    # Acceptable URL example
+    # https://grabbingclouds.bandcamp.com/track/brewer-street
     # API parameters from input url @artist_path = url.match.(VALID_BANDCAMP_FORMAT).captures[0] @title_path = url.match.(VALID_BANDCAMP_FORMAT).captures[1]
     # Watir simulates a new browser instance
     browser = Watir::Browser.new
@@ -16,6 +22,15 @@ class Bandcamp < Embedded
     # Bandcamp's track info is hidden inside a script tag as var TralbumData.  Watir returns the variable as a Ruby hash, which is then returned by this method.
     browser.execute_script('return TralbumData')
   end
+
+  # def get_data(url)
+  # # Acceptable URL example
+  # # https://grabbingclouds.bandcamp.com/track/brewer-street
+  #   scraper = Capybara::Sassion.new(:poltergeist)
+  #   # scraper.driver.browser.url_whitelist('bandcamp.com')
+  #   scraper.visit url
+  #
+  # end
 
   def get_metadata(data)
     # Parameters for player_url

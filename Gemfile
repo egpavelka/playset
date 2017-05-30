@@ -32,7 +32,7 @@ gem 'turbolinks', '>= 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '>= 2.5'
 # Fill database with random data for testing
-gem 'faker', '>= 1.7.3'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '>= 3.1.7'
@@ -40,14 +40,17 @@ gem 'bcrypt', '>= 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
-# Watir to pull metadata from Bandcamp (wrapped in JS)
-gem 'watir-rails'
-# Soundcloud API helper
-gem 'soundcloud'
 # Use Paperclip to upbload files
 gem 'paperclip', '>= 5.1.0'
 # Use Amazon S3 for image and audio storage
 gem 'aws-sdk', '>= 2.3.0'
+
+# Capybara to simulate application browser usage
+gem 'capybara'
+# Poltergeist to handle JS in Capybara instances
+gem 'poltergeist'
+# ... with PhantomJS
+gem 'phantomjs'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
