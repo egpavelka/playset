@@ -36,7 +36,7 @@ class Embedded < ApplicationRecord
   def get_source
     supported_sources = {
       $VALID_BANDCAMP_FORMAT => Bandcamp,
-      $VALID_SOUNDCLOUD_FORMAT => SoundcloudSrc, # Soundcloud gem uses "Soundcloud"
+      $VALID_SOUNDCLOUD_FORMAT => Soundclouded, # Soundcloud gem uses "Soundcloud"
       $VALID_SPOTIFY_FORMAT => Spotify,
       $VALID_VIMEO_FORMAT => Vimeo,
       $VALID_YOUTUBE_FORMAT => Youtube

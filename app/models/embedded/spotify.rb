@@ -1,7 +1,6 @@
-require_relative 'embedded'
 require 'rspotify'
 
-class Spotify < Embedded
+class Embedded::Spotify
 
   def get_data(url)
     # Acceptable URL examples
@@ -16,6 +15,7 @@ class Spotify < Embedded
   end
 
   def get_metadata(data)
+    # Format date
     year_from_date = Date.strptime(data.album.release_date, '%Y').year
 
     values = [{
@@ -26,7 +26,7 @@ class Spotify < Embedded
     'album_art_url' => data.album.images[0]['url']
     },
     self.player_url]
-    
+
     values
   end
 

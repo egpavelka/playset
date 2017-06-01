@@ -1,6 +1,4 @@
-require_relative 'embedded'
-
-class Youtube < Embedded
+class Embedded::Youtube
   api_key =  Rails.application.secrets.youtube_api_key
 
   def get_data(url)
