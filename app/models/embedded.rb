@@ -22,11 +22,11 @@ class Embedded < ApplicationRecord
   before_save :player_url, presence: true
   before_save :auto_metadata, presence: true
 
-  VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
-  VALID_SOUNDCLOUD_FORMAT = /^(https?:\/\/)?(www.)?(m\.)?soundcloud\.com\/([\w\-\.]+)\/([\w\-\.]+)/i
-  VALID_SPOTIFY_FORMAT = /^[spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/]+([^#\&\?\/]*)/i
-  VALID_VIMEO_FORMAT = /^https?:\/\/vimeo\.com\/+([^#\&\?\/]*)/i
-  VALID_YOUTUBE_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  $VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
+  $VALID_SOUNDCLOUD_FORMAT = /^(https?:\/\/)?(www.)?(m\.)?soundcloud\.com\/([\w\-\.]+)\/([\w\-\.]+)/i
+  $VALID_SPOTIFY_FORMAT = /^[spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/]+([^#\&\?\/]*)/i
+  $VALID_VIMEO_FORMAT = /^https?:\/\/vimeo\.com\/+([^#\&\?\/]*)/i
+  $VALID_YOUTUBE_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
 
   ####################
   # BASE METHODS FOR
@@ -35,23 +35,23 @@ class Embedded < ApplicationRecord
 
   def get_source
     supported_sources = {
-      VALID_BANDCAMP_FORMAT => Bandcamp,
-      VALID_SOUNDCLOUD_FORMAT => Soundcloud,
-      VALID_SPOTIFY_FORMAT => Spotify,
-      VALID_VIMEO_FORMAT => Vimeo,
-      VALID_YOUTUBE_FORMAT => Youtube
+      $VALID_BANDCAMP_FORMAT => Bandcamp,
+      $VALID_SOUNDCLOUD_FORMAT => SoundcloudSrc, # Soundcloud gem uses "Soundcloud"
+      $VALID_SPOTIFY_FORMAT => Spotify,
+      $VALID_VIMEO_FORMAT => Vimeo,
+      $VALID_YOUTUBE_FORMAT => Youtube
     }
     # Detect the urL_source by finding a match for source_path in the regex variables (keys in supported_sources)
     url_source = supported_sources.keys.detect { |valid_format| source_path.match(valid_format) }
-    puts url_source
     # source_service becomes instance of
     self.source_service = supported_sources.fetch(url_source)
   end
 
   def set_parameters
-    puts source_service
     service = source_service.safe_constantize.new
     data = service.get_data(source_path)
+    puts "returned: "
+    puts data
     metadata = service.get_metadata(data)
     self.auto_metadata = metadata[0]
     self.player_url = metadata[1]
