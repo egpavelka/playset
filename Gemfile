@@ -36,21 +36,26 @@ gem 'faker'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '>= 3.1.7'
+
 # Use HTTParty to manage external API calls
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
-# Use Paperclip to upbload files
-gem 'paperclip', '>= 5.1.0'
-# Use Amazon S3 for image and audio storage
-gem 'aws-sdk', '>= 2.3.0'
-
 # Capybara to simulate application browser usage
 gem 'capybara'
 # Poltergeist to handle JS in Capybara instances
 gem 'poltergeist'
 # ... with PhantomJS
 gem 'phantomjs'
+
+# Embedding service API wrappers
+gem 'soundcloud', '>= 0.3.4'
+gem 'rspotify'
+
+# Use Paperclip to upbload files
+gem 'paperclip', '>= 5.1.0'
+# Use Amazon S3 for image and audio storage
+gem 'aws-sdk', '>= 2.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
