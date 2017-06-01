@@ -1,5 +1,3 @@
-require_relative 'embedded'
-
 require 'nokogiri'
 require 'capybara'
 require 'capybara/dsl'
@@ -7,7 +5,7 @@ require 'capybara/poltergeist'
 require 'phantomjs'
 require 'date'
 
-class Bandcamp < Embedded
+class Embedded::Bandcamp
 
   attr_accessor :embeddeds, :tracks
 

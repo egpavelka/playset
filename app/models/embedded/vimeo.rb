@@ -1,6 +1,4 @@
-require_relative 'embedded'
-
-class Vimeo < Embedded
+class Embedded::Vimeo
 
   attr_accessor :embeddeds
 
