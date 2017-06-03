@@ -31,11 +31,6 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :tracks, :uploads, :embeddeds
 
-  # namespace :submit do
-  #   resources :embeddeds, only: [:new, :create]
-  #   resources :uploads, only: [:new, :create]
-  # end
-
   resources :tracks do
     resources :embddeds, only: [:index, :show, :edit, :update, :destroy]
     resources :uploads, only: [:index, :show, :edit, :update, :destroy]

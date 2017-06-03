@@ -19,10 +19,12 @@ class Embedded::Spotify
     year_from_date = Date.strptime(data.album.release_date, '%Y').year
 
     values = [{
-    :title => data.name,
-    :artist => data.artists[0].name,
-    :album => data.album.name,
-    :year => year_from_date,
+    'text_data' => {
+      :title => data.name,
+      :artist => data.artists[0].name,
+      :album => data.album.name,
+      :year => year_from_date
+      },
     'album_art_url' => data.album.images[0]['url']
     },
     self.player_url]

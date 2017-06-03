@@ -1,5 +1,5 @@
 class EmbeddedsController < ApplicationController
-  # before_action :logged_in_user, only: [:new, :create, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :update, :destroy]
 
   def new
     @embedded = Embedded.new
@@ -10,12 +10,13 @@ class EmbeddedsController < ApplicationController
     # Initialize embedded object belonging to current_user
     @embedded = Embedded.new(embedded_params)
       if @embedded.save
-        @track = @embedded.build_track(@embedded.auto_metadata["text_data"])
-        # @track.album_art = @track.art_from_url(auto_metadata["album_art_url"])
+        @track = @embedded.build_track(@embedded.auto_metadata['text_data'])
         @track.save
         if @track.save
+          redirect_to edit_track_path(@track)
           flash[:success] = "Track submitted successfully."
         else
+          redirect_to new_track_path(@track)
         end
       else
         render 'new'
@@ -31,7 +32,7 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :playback, :player_url, :title, :artist, :album, :year, :album_art)
+    params.require(:embedded).permit(:source_path, :playback, :player_url, :user_id, :title, :artist, :album, :year)
   end
 
 end

@@ -6,13 +6,16 @@ class Embedded::Soundclouded
     # Acceptable url example
     # https://soundcloud.com/theacid/the-acid-tumbling-lights
     # "http://api.soundcloud.com/resolve?url=https://soundcloud.com/beachseason/if-i-intro-1&client_id=#{Rails.application.secrets.soundcloud_client_id}"
-    @client = Soundcloud.new({
+    client = Soundcloud.new({
       :client_id => Rails.application.secrets.soundcloud_client_id,
       :client_secret => Rails.application.secrets.soundcloud_client_secret })
+
+      data = {}
 
       begin
         data = client.get('/resolve', :url => url)
       rescue Soundcloud::ResponseError => e
+        puts e
         puts "Error: #{e.message}, Status Code: #{e.response.code}"
       end
 
@@ -25,12 +28,12 @@ class Embedded::Soundclouded
       # Soundcloud API throws 403 errors for resolve calls on certain urls.  If the url is valid, an oembed call should still work, and some metadata can be extracted
       data.artist ||= embed_data.author_name
       # embed_data.title will return "title by artist", cut to just title
-      data.title ||= embed_data.title.split(' by ' + tr.author_name.to_s).first
+      data.title ||= embed_data.title.split(' by ' + embed_data.author_name.to_s).first
       # Get id from url inside iframe
       data.id ||= embed_data.html[/tracks%2F(.*?)&show_artwork/, 1]
       # Always get artwork from embed_data
-      data.artwork_url ||= embed_data.thumbnail_url
-
+      data.artwork_url = embed_data.thumbnail_url
+      puts data
       # Return data object
       data
   end

@@ -45,13 +45,13 @@ class Embedded < ApplicationRecord
     url_source = supported_sources.keys.detect { |valid_format| source_path.match(valid_format) }
     # source_service becomes instance of
     self.source_service = supported_sources.fetch(url_source)
+    # playback type is audio by default (hidden form tag)
+    # self.playback = 'video' if [Vimeo, Youtube].include?(self.source_service)
   end
 
   def set_parameters
     service = source_service.safe_constantize.new
     data = service.get_data(source_path)
-    puts "returned: "
-    puts data
     metadata = service.get_metadata(data)
     self.auto_metadata = metadata[0]
     self.player_url = metadata[1]
