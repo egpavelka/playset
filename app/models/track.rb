@@ -15,7 +15,7 @@ class Track < ApplicationRecord
 # RELATIONSHIPS
 ####################
   # Tracks belong to a user and will be deleted if the account is deactivated.
-  # belongs_to :user, dependent: :destroy
+  belongs_to :user, dependent: :destroy
   # Set up
   belongs_to :media, polymorphic: true
 
@@ -23,7 +23,7 @@ class Track < ApplicationRecord
 # INITIALIZE TRACK:
 # USER, SOURCE, MEDIA
 ####################
-  # validates :user_id, presence: true
+  validates :user_id, presence: true
   # validates :playback, inclusion: { in: %w(audio video) }
 
   # First click to submit should validate the link or file, equip the view, and check for track information via API or metadata.

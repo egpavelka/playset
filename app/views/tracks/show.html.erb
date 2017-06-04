@@ -1,7 +1,1 @@
-<% if @track.playback == 'video' %>
-  <%= render 'tracks/show/video', track: @track %>
-<% else %>
-  <%= render 'tracks/show/audio', track: @track %>
-  <%# Show bar with iframe player for current track pinned to bottom; collapse to side if mobile, hide if video %>
-  <%=# render 'tracks/show/bar', track: @track %>
-<% end %>
+<%= render 'tracks/show/audio', track: @track %>

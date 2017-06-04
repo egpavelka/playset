@@ -10,13 +10,15 @@ class EmbeddedsController < ApplicationController
     # Initialize embedded object belonging to current_user
     @embedded = Embedded.new(embedded_params)
       if @embedded.save
-        @track = @embedded.build_track(@embedded.auto_metadata['text_data'])
-        @track.save
+        metadata = @embedded.auto_metadata['text_data']
+        metadata['user_id'] = current_user.id
+        @track = @embedded.create_track(metadata)
+        puts @track.attributes
         if @track.save
           redirect_to edit_track_path(@track)
           flash[:success] = "Track submitted successfully."
         else
-          redirect_to new_track_path(@track)
+          render new_track_path(@track)
         end
       else
         render 'new'
