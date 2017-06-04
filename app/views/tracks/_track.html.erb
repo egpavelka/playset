@@ -11,6 +11,7 @@
       </div>
 
       <div class="col-xs-8 track-details">
+        <%= User.find(track.user_id).username %>
         <div class="col-xs-offset-1 track-timestamp">
         <%= time_ago_in_words(track.created_at) %> ago
         </div>
