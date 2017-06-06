@@ -36,7 +36,7 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :playback, :player_url, :user_id, :title, :artist, :album, :year)
+    params.require(:embedded).permit(:source_path, :playback, :user_id)
   end
 
 end

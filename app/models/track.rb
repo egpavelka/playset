@@ -6,9 +6,9 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
   scope :popularity, -> { order(likes: :desc) }
-  scope :published, -> { where(state: 'published') }
-  scope :audio, -> { where(playback: 'audio') }
-  scope :video, -> { where(playback: 'video') }
+  scope :posted, -> { where(published: true) }
+  # scope :audio, posted.where(playback: 'audio')
+  # scope :video, posted.where(playback: 'video')
 
 ####################
 # SETUP: PROPERTIES,
@@ -39,7 +39,7 @@ class Track < ApplicationRecord
   validates :title, presence: true, on: :update
   # validates :album, on: :update
   validates :artist, presence: true, on: :update
-  validates :year, length: { is: 4 }, on: :update
+  # validates :year, length: { is: 4 }, on: :update, allow_nil: true
 
   # Album art managed by Paperclip; URL fetching with open-uri
   # has_attached_file :album_art,
@@ -57,8 +57,7 @@ class Track < ApplicationRecord
   end
 
 ####################
-# SOCIAL ATTRIBUTES:
-# LIKES AND COMMENTS
+# FINALIZE SUBMISSION
 ####################
   # before_action :media_expired?, only: [:edit, :update]
   # before_action :draft_expired?, only: [:edit, :update]
@@ -70,7 +69,7 @@ class Track < ApplicationRecord
   # def check_draft_expiration
   #   media_exists? && created_at < 1.hour.ago && published
   # end
-
+  
 ####################
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS

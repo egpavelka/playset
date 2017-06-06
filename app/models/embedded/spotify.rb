@@ -4,8 +4,8 @@ class Embedded::Spotify
 
   def get_data(url)
     # Acceptable URL examples
-    # https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC
-    # spotify:track:4uLU6hMCjMI75M1A2tKUQC
+    # https://open.spotify.com/track/7Cbxra8u8MxRlxiapl3pJZ
+    # spotify:track:7Cbxra8u8MxRlxiapl3pJZ
     # Create authenticated client for API calls
     RSpotify.authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
     # API parameters from input url
@@ -27,8 +27,7 @@ class Embedded::Spotify
       },
     'album_art_url' => data.album.images[0]['url']
     },
-    self.player_url]
-
+    :player_url]
     values
   end
 
