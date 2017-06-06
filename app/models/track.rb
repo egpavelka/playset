@@ -15,9 +15,9 @@ class Track < ApplicationRecord
 # RELATIONSHIPS
 ####################
   # Tracks belong to a user and will be deleted if the account is deactivated.
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   # Set up
-  belongs_to :media, polymorphic: true
+  belongs_to :media, polymorphic: true, dependent: :destroy
 
 ####################
 # INITIALIZE TRACK:
@@ -36,10 +36,10 @@ class Track < ApplicationRecord
 ####################
 
   # Metadata
-  validates :title, presence: true
-  validates :album, presence: true
-  validates :artist, presence: true
-  validates :year, length: { is: 4 }
+  validates :title, presence: true, on: :update
+  # validates :album, on: :update
+  validates :artist, presence: true, on: :update
+  validates :year, length: { is: 4 }, on: :update
 
   # Album art managed by Paperclip; URL fetching with open-uri
   # has_attached_file :album_art,
@@ -60,7 +60,22 @@ class Track < ApplicationRecord
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS
 ####################
-  has_and_belongs_to_many :likes #, numericality: true
+  # before_action :media_expired?, only: [:edit, :update]
+  # before_action :draft_expired?, only: [:edit, :update]
+  #
+  # def media_exists?
+  #   :media_type.safe_constantize.find(params[:media_id])
+  # end
+  #
+  # def check_draft_expiration
+  #   media_exists? && created_at < 1.hour.ago && published
+  # end
+
+####################
+# SOCIAL ATTRIBUTES:
+# LIKES AND COMMENTS
+####################
+  # has_and_belongs_to_many :likes, numericality: true
   # Display (on user profile, main index)
 
 end

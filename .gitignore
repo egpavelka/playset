@@ -22,3 +22,9 @@
 
 # Ignore application configuration
 /config/secrets.yml
+
+# Ignore fuse_hidden
+/.fuse_hidden0000d3cf00000008
+
+# Ignore menu schema
+/menu-schema.ods

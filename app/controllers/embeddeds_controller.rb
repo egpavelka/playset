@@ -10,15 +10,17 @@ class EmbeddedsController < ApplicationController
     # Initialize embedded object belonging to current_user
     @embedded = Embedded.new(embedded_params)
       if @embedded.save
+        # assign metadata hash that was populated by API call, add current_user.id
         metadata = @embedded.auto_metadata['text_data']
         metadata['user_id'] = current_user.id
+        # use metadata hash as params to create track
         @track = @embedded.create_track(metadata)
-        puts @track.attributes
         if @track.save
           redirect_to edit_track_path(@track)
-          flash[:success] = "Track submitted successfully."
         else
-          render new_track_path(@track)
+          # error would be due to bad player_url
+          @embedded.destroy
+          render 'new'
         end
       else
         render 'new'

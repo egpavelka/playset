@@ -66,4 +66,9 @@ class Embedded < ApplicationRecord
     response.parsed_response
   end
 
+  # Since the Embedded object is created before the Track object is validated,
+  def submission_expired?
+    created_at < 1.hour.ago
+  end
+
 end
