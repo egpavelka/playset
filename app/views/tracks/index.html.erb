@@ -1,11 +1,10 @@
 <% provide(:title, "top") %>
 
-
 <div class="row">
   <%= render 'tracks/menus/index' %>
 </div>
 
-<%= render @tracks %>
+<%= render @tracks.posted %>
 
 <div class="row">
   <%= will_paginate @tracks %>

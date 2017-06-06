@@ -14,9 +14,9 @@ class TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
     if @track.update_attributes(track_params)
-      update_column(published: true)
+      @track.update_column(:published, true)
       flash[:success] = "Track has been published."
-      redirect_to root_path
+      redirect_to track_path
     else
       render 'edit'
     end
