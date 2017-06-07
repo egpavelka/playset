@@ -9,7 +9,7 @@ class Embedded::Spotify
     # Create authenticated client for API calls
     RSpotify.authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
     # API parameters from input url
-    @track_id = url.match($VALID_SPOTIFY_FORMAT).captures[0]
+    @track_id = url.match(VALID_SPOTIFY_FORMAT).captures[0]
     # Return API response
     RSpotify::Track.find(@track_id)
   end
@@ -27,7 +27,7 @@ class Embedded::Spotify
       },
     'album_art_url' => data.album.images[0]['url']
     },
-    :player_url]
+    self.player_url]
     values
   end
 
@@ -37,10 +37,6 @@ class Embedded::Spotify
   end
 
   # Verify
-  def matches_link?
-    source_path == data.external_urls['spotify'] || data.uri
-  end
-
   def is_track?
     data.type == 'track'
   end

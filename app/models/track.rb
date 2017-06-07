@@ -6,7 +6,6 @@ class Track < ApplicationRecord
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
   scope :popularity, -> { order(likes: :desc) }
-  scope :posted, -> { where(published: true) }
   # scope :audio, posted.where(playback: 'audio')
   # scope :video, posted.where(playback: 'video')
 
@@ -58,18 +57,12 @@ class Track < ApplicationRecord
 
 ####################
 # FINALIZE SUBMISSION
+# AND CLEANUP
 ####################
-  # before_action :media_expired?, only: [:edit, :update]
-  # before_action :draft_expired?, only: [:edit, :update]
-  #
-  # def media_exists?
-  #   :media_type.safe_constantize.find(params[:media_id])
-  # end
-  #
-  # def check_draft_expiration
-  #   media_exists? && created_at < 1.hour.ago && published
-  # end
-  
+  def destroy_if_left_unpublished
+    TracksCleanupJob.set(wait: 1.hour).perform_later(self)
+  end
+
 ####################
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS

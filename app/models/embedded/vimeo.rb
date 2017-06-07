@@ -18,7 +18,7 @@ class Embedded::Vimeo
     :year => nil,
     :album_art => nil
     },
-    player_url]
+    self.player_url]
     values
   end
 
