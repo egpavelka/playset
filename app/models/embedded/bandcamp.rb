@@ -32,18 +32,18 @@ class Embedded::Bandcamp
 
   def get_metadata(data)
     # Parameters for player_url
-    @track_id = data["id"]
-    @album_id = data["current"]["album_id"]
-    album_art_url = 'https://f4.bcbits.com/img/a' + data["art_id"].to_s + '_16.jpg'
+    @track_id = data['id']
+    @album_id = data['current']['album_id']
+    album_art_url = 'https://f4.bcbits.com/img/a' + data['art_id'].to_s + '_16.jpg'
     # Hash to return for track_params
     values = [{
-      "text_data": {
-      :title => data["current"]["title"],
-      :artist => data["artist"],
-      :album => data["packages"][0]["album_title"],
-      :year => Date.strptime(data["album_release_date"], '%d %b %Y').year
+      'text_data': {
+      :title => data['current']['title'],
+      :artist => data['artist'],
+      :album => data['packages'][0]['album_title'],
+      :year => self.year_from_date(data['album_release_date'])
       },
-      "album_art_url" => album_art_url
+      'album_art_url' => album_art_url
     },
     self.player_url]
     values
@@ -54,13 +54,13 @@ class Embedded::Bandcamp
     "https://bandcamp.com/EmbeddedPlayer/album=#{@album_id}/size=small/bgcol=ffffff/linkcol=333333/artwork=none/track=#{@track_id}/transparent=true/"
   end
 
-  # Verify
-  def matches_link?
-    data("url") == source_path
+  def year_from_date(date)
+    Date.strptime(date.to_s, '%d %b %Y').year
   end
 
+  # Verify
   def is_track?
-    data("item_type") == 'track'
+    data('item_type') == 'track'
   end
 
 end

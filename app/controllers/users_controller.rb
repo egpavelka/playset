@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       if @user.save
         @user.send_activation_email
         flash[:success] = "Success! An activation link has been sent to the email you used to sign up."
+        @user.destroy_if_left_inactivated
         redirect_to login_path
       else
         render 'new'

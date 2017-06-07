@@ -21,11 +21,11 @@ class Embedded < ApplicationRecord
   before_save :player_url, presence: true
   before_save :auto_metadata, presence: true
 
-  $VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
-  $VALID_SOUNDCLOUD_FORMAT = /^(https?:\/\/)?(www.)?(m\.)?soundcloud\.com\/([\w\-\.]+)\/([\w\-\.]+)/i
-  $VALID_SPOTIFY_FORMAT = /^[spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/]+([^#\&\?\/]*)/i
-  $VALID_VIMEO_FORMAT = /^https?:\/\/vimeo\.com\/+([^#\&\?\/]*)/i
-  $VALID_YOUTUBE_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
+  VALID_SOUNDCLOUD_FORMAT = /^(https?:\/\/)?(www.)?(m\.)?soundcloud\.com\/([\w\-\.]+)\/([\w\-\.]+)/i
+  VALID_SPOTIFY_FORMAT = /^[spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/]+([^#\&\?\/]*)/i
+  VALID_VIMEO_FORMAT = /^https?:\/\/vimeo\.com\/+([^#\&\?\/]*)/i
+  VALID_YOUTUBE_FORMAT = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
 
   ####################
   # BASE METHODS FOR
@@ -34,26 +34,32 @@ class Embedded < ApplicationRecord
 
   def get_source
     supported_sources = {
-      $VALID_BANDCAMP_FORMAT => Bandcamp,
-      $VALID_SOUNDCLOUD_FORMAT => Soundclouded, # Soundcloud gem uses "Soundcloud"
-      $VALID_SPOTIFY_FORMAT => Spotify,
-      $VALID_VIMEO_FORMAT => Vimeo,
-      $VALID_YOUTUBE_FORMAT => Youtube
+      VALID_BANDCAMP_FORMAT => Bandcamp,
+      VALID_SOUNDCLOUD_FORMAT => Soundclouded, # Soundcloud gem uses "Soundcloud"
+      VALID_SPOTIFY_FORMAT => Spotify,
+      VALID_VIMEO_FORMAT => Vimeo,
+      VALID_YOUTUBE_FORMAT => Youtube
     }
     # Detect the urL_source by finding a match for source_path in the regex variables (keys in supported_sources)
     url_source = supported_sources.keys.detect { |valid_format| source_path.match(valid_format) }
     # source_service becomes instance of
     self.source_service = supported_sources.fetch(url_source)
-    # playback type is audio by default (hidden form tag)
-    # self.playback = 'video' if [Vimeo, Youtube].include?(self.source_service)
   end
 
   def set_parameters
     service = source_service.safe_constantize.new
-    data = service.get_data(source_path)
-    metadata = service.get_metadata(data)
-    self.auto_metadata = metadata[0]
-    self.player_url = metadata[1]
+    api_response = service.get_data(source_path)
+    data = service.get_metadata(api_response)
+    self.auto_metadata = data[0]
+    self.player_url = data[1]
+  end
+
+  def generated_track_params(submitter_id)
+    metadata = self.auto_metadata['text_data']
+    metadata[:user_id] = submitter_id
+    # metadata['album_art'] = Paperclip from url... self.auto_metadata['album_art_url']
+    ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'
+    metadata
   end
 
   ####################
@@ -64,11 +70,6 @@ class Embedded < ApplicationRecord
   def api_call(url)
     response = HTTParty.get(url)
     response.parsed_response
-  end
-
-  # Since the Embedded object is created before the Track object is validated,
-  def submission_expired?
-    created_at < 1.hour.ago
   end
 
 end

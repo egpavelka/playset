@@ -1,7 +1,6 @@
 class TracksController < ApplicationController
 
   def new
-    @track = Track.new
   end
 
   def create
@@ -35,7 +34,7 @@ class TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.paginate(page: params[:page])
+    @tracks = Track.where(published: true).paginate(page: params[:page])
   end
 
   private

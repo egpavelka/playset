@@ -42,7 +42,7 @@ class Embedded::Soundclouded
       },
       'album_art_url' => data.artwork_url
     },
-    :player_url]
+    self.player_url]
     values
   end
 
@@ -58,17 +58,10 @@ class Embedded::Soundclouded
   # end
 
   def year_from_date(date)
-    if !date.nil?
-      Date.strptime(date.to_s, '%Y').year
-    else
-      ''
-    end
+    !date.nil? ? Date.strptime(date.to_s, '%Y').year : ''
   end
 
   # Verify
-  def matches_link?
-  end
-
   # def is_track?
   #   data.kind == 'track' or embed_data.html.include? "%2Ftracks%2F"
   # end
