@@ -14,7 +14,7 @@ class Embedded::Spotify
     RSpotify::Track.find(@track_id)
   end
 
-  def get_metadata(data)
+  def set_metadata(data)
     # Format date
     year_from_date = Date.strptime(data.album.release_date, '%Y').year
 
