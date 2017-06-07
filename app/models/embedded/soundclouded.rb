@@ -31,7 +31,7 @@ class Embedded::Soundclouded
     data
   end
 
-  def get_metadata(data)
+  def set_metadata(data)
     @track_id = data.id
     values = [{
     'text_data' => {

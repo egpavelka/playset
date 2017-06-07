@@ -30,7 +30,7 @@ class Embedded::Bandcamp
   #
   # end
 
-  def get_metadata(data)
+  def set_metadata(data)
     # Parameters for player_url
     @track_id = data['id']
     @album_id = data['current']['album_id']

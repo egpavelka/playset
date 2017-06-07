@@ -10,7 +10,7 @@ class Embedded::Youtube
     api_call(api_url)
   end
 
-  def get_metadata(data)
+  def set_metadata(data)
     values = [{
     :title => nil,
     :artist => nil,
