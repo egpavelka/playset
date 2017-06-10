@@ -9,7 +9,7 @@ class Embedded::Spotify
     # Create authenticated client for API calls
     RSpotify.authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
     # API parameters from input url
-    @track_id = url.match(VALID_SPOTIFY_FORMAT).captures[0]
+    @track_id = url.match(Embedded.VALID_SPOTIFY_FORMAT).captures[0]
     # Return API response
     RSpotify::Track.find(@track_id)
   end
