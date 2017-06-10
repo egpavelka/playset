@@ -54,6 +54,14 @@ class Embedded < ApplicationRecord
     self.player_url = data[1]
   end
 
+  def generated_track_params(submitter_id)
+    metadata = self.auto_metadata['text_data']
+    metadata[:user_id] = submitter_id
+    # metadata['album_art'] = Paperclip from url... self.auto_metadata['album_art_url']
+    ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'
+    return metadata
+  end
+
   ####################
   # COMMON METHODS
   ####################

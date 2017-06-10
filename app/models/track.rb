@@ -23,7 +23,7 @@ class Track < ApplicationRecord
 # USER, SOURCE, MEDIA
 ####################
   validates :user_id, presence: true
-  # validates :playback, inclusion: { in: %w(audio video) }
+  validates :playback, inclusion: { in: %w(audio video) }
 
   # First click to submit should validate the link or file, equip the view, and check for track information via API or metadata.
 
@@ -35,10 +35,10 @@ class Track < ApplicationRecord
 ####################
 
   # Metadata
-  validates :title, presence: true, on: :update
-  # validates :album, on: :update
-  validates :artist, presence: true, on: :update
-  # validates :year, length: { is: 4 }, on: :update, allow_nil: true
+  validates :title, length: { maximum: 255 }, presence: true, on: :update
+  validates :album, length: { maximum: 255 }, allow_blank: true, on: :update
+  validates :artist, length: { maximum: 255 }, presence: true, on: :update
+  validates :year, length: { is: 4 }, allow_blank: true, on: :update
 
   # Album art managed by Paperclip; URL fetching with open-uri
   # has_attached_file :album_art,

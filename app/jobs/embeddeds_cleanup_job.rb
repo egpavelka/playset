@@ -2,6 +2,6 @@ class EmbeddedsCleanupJob < ApplicationJob
   queue_as :default
 
   def perform(embedded)
-    embedded.destroy if !embedded.has_attribute?(:track)
+    embedded.destroy if embedded.track.nil?
   end
 end
