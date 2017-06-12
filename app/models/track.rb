@@ -1,6 +1,5 @@
 class Track < ApplicationRecord
-  # Allow Paperclip to gather album art from URLs.
-  require 'open-uri'
+  include JsonUtil
 
 ### DISPLAY SCOPES
   default_scope -> { order(created_at: :desc) } # on user profile
@@ -63,6 +62,11 @@ class Track < ApplicationRecord
     TracksCleanupJob.set(wait: 1.hour).perform_later(self)
   end
 
+  def player_build_error
+  end
+
+  def missing_metadata_error
+  end
 ####################
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS
