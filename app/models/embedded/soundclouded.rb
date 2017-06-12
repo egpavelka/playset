@@ -1,7 +1,8 @@
 require 'soundcloud'
 
 class Embedded::Soundclouded
-
+  include JsonUtil
+  
   def get_data(url)
     # Acceptable url example
     # https://soundcloud.com/theacid/the-acid-tumbling-lights

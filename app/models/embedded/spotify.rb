@@ -1,6 +1,7 @@
 require 'rspotify'
 
 class Embedded::Spotify
+  include JsonUtil
 
   def get_data(url)
     # Acceptable URL examples
@@ -15,20 +16,18 @@ class Embedded::Spotify
   end
 
   def set_metadata(data)
-    # Format date
-    year_from_date = Date.strptime(data.album.release_date, '%Y').year
-
+    # Hash to return for track_params
     values = [{
     'text_data' => {
       :title => data.name,
       :artist => data.artists[0].name,
       :album => data.album.name,
-      :year => year_from_date
+      :year => year_from_date(data.album.release_date, '%Y')
       },
     'album_art_url' => data.album.images[0]['url']
     },
     self.player_url]
-    values
+    return values
   end
 
   # Generate url with options for iframe
