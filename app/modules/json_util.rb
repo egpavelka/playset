@@ -18,7 +18,6 @@ module JsonUtil
   end
 
 ## PROCESS DATA
-
   def year_from_date(date, date_format)
     !date.nil? ? Date.strptime(date.to_s, date_format).year : ''
   end

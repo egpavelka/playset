@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :tracks, :uploads, :embeddeds
 
   resources :tracks do
-    resources :embddeds, only: [:index, :show, :edit, :update, :destroy]
+    resources :embeddeds, only: [:index, :show, :edit, :update, :destroy]
     resources :uploads, only: [:index, :show, :edit, :update, :destroy]
   end
 
