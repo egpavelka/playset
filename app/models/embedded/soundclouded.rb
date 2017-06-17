@@ -2,7 +2,7 @@ require 'soundcloud'
 
 class Embedded::Soundclouded
   include JsonUtil
-  
+
   def get_data(url)
     # Acceptable url example
     # https://soundcloud.com/theacid/the-acid-tumbling-lights
@@ -11,12 +11,12 @@ class Embedded::Soundclouded
       :client_secret => Rails.application.secrets.soundcloud_client_secret })
     data = {}
     begin
-      data = client.get('/resolve', :url => url)
+      data = client.get('/resolve', url: url)
     rescue Soundcloud::ResponseError => e
       puts "Error: #{e.message}, Status Code: #{e.response.code}"
     end
     begin
-      embed_data = client.get('/oembed', :url => url)
+      embed_data = client.get('/oembed', url: url)
     rescue Soundcloud::ResponseError => e
       puts "Error: #{e.message}, Status Code: #{e.response.code}"
     end
@@ -28,8 +28,7 @@ class Embedded::Soundclouded
     data.id ||= embed_data.html[/tracks%2F(.*?)&show_artwork/, 1]
     # Always get artwork from embed_data
     data.artwork_url = embed_data.thumbnail_url
-    # Return data object
-    data
+    return data
   end
 
   def set_metadata(data)
@@ -44,7 +43,7 @@ class Embedded::Soundclouded
       'album_art_url' => data.artwork_url
     },
     self.player_url]
-    values
+    return values
   end
 
   # Generate url with options for iframe
@@ -52,14 +51,8 @@ class Embedded::Soundclouded
     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{@track_id}&amp;color=333333&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"
   end
 
-  # Special method to check for album name in page since release is nil more often than not
-  # def scrape(url)
-  #   page = Nokogiri::HTML(open(url))
-  #
-  # end
-
-  def year_from_date(date)
-    !date.nil? ? Date.strptime(date.to_s, '%Y').year : ''
+  def player_api_script
+    'https://w.soundcloud.com/player/api.js'
   end
 
   # Verify

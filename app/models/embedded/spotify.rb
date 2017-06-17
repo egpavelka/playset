@@ -10,7 +10,7 @@ class Embedded::Spotify
     # Create authenticated client for API calls
     RSpotify.authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
     # API parameters from input url
-    @track_id = url.match(Embedded.VALID_SPOTIFY_FORMAT).captures[0]
+    @track_id = url.match(Embedded::VALID_SPOTIFY_FORMAT).captures[0]
     # Return API response
     RSpotify::Track.find(@track_id)
   end
@@ -24,14 +24,15 @@ class Embedded::Spotify
       :album => data.album.name,
       :year => year_from_date(data.album.release_date, '%Y')
       },
-    'album_art_url' => data.album.images[0]['url']
+    'album_art_url' => data.album.images[0]['url'],
+    'audio_url' => data.preview_url
     },
-    self.player_url]
+    self.iframe_url]
     return values
   end
 
   # Generate url with options for iframe
-  def player_url
+  def iframe_url
     "https://open.spotify.com/embed?uri=spotify:track:#{@track_id}&theme=white&view=list"
   end
 

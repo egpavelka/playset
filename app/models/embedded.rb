@@ -1,8 +1,7 @@
-require 'httparty'
-
 class Embedded < ApplicationRecord
   include SessionsHelper
-  
+  include JsonUtil
+
   has_one :track, as: :media, dependent: :destroy
   serialize :auto_metadata, Hash
   attr_accessor :tracks
