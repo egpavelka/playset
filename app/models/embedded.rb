@@ -4,7 +4,7 @@ class Embedded < ApplicationRecord
 
   has_one :track, as: :media, dependent: :destroy
   serialize :auto_metadata, Hash
-  attr_accessor :tracks
+  # attr_accessor :tracks
 
   ####################
   # SETUP: SOURCES,
@@ -18,7 +18,6 @@ class Embedded < ApplicationRecord
   after_validation :get_source
   before_save :source_service, presence: true
   before_save :set_parameters
-  before_save :player_url, presence: true
   before_save :auto_metadata, presence: true
 
   VALID_BANDCAMP_FORMAT = /^[https?:\/\/]+([a-z]+)\.bandcamp\.com\/track\/([^#\&\?\/]*)/i
@@ -49,15 +48,11 @@ class Embedded < ApplicationRecord
   def set_parameters
     service = source_service.safe_constantize.new
     api_response = service.get_data(source_path)
-    data = service.set_metadata(api_response)
-    self.auto_metadata = data[0]
-    self.player_url = data[1]
+    self.auto_metadata = service.set_metadata(api_response)
   end
 
   def generated_track_params(submitter_id)
-    metadata = self.auto_metadata['text_data']
-    puts "metadata"
-    puts self.auto_metadata
+    metadata = self.auto_metadata
     metadata[:user_id] = submitter_id
     # metadata['album_art'] = Paperclip from url... self.auto_metadata['album_art_url']
     ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'

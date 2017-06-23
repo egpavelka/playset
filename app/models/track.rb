@@ -23,10 +23,7 @@ class Track < ApplicationRecord
 ####################
   validates :user_id, presence: true
   validates :playback, inclusion: { in: %w(audio video) }
-
-  # First click to submit should validate the link or file, equip the view, and check for track information via API or metadata.
-
-  # Errors for missing metadata and album art are expected (mostly for uploads and video links), and the redirect will reveal fields for manual entry.
+  validates :media_path, presence: true
 
 ####################
 # AFTER MEDIA SOURCE:
