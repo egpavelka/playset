@@ -19,8 +19,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+# Use React for front end
+gem 'react_on_rails', '8.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -43,12 +43,7 @@ gem 'bcrypt', '>= 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
-# Capybara to simulate application browser usage
-gem 'capybara'
-# Poltergeist to handle JS in Capybara instances
-gem 'poltergeist'
-# ... with PhantomJS
-gem 'phantomjs'
+
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'
