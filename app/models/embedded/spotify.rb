@@ -1,7 +1,7 @@
 require 'rspotify'
 
 class Embedded::Spotify
-  include JsonUtil
+  include DataGrabUtil
 
   def get_data(url)
     # Acceptable URL examples
@@ -22,7 +22,7 @@ class Embedded::Spotify
     :album => data.album.name,
     :year => year_from_date(data.album.release_date, '%Y'),
     :media_path => data.preview_url,
-    :artwork_url =>  data.album.images[0]['url']
+    :album_art =>  file_from_url(data.album.images[0]['url'])
     ]
   end
 

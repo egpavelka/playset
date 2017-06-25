@@ -1,5 +1,5 @@
 class Upload < ApplicationRecord
-  include JsonUtil
+  include DataGrabUtil
 
   belongs_to :user
   has_one :track, as: :media, dependent: :destroy

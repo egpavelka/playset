@@ -1,19 +1,23 @@
+require 'open-uri'
 require 'httparty'
 require 'nokogiri'
-require 'open-uri'
 require 'date'
 
 # Methods available to multiple classes for handling data from external sources.
 
-module JsonUtil
+module DataGrabUtil
 
 ## FETCH DATA
-  def api_call(url)
+  def file_from_url(url)
+    URI.parse(url)
+  end
+
+  def read_json(url)
     response = HTTParty.get(url)
     response.parsed_response
   end
 
-  def page_scraper(url)
+  def read_page(url)
     Nokogiri::HTML(open(url))
   end
 

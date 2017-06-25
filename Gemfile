@@ -43,6 +43,12 @@ gem 'bcrypt', '>= 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
+# Capybara to simulate application browser usage
+gem 'capybara'
+# Poltergeist to handle JS in Capybara instances
+gem 'poltergeist'
+# ... with PhantomJS
+gem 'phantomjs'
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'

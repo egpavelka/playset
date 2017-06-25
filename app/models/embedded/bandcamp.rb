@@ -1,13 +1,11 @@
 
 class Embedded::Bandcamp
-  include JsonUtil
-
-  attr_accessor :embeddeds, :tracks
+  include DataGrabUtil
 
   def get_data(url)
   # Acceptable URL example
   # https://grabbingclouds.bandcamp.com/track/brewer-street
-    page = page_scraper(url)
+    page = read_page(url)
     Hash[
     :title => page.at_xpath("//meta[@property='og:title']").attributes['content'].value,
     :artist => page.at_xpath("//div[@id='name-section']/h3[@class='albumTitle']/span[@itemprop='byArtist']/a").text,
@@ -26,7 +24,7 @@ class Embedded::Bandcamp
     :album => data[:album],
     :year => year_from_date(data[:raw_date], '%Y%m%d'),
     :media_path => parse_media_stream(data.raw_player_url),
-    :artwork_url => data[:album_art_url]
+    :album_art => file_from_url(data[:album_art_url])
     ]
   end
 

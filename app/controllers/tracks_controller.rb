@@ -30,7 +30,7 @@ class TracksController < ApplicationController
   end
 
   def show
-    @track = Track.find(params[:id]).media
+    @track = Track.find(params[:id])
   end
 
   def index
