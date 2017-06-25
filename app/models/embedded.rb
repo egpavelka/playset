@@ -1,6 +1,6 @@
 class Embedded < ApplicationRecord
   include SessionsHelper
-  include JsonUtil
+  include DataGrabUtil
 
   has_one :track, as: :media, dependent: :destroy
   serialize :auto_metadata, Hash
@@ -54,9 +54,9 @@ class Embedded < ApplicationRecord
   def generated_track_params(submitter_id)
     metadata = self.auto_metadata
     metadata[:user_id] = submitter_id
-    # metadata['album_art'] = Paperclip from url... self.auto_metadata['album_art_url']
     ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'
     return metadata
   end
+
 
 end

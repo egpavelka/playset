@@ -1,5 +1,8 @@
 <script src="soundcloud.js"></script>
 
 <div class="row">
-    <iframe width="370" height="80" scrolling="no" frameborder="no" allowtransparency="true" src="<%= @track.media_path %>" seamless></iframe>
+  <audio controls>
+    <source src="<%= track.media_path %>" type="audio/mpeg">
+  </audio>
+  <img src="<%= track.album_art(:medium) %>" />
 </div>

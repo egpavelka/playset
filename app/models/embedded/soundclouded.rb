@@ -1,7 +1,7 @@
 require 'soundcloud'
 
 class Embedded::Soundclouded
-  include JsonUtil
+  include DataGrabUtil
 
   def get_data(url)
     # Acceptable url example
@@ -18,12 +18,12 @@ class Embedded::Soundclouded
     :artist => data.user['username'],
     :album => data.release,
     :year => year_from_date(data.release_year, '%Y'),
-    :media_path => parse_media_stream(data.stream_url).request.uri,
-    :artwork_url => data.artwork_url
+    :media_path => data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
+    :album_art => file_from_url(data.artwork_url)
     ]
   end
 
-  def parse_media_stream(stream_url)
+  def self.parse_media_stream(stream_url)
     call_and_catch_errors(stream_url, :allow_redirects => true)
   end
 
