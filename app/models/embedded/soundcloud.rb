@@ -1,6 +1,6 @@
 require 'soundcloud'
 
-class Embedded::Soundclouded
+class Embedded::Soundcloud
   include DataGrabUtil
 
   def get_data(url)

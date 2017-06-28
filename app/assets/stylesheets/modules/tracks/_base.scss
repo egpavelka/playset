@@ -1,6 +1,16 @@
 .track {
+  margin: 20px 10px;
+  border: 2px solid black;
+  padding: 10px
+}
+
+.track-background {
   background-size: cover;
-  margin: 10px 0 0;
+}
+
+.track-overlay {
+  background-color: transparentize($white, .3);
+  overflow: auto;
 }
 
 .track > div {
@@ -20,76 +30,81 @@
 
 }
 
-.track-rank {
-  @extend %track-circle;
-  @extend %body-bold;
-  background-color: $block-backer;
-  font-size: 2.75rem;
-	min-height: 80px;
-  margin: 10px;
-
-  span {
-	min-height: 80px;
-	min-width: 80px;
-  padding: 0 10px;
-  }
-}
-
 .track-info {
   @extend %body-bold;
-  text-transform: lowercase;
+  text-transform: uppercase;
   margin-top: 20px;
 }
 
+.track-info > div {
+  border-bottom: 3px solid $highlight-1;
+  padding: 5px 0 2px;
+}
+
 .track-title {
-  font-size: 2.5rem;
-  border-bottom: 4px solid $text;
+  @extend %body-extra-bold;
+  font-size: 2.25rem;
 }
 
 .track-artist {
   @extend %alt-bold;
-  font-size: 2.75rem;
+  font-size: 3rem;
+  text-transform: lowercase;
 }
 
 .track-details {
-  background-color: $highlight-1;
-  padding: 7px 0;
-  margin-top: 25px;
+  color: $white;
+  background-color: $text;
+  font-size: 1.2rem;
+  padding: 7px 7px 7px 10px;
+  margin: 25px 0 10px;
   -webkit-clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
+
+  a {
+    color: $white;
+  }
 }
 
-.track-timestamp {
-  font-size: 1.25rem;
-}
-
-.track-reactions-container {
-  margin: 25px 0 10px;
-}
-
-.track-reactions-container > div {
+.track-base {
   display: inline-block;
-  float: right;
-
-  &:first-child {
-  margin-right: 10px;
-  }
-
-  &:last-child {
-    margin-right: 3px;
-  }
+  margin-top: 10px;
+  vertical-align: baseline;
 }
 
-.track-reaction {
-  @extend %track-circle;
-  @extend %body-bold;
-  background-color: $block-backer;
-  font-size: 2rem;
-	min-height: 40px;
+.track-base > div {
+  display: inline-block;
+  margin-right: 5px;
+}
 
-  span {
-	min-height: 40px;
-	min-width: 40px;
-  padding: 0 5px;
+.track-likes {
+  vertical-align: middle;
+}
+
+.track-like-button {
+  font-size: 24px;
+}
+
+.track-play-button {
+  @extend %track-circle;
+  color: $white;
+  background-color: $text;
+  font-size: 36px;
+  margin-top: 20px;
+	height: 64px;
+  width: 64px;
+}
+
+.postedBy {
+  @extend %body-bold-italic;
+  float: right;
+  text-align: right;
+  font-size: 1rem;
+
+  a {
+    @extend %body-bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-style: normal;
   }
 }
