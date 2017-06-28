@@ -33,11 +33,11 @@ class Embedded < ApplicationRecord
 
   def get_source
     supported_sources = {
-      VALID_BANDCAMP_FORMAT => Bandcamp,
-      VALID_SOUNDCLOUD_FORMAT => Soundclouded, # Soundcloud gem uses "Soundcloud"
-      VALID_SPOTIFY_FORMAT => Spotify,
-      VALID_VIMEO_FORMAT => Vimeo,
-      VALID_YOUTUBE_FORMAT => Youtube
+      VALID_BANDCAMP_FORMAT => 'Bandcamp',
+      VALID_SOUNDCLOUD_FORMAT => 'Soundcloud', # Soundcloud gem uses "Soundcloud"
+      VALID_SPOTIFY_FORMAT => 'Spotify',
+      VALID_VIMEO_FORMAT => 'Vimeo',
+      VALID_YOUTUBE_FORMAT => 'Youtube'
     }
     # Detect the urL_source by finding a match for source_path in the regex variables (keys in supported_sources)
     url_source = supported_sources.keys.detect { |valid_format| source_path.match(valid_format) }
@@ -46,7 +46,7 @@ class Embedded < ApplicationRecord
   end
 
   def set_parameters
-    service = source_service.safe_constantize.new
+    service = "Embedded::#{self.source_service}".safe_constantize.new
     api_response = service.get_data(source_path)
     self.auto_metadata = service.set_metadata(api_response)
   end
@@ -57,6 +57,5 @@ class Embedded < ApplicationRecord
     ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'
     return metadata
   end
-
 
 end

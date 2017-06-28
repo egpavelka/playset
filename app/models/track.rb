@@ -22,8 +22,8 @@ class Track < ApplicationRecord
   large: {geometry: '800x800>', convert_options: '-colorspace Gray'} },
   default_url: 'assets/album_art/aa_test.jpg',
   content_type: { content_type: /\Aimage\/.*\z/ },
-  size: { in: 0..100.kilobytes }
-  
+  size: { in: 0..1000.kilobytes }
+
 ####################
 # INITIALIZE TRACK:
 # USER, SOURCE, MEDIA

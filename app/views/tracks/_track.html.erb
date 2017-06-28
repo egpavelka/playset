@@ -1,1 +1,59 @@
-<%= react_component 'Track', { track: @track, user: User.find(track.user_id) } %>
+<div id="track-<%= track.id %>" class="row track">
+
+  <div class="track-background" style="background-image: url(<%= track.album_art.url(:large) %>); background-position: center">
+
+    <div class="track-overlay">
+      <div class="col-xs-3">
+        <div class="track-play-button">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="col-xs-7 col-xs-offset-2 text-right track-info">
+        <div class="track-title">
+          <%= track.title %>
+        </div>
+        <div class="track-artist">
+          <%= track.artist %>
+        </div>
+        <div>
+          <span class="track-album">
+            <%= track.album %>
+          </span>
+          <% if track.year %>
+          <span class="track-year">
+            // <%= track.year %>
+          </span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-7 track-details">
+        <% if track.media_type == 'Embedded' %>
+          via <%= track.media.source_service %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="track-base">
+
+    <div class="track-likes">
+      <span class="glyphicon glyphicon-heart track-like-button" aria-hidden="true"></span>
+      <span class="track-like-count">450</span>
+    </div>
+
+      <!-- <div>
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        <span>25 comments</span>
+      </div> -->
+
+      <div class="postedBy">
+        posted by <%= link_to "#{User.find(track.user_id).username}", User.find(track.user_id) %> // <%= time_ago_in_words(track.updated_at) %> ago
+      </div>
+
+  </div>
+
+
+</div>
