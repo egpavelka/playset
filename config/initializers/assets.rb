@@ -17,5 +17,10 @@ Rails.application.config.assets.version = '1.0'
 # need to add it here, like this:
 # Rails.application.config.assets.precompile += %w( server-bundle.js )
 
+
+
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')
+
 # Add folder with webpack generated assets to assets.paths
-Rails.application.config.assets.paths << Rails.root.join("public", "webpack", Rails.env)
+Rails.application.config.assets.paths << Rails.root.join('public', 'webpack', Rails.env)

@@ -4,6 +4,13 @@
   padding: 10px
 }
 
+%track-circle {
+  border-radius:50%;
+	display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .track-background {
   background-size: cover;
 }
@@ -11,29 +18,12 @@
 .track-overlay {
   background-color: transparentize($white, .3);
   overflow: auto;
-}
-
-.track > div {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-%track-circle {
-  border-radius:50%;
-	display: table;
-
-  span {
-  	display: table-cell;
-  	vertical-align: middle;
-  	text-align: center;
-  }
-
+  padding: 20px 0;
 }
 
 .track-info {
   @extend %body-bold;
   text-transform: uppercase;
-  margin-top: 20px;
 }
 
 .track-info > div {
@@ -57,7 +47,7 @@
   background-color: $text;
   font-size: 1.2rem;
   padding: 7px 7px 7px 10px;
-  margin: 25px 0 10px;
+  margin: 25px 0 0;
   -webkit-clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
 
@@ -67,37 +57,70 @@
 }
 
 .track-base {
-  display: inline-block;
   margin-top: 10px;
-  vertical-align: baseline;
 }
 
-.track-base > div {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.track-likes {
+.embedded-service {
+  float: left;
   vertical-align: middle;
+  height: 45px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 7px;
+  }
 }
 
+.track-play-button,
 .track-like-button {
-  font-size: 24px;
-}
-
-.track-play-button {
   @extend %track-circle;
   color: $white;
   background-color: $text;
+}
+
+.track-play-button {
   font-size: 36px;
   margin-top: 20px;
 	height: 64px;
   width: 64px;
+
+  .glyphicon {
+    position: inherit;
+    top: 0;
+    display: table-cell;
+    width: 64px;
+  }
+}
+
+.track-likes {
+  display: table-row;
+  float: right;
+}
+
+.track-like-button span,
+.track-like-count {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.track-like-button {
+  font-size: 24px;
+  height: 45px;
+  width: 45px;
+
+  span {
+    width: 43px;
+  }
+}
+
+.track-like-count {
+  padding-left: 7px;
 }
 
 .postedBy {
   @extend %body-bold-italic;
-  float: right;
   text-align: right;
   font-size: 1rem;
 

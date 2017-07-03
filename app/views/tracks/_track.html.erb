@@ -29,29 +29,33 @@
       </div>
 
       <div class="col-xs-7 track-details">
-        <% if track.media_type == 'Embedded' %>
-          via <%= track.media.source_service %>
-        <% end %>
+          posted by <%= link_to "#{User.find(track.user_id).username}", User.find(track.user_id) %> // <%= time_ago_in_words(track.updated_at) %> ago
       </div>
 
     </div>
   </div>
 
-  <div class="track-base">
+  <div class="track-base col-xs-12">
 
-    <div class="track-likes">
-      <span class="glyphicon glyphicon-heart track-like-button" aria-hidden="true"></span>
-      <span class="track-like-count">450</span>
-    </div>
+    <% if track.media_type == 'Embedded' %>
+
+      <div class="embedded-service">
+        <img src=<%= track.media.service_icon %> />
+        via <%= track.media.source_service %>
+      </div>
+    <% end %>
 
       <!-- <div>
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
         <span>25 comments</span>
       </div> -->
 
-      <div class="postedBy">
-        posted by <%= link_to "#{User.find(track.user_id).username}", User.find(track.user_id) %> // <%= time_ago_in_words(track.updated_at) %> ago
+      <div class="track-likes">
+        <span class="track-like-button"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></span>
+        <span class="track-like-count">450</span>
       </div>
+
+
 
   </div>
 
