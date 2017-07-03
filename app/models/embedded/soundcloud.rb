@@ -23,10 +23,6 @@ class Embedded::Soundcloud
     ]
   end
 
-  def self.parse_media_stream(stream_url)
-    call_and_catch_errors(stream_url, :allow_redirects => true)
-  end
-
   # Verify
   def is_track?
     data.kind == 'track'
