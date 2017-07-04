@@ -1,5 +1,5 @@
 .track {
-  margin: 20px 10px;
+  margin: 20px 0;
   border: 2px solid black;
   padding: 10px
 }
@@ -46,7 +46,7 @@
   color: $white;
   background-color: $text;
   font-size: 1.2rem;
-  padding: 7px 7px 7px 10px;
+  padding: 7px 20px 7px 10px;
   margin: 25px 0 0;
   -webkit-clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
@@ -70,6 +70,10 @@
     height: 40px;
     margin-right: 7px;
   }
+}
+
+.track-play-button-container {
+  padding-left: 0;
 }
 
 .track-play-button,

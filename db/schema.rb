@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629120509) do
+ActiveRecord::Schema.define(version: 20170618064436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170629120509) do
     t.string "source_path"
     t.text "auto_metadata"
     t.string "source_service"
-    t.string "service_icon"
   end
 
   create_table "likes", force: :cascade do |t|
