@@ -49,7 +49,6 @@ class Embedded < ApplicationRecord
     service = "Embedded::#{self.source_service}".safe_constantize.new
     api_response = service.get_data(source_path)
     self.auto_metadata = service.set_metadata(api_response)
-    self.service_icon = "/assets/service_icons/#{source_service.to_s}.png"
   end
 
   def generated_track_params(submitter_id)

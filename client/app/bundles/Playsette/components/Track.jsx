@@ -4,54 +4,54 @@ class Track extends React.Component {
   }
 
   render() {
+    const metadata = { title: this.props.track.title, artist: this.props.track.artist, album: this.props.track.album, year: this.props.track.year }
     return (
       <div id={`track-${ this.props.track.id }`} className="row track">
-            <div className="col-xs-3">
-              <div className="track-rank">
-                <span className="glyphicon glyphicon-play" aria-hidden="true" style="float:left">
-              </span></div>
-            </div>
-            <div className="col-xs-6 col-xs-offset-2 text-right track-info">
-                <div className="track-title">
-                  { this.props.track.title }
-                </div>
-                <div className="track-artist">
-                  { this.props.track.artist }
-                </div>
-              <div>
-                <span className="track-album">
-                  { this.props.track.album }
-                </span>
-                <span className="track-year">
-                  { this.props.track.year }
-                </span>
+
+        <div className="track-background" style="background-image: url(<%= this.props.track.album_art.url(:large) %>); background-position: center">
+
+          <div className="track-overlay">
+            <div className="col-xs-4">
+              <div className="track-play-button">
+                  <span className="glyphicon glyphicon-play" aria-hidden="true"></span>
               </div>
             </div>
 
-            <div className="col-xs-8 track-details">
-              { this.props.postedBy.username }
-              <div className="col-xs-offset-1 track-timestamp">
-              { this.props.track.updated_at }
-              </div>
+            <div className="col-xs-7 col-xs-offset-1 text-right track-info">
+              <div className="track-title">{ this.props.track.title }</div>
+              <div className="track-artist">{ this.props.track.artist }</div>
+              <div className="track-album">{ this.props.track.album }</div>
+              <div className="track-year">{ this.props.track.year }</div>
             </div>
 
-            <div className="col-xs-4 track-reactions-container">
-              <div>
-                <div className="track-reaction">
-                  <span className="glyphicon glyphicon-heart" aria-hidden="true">
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <div className="track-reaction">
-                  <span className="glyphicon glyphicon-envelope" aria-hidden="true">
-                  </span>
-                </div>
-              </div>
+            <div className="col-xs-7 track-details">
+                posted by <%= link_to "#{User.find(track.user_id).username}", User.find(track.user_id) %> // <%= time_ago_in_words(track.updated_at) %> ago
             </div>
 
           </div>
+        </div>
+
+        <div className="track-base col-xs-12">
+
+          <% if this.props.media_type == 'Embedded' %>
+            <div className="embedded-service">
+              <img src={`/assets/service_icons/${ this.props.media.source_service }.png`}/>
+              via { this.props.media.source_service }
+            </div>
+          <% end %>
+
+            <!-- <div>
+                <span className="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              <span>25 comments</span>
+            </div> -->
+
+            <div className="track-likes">
+              <span className="track-like-button"><span className="glyphicon glyphicon-heart" aria-hidden="true"></span></span>
+              <span className="track-like-count">450</span>
+            </div>
+
+        </div>
+      </div>
 
           <audio controls>
             <source src={`${track.media_path}`} type="audio/mpeg">
