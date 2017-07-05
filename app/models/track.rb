@@ -1,6 +1,5 @@
 class Track < ApplicationRecord
-
-### DISPLAY SCOPES
+  ### DISPLAY SCOPES
   default_scope -> { order(created_at: :desc) } # on user profile
   # (scope for ordering by likes) # on index - top
   scope :popularity, -> { order(likes: :desc) }
@@ -60,6 +59,7 @@ class Track < ApplicationRecord
 
   def missing_metadata_error
   end
+  
 ####################
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS

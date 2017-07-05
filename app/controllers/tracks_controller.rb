@@ -1,11 +1,5 @@
 class TracksController < ApplicationController
-
-  def new
-  end
-
-  def create
-  end
-
+  
   def edit
     @track = Track.find(params[:id])
   end

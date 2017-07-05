@@ -17,20 +17,15 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
+/node_modules
+/yarn-error.log
+
 .byebug_history
+/public/packs
+/node_modules
 
 # Ignore application configuration
 /config/secrets.yml
 
-# Ignore fuse_hidden
-/.fuse_hidden0000d3cf00000008
-
-# Ignore menu schema
-/menu-schema.ods
-# React on Rails
-npm-debug.log*
-node_modules
-
-# Generated js bundles
-/public/webpack/*
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

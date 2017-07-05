@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
+  source_path: MyString
+  source_service: MyString
+  auto_metadata: MyText
 
 two:
-  type: 
+  source_path: MyString
+  source_service: MyString
+  auto_metadata: MyText
