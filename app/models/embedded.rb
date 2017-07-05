@@ -57,5 +57,5 @@ class Embedded < ApplicationRecord
     ['Vimeo', 'Youtube'].include?(self.source_service) ? metadata[:playback] = 'video' : metadata[:playback] = 'audio'
     return metadata
   end
-
+  
 end

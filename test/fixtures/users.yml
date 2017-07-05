@@ -1,28 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-testuser:
-  username: test_user
-  name: Test User
-  email: test@testemail.com
-  password_digest: <%= User.digest('TestPassword1') %>
-  admin: true
-  activated: true
-  activated_at: <%= Time.zone.now %>
+one:
+  username: MyString
+  email: MyString
+  name: MyString
+  password_digest: MyString
+  remember_digest: MyString
+  activation_digest: MyString
+  activated: false
+  activated_at: 2017-07-04 16:13:03
+  profile_bio: MyText
+  admin: false
+  reset_digest: MyString
+  reset_sent_at: 2017-07-04 16:13:03
 
-otheruser:
-  username: other_user
-  name: Other User
-  email: other@testemail.com
-  password_digest: <%= User.digest('TestPassword1') %>
-  activated: true
-  activated_at: <%= Time.zone.now %>
-
-<% 50.times do |n| %>
-user_<%= n %>:
-  name: This User
-  username:  <%= "test_user#{n + 1}" %>
-  email: <%= "test_user#{n + 1}@test_email.com" %>
-  password_digest: <%= User.digest('password') %>
-  activated: true
-  activated_at: <%= Time.zone.now %>
-<% end %>
+two:
+  username: MyString
+  email: MyString
+  name: MyString
+  password_digest: MyString
+  remember_digest: MyString
+  activation_digest: MyString
+  activated: false
+  activated_at: 2017-07-04 16:13:03
+  profile_bio: MyText
+  admin: false
+  reset_digest: MyString
+  reset_sent_at: 2017-07-04 16:13:03

@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
- # Switch between link validation and file upload fields based on radio button selection for source type
-
  $ ->
 
   # ..... EMBED VS. UPLOAD .....
