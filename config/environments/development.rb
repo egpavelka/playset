@@ -17,6 +17,9 @@ Rails.application.configure do
   # `config/secrets.yml.key`.
   config.read_encrypted_secrets = true
 
+  # Use webpack-dev-server to enable Hot Module Replacement, etc.
+  config.x.webpacker[:dev_server_host]
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
