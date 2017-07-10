@@ -42,7 +42,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    autoprefixer-rails (7.1.2)
+    autoprefixer-rails (7.1.2.1)
       execjs
     aws-sdk (2.10.9)
       aws-sdk-resources (= 2.10.9)
@@ -52,6 +52,10 @@ GEM
     aws-sdk-resources (2.10.9)
       aws-sdk-core (= 2.10.9)
     aws-sigv4 (1.0.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -79,11 +83,12 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.6.1)
     execjs (2.7.0)
-    faker (1.7.3)
+    faker (1.8.0)
       i18n (~> 0.5)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
@@ -99,7 +104,7 @@ GEM
       domain_name (~> 0.5)
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
-    i18n (0.8.4)
+    i18n (0.8.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -177,6 +182,12 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react-rails (2.2.1)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -186,7 +197,7 @@ GEM
       rest-client (~> 1.8)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    sass (3.4.24)
+    sass (3.4.25)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
@@ -219,7 +230,7 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -233,8 +244,6 @@ GEM
       activesupport (>= 4.2)
       multi_json (~> 1.2)
       railties (>= 4.2)
-    webpacker-react (0.3.1)
-      webpacker
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -267,6 +276,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-assets-tether (>= 1.3.3)!
+  react-rails
   rspotify
   sass-rails (~> 5.0)
   selenium-webdriver
@@ -275,10 +285,9 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  uglifier (>= 1.3.0)
+  uglifier (~> 3.0.0)
   web-console (>= 3.3.0)
   webpacker
-  webpacker-react
   will_paginate
   yt
 
