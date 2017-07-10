@@ -27,8 +27,7 @@ development:
   dev_server:
     host: 0.0.0.0
     port: 8080
-    https: true
-    hot: true
+    https: false
 
 test:
   <<: *default
