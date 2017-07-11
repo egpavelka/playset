@@ -1,0 +1,43 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+import Likes from './Likes'
+import TrackMetadata from './track_metadata'
+
+class Track extends React.Component {
+  constructor(props) {
+    super(props)
+    console.log(props)
+  }
+
+  render() {
+ 
+    var backgroundArtStyle = {
+      backgroundImage: 'url(' + this.props.album_art_path + ')',
+      backgroundPosition: 'center'
+    }
+
+    return (
+      <div id={ 'track-' + this.props.track.id } className="row track">
+
+      <div className="track-background" style={ backgroundArtStyle }>
+        <div className="track-overlay">
+          <div className="col-xs-4"><div className="track-play-button">
+            <span className="glyphicon glyphicon-play" aria-hidden="true"></span>
+          </div></div>
+          <TrackMetadata track={ this.props.track } />
+          <div className="col-xs-7 track-details">posted by <a href={'/users/' + this.props.track.user_id }>{ this.props.user }</a> --- { this.props.formattedTime } ago</div>
+        </div>
+      </div>
+
+        <div className="track-base col-xs-12">
+          <div className="embedded-service"><img src={'/assets/service_icons/' +  this.props.media.source_service + '.png'} />via { this.props.media.source_service }</div>
+          <Likes />
+        </div>
+
+      </div>
+    )
+  }
+}
+
+export default Track

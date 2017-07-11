@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-  
+
   def edit
     @track = Track.find(params[:id])
   end
@@ -25,6 +25,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+    @user = User.find(@track.user_id)
   end
 
   def index
