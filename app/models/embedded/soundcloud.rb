@@ -18,7 +18,7 @@ class Embedded::Soundcloud
     :artist => data.user['username'],
     :album => data.release,
     :year => year_from_date(data.release_year, '%Y'),
-    :media_path => data.stream_url + '?client_id=' + Rails.application.secrets.soundcloud_public_client_id
+    :media_path => data.stream_url
 , # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
     :album_art => file_from_url(data.artwork_url)
     ]

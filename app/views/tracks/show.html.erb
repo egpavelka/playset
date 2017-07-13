@@ -3,5 +3,5 @@
   track: @track,
   user: @user.username,
   media: @track.media,
-  album_art_path: @track.album_art.url(:large),
+  albumArtPath: @track.album_art.url(:large),
   formattedTime: time_ago_in_words(@track.updated_at) }) %>

@@ -34,3 +34,6 @@ users = User.order(:created_at).take(6)
 #               kind: "Upload",
 #               user_id: "1"
 #               )
+
+# Embedded.create!(source_path: 'https://www.youtube.com/watch?v=zheYf7vUUOs')
+# Track.update(title: 'Obscurity Age', artist: 'False Illusioni', year: '1984')
