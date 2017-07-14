@@ -2,13 +2,16 @@ require 'soundcloud'
 
 class Embedded::Soundcloud
   include DataGrabUtil
+  # include CapybaraUtil
 
   def get_data(url)
     # Acceptable url example
     # https://soundcloud.com/theacid/the-acid-tumbling-lights
-    data = call_and_catch_errors('/resolve', :url => url)
-    embed_data = call_and_catch_errors('/oembed', :url => url)
-    data['artwork_url'] = embed_data.thumbnail_url
+    data = call_and_catch_errors('/resolve', url: url)
+    # embed_data = call_and_catch_errors('/oembed', :url => url)
+    # data['artwork_url'] = embed_data.thumbnail_url
+    page = read_page(url)
+    data['artwork_url'] = page.at_xpath("//meta[@property='og:image']").attributes['content'].value
     data
   end
 
@@ -18,8 +21,7 @@ class Embedded::Soundcloud
     :artist => data.user['username'],
     :album => data.release,
     :year => year_from_date(data.release_year, '%Y'),
-    :media_path => data.stream_url
-, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
+    :media_path => data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
     :album_art => file_from_url(data.artwork_url)
     ]
   end
@@ -59,5 +61,13 @@ private
       end
     end
   end
+
+  # def scrapeAlbumName(url)
+  #   full_page = visit_page(url)
+  #   albums = find_xpath('//article[@class="sidebarModule g-all-transitions-200-linear soundInSetsModule"]')[0]
+  #   if albums.all_text.contains?('In albums')
+  #     return
+  #   end
+  # end
 
 end

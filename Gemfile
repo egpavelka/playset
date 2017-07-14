@@ -50,6 +50,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
+# Poltergeist as JS driver for Capybara
+gem 'poltergeist'
+gem 'geckodriver-helper'
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'

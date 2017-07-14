@@ -25,7 +25,7 @@ recently listened: if track play time > 30sec
   setAudio() {
     if (this.props.embeddedService == 'Soundcloud') {
       this.setSoundcloudUrl()
-    } else if (this.state.trackAudio == undefined) {
+    } else {
       this.setState({ trackAudio: new Audio(this.props.track.media_path) })
     }
   }
@@ -33,38 +33,37 @@ recently listened: if track play time > 30sec
   setSoundcloudUrl() {
     var callUrl = this.props.track.media_path + '?client_id=' +  soundcloudPublicClientId
     fetch(callUrl)
-    .then((response) => { this.setState({ trackAudio: new Audio(response.url) }) })
+    .then((response) => {
+      this.setState({ trackAudio: new Audio(response.url) }) })
     .catch((error) => { console.log(error) })
   }
 
-  componentWillMount() {
-
-  }
   componentDidMount() {
     this.setAudio()
-    console.log(this.state.trackAudio)
-    // this.state.trackAudio.addEventListener('ended', function(e){ console.log(e) })
+  }
+
+  componentDidUpdate() {
+    // this.state.trackAudio.addEventListener('pause', function(){ this.setState({ playState: 'pause', nextAction: 'play' }) })
+    // this.state.trackAudio.addEventListener('play', function(){ this.setState({ playState: 'play', nextAction: 'pause' }) })
     // this.state.trackAudio.addEventListener('timeupdate', function(e){ console.log(e) })
   }
 
   togglePlayState() {
-    console.log(this.state.isPlaying)
+    var audio = this.state.trackAudio
     if (this.state.isPlaying) {
-      this.state.trackAudio.pause()
+      audio.pause()
       this.setState({ isPlaying: false, nextAction: 'play' })
     } else {
-      this.setAudio()
-      this.state.trackAudio.play()
+      audio.play()
       this.setState({ isPlaying: true, nextAction: 'pause' })
     }
   }
 
   render() {
     return (
-<div className="col-xs-4" onClick={ this.togglePlayState }>
-  <audio preload='none'><source src={ this.state.trackAudio } /></audio>
-  <PlayButton id={ this.props.track.id } nextAction={ this.state.nextAction } />
-</div>
+      <div className="col-xs-4" onClick={ this.togglePlayState }>
+        <PlayButton id={ this.props.track.id } nextAction={ this.state.nextAction } />
+      </div>
     )
   }
 }
