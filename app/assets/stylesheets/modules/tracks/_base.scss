@@ -58,6 +58,8 @@
 
 .track-base {
   margin-top: 10px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .embedded-service {
@@ -83,16 +85,16 @@
 }
 
 .track-play-button {
-  font-size: 36px;
+  font-size: 32px;
   margin-top: 20px;
-	height: 64px;
-  width: 64px;
+	height: 60px;
+  width: 60px;
 
   .glyphicon {
     position: inherit;
     top: 0;
     display: table-cell;
-    width: 64px;
+    width: 60px;
   }
 }
 
@@ -110,11 +112,11 @@
 
 .track-like-button {
   font-size: 24px;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
 
   span {
-    width: 43px;
+    width: 38px;
   }
 }
 
