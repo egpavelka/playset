@@ -7,12 +7,17 @@ class AudioPlayer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      audioLoaded: false,
+      timePlayed: 0,
       isPlaying: false,
       nextAction: 'play'
     }
-    this.setAudio = this.setAudio.bind(this);
-    this.setSoundcloudUrl = this.setSoundcloudUrl.bind(this);
-    this.togglePlayState = this.togglePlayState.bind(this);
+    this._setAudio = this.setAudio.bind(this)
+    this._setSoundcloudUrl = this.setSoundcloudUrl.bind(this)
+    this._setListenersOnAudioLoad = this.setListenersOnAudioLoad.bind(this)
+    this._setStatesOnPlay = this.setStatesOnPlay.bind(this)
+    this._setStatesOnPause = this.setStatesOnPause.bind(this)
+    this.togglePlayState = this.togglePlayState.bind(this)
 
   }
 /* THINGS THAT CLEAR this.state.currentTrack
@@ -22,30 +27,47 @@ play on different Track
 recently listened: if track play time > 30sec
 
 */
+
+// LOADING
+
+setSoundcloudUrl() {
+  var callUrl = this.props.track.media_path + '?client_id=' +  soundcloudPublicClientId
+  fetch(callUrl)
+  .then((response) => {
+    this.setState({ trackAudio: new Audio(response.url),  audioLoaded: true },
+    () => { this._setListenersOnAudioLoad() })
+  })
+  .catch((error) => { console.log(error) })
+}
+
   setAudio() {
     if (this.props.embeddedService == 'Soundcloud') {
-      this.setSoundcloudUrl()
+      this._setSoundcloudUrl()
     } else {
-      this.setState({ trackAudio: new Audio(this.props.track.media_path) })
+      this.setState({ trackAudio: new Audio(this.props.track.media_path), audioLoaded: true }, () => { this._setListenersOnAudioLoad() })
     }
   }
 
-  setSoundcloudUrl() {
-    var callUrl = this.props.track.media_path + '?client_id=' +  soundcloudPublicClientId
-    fetch(callUrl)
-    .then((response) => {
-      this.setState({ trackAudio: new Audio(response.url) }) })
-    .catch((error) => { console.log(error) })
+  setListenersOnAudioLoad() {
+    this.state.trackAudio.addEventListener('pause', this._setStatesOnPause)
+    this.state.trackAudio.addEventListener('play', this._setStatesOnPlay)
+    this.state.trackAudio.addEventListener('timeupdate',
+    (t) => { this.setState({ timePlayed: t }) }
+    )
   }
 
-  componentDidMount() {
-    this.setAudio()
+  componentWillMount() {
+    this._setAudio()
   }
 
-  componentDidUpdate() {
-    // this.state.trackAudio.addEventListener('pause', function(){ this.setState({ playState: 'pause', nextAction: 'play' }) })
-    // this.state.trackAudio.addEventListener('play', function(){ this.setState({ playState: 'play', nextAction: 'pause' }) })
-    // this.state.trackAudio.addEventListener('timeupdate', function(e){ console.log(e) })
+  // PLAYING
+
+  setStatesOnPlay() {
+    this.setState({ isPlaying: true, nextAction: 'pause' })
+  }
+
+  setStatesOnPause() {
+    this.setState({ isPlaying: false, nextAction: 'play' })
   }
 
   togglePlayState() {
