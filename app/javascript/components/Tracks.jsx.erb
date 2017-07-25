@@ -13,6 +13,16 @@ class Tracks extends React.Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('play', (e) => {
+      if (window.currentlyPlaying && window.currentlyPlaying != e.target) {
+        window.currentlyPlaying.pause()
+      }
+      window.currentlyPlaying = e.target
+      console.log(window.currentlyPlaying)
+    })
+  }
+
   render() {
 
     return (

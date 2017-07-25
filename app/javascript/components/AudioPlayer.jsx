@@ -20,13 +20,6 @@ class AudioPlayer extends React.Component {
     this.togglePlayState = this.togglePlayState.bind(this)
 
   }
-/* THINGS THAT CLEAR this.state.currentTrack
-finished // track has played in full
-play on different Track
-
-recently listened: if track play time > 30sec
-
-*/
 
 // LOADING
 
@@ -72,13 +65,7 @@ setSoundcloudUrl() {
 
   togglePlayState() {
     var audio = this.state.trackAudio
-    if (this.state.isPlaying) {
-      audio.pause()
-      this.setState({ isPlaying: false, nextAction: 'play' })
-    } else {
-      audio.play()
-      this.setState({ isPlaying: true, nextAction: 'pause' })
-    }
+    this.state.isPlaying ? audio.pause() : audio.play()
   }
 
   render() {

@@ -1,12 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Metadata = props => (
-  <div className="col-xs-7 col-xs-offset-1 text-right track-info">
-    <div className="track-title">{ props.track.title }</div>
-    <div className="track-artist">{ props.track.artist }</div>
-    <div><span className="track-album">{ props.track.album }</span> --- <span className="track-year">{ props.track.year }</span></div>
-  </div>
-)
+class Metadata extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.renderAlbumInfo = this.renderAlbumInfo.bind(this)
+  }
+
+  renderAlbumInfo() {
+    const hasAlbumInfo = this.props.track.album || this.props.track.year
+    const hasAlbumAndYear = this.props.track.album && this.props.track.year
+    const showDash = () => {
+      this.hasAlbumAndYear ? <span className='track-dash'>&mdash;</span>
+      : null
+    }
+    return (
+      <div>
+        <span className="track-album">{this.props.album}</span>
+        <span className="track-year">{ showDash() }{ this.props.track.year }
+        </span>
+      </div>
+    )
+  }
+
+  render() {
+
+    return (
+      <div className="col-xs-7 col-xs-offset-1 text-right track-info">
+        <div className="track-title">{this.props.track.title}</div>
+        <div className="track-artist">{this.props.track.artist}</div>
+        { this.renderAlbumInfo() }
+      </div>
+    )
+  }
+}
 
 export default Metadata

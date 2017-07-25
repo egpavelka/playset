@@ -19,7 +19,6 @@ class Track < ApplicationRecord
   has_attached_file :album_art,
   styles: { medium: {geometry: '400x400>', convert_options: '-colorspace Gray'},
   large: {geometry: '800x800>', convert_options: '-colorspace Gray'} },
-  default_url: 'assets/album_art/aa_test.jpg',
   content_type: { content_type: /\Aimage\/.*\z/ },
   size: { in: 0..1000.kilobytes }
 
@@ -59,7 +58,7 @@ class Track < ApplicationRecord
 
   def missing_metadata_error
   end
-  
+
 ####################
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS

@@ -24,7 +24,7 @@ class Track extends React.Component {
 
       <div className="track-background" style={ backgroundArtStyle }>
         <div className="track-overlay">
-          <AudioPlayer track={ this.props.track } embeddedService={ this.props.media.source_service }/>
+          <AudioPlayer track={ this.props.track } embeddedService={ this.props.media.source_service } />
           <Metadata track={ this.props.track } />
           <SubmissionData userId={ this.props.track.user_id } user={ this.props.user } formattedTime={ this.props.formattedTime } />
         </div>

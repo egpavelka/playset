@@ -9,7 +9,6 @@ class User < ApplicationRecord
   VALID_NAME_REGEX = /\A[a-zA-Z]+[a-zA-Z\s\.-]*[a-zA-Z]+\z/
 
   validates :name,
-  presence: true,
   length: { in: 5..51 },
   format: { with: VALID_NAME_REGEX }
 
@@ -109,5 +108,5 @@ class User < ApplicationRecord
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-    
+
 end
