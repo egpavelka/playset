@@ -9,32 +9,17 @@
 
     <div class="page-subheader">Edit your profile</div>
 
-      <li class="form-entry">
-        <%= f.label :name %>
-        <%= f.text_field :name%>
-      </li>
+      <li class="form-entry"><%= f.text_field :name, placeholder: 'NAME'%></li>
 
-      <li class="form-entry">
-        <%= f.label :profile_bio %>
-        <%= f.text_field :profile_bio %>
-      </li>
+      <li class="form-entry"><%= f.text_field :profile_bio, placeholder: 'About me'%></li>
 
-      <div class="page-subheader">Edit your profile</div>
+      <div class="page-subheader">Account information</div>
 
-      <li class="form-entry">
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </li>
+      <li class="form-entry"><%= f.email_field :email, placeholder: 'EMAIL' %></li>
 
-      <li class="form-entry">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </li>
+      <li class="form-entry"><%= f.password_field :password, placeholder: 'PASSWORD' %></li>
 
-      <li class="form-entry">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-      </li>
+      <li class="form-entry"><%= f.password_field :password_confirmation, placeholder: 'CONFIRM PASSWORD' %></li>
 
       <%= f.submit "Save", class: "submit-button" %>
 
