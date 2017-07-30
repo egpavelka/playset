@@ -16,14 +16,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-left app-nav">
-        <%= render 'layouts/menus/main-app-menu' %>
+        <%= render 'layouts/menus/main_app_menu' %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right app-nav">
         <% if logged_in? %>
-          <%= render 'layouts/menus/main-header-logged-in' %>
+          <%= render 'layouts/menus/main_header_logged_in' %>
         <% else %>
-          <%= render 'layouts/menus/main-header-default' %>
+          <%= render 'layouts/menus/main_header_default' %>
         <% end %>
       </ul>
 

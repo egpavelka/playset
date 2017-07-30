@@ -15,7 +15,7 @@
   <body>
     <div class="container wrapper">
       <div class="row">
-          <%= render 'layouts/main-header' %>
+          <%= render 'layouts/main_header' %>
           <div class="well">
             <% flash.each do |response_type, response| %>
               <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
@@ -26,7 +26,7 @@
         <%= yield %>
 
       <div class="row">
-          <%= render 'layouts/main-footer' %>
+          <%= render 'layouts/main_footer' %>
       </div> <!-- row -->
     </div> <!-- container/wrapper -->
     <%= debug(params) if Rails.env.development? %>

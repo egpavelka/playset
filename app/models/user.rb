@@ -1,7 +1,17 @@
 class User < ApplicationRecord
   has_many :tracks, dependent: :destroy
-  has_many :likes, inverse_of: :user
-  has_many :comments, inverse_of: :user
+  has_many :likes, inverse_of: :user, dependent: :destroy
+  has_many :comments, inverse_of: :user, dependent: :destroy
+
+  has_many :active_follows, class_name: 'Follow',
+                            foreign_key: 'follower_id',
+                            dependent: :destroy
+  has_many :passive_follows, class_name: 'Follow',
+                            foreign_key: 'followed_id',
+                            dependent: :destroy
+  has_many :following, through: :active_follows, source: :followed
+  has_many :followers, through: :passive_follows, source: :follower
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   before_save { email ? :downcase_email : nil }
@@ -96,6 +106,18 @@ class User < ApplicationRecord
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
   end
 
 

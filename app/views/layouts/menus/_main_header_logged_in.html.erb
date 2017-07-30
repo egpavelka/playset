@@ -6,4 +6,7 @@
       <li role="separator" class="divider"></li>
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
     </ul>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </li>
