@@ -37,12 +37,22 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+
   resources :tracks, only: [:edit, :show]
   resources :uploads, only: [:new, :create]
   resources :embeddeds, only: [:new, :create]
 
+  resources :follows, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
+
   resources :tracks do
     resources :comments, :likes
+  end
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
   end
 
 end

@@ -3,6 +3,7 @@
   <div class="page-header"><%= @user.username %></div>
   <div><%= @user.name %></div>
   <div><%= @user.profile_bio %></div>
+   <%= render 'users/social/follow_options' if logged_in? %>
   <div class="page-subheader">loved tracks</div>
 
   <% if @user.tracks.any? %>
