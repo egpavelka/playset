@@ -63,7 +63,7 @@ class Track < ApplicationRecord
 # SOCIAL ATTRIBUTES:
 # LIKES AND COMMENTS
 ####################
-  # has_and_belongs_to_many :likes, numericality: true
+  has_many :likes, as: :likable
   # Display (on user profile, main index)
 
 end
