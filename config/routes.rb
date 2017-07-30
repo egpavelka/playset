@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'like/index'
+
+  get 'like/new'
+
+  get 'comment/index'
+
+  get 'comment/new'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -29,11 +37,12 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :tracks, :uploads, :embeddeds
+  resources :tracks, only: [:edit, :show]
+  resources :uploads, only: [:new, :create]
+  resources :embeddeds, only: [:new, :create]
 
   resources :tracks do
-    resources :embeddeds, only: [:index, :show, :edit, :update, :destroy]
-    resources :uploads, only: [:index, :show, :edit, :update, :destroy]
+    resources :comments, :likes
   end
 
 end

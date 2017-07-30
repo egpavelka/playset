@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: 
-  track: 
+  user: one
+  likable: one
+  likable_type: Likable
 
 two:
-  user: 
-  track: 
+  user: two
+  likable: two
+  likable_type: Likable

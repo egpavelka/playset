@@ -3,7 +3,8 @@
 form {
   @extend %flex-v-flex-start;
   @extend %align-items-flex-start;
-  max-width: 850px;
+  max-width: 650px;
+  margin: 0 auto 30px;
   padding: 10px 20px;
   width: 80vw;
 
