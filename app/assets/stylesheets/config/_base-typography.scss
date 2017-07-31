@@ -1,11 +1,9 @@
 @import 'config/fonts/base-avenir';
 @import 'config/fonts/base-axiforma';
+@import 'config/fonts/base-cervo';
 @import 'config/fonts/base-decima';
-@import 'config/fonts/base-knockout';
-@import 'config/fonts/base-brother-1816';
-@import 'config/fonts/base-heroic-condensed';
 @import 'config/fonts/base-kelso';
-@import url('https://fonts.googleapis.com/css?family=Michroma');
+@import 'config/fonts/base-semplicita';
 
 @mixin mono($font) {
   $mono: '#{$font}' !global;
@@ -34,6 +32,6 @@
   // $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-@include sans-serif('Axiforma');
-@include sans-serif-narrow('Heroic Condensed');
+@include sans-serif('Semplicita');
+@include sans-serif-narrow('Cervo');
 @include mono('Decima Mono');

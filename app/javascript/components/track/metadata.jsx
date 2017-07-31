@@ -10,18 +10,14 @@ class Metadata extends React.Component {
 
   renderAlbumInfo() {
     const hasAlbumInfo = this.props.track.album || this.props.track.year
-    const hasAlbumAndYear = this.props.track.album && this.props.track.year
-    const showDash = () => {
-      this.hasAlbumAndYear ? <span className='track-dash'>&mdash;</span>
-      : null
+    if (hasAlbumInfo) {
+      return (
+        <div className="track-album-info">
+          <span className="track-album">{this.props.album}</span>
+          <span className="track-year">{ this.props.track.year }</span>
+        </div>
+      )
     }
-    return (
-      <div>
-        <span className="track-album">{this.props.album}</span>
-        <span className="track-year">{ showDash() }{ this.props.track.year }
-        </span>
-      </div>
-    )
   }
 
   render() {

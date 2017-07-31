@@ -1,0 +1,36 @@
+// Regular
+$ste-reg: 'steagal/Steagal-Re';
+@font-face {
+  font-family: 'Steagal';
+  src: url('#{$ste-reg}.otf');
+}
+// Regular Italic
+$ste-it: 'steagal/Steagal-ReIt';
+@font-face {
+  font-family: 'Steagal Italic';
+  src: url('#{$ste-it}.otf');
+}
+// Light
+$ste-lt: 'steagal/Steagal-Li';
+@font-face {
+  font-family: 'Steagal Light';
+  src: url('#{$ste-lt}.otf');
+}
+// Light Italic
+$ste-lt-it: 'steagal/Steagal-LiIt';
+@font-face {
+  font-family: 'Steagal Light Italic';
+  src: url('#{$ste-lt-it}.otf');
+}
+// Bold
+$ste-bd: 'steagal/Steagal-Bo';
+@font-face {
+  font-family: 'Steagal Bold';
+  src: url('#{$ste-bd}.otf');
+}
+// Bold Italic
+$ste-bd-it: 'steagal/Steagal-BoIt';
+@font-face {
+  font-family: 'Steagal Bold Italic';
+  src: url('#{$ste-bd-it}.otf');
+}

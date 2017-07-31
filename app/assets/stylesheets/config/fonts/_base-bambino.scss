@@ -1,0 +1,42 @@
+// Regular
+$bam-reg: 'bambino/Bambino';
+@font-face {
+  font-family: 'Bambino';
+  src: url('#{$bam-reg}.ttf'),
+  url('#{$bam-reg}.otf');
+}
+// Regular Italic
+$bam-reg-it: 'bambino/Bambino Italic';
+@font-face {
+  font-family: 'Bambino Italic';
+  src: url('#{$bam-reg-it}.ttf'),
+  url('#{$bam-reg-it}.otf');
+}
+// Light
+$bam-lt: 'bambino/Bambino Light';
+@font-face {
+  font-family: 'Bambino Light';
+  src: url('#{$bam-lt}.ttf'),
+  url('#{$bam-lt}.otf');
+}
+// Light Italic
+$bam-lt-it: 'bambino/Bambino Light Italic';
+@font-face {
+  font-family: 'Bambino Light Italic';
+  src: url('#{$bam-lt-it}.ttf'),
+  url('#{$bam-lt-it}.otf');
+}
+// Bold
+$bam-bd: 'bambino/Bambino Bold';
+@font-face {
+  font-family: 'Bambino Bold';
+  src: url('#{$bam-bd}.ttf'),
+  url('#{$bam-bd}.otf');
+}
+// Bold Italic
+$bam-bd-it: 'bambino/Bambino Bold Italic';
+@font-face {
+  font-family: 'Bambino Bold Italic';
+  src: url('#{$bam-bd-it}.ttf'),
+  url('#{$bam-bd-it}.otf');
+}

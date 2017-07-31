@@ -6,7 +6,7 @@
 
 .track {
   border: 2px solid $black;
-  margin: 20px 0;
+  margin: 20px auto;
   max-width: 800px;
   min-width: 290px;
   padding: 10px;
@@ -23,7 +23,6 @@
 }
 
 // COMMON
-
 %track-circle {
   border-radius: 50%;
   display: table-cell;
@@ -36,4 +35,16 @@
   @extend %track-circle;
   background-color: $text;
   color: $white;
+}
+
+.track-details,
+.track-info {
+
+  span {
+    display: inline-block;
+
+    &:first-child {
+      padding-right: 5px;
+    }
+  }
 }

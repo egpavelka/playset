@@ -1,8 +1,8 @@
 <% provide(:title, "submit track") %>
-<section class="content-container static-pages">
+<section class="content-container static-pages track-submission-form">
   <div class="page-header">edit track</div>
 
-  <%= form_for(@track, class: "track-submission-form")  do |f| %>
+  <%= form_for(@track)  do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
 

@@ -1,0 +1,36 @@
+// Regular
+$cer-reg: 'cervo/Cervo-Light';
+@font-face {
+  font-family: 'Cervo';
+  src: url('#{$cer-reg}.otf');
+}
+// Regular Italic
+$cer-it: 'cervo/Cervo-LightItalic';
+@font-face {
+  font-family: 'Cervo Italic';
+  src: url('#{$cer-it}.otf');
+}
+// Light
+$cer-lt: 'cervo/Cervo-Thin';
+@font-face {
+  font-family: 'Cervo Light';
+  src: url('#{$cer-lt}.otf');
+}
+// Light Italic
+$cer-lt-it: 'cervo/Cervo-ThinItalic';
+@font-face {
+  font-family: 'Cervo Light Italic';
+  src: url('#{$cer-lt-it}.otf');
+}
+// Bold
+$cer-bd: 'cervo/Cervo-Medium';
+@font-face {
+  font-family: 'Cervo Bold';
+  src: url('#{$cer-bd}.otf');
+}
+// Bold Italic
+$cer-bd-it: 'cervo/Cervo-MediumItalic';
+@font-face {
+  font-family: 'Cervo Bold Italic';
+  src: url('#{$cer-bd-it}.otf');
+}

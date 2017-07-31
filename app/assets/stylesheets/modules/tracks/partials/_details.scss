@@ -4,20 +4,20 @@
   color: $white;
   font-size: 1.35rem;
   margin: 25px 0 0;
-  padding: 7px 20px 7px 10px;
+  padding: 3px 20px 3px 15px;
 
   a {
     color: $white;
     font-family: $sans-serif-narrow;
-    font-size: 2.14rem;
+    font-size: 2rem;
     letter-spacing: .04rem;
   }
 }
 
 .track-base {
   margin-top: 10px;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .embedded-service {
