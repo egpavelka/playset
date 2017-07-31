@@ -1,3 +1,21 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-header {
+
+  .profile-username {
+    font-family: $sans-serif-bold;
+  }
+
+  .profile-name {
+    font-family: $sans-serif-narrow;
+    font-size: 2.5rem;
+    text-transform: none;
+  }
+
+  .profile-stats {
+    font-family: $sans-serif-narrow-light;
+    font-size: 2rem;
+  }
+}

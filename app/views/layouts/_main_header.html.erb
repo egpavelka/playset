@@ -1,31 +1,24 @@
 <nav class="nav navbar navbar-default app-header">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+
+  <div>
     <span class="navbar-brand ps-app-title">
       <%= link_to "playsette", root_path, id: "logo" %>
     </span>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+  </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <div class="app-menus">
+    <ul class="nav navbar-nav navbar-left app-nav">
+      <%= render 'layouts/menus/main_app_menu' %>
+    </ul>
 
-      <ul class="nav navbar-nav navbar-left app-nav">
-        <%= render 'layouts/menus/main_app_menu' %>
-      </ul>
+    <ul class="nav navbar-nav navbar-right app-nav-user">
+      <% if logged_in? %>
+        <%= render 'layouts/menus/main_header_logged_in' %>
+      <% else %>
+        <%= render 'layouts/menus/main_header_default' %>
+      <% end %>
+    </ul>
+  </div>
 
-      <ul class="nav navbar-nav navbar-right app-nav">
-        <% if logged_in? %>
-          <%= render 'layouts/menus/main_header_logged_in' %>
-        <% else %>
-          <%= render 'layouts/menus/main_header_default' %>
-        <% end %>
-      </ul>
-
-    </div><!-- /.navbar-collapse -->
 </nav>

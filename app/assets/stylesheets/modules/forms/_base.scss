@@ -15,8 +15,7 @@ form {
   label {
     color: $gray;
     font-family: $sans-serif-bold;
-    font-size: 1rem;
-    letter-spacing: .1rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
   }
 
@@ -24,13 +23,14 @@ form {
   input,
   select {
     border: 0;
+    font-family: $mono;
+    font-size: 1.75rem;
     margin: 0;
     padding: 5px 0 0;
 
     &::placeholder {
       color: $gray-light;
       font-family: $mono;
-      font-size: 1.2rem;
     }
 
     &:focus {
@@ -44,6 +44,7 @@ form {
     background: $background;
     border: 0;
     border-bottom: $single-border $gray-light;
+    padding-bottom: 5px;
 
     &:focus {
       border: 0;

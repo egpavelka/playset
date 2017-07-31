@@ -1,0 +1,36 @@
+// Regular
+$sem-reg: 'semplicita/SemplicitaPro-Medium';
+@font-face {
+  font-family: 'Semplicita';
+  src: url('#{$sem-reg}.otf');
+}
+// Regular Italic
+$sem-it: 'semplicita/SemplicitaPro-MedIt';
+@font-face {
+  font-family: 'Semplicita Italic';
+  src: url('#{$sem-it}.otf');
+}
+// Light
+$sem-lt: 'semplicita/SemplicitaPro';
+@font-face {
+  font-family: 'Semplicita Light';
+  src: url('#{$sem-lt}.otf');
+}
+// Light Italic
+$sem-lt-it: 'semplicita/SemplicitaPro-Italic';
+@font-face {
+  font-family: 'Semplicita Light Italic';
+  src: url('#{$sem-lt-it}.otf');
+}
+// Bold
+$sem-bd: 'semplicita/SemplicitaPro-Semibold';
+@font-face {
+  font-family: 'Semplicita Bold';
+  src: url('#{$sem-bd}.otf');
+}
+// Bold Italic
+$sem-bd-it: 'semplicita/SemplicitaPro-SemibdIt';
+@font-face {
+  font-family: 'Semplicita Bold Italic';
+  src: url('#{$sem-bd-it}.otf');
+}

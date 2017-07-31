@@ -3,8 +3,17 @@
 .page-nav {
 
   li > a {
-    font-family: $sans-serif;
-    font-size: 1.25rem;
+    font-family: $mono-bold;
+    font-size: 1.35rem;
+    text-decoration: underline;
     text-transform: uppercase;
   }
+
+  li.active > a {
+    text-decoration: none;
+  }
+}
+
+.nav-tabs > li {
+  max-width: 22.5%;
 }
