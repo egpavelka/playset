@@ -1,58 +1,39 @@
 @import 'config/fonts/base-avenir';
+@import 'config/fonts/base-axiforma';
+@import 'config/fonts/base-decima';
 @import 'config/fonts/base-knockout';
 @import 'config/fonts/base-brother-1816';
 @import 'config/fonts/base-heroic-condensed';
+@import 'config/fonts/base-kelso';
 @import url('https://fonts.googleapis.com/css?family=Michroma');
 
-body,
-%body {
-  font-family: 'Avenir Medium', sans-serif;
+@mixin mono($font) {
+  $mono: '#{$font}' !global;
+  $mono-italic: '#{$font} Italic' !global;
+  $mono-light: '#{$font} Light' !global;
+  $mono-light-italic: '#{$font} Light Italic' !global;
+  $mono-bold: '#{$font} Bold' !global;
+  $mono-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-%alt {
-  font-family: 'Heroic Condensed Regular', sans-serif;
+@mixin sans-serif($font) {
+  $sans-serif: '#{$font}' !global;
+  $sans-serif-italic: '#{$font} Italic' !global;
+  $sans-serif-light: '#{$font} Light' !global;
+  $sans-serif-light-italic: '#{$font} Light Italic' !global;
+  $sans-serif-bold: '#{$font} Bold' !global;
+  $sans-serif-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-%alt-bold {
-  font-family: 'Heroic Condensed Medium', sans-serif;
+@mixin sans-serif-narrow($font) {
+  $sans-serif-narrow: '#{$font}' !global;
+  // $sans-serif-narrow-italic: '#{$font} Italic' !global;
+  $sans-serif-narrow-light: '#{$font} Light' !global;
+  // $sans-serif-narrow-light-italic: '#{$font} Light Italic' !global;
+  $sans-serif-narrow-bold: '#{$font} Bold' !global;
+  // $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-%body-bold{
-  font-family: 'Avenir Medium', sans-serif;
-}
-
-%body-extra-bold{
-  font-family: 'Avenir Heavy', sans-serif;
-}
-
-%body-italic {
-  font-family: 'Avenir Book Oblique', sans-serif;
-}
-
-%body-bold-italic {
-  font-family: 'Avenir Medium Oblique', sans-serif;
-}
-
-%body-upper {
-  @extend %body;
-  text-transform: uppercase;
-}
-
-%alt-upper {
-  @extend %alt;
-  text-transform: uppercase;
-}
-
-%alt-bold-upper {
-  @extend %alt-bold;
-  text-transform: uppercase;
-}
-
-a {
-  &:active,
-  &:visited,
-  &:hover,
-  &:link {
-    text-decoration: none;
-  }
-}
+@include sans-serif('Axiforma');
+@include sans-serif-narrow('Heroic Condensed');
+@include mono('Decima Mono');

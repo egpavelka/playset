@@ -1,0 +1,36 @@
+// Decima Mono
+$dec-reg: 'decima/DecimaMono';
+@font-face {
+  font-family: 'Decima Mono';
+  src: url('#{$dec-reg}.otf');
+}
+// Decima Mono Italic
+$dec-it: 'decima/DecimaMono-Italic';
+@font-face {
+  font-family: 'Decima Mono Italic';
+  src: url('#{$dec-it}.otf');
+}
+// Light
+$dec-lt: 'decima/DecimaMono-Light';
+@font-face {
+  font-family: 'Decima Mono Light';
+  src: url('#{$dec-lt}.otf');
+}
+// Light Italic
+$dec-lt-it: 'decima/DecimaMono-LightItalic';
+@font-face {
+  font-family: 'Decima Mono Light Italic';
+  src: url('#{$dec-lt-it}.otf');
+}
+// Decima Mono Bold
+$dec-bd: 'decima/DecimaMono-Bold';
+@font-face {
+  font-family: 'Decima Mono Bold';
+  src: url('#{$dec-bd}.otf');
+}
+// Decima Mono Bold Oblique
+$dec-bd-it: 'decima/DecimaMono-BoldItalic';
+@font-face {
+  font-family: 'Decima Mono Bold Italic';
+  src: url('#{$dec-bd-it}.otf');
+}

@@ -15,12 +15,12 @@
 .alert {
   background: $block-solid;
   border: 0;
-  border-top: 1px solid $gray-dark;
-  border-bottom: 1px solid $gray-dark;
+  border-bottom: $single-border $highlight-1;
   border-radius: 0;
-  color: $text;
-  margin: 20px auto 10px;
-  padding: 20px 25px;
+  border-top: $single-border $highlight-1;
+  color: $gray;
+  margin: 20px auto 0;
+  padding: 10px;
 }
 
 .alert-warning {
@@ -36,6 +36,6 @@
 .field_with_errors {
 
   label {
-    @extend %body-bold-italic;
+    font-family: $sans-serif-bold-italic;
   }
 }

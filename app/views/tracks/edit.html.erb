@@ -2,7 +2,7 @@
 <section class="content-container static-pages">
   <div class="page-header">edit track</div>
 
-  <%= form_for(@track)  do |f| %>
+  <%= form_for(@track, class: "track-submission-form")  do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
 

@@ -3,54 +3,40 @@
 form {
   @extend %flex-v-flex-start;
   @extend %align-items-flex-start;
-  max-width: 650px;
   margin: 0 auto 30px;
   padding: 10px 20px;
-  width: 80vw;
 
   li {
     @extend %align-self-stretch;
     list-style: none;
     margin-top: 30px;
-
-    &:not(:last-child) input[type=text] {
-      width: 100%;
-      margin-bottom: 0;
-    }
   }
 
   label {
-    @extend %body-bold;
     color: $gray;
+    font-family: $sans-serif-bold;
     font-size: 1rem;
     letter-spacing: .1rem;
     text-transform: uppercase;
   }
 
+////////////////////// FIELD TYPES //////////////////////
   input,
   select {
+    border: 0;
     margin: 0;
     padding: 5px 0 0;
-    border: 0;
 
     &::placeholder {
-      @extend %body-bold;
-      color: $gray;
+      color: $gray-light;
+      font-family: $mono;
       font-size: 1.2rem;
     }
 
     &:focus {
-      outline: none;
       background: $background;
       border: 0;
-    }
-  }
-
-  input[type=text]{
-    border-bottom: $single-border $gray-light;
-
-    &:focus {
-      border-bottom: $single-border $highlight-2;
+      outline: none;
     }
   }
 
@@ -65,39 +51,6 @@ form {
     }
   }
 
-  .form-split-row-label,
-  .form-split-row-input {
-    padding: 0;
-
-    > span {
-      padding: 0;
-    }
-
-    span:first-child {
-      padding-right: 5px;
-    }
-
-    label,
-    input[type=text],
-    select {
-      position: relative;
-      width: 100%;
-    }
-  }
-
-  .form-split-row-input {
-
-
-    span:last-child {
-      position: absolute;
-      bottom: 0;
-    }
-  }
-
-  input[type=file] {
-    display: inline-block;
-  }
-
   textarea {
     border: $thin-border $text;
     margin-top: 3px;
@@ -106,21 +59,27 @@ form {
   }
 }
 
-.form-entry-nontext {
-  border: 0;
-  width: auto;
+input[type=text],
+input[type=password] {
+  border-bottom: $single-border $gray-light;
+
+  &:focus {
+    border-bottom: $single-border $highlight-2;
+  }
+}
+
+input[type=file] {
+  display: inline-block;
 }
 
 .submit-button {
-  @extend %alt-bold;
   @extend %align-self-flex-end;
   background-color: $highlight-2;
   border: $single-border $text;
   box-shadow: 3px 2px 0 0 $block-backer;
   color: $block-solid;
-  font-size: 1.375rem;
-  margin-bottom: 0;
-  margin-top: 30px;
+  font-family: $sans-serif-narrow-bold;
+  font-size: 2rem;
   padding: 5px 7px;
   text-shadow: 1.25px .75px $text;
   text-transform: lowercase;
@@ -129,18 +88,28 @@ form {
     box-shadow: 5px 4px 0 0 $block-backer;
     margin-bottom: 2px;
     margin-right: 2px;
-    margin-top: 28px;
+    margin-top: -2px;
   }
 
   &:active {
+    background-color: $highlight-2;
     box-shadow: 2px 1px 0 0 $block-backer;
     margin-bottom: -1px;
     margin-right: -1px;
-    margin-top: 31px;
+    margin-top: 1px;
   }
 }
 
-.more-info {
-  @extend %body-italic;
-  font-size: 1rem;
+%more-info {
+  font-family: $sans-serif-italic;
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  margin: 10px 0;
+  text-transform: none;
+}
+
+.more-info,
+.more-info label,
+.more-info a {
+  @extend %more-info;
 }

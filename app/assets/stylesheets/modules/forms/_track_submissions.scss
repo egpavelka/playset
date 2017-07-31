@@ -1,1 +1,73 @@
 @import 'modules/forms/base';
+
+.track-submission-form {
+  max-width: 650px;
+
+  li:not(:last-child) input[type=text] {
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  input,
+  select {
+    border: 0;
+    margin: 0;
+    padding: 5px 0 0;
+
+    &::placeholder {
+      color: $gray;
+      font-family: $sans-serif-bold;
+      font-size: 1.2rem;
+    }
+
+    &:focus {
+      background: $background;
+      border: 0;
+      outline: none;
+    }
+  }
+
+  .form-split-row-label,
+  .form-split-row-input {
+    padding: 0;
+
+    > span {
+      padding: 0;
+    }
+
+    span:first-child {
+      padding-right: 5px;
+    }
+
+    label,
+    input[type=text],
+    select {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .form-split-row-input {
+
+    span:last-child {
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  input[type=file] {
+    display: inline-block;
+  }
+
+  textarea {
+    border: $thin-border $text;
+    margin-top: 3px;
+    min-height: 100px;
+    padding: 10px;
+  }
+}
+
+.form-entry-nontext {
+  border: 0;
+  width: auto;
+}

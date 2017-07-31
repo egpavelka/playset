@@ -1,16 +1,18 @@
-.ps-app-title {
-  font-family: 'Michroma', sans-serif;
-  font-size: 3.5rem;
-  font-weight: bold;
-  text-transform: lowercase;
+.app-header {
+  margin-top: 30px;
 
-  a {
-    color: $azul;
+  .ps-app-title {
+    font-family: 'Kelso Bold Italic', sans-serif;
+    font-size: 6rem;
+    text-transform: lowercase;
+
+    a {
+      color: $text;
+    }
   }
-}
 
-.app-header .app-nav {
-  li {
+  .app-nav li {
     font-size: 2.5rem;
   }
+
 }
