@@ -1,9 +1,21 @@
-.row {
-  margin-left: 0;
-  margin-right: 0;
+body {
+  font-family: $mono;
 }
 
 ol,
 ul {
   padding: 0;
+}
+
+a {
+  color: $gray-darker;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }

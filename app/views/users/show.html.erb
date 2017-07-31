@@ -1,9 +1,16 @@
 <% provide(:title, "profile: #{ @user.name }") %>
 <section class="content-container static-pages">
-  <div class="page-header"><%= @user.username %></div>
-  <div><%= @user.name %></div>
-  <div><%= @user.profile_bio %></div>
-   <%= render 'users/social/follow_options' if logged_in? %>
+
+  <div class="page-header profile-header col-xs-12 col-sm-4 col-md-3">
+    <div class="profile-username"><%= @user.username %></div>
+    <div class="profile-name"><%= @user.name %></div>
+    <div class="profile-stats"><%= render "users/social/follow_stats" %></div>
+    <div class="profile-bio"><%= @user.profile_bio %></div>
+    <%= render 'users/social/follow_options' if logged_in? %>
+  </div>
+
+
+<div class="col-xs-12 col-sm-8 col-md-offset-1">
   <div class="page-subheader">loved tracks</div>
 
   <% if @user.tracks.any? %>
@@ -15,5 +22,6 @@
     </ol>
     <%= will_paginate @tracks %>
   <% end %>
+</div>
 
 </section>

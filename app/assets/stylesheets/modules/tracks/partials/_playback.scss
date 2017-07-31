@@ -1,0 +1,17 @@
+.track-play-button-container {
+  padding-left: 0;
+}
+
+.track-play-button {
+  font-size: 32px;
+  height: 60px;
+  margin-top: 20px;
+  width: 60px;
+
+  .glyphicon {
+    display: table-cell;
+    position: inherit;
+    top: 0;
+    width: 60px;
+  }
+}

@@ -1,16 +1,15 @@
+@import 'modules/tracks/partials/details';
+@import 'modules/tracks/partials/metadata';
+@import 'modules/tracks/partials/playback';
+@import 'modules/tracks/partials/social';
+
+
 .track {
+  border: 2px solid $black;
   margin: 20px 0;
-  border: 2px solid black;
-  padding: 10px;
   max-width: 800px;
   min-width: 290px;
-}
-
-%track-circle {
-  border-radius:50%;
-	display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  padding: 10px;
 }
 
 .track-background {
@@ -23,120 +22,18 @@
   padding: 20px 0;
 }
 
-.track-info {
-  @extend %body-bold;
-  text-transform: uppercase;
-}
+// COMMON
 
-.track-info > div {
-  border-bottom: 3px solid $highlight-1;
-  padding: 5px 0 2px;
-}
-
-.track-title {
-  @extend %body-extra-bold;
-  font-size: 2.25rem;
-}
-
-.track-artist {
-  @extend %alt-bold;
-  font-size: 3rem;
-  text-transform: lowercase;
-}
-
-.track-details,
-.track-info {
-
-  span {
-    display: inline-block;
-
-    &:first-child {
-      padding-right: 5px;
-    }
-  }
-}
-
-.track-details {
-  color: $white;
-  background-color: $text;
-  font-size: 1.35rem;
-  padding: 7px 20px 7px 10px;
-  margin: 25px 0 0;
-  -webkit-clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
-
-  a {
-    @extend %alt-bold;
-    color: $white;
-    font-size: 2.14rem;
-    letter-spacing: .04rem;
-  }
-}
-
-.track-base {
-  margin-top: 10px;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.embedded-service {
-  float: left;
+%track-circle {
+  border-radius: 50%;
+  display: table-cell;
+  text-align: center;
   vertical-align: middle;
-  height: 45px;
-
-  img {
-    height: 40px;
-    margin-right: 7px;
-  }
-}
-
-.track-play-button-container {
-  padding-left: 0;
 }
 
 .track-play-button,
 .track-like-button {
   @extend %track-circle;
-  color: $white;
   background-color: $text;
-}
-
-.track-play-button {
-  font-size: 32px;
-  margin-top: 20px;
-	height: 60px;
-  width: 60px;
-
-  .glyphicon {
-    position: inherit;
-    top: 0;
-    display: table-cell;
-    width: 60px;
-  }
-}
-
-.track-likes {
-  display: table-row;
-  float: right;
-}
-
-.track-like-button span,
-.track-like-count {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.track-like-button {
-  font-size: 24px;
-  height: 40px;
-  width: 40px;
-
-  span {
-    width: 38px;
-  }
-}
-
-.track-like-count {
-  padding-left: 7px;
+  color: $white;
 }

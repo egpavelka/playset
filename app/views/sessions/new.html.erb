@@ -3,28 +3,33 @@
 <section class="content-container static-pages">
   <div class="page-header">Log in</div>
 
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:session, url: login_path, html: { class: "sessions-form" }) do |f| %>
 
-      <!-- <li class="form-entry"> -->
+      <li class="form-entry">
         <%= f.label :username %>
         <%= f.text_field :username %>
-      <!-- </li> -->
+      </li>
 
-      <!-- <li class="form-entry"> -->
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <%= link_to "(forgot password?)", new_password_reset_path, class: 'more-info' %>
-      <!-- </li> -->
+      <li class="form-entry">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+      </li>
 
-      <%= f.label :remember_me do %>
-        <%= f.check_box :remember_me %>
-        <span class="more-info">Remember me on this computer</span>
-      <% end %>
+      <div class="more-info-flex-end">
+       <span>
+         <%= f.check_box :remember_me %>&nbsp;Remember me on this computer
+       </span>
+      </div>
 
       <%= f.submit "Log in", class: "submit-button" %>
 
       <div class="more-info">
-        Not registered? <%= link_to "Sign up.", signup_path %>
+        <span>
+          <%= link_to "Forgot password?", new_password_reset_path %>
+        </span>
+        <span>
+          Not registered? <%= link_to "Sign up.", signup_path %>
+        </span>
       </div>
 
     <% end %>

@@ -1,24 +1,24 @@
-// Heroic Condensed Book
-$heroic-cond-book: 'heroic-condensed/heroic-condensed-book';
+// Regular
+$heroic-cond-reg: 'heroic-condensed/heroic-condensed-regular';
 @font-face {
-  font-family: 'Heroic Condensed Book';
-  src: font-url('#{$heroic-cond-book}.ttf'),
-  font-url('#{$heroic-cond-book}.woff'),
-  font-url('#{$heroic-cond-book}.woff2');
+  font-family: 'Heroic Condensed';
+  src: font-url('#{$heroic-cond-reg}.ttf'),
+  font-url('#{$heroic-cond-reg}.woff'),
+  font-url('#{$heroic-cond-reg}.woff2');
 }
-// Heroic Condensed Regular
-$heroic-cond-regular: 'heroic-condensed/heroic-condensed-regular';
+// Light
+$heroic-cond-lt: 'heroic-condensed/heroic-condensed-book';
 @font-face {
-  font-family: 'Heroic Condensed Regular';
-  src: font-url('#{$heroic-cond-regular}.ttf'),
-  font-url('#{$heroic-cond-regular}.woff'),
-  font-url('#{$heroic-cond-regular}.woff2');
+  font-family: 'Heroic Condensed Light';
+  src: font-url('#{$heroic-cond-lt}.ttf'),
+  font-url('#{$heroic-cond-lt}.woff'),
+  font-url('#{$heroic-cond-lt}.woff2');
 }
-// Heroic Condensed Medium
-$heroic-cond-medium: 'heroic-condensed/heroic-condensed-medium';
+// Bold
+$heroic-cond-bd: 'heroic-condensed/heroic-condensed-medium';
 @font-face {
-  font-family: 'Heroic Condensed Medium';
-  src: font-url('#{$heroic-cond-medium}.ttf'),
-  font-url('#{$heroic-cond-medium}.woff'),
-  font-url('#{$heroic-cond-medium}.woff2');
+  font-family: 'Heroic Condensed Bold';
+  src: font-url('#{$heroic-cond-bd}.ttf'),
+  font-url('#{$heroic-cond-bd}.woff'),
+  font-url('#{$heroic-cond-bd}.woff2');
 }

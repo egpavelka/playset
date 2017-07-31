@@ -1,14 +1,14 @@
-// Knockout 29 Junior Lightweight
-$ko-jr-lightweight: 'knockout/knockout-29-junior-lightweight';
+// Regular
+$ko-reg: 'knockout/knockout-49-lightweight';
 @font-face {
-  font-family: 'Knockout 29 Junior Lightweight';
-  src: url('#{$ko-jr-lightweight}.ttf'),
-  url('#{$ko-jr-lightweight}.woff');
+  font-family: 'Knockout';
+  src: url('#{$ko-reg}.ttf'),
+  url('#{$ko-reg}.woff');
 }
-// Knockout 49 Lightweight
-$ko-lightweight: 'knockout/knockout-49-lightweight';
+// Light
+$ko-lt: 'knockout/knockout-29-junior-lightweight';
 @font-face {
-  font-family: 'Knockout 49 Lightweight';
-  src: url('#{$ko-lightweight}.ttf'),
-  url('#{$ko-lightweight}.woff');
+  font-family: 'Knockout Light';
+  src: url('#{$ko-lt}.ttf'),
+  url('#{$ko-lt}.woff');
 }

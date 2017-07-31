@@ -1,8 +1,9 @@
 .app-nav {
 
   a {
-    @extend %alt-bold-upper;
-    border-bottom: $single-border $block-solid; // add for box sizing
+    border-bottom: $single-border $block-solid;
+    font-family: $sans-serif-narrow;
+    text-transform: uppercase;
 
     &:hover {
       border-bottom: $single-border $highlight-1;
@@ -16,7 +17,7 @@
 
   .dropdown-menu > li > a,
   .app-nav-subitem {
-    @extend %body-upper;
+    font-family: $mono-bold;
     font-size: 1.25rem;
   }
 }

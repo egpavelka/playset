@@ -1,42 +1,42 @@
-// Avenir Light
+// Regular
+$av-reg: 'avenir/avenir-book';
+@font-face {
+  font-family: 'Avenir';
+  src: url('#{$av-reg}.ttf'),
+  url('#{$av-reg}.woff');
+}
+// Regular Italic
+$av-reg-it: 'avenir/avenir-book-oblique';
+@font-face {
+  font-family: 'Avenir Italic';
+  src: url('#{$av-reg-it}.ttf'),
+  url('#{$av-reg-it}.woff');
+}
+// Light
 $av-lt: 'avenir/avenir-light';
 @font-face {
   font-family: 'Avenir Light';
   src: url('#{$av-lt}.ttf'),
   url('#{$av-lt}.woff');
 }
-// Avenir Book
-$av-book: 'avenir/avenir-book';
+// Light Italic
+$av-lt-it: 'avenir/avenir-light';
 @font-face {
-  font-family: 'Avenir Book';
-  src: url('#{$av-book}.ttf'),
-  url('#{$av-book}.woff');
+  font-family: 'Avenir Light Italic';
+  src: url('#{$av-lt-it}.ttf'),
+  url('#{$av-lt-it}.woff');
 }
-// Avenir Book Oblique
-$av-book-ob: 'avenir/avenir-book-oblique';
+// Bold
+$av-bd: 'avenir/avenir-medium';
 @font-face {
-  font-family: 'Avenir Book Oblique';
-  src: url('#{$av-book-ob}.ttf'),
-  url('#{$av-book-ob}.woff');
+  font-family: 'Avenir Bold';
+  src: url('#{$av-bd}.ttf'),
+  url('#{$av-bd}.woff');
 }
-// Avenir Medium
-$av-med: 'avenir/avenir-medium';
+// Bold Italic
+$av-bd-it: 'avenir/avenir-medium-oblique';
 @font-face {
-  font-family: 'Avenir Medium';
-  src: url('#{$av-med}.ttf'),
-  url('#{$av-med}.woff');
-}
-// Avenir Medium Oblique
-$av-med-ob: 'avenir/avenir-medium-oblique';
-@font-face {
-  font-family: 'Avenir Medium Oblique';
-  src: url('#{$av-med-ob}.ttf'),
-  url('#{$av-med-ob}.woff');
-}
-// Avenir Heavy
-$av-hv: 'avenir/avenir-heavy';
-@font-face {
-  font-family: 'Avenir Heavy';
-  src: url('#{$av-hv}.ttf'),
-  url('#{$av-hv}.woff');
+  font-family: 'Avenir Bold Italic';
+  src: url('#{$av-bd-it}.ttf'),
+  url('#{$av-bd-it}.woff');
 }
