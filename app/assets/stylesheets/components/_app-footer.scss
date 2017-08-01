@@ -1,5 +1,8 @@
-.navbar-footer .app-nav {
+.navbar-footer {
+  border-top: $single-border $highlight-2;
+
   li > a {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin: 15px 15px 0;
   }
 }

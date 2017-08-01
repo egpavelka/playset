@@ -14,8 +14,8 @@
 
   <body>
     <div class="container wrapper">
+      <%= render 'layouts/main_header' %>
       <div class="row">
-          <%= render 'layouts/main_header' %>
           <div class="well">
             <% flash.each do |response_type, response| %>
               <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>

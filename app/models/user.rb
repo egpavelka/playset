@@ -120,6 +120,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def likes?(likable)
+    likes.include?(likable)
+  end
+
 
   private
 

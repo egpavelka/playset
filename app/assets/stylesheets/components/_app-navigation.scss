@@ -1,20 +1,37 @@
 .app-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 30px -15px 0;
-  padding: 0 0 10px;
+  margin-top: 30px;
+  padding: 0;
+}
 
-  > div {
-    flex-grow: 3;
+.app-menu.nav-pills {
+  > li {
+    > a {
+      // background-color: $text;
+      // color: $background;
+      font-family: $sans-serif-bold-italic;
+      font-size: 2rem;
+      text-transform: uppercase;
+     }
+
+    > ul > li > a {
+
+    }
   }
 }
 
 .app-menus {
+  align-items: flex-start;
   display: flex;
-  flex-flow: nowrap;
+  flex-flow: row wrap-reverse;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 30px;
+
+  > div {
+    align-items: baseline;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
 
   a {
     border-bottom: $single-border $block-solid;
@@ -33,14 +50,8 @@
   }
 }
 
-.app-nav {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-
 .navbar-nav {
-  margin: 0 10px;
+  margin: 0;
 
   > li > a {
     margin: 0 10px;

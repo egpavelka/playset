@@ -11,6 +11,7 @@ class EmbeddedsController < ApplicationController
     @embed = Embedded.new(embedded_params)
       if @embed.save
         # Add current_user to metadata hash (session )
+        # should this be @track = current_user.create_track(@embed.auto_metadata...)
         @track = @embed.create_track(@embed.generated_track_params(current_user.id))
         if @track.save
           redirect_to edit_track_path(@track)
