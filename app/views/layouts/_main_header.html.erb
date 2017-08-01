@@ -1,24 +1,30 @@
 <nav class="nav navbar navbar-default app-header">
     <!-- Brand and toggle get grouped for better mobile display -->
 
-  <div>
-    <span class="navbar-brand ps-app-title">
-      <%= link_to "playsette", root_path, id: "logo" %>
-    </span>
-  </div>
+  <span class="navbar-left ps-app-title">
+    <%= link_to "playsette", root_path, id: "logo" %>
+  </span>
 
-  <div class="app-menus">
-    <ul class="nav navbar-nav navbar-left app-nav">
-      <%= render 'layouts/menus/main_app_menu' %>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right app-nav-user">
-      <% if logged_in? %>
-        <%= render 'layouts/menus/main_header_logged_in' %>
-      <% else %>
-        <%= render 'layouts/menus/main_header_default' %>
-      <% end %>
-    </ul>
-  </div>
+  <ul class="nav navbar-right nav-pills app-menu">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Charts<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Audio</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">All</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Submit</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Audio</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">All</a></li>
+      </ul>
+    </li>
+  </ul>
 
 </nav>

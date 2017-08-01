@@ -12,6 +12,8 @@ gem 'rails', '~> 5.1.2'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+# Re-add jquery ugh
+gem 'jquery-rails'
 # Autoprefixer
 gem 'autoprefixer-rails', '>= 6.6.1'
 # Use SCSS for stylesheets

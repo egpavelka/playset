@@ -16,7 +16,12 @@ form {
     color: $gray;
     font-family: $sans-serif-bold;
     font-size: 1.2rem;
+    padding: 0 7px 0 0;
     text-transform: uppercase;
+  }
+
+  .submit-button {
+    align-self: flex-end;
   }
 
 ////////////////////// FIELD TYPES //////////////////////
@@ -73,40 +78,17 @@ input[type=file] {
   display: inline-block;
 }
 
-.submit-button {
-  @extend %align-self-flex-end;
-  background-color: $highlight-2;
-  border: $single-border $text;
-  box-shadow: 3px 2px 0 0 $block-backer;
-  color: $block-solid;
-  font-family: $sans-serif-narrow-bold;
-  font-size: 2rem;
-  padding: 5px 7px;
-  text-shadow: 1.25px .75px $text;
-  text-transform: lowercase;
-
-  &:hover {
-    box-shadow: 5px 4px 0 0 $block-backer;
-    margin-bottom: 2px;
-    margin-right: 2px;
-    margin-top: -2px;
-  }
-
-  &:active {
-    background-color: $highlight-2;
-    box-shadow: 2px 1px 0 0 $block-backer;
-    margin-bottom: -1px;
-    margin-right: -1px;
-    margin-top: 1px;
-  }
-}
-
 %more-info {
+  color: $gray-light;
   font-family: $sans-serif-italic;
   font-size: 1.25rem;
   letter-spacing: normal;
-  margin: 10px 0;
+  margin: 15px 0;
   text-transform: none;
+
+  a {
+    color: $gray-dark;
+  }
 }
 
 .more-info,

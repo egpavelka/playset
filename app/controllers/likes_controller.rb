@@ -4,8 +4,8 @@ class LikesController < ApplicationController
     track = Track.find(params[:id])
     current_user.like(track)
     respond_to do |format|
-      format.html { redirect_to track }
-      format.js
+      # format.html { redirect_to current_page }
+      format.js { render js: "window.location='#{url.to_s}'" }
     end
   end
 
@@ -13,8 +13,8 @@ class LikesController < ApplicationController
     track = Like.find(params[:id]).liked
     current_user.unlike(track)
     respond_to do |format|
-      format.html { redirect_to track }
-      format.js
+      # format.html { redirect_to track }
+      format.js { render js: "window.location='#{url.to_s}'" }
     end
   end
 
