@@ -120,8 +120,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def likes?(likable)
-    likes.include?(likable)
+  def like(post)
+    liked_type = post.class
+  end
+
+  def likes?(likeable)
+    likes.include?(likeable)
   end
 
 
