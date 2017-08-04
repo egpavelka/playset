@@ -2,10 +2,10 @@
 
 one:
   user: one
-  likable: one
-  likable_type: Likable
+  likeable: one
+  likeable_type: Likable
 
 two:
   user: two
-  likable: two
-  likable_type: Likable
+  likeable: two
+  likeable_type: Likable

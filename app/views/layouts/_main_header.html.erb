@@ -6,25 +6,6 @@
   </span>
 
   <ul class="nav navbar-right nav-pills app-menu">
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        Charts<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Audio</a></li>
-        <li><a href="#">Video</a></li>
-        <li><a href="#">All</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Submit</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Audio</a></li>
-        <li><a href="#">Video</a></li>
-        <li><a href="#">All</a></li>
-      </ul>
-    </li>
-  </ul>
-
+    <%= render 'layouts/menus/main_app_menu' %>
+    <%= render 'layouts/menus/main_user_menu' %>
 </nav>

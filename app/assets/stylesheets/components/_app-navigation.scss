@@ -5,17 +5,24 @@
 
 .app-menu.nav-pills {
   > li {
+
     > a {
       // background-color: $text;
       // color: $background;
       font-family: $sans-serif-bold-italic;
       font-size: 2rem;
+      padding: 5px 10px;
       text-transform: uppercase;
-     }
 
-    > ul > li > a {
-
+      &:hover,
+      &:active {
+        background-color: $highlight-1;
+      }
     }
+  }
+
+  .active a {
+    background-color: $text;
   }
 }
 

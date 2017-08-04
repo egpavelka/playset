@@ -9,7 +9,7 @@
     <%= form_for(track.likes.find_by(user_id: current_user.id),
                  html: { method: :delete },
                  remote: true ) do |f| %>
-      <%= f.submit "Unfollow", class: "btn" %>
+      <%= f.submit "Unlike", class: "btn" %>
     <% end %>
   <% else %>
     <%= form_for(track.likes.build, remote: true) do |f| %>

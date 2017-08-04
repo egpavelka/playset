@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'like/index'
-
-  get 'like/new'
-
-  get 'comment/index'
-
-  get 'comment/new'
-
   get 'password_resets/new'
 
   get 'password_resets/edit'
