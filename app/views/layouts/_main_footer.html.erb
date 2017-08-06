@@ -1,8 +1,16 @@
-<nav class="nav navbar-footer">
-  <ul class="nav navbar-nav navbar-right app-nav">
-    <li class="active"><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
-    <li><%= link_to "Help", help_path %></li>
+<footer class="app-menu">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <%= link_to "Home", root_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About", about_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Contact", contact_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Help", help_path, class: 'nav-link' %>
+    </li>
   </ul>
-</nav>
+</footer>

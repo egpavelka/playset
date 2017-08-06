@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const SubmissionData = props => (
-  <div className='col-xs-7 track-details'>
+  <div className='col-7 track-details'>
     <span>posted&nbsp;
       <text className='postedByText'>
         by <a href={'/users/' + props.userId }>{ props.user }</a>

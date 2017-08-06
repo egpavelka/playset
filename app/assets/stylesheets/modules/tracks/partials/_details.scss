@@ -2,30 +2,34 @@
   background-color: $text;
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
   color: $white;
-  font-size: 1.35rem;
+  font-size: .75rem;
   margin: 25px 0 0;
   padding: 3px 20px 3px 15px;
 
   a {
     color: $white;
     font-family: $sans-serif-narrow;
-    font-size: 2rem;
-    letter-spacing: .04rem;
+    font-size: 1.25rem;
   }
 }
 
 .track-base {
-  margin: 10px 0 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 100%;
 }
 
 .embedded-service {
-  float: left;
-  font-size: 1.25rem;
-  height: 35px;
-  vertical-align: middle;
+  font-size: .75rem;
+  min-height: 40px;
+  padding: 0;
+
+  a {
+    background-color: $highlight-2;
+    color: $background;
+    padding: 5px 7px;
+  }
 
   img {
     height: 35px;

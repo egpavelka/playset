@@ -5,15 +5,17 @@
 
 
 .track {
-  border: 2px solid $black;
-  margin: 20px auto;
-  max-width: 800px;
+  background-color: $white;
+  border: $single-border $black;
+  margin: 10px auto;
+  max-width: 830px;
   min-width: 290px;
   padding: 10px;
 }
 
 .track-background {
   background-size: cover;
+  padding: 0;
 }
 
 .track-overlay {
@@ -31,10 +33,15 @@
 }
 
 .track-play-button,
-.track-like-button {
+.track-like-button,
+.track-comment-button {
   @extend %track-circle;
   background-color: $text;
   color: $white;
+
+  &.active-button {
+    background-color: $highlight-2;
+  }
 }
 
 .track-details,

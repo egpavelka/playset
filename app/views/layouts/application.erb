@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <!--[if lt IE 9]> <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"> </script> <![endif]-->
   </head>
 
   <body>
     <div class="container wrapper">
       <%= render 'layouts/main_header' %>
-      <div class="row">
-          <div class="well">
-            <% flash.each do |response_type, response| %>
-              <%= content_tag(:div, response, class: "alert alert-#{response_type}") %>
-            <% end %>
-          </div>
-      </div> <!-- row -->
+  
+        <% flash.each do |response_type, response| %>
+          <%= content_tag(:div, response, class: "card alert alert-#{response_type}") %>
+        <% end %>
 
         <%= yield %>
 

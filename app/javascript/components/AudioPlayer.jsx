@@ -69,16 +69,13 @@ setSoundcloudUrl() {
   }
 
   render() {
+
     return (
-      <div className="col-xs-4" onClick={ this.togglePlayState }>
-        <PlayButton id={ this.props.track.id } nextAction={ this.state.nextAction } />
+      <div className="col-4" onClick={ this.togglePlayState }>
+        <PlayButton id={ this.props.track.id } nextAction={ this.state.nextAction } isPlaying={ this.state.isPlaying ? 'active-button' : '' } />
       </div>
     )
   }
 }
-
-// AudioPlayer.propTypes = {
-//
-// }
 
 export default AudioPlayer

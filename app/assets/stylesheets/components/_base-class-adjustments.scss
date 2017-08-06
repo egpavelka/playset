@@ -8,9 +8,9 @@ ul {
 }
 
 a {
-  color: $gray-darker;
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: none;
   }
 }
@@ -18,10 +18,4 @@ a {
 .row {
   margin-left: 0;
   margin-right: 0;
-}
-
-.well {
-  margin: 0;
-  min-height: 0;
-  padding: 0;
 }

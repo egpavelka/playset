@@ -6,41 +6,33 @@
 
     <%= render 'shared/error_messages', object: f.object %>
 
-    <li class="form-entry">
+    <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'response-data'%>
-    </li>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
 
-    <li class="form-entry">
+    <div class="form-group">
       <%= f.label :artist %>
-      <%= f.text_field :artist, class: 'response-data'%>
-    </li>
+      <%= f.text_field :artist, class: 'form-control' %>
+    </div>
 
-    <li class="form-entry">
-      <div class='col-xs-12 form-split-row-label'>
-        <span class='col-xs-8'>
-          <%= f.label :album %>
-        </span>
-        <span class='col-xs-4'>
-          <%= f.label :year %>
-        </span>
+    <div class="form-group row">
+      <div class="col-8">
+        <%= f.label :album %>
+        <%= f.text_field :album, class: 'form-control' %>
       </div>
-      <div class='col-xs-12 form-split-row-input'>
-        <span class='col-xs-8'>
-          <%= f.text_field :album, class: 'response-data' %>
-        </span>
-        <span class='col-xs-4'>
-          <%= f.select :year, ((Time.zone.now.year - 100)..(Time.zone.now.year)).to_a.reverse, prompt: @track.year %>
-        </span>
+      <div class="col-4 stretch-select-stack">
+        <%= f.label :year %>
+        <%= f.select :year, ((Time.zone.now.year - 100)..(Time.zone.now.year)).to_a.reverse, prompt: @track.year, class: 'form-control' %>
       </div>
-    </li>
+    </div>
 
-    <li class="form-entry form-entry-nontext">
+    <div class="form-group">
       <% if @track.album_art.exists? %>
         <%= image_tag @track.album_art.url(:medium), style: 'height: 80px; width: 80px;' %>
       <% end %>
-      <%= f.file_field :album_art, class: 'response-data' %>
-    </li>
+      <%= f.file_field :album_art, class: 'form-control-file' %>
+    </div>
 
     <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
 

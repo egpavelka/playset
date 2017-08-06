@@ -1,13 +1,15 @@
 .ps-app-title {
+  // box-shadow: 8px 10px 0 -2px $highlight-1;
   font-family: 'Kelso Bold Italic', sans-serif;
-  font-size: 4.5rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: bolder;
+  margin-right: 0;
   text-transform: lowercase;
 
   a {
     background-color: $text;
     color: $background;
     padding: 5px 15px 15px;
-    text-shadow: 3px 5px $highlight-1;
+    text-shadow: 2px 4px $highlight-3;
   }
 }

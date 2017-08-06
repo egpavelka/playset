@@ -3,39 +3,4 @@
 .sessions-form {
   max-width: 350px;
   width: 90vw;
-
-  .form-entry {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-
-    label {
-      padding-bottom: 0;
-    }
-  }
-
-  input[type=text],
-  input[type=password] {
-    flex-grow: 2;
-  }
-
-  .more-info {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    text-transform: none;
-    width: 100%;
-  }
-}
-
-.more-info-flex-end {
-  @extend %more-info;
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  width: 100%;
-
-  // span {
-  //
-  // }
 }
