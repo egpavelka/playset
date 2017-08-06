@@ -1,6 +1,8 @@
-<nav class="nav navbar-default">
-  <ul class="nav nav-tabs page-nav">
-    <li class="track_kind <%= current_class?(submit_embed_path) %>" id="select_url" val="url"><%= link_to 'Submit link', submit_embed_path %></li>
-    <li class="track_kind <%= current_class?(submit_upload_path) %>" id="select_upload" val="upload"><%= link_to 'Upload file', submit_upload_path %></li>
-  </ul>
-</nav>
+<ul class="nav nav-tabs page-nav">
+  <li class="<%= current_class?(submit_embed_path) %> nav-item">
+    <%= link_to 'Submit link', submit_embed_path, class: 'nav-link' %>
+  </li>
+  <li class=" <%= current_class?(submit_upload_path) %> nav-item">
+    <%= link_to 'Upload file', submit_upload_path, class: 'nav-link' %>
+  </li>
+</ul>

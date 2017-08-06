@@ -1,11 +1,26 @@
-<nav class="nav navbar navbar-default app-header">
-    <!-- Brand and toggle get grouped for better mobile display -->
-
-  <span class="navbar-left ps-app-title">
-    <%= link_to "playsette", root_path, id: "logo" %>
+<!-- <nav class="navbar navbar-toggleable-sm navbar-light app-header">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <span class="navbar-brand ps-app-title">
+    <%= link_to "playsette", root_path, id: 'logo' %>
   </span>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+    <ul class="navbar-nav app-menu">
+        <%= render 'layouts/menus/main_app_menu' %>
+        <%= render 'layouts/menus/main_user_menu' %>
+    </ul>
+  </div>
+</nav> -->
 
-  <ul class="nav navbar-right nav-pills app-menu">
-    <%= render 'layouts/menus/main_app_menu' %>
-    <%= render 'layouts/menus/main_user_menu' %>
-</nav>
+<header class="app-header">
+  <div class="navbar-brand ps-app-title">
+    <%= link_to "playsette", root_path, id: 'logo' %>
+  </div>
+  <div class="app-menu">
+    <ul class="nav nav-pills">
+      <%= render 'layouts/menus/main_app_menu' %>
+      <%= render 'layouts/menus/main_user_menu' %>
+    </ul>
+  </div>
+</header>

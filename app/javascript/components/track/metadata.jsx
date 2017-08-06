@@ -13,8 +13,8 @@ class Metadata extends React.Component {
     if (hasAlbumInfo) {
       return (
         <div className="track-album-info">
-          <span className="track-album">{this.props.album}</span>
-          <span className="track-year">{ this.props.track.year }</span>
+          <span className="track-album">{this.props.track.album}</span>
+          &nbsp; <span className="track-year">{ this.props.track.year }</span>
         </div>
       )
     }
@@ -23,7 +23,7 @@ class Metadata extends React.Component {
   render() {
 
     return (
-      <div className="col-xs-7 col-xs-offset-1 text-right track-info">
+      <div className="col-7 offset-1 text-right track-info">
         <div className="track-title">{this.props.track.title}</div>
         <div className="track-artist">{this.props.track.artist}</div>
         { this.renderAlbumInfo() }

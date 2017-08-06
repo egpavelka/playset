@@ -1,25 +1,25 @@
 // COLORS
 $white: #fff;
 $black: #000;
-$burgundy: #6f1d1b;
-$rust: #b02e0c;
 $sunset: #eb4511;
 $azul: #3f88c5;
-$jade: #7be0ad;
+$jade: #06d6a0; // 7be0ad
 $cream: #f9dec9;
+$fuchsia: #832161;
+$sunshine: #f7d331;
 
 $background: $white;
 $text: $black;
-$block-solid: $white;      //---white
-$block-backer: $burgundy;
-$highlight-1: $azul;   //---light green
-$highlight-2: $rust;   //---coral
-// $bg-img: 'backgrounds/palm-geometric-stripe-bw.jpg';
+$block-solid: $white;
+$highlight-1: $azul;
+$highlight-2: $fuchsia;
+$highlight-3: $jade;
+$bg-img: 'backgrounds/texture1.png';
 
 body {
   background-color: $background;
-  // background-image: image-url($bg-img);
-  // background-repeat: repeat;
+  background-image: image-url($bg-img);
+  background-repeat: repeat;
   color: $text;
 }
 

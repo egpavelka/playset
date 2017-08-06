@@ -1,8 +1,14 @@
-<nav class="nav navbar-default">
-  <ul class="nav nav-tabs page-nav">
-    <li class="<%= current_class?(root_path) %>"><%= link_to 'Top', root_path %></li>
-    <li class="<%= current_class?(nil) %>"><%= link_to 'New', '#', class: current_class?(users_path) %></li>
-    <li class="<%= current_class?(nil) %>"><%= link_to 'All time', '#' %></li>
-    <li class="<%= current_class?(nil) %>"><%= link_to 'Following', '#' %></li>
-  </ul>
-</nav>
+<ul class="nav nav-tabs page-nav">
+  <li class="<%= current_class?(root_path) %> nav-item">
+    <%= link_to 'Top', root_path, class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'New', '#', class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'All time', '#', class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'Following', '#', class: 'nav-link' %>
+  </li>
+</ul>

@@ -1,27 +1,13 @@
 @import 'config/MASTER';
 
 form {
-  @extend %flex-v-flex-start;
-  @extend %align-items-flex-start;
-  margin: 0 auto 30px;
-  padding: 10px 20px;
-
-  li {
-    @extend %align-self-stretch;
-    list-style: none;
-    margin-top: 30px;
-  }
 
   label {
     color: $gray;
     font-family: $sans-serif-bold;
-    font-size: 1.2rem;
-    padding: 0 7px 0 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
     text-transform: uppercase;
-  }
-
-  .submit-button {
-    align-self: flex-end;
   }
 
 ////////////////////// FIELD TYPES //////////////////////
@@ -29,39 +15,30 @@ form {
   select {
     border: 0;
     font-family: $mono;
-    font-size: 1.75rem;
-    margin: 0;
-    padding: 5px 0 0;
 
     &::placeholder {
-      color: $gray-light;
       font-family: $mono;
     }
 
     &:focus {
       background: $background;
       border: 0;
-      outline: none;
     }
   }
 
   select {
     background: $background;
-    border: 0;
     border-bottom: $single-border $gray-light;
-    padding-bottom: 5px;
 
     &:focus {
-      border: 0;
       border-bottom: $single-border $highlight-2;
     }
   }
 
-  textarea {
-    border: $thin-border $text;
-    margin-top: 3px;
-    min-height: 100px;
-    padding: 10px;
+  .col,
+  .col-4,
+  .col-8 {
+    padding: 0;
   }
 }
 
@@ -74,25 +51,7 @@ input[type=password] {
   }
 }
 
-input[type=file] {
-  display: inline-block;
-}
-
-%more-info {
-  color: $gray-light;
-  font-family: $sans-serif-italic;
-  font-size: 1.25rem;
-  letter-spacing: normal;
-  margin: 15px 0;
-  text-transform: none;
-
-  a {
-    color: $gray-dark;
-  }
-}
-
-.more-info,
-.more-info label,
-.more-info a {
-  @extend %more-info;
+.form-control {
+  border: 0;
+  border-radius: 0;
 }

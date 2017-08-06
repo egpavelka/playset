@@ -1,88 +1,57 @@
 .app-header {
-  margin-top: 30px;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   padding: 0;
+
+  > div {
+    margin: 10px 0 0;
+  }
+
+  .app-menu a {
+    font-size: .95rem;
+  }
 }
 
-.app-menu.nav-pills {
-  > li {
+.app-menu {
+  // width: 100%;
 
-    > a {
-      // background-color: $text;
-      // color: $background;
-      font-family: $sans-serif-bold-italic;
-      font-size: 2rem;
-      padding: 5px 10px;
-      text-transform: uppercase;
+  ul {
+    // background-color: $background;
+    // box-shadow: 8px 8px 0 -2px $highlight-1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 8px;
+
+    .nav-item {
+      background-color: $text;
+      border-bottom: $single-border $text;
+      border-left: 10px double $text;
+      border-right: 10px double $text;
+      border-top: $single-border $text;
+      transform: skewX(-25deg);
+
+      + .nav-item {
+        margin-left: 5px;
+      }
+
+      a {
+        color: $background;
+        font-family: $sans-serif-bold-italic;
+        padding: 4px;
+        text-transform: uppercase;
+        transform: skewX(25deg);
+      }
 
       &:hover,
       &:active {
-        background-color: $highlight-1;
+        border-left: 10px double $highlight-3;
+      }
+
+      &.active {
+        border-left: 10px double $highlight-3;
       }
     }
   }
-
-  .active a {
-    background-color: $text;
-  }
-}
-
-.app-menus {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: row wrap-reverse;
-  justify-content: space-between;
-  margin-top: 30px;
-
-  > div {
-    align-items: baseline;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-  }
-
-  a {
-    border-bottom: $single-border $block-solid;
-    font-family: $sans-serif-bold-italic;
-    font-size: 2rem;
-    padding: 0;
-    text-transform: uppercase;
-
-    &:hover {
-      border-bottom: $single-border $highlight-1;
-    }
-  }
-
-  .active > a {
-    border-bottom: $single-border $highlight-2;
-  }
-}
-
-.navbar-nav {
-  margin: 0;
-
-  > li > a {
-    margin: 0 10px;
-    padding: 0;
-  }
-}
-
-.app-nav-user {
-
-  a {
-    // font-family: $sans-serif-narrow;
-    // font-size: 2.25rem;
-    // text-transform: none;
-    border-bottom: $single-border $highlight-1;
-    font-family: $mono-italic;
-    font-size: 1.5rem;
-    text-transform: lowercase;
-  }
-
-  // > a,
-  // > li > a {
-  //   background-color: $text;
-  //   color: $background !important;
-  //   padding: 8px 7px 4px;
-  //   margin: 0 5px;
-  // }
 }

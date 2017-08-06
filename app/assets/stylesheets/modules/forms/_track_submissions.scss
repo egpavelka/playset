@@ -5,66 +5,22 @@
 
   form {
     max-width: 350px;
-    width: 90vw;
-  }
-
-  input[type=text] {
-    position: relative;
-    width: 100%;
   }
 }
 
-.track-submission-form form {
-  max-width: 650px;
-
-  li:not(:last-child) input[type=text] {
-    margin-bottom: 0;
-    width: 100%;
-  }
-
-  .form-split-row-label,
-  .form-split-row-input {
-    padding: 0;
-
-    > span {
-      padding: 0;
-    }
-
-    span:first-child {
-      padding-right: 5px;
-    }
-
-    label,
-    input[type=text],
-    select {
-      position: relative;
-      width: 100%;
-    }
-  }
-
-  .form-split-row-input {
-
-    span:last-child {
-      bottom: 0;
-      position: absolute;
-    }
-  }
-
-  input[type=file] {
-    display: inline-block;
-    font-family: $mono-italic;
-    font-size: 1.25rem;
-  }
-
-  textarea {
-    border: $thin-border $text;
-    margin-top: 3px;
-    min-height: 100px;
-    padding: 10px;
+.track-submission-form {
+  form {
+    max-width: 500px;
   }
 }
 
-.form-entry-nontext {
-  border: 0;
-  width: auto;
+.stretch-select-stack {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding-left: 5px !important;
+
+  select {
+    padding: 0.5rem 0.75rem;
+  }
 }

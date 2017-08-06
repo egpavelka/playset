@@ -8,10 +8,14 @@
   margin-top: 20px;
   width: 60px;
 
-  .glyphicon {
+  .fa {
     display: table-cell;
     position: inherit;
     top: 0;
     width: 60px;
   }
+}
+
+.playing {
+  background-color: $highlight-2;
 }

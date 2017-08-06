@@ -1,19 +1,39 @@
 @import 'config/MASTER';
 
 .page-nav {
-
-  li > a {
-    font-family: $mono-bold;
-    font-size: 1.35rem;
-    text-decoration: underline;
-    text-transform: uppercase;
-  }
-
-  li.active > a {
-    text-decoration: none;
-  }
+  border-bottom: $single-border $text;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.nav-tabs > li {
-  max-width: 22.5%;
+@mixin nav-tab-border($style, $color) {
+  border-left: $style $color;
+  border-right: $style $color;
+  border-top: $style $color;
+  border-bottom: 0;
+}
+
+.nav-tabs {
+
+  .nav-item {
+    margin-bottom: 0;
+
+    .nav-link {
+      @include nav-tab-border($thin-border, $gray-600);
+      background-color: $white;
+      color: $text;
+      font-family: $sans-serif-narrow-bold;
+      margin-right: 2px;
+      padding-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    &.active .nav-link {
+      @include nav-tab-border($single-border, $text);
+    }
+
+    &:hover .nav-link {
+      @include nav-tab-border($single-border, $text);
+    }
+  }
 }
