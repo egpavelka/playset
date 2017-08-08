@@ -1,12 +1,17 @@
 // COLORS
 $white: #fff;
 $black: #000;
-$sunset: #eb4511;
-$azul: #3f88c5;
-$jade: #06d6a0; // 7be0ad
-$cream: #f9dec9;
-$fuchsia: #832161;
-$sunshine: #f7d331;
+$azul: #4745d1;          // y
+$carrot: #ff9b42;
+$dark-coral: #cd5334;
+$fuchsia: #68268C;   // 131, 33, 97
+$jade: #83f79c;      // 131, 247, 156
+$lapis: #473bf0;        // y
+$lizard: #0cce6b;
+$ruby: #d36060;          // y
+$salmon: #eb9486;        // y
+$sunset: #ed7d3a;
+$sunshine: #ffd400;      // y
 
 $background: $white;
 $text: $black;
@@ -18,8 +23,8 @@ $bg-img: 'backgrounds/texture1.png';
 
 body {
   background-color: $background;
-  background-image: image-url($bg-img);
-  background-repeat: repeat;
+  // background-image: image-url($bg-img);
+  // background-repeat: repeat;
   color: $text;
 }
 
@@ -27,3 +32,7 @@ a {
   color: $text;
   text-decoration: none;
 }
+
+// Track variables
+$overlays:  $fuchsia, $lapis, $ruby, $sunset;
+$highlights: $azul, $lizard, $salmon, $sunshine;

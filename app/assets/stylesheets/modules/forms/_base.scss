@@ -1,10 +1,15 @@
 @import 'config/MASTER';
 
 form {
+  align-items: stretch;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 50px auto;
 
   label {
-    color: $gray;
+    color: $highlight-2;
     font-family: $sans-serif-bold;
+    font-size: .8rem;
     margin-bottom: 0;
     padding-bottom: 0;
     text-transform: uppercase;
@@ -35,23 +40,47 @@ form {
     }
   }
 
+  input[type=text],
+  input[type=password] {
+    border-bottom: $single-border $gray-light;
+  }
+
+  textarea.form-control {
+    border: $single-border $gray-light;
+  }
+
+  input[type=text],
+  input[type=password],
+  textarea.form-control {
+    width: 100%;
+
+    &:focus {
+      border-color: $highlight-2;
+    }
+  }
+
+  .btn {
+    align-self: flex-end;
+  }
+
   .col,
   .col-4,
-  .col-8 {
+  .col-sm-5,
+  .col-8,
+  .col-xs-12 {
     padding: 0;
-  }
-}
-
-input[type=text],
-input[type=password] {
-  border-bottom: $single-border $gray-light;
-
-  &:focus {
-    border-bottom: $single-border $highlight-2;
   }
 }
 
 .form-control {
   border: 0;
   border-radius: 0;
+}
+
+.form-control-file {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin: 10px 0 30px;
 }

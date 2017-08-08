@@ -7,15 +7,43 @@
   .profile-username {
     font-family: $sans-serif-bold;
   }
+}
+
+.user-profile {
+  // display: flex;
+  // flex-flow: column wrap;
+
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+.profile-info {
+
+  .profile-avatar {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }
 
   .profile-name {
     font-family: $sans-serif-narrow;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    margin-top: 10px;
     text-transform: none;
   }
 
   .profile-stats {
     font-family: $sans-serif-narrow-light;
-    font-size: 2rem;
+  }
+
+  .profile-name,
+  .profile-stats {
+    padding: 0 10px 5px;
+  }
+
+  .profile-bio {
+    background-color: $gray-200;
+    padding: 10px;
   }
 }

@@ -71,7 +71,7 @@ setSoundcloudUrl() {
   render() {
 
     return (
-      <div className="col-4" onClick={ this.togglePlayState }>
+      <div className="col-3" onClick={ this.togglePlayState }>
         <PlayButton id={ this.props.track.id } nextAction={ this.state.nextAction } isPlaying={ this.state.isPlaying ? 'active-button' : '' } />
       </div>
     )

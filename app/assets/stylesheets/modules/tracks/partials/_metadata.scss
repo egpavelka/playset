@@ -1,8 +1,5 @@
 .track-info {
-
-  > div {
-    border-bottom: 3px solid $highlight-1;
-  }
+  word-wrap: break-word;
 }
 
 .track-title {
@@ -25,12 +22,12 @@
 
 .track-album {
   font-family: $sans-serif-bold;
-  font-size: 1.15rem;
 }
 
 .track-year {
   background-color: $text;
   color: $background;
+  font-size: .875rem;
   margin-bottom: 4px;
   padding: 4px 4px 0;
 }

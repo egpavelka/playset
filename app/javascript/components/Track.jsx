@@ -11,8 +11,21 @@ class Track extends React.Component {
     super(props)
 
     this.state = {
-      isLiked: false
+      isLiked: false,
+      colorScheme: 1
     }
+    this._setColorScheme = this.setColorScheme.bind(this)
+  }
+
+  setColorScheme() {
+    const min = 1
+    const max = 16 // must be changed manually!
+    const random = Math.floor(min + Math.random() * (max - min + 1))
+    this.setState({ colorScheme: random })
+  }
+
+  componentWillMount() {
+    this._setColorScheme()
   }
 
   render() {
@@ -23,7 +36,7 @@ class Track extends React.Component {
     }
 
     return (
-      <div id={ 'track-' + this.props.track.id } className="row track">
+      <div id={ 'track-' + this.props.track.id } className={`row track color-scheme-` + this.state.colorScheme }>
 
       <div className="col-12 track-background" style={ backgroundArtStyle }>
         <div className="row track-overlay">

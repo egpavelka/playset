@@ -9,11 +9,11 @@
 
     <%= render 'shared/error_messages', object: f.object %>
 
-    <li class="form-entry">
+    <div class="form-group">
       <%= f.text_field :source_path, id: 'url_source', placeholder: 'URL' %>
-    </li>
+    </div>
 
-    <%= f.submit 'Submit', class: 'submit-button' %>
+    <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
 
   <% end %>
 

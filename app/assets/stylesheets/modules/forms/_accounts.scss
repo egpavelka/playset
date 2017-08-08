@@ -1,6 +1,9 @@
 @import 'modules/forms/base';
 
-.sessions-form {
+.sessions-form form {
   max-width: 350px;
-  width: 90vw;
+}
+
+.user-profile-form form {
+  max-width: 450px;
 }
