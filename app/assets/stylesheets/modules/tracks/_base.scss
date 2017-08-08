@@ -1,3 +1,4 @@
+@import 'modules/tracks/partials/colors';
 @import 'modules/tracks/partials/details';
 @import 'modules/tracks/partials/metadata';
 @import 'modules/tracks/partials/playback';
@@ -19,7 +20,6 @@
 }
 
 .track-overlay {
-  background-color: transparentize($white, .3);
   overflow: auto;
   padding: 20px 0;
 }

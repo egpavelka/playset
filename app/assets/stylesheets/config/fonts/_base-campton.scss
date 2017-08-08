@@ -1,0 +1,36 @@
+// Regular
+$camp-reg: 'campton/Rene_Bieder_-_Campton_Book';
+@font-face {
+  font-family: 'Campton';
+  src: url('#{$camp-reg}.otf');
+}
+// Italic
+$camp-it: 'campton/Rene_Bieder_-_Campton_Book_Italic';
+@font-face {
+  font-family: 'Campton Italic';
+  src: url('#{$camp-it}.otf');
+}
+// Light
+$camp-lt: 'campton/Rene_Bieder_-_Campton_Light';
+@font-face {
+  font-family: 'Campton Light';
+  src: url('#{$camp-lt}.otf');
+}
+// Light Italic
+$camp-lt-it: 'campton/Rene_Bieder_-_Campton_Light_Italic';
+@font-face {
+  font-family: 'Campton Light Italic';
+  src: url('#{$camp-lt-it}.otf');
+}
+// Bold
+$camp-bd: 'campton/Rene_Bieder_-_Campton_SemiBold';
+@font-face {
+  font-family: 'Campton Bold';
+  src: url('#{$camp-bd}.otf');
+}
+// Bold Oblique
+$camp-bd-it: 'campton/Rene_Bieder_-_Campton_SemiBold_Italic';
+@font-face {
+  font-family: 'Campton Bold Italic';
+  src: url('#{$camp-bd-it}.otf');
+}

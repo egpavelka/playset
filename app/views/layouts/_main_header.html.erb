@@ -14,13 +14,13 @@
 </nav> -->
 
 <header class="app-header">
-  <div class="navbar-brand ps-app-title">
-    <%= link_to "playsette", root_path, id: 'logo' %>
-  </div>
   <div class="app-menu">
     <ul class="nav nav-pills">
       <%= render 'layouts/menus/main_app_menu' %>
       <%= render 'layouts/menus/main_user_menu' %>
     </ul>
+  </div>
+  <div class="navbar-brand ps-app-title">
+    <%= link_to "playsette", root_path, id: 'logo' %>
   </div>
 </header>

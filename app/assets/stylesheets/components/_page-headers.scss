@@ -1,10 +1,18 @@
 @import 'config/MASTER';
 
+.page-header,
+.page-subheader {
+  font-size: 2rem;
+}
+
 .page-header {
   border-bottom: $single-border $highlight-2;
   font-family: $sans-serif-narrow-bold;
-  font-size: 2rem;
-  line-height: 1.85rem;
   margin: 20px 0;
   text-transform: lowercase;
+}
+
+.page-subheader {
+  font-family: $sans-serif-narrow;
+  text-transform: none;
 }

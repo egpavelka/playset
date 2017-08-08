@@ -1,0 +1,20 @@
+<ul class="nav nav-pills flex-column page-nav">
+  <li class="<%= current_class?(user_path(@user)) %> nav-item">
+    <%= link_to 'Overview', user_path, class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'Submitted', '#', class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'Loved', '#', class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'Comments', '#', class: 'nav-link' %>
+  </li>
+  <li class="<%= current_class?(nil) %> nav-item">
+    <%= link_to 'Notes', '#', class: 'nav-link' %>
+  </li>
+  <% if logged_in? && @user == current_user %>
+    <%= render 'users/menus/current_user_profile_menu' %>
+  <% end %>
+</ul>

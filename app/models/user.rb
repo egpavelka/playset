@@ -55,6 +55,11 @@ class User < ApplicationRecord
   validates :profile_bio,
   length: { maximum: 500 }
 
+  has_attached_file :album_art,
+  styles: { icon: '150x150#', small: '300x300#' },
+  content_type: { content_type: /\Aimage\/.*\z/ },
+  default_url: 'users/default-profile.png'
+
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)

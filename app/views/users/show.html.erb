@@ -1,22 +1,23 @@
 <% provide(:title, "profile: #{ @user.name }") %>
-<section class="content-container static-pages">
+<section class="content-container row user-profile">
 
-  <div class="page-header profile-header col-xs-12 col-sm-4 col-md-3">
+  <div class="page-header profile-header col-12">
     <div class="profile-username"><%= @user.username %></div>
+  </div>
+
+  <div class="profile-info col-xs-12 col-sm-4">
     <div class="profile-name"><%= @user.name %></div>
     <div class="profile-stats"><%= render "users/social/follow_stats" %></div>
-    <div class="profile-bio"><%= @user.profile_bio %></div>
     <%= render 'users/social/follow_options' if logged_in? %>
+    <% if !@user.profile_bio.nil? %>
+      <div class="profile-bio"><%= @user.profile_bio %></div>
+    <% end %>
+    <%= render 'users/menus/profile_menu' %>
   </div>
 
 
-<div class="col-xs-12 col-sm-8 col-md-offset-1">
-  <div class="page-subheader">loved tracks</div>
-
+<div class="col-xs-12 col-sm-7 offset-sm-1">
   <% if @user.tracks.any? %>
-    <div class="page-subheader">
-      submitted tracks
-    </div>
     <ol>
       <%= render @tracks %>
     </ol>

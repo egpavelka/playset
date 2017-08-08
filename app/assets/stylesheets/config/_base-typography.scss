@@ -1,7 +1,8 @@
-@import 'config/fonts/base-avenir';
-@import 'config/fonts/base-axiforma';
+@import 'config/fonts/base-campton';
 @import 'config/fonts/base-cervo';
 @import 'config/fonts/base-decima';
+@import 'config/fonts/base-frutiger';
+@import 'config/fonts/base-itc-avant-garde';
 @import 'config/fonts/base-kelso';
 @import 'config/fonts/base-semplicita';
 
@@ -32,6 +33,6 @@
   // $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-@include sans-serif('Semplicita');
+@include sans-serif('Campton');
 @include sans-serif-narrow('Cervo');
 @include mono('Decima Mono');

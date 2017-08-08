@@ -29,7 +29,7 @@
     }
 
     &.active .nav-link {
-      @include nav-tab-border($single-border, $text);
+      @include nav-tab-border($single-border, $highlight-3);
     }
 
     &:hover .nav-link {

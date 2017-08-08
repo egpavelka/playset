@@ -1,57 +1,50 @@
 .app-header {
   align-items: center;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row wrap-reverse;
   justify-content: space-between;
+  margin-bottom: -10px;
   padding: 0;
 
   > div {
     margin: 10px 0 0;
   }
-
-  .app-menu a {
-    font-size: .95rem;
-  }
 }
 
-.app-menu {
-  // width: 100%;
+.app-menu ul {
+  // background-color: $background;
+  // box-shadow: 8px 8px 0 -2px $highlight-1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 8px;
 
-  ul {
-    // background-color: $background;
-    // box-shadow: 8px 8px 0 -2px $highlight-1;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 8px;
+  .nav-item {
+    background-color: $text;
+    border-left: 10px double $text;
+    border-right: 10px double $text;
+    padding-left: 5px;
+    transform: skewX(-25deg);
 
-    .nav-item {
-      background-color: $text;
-      border-bottom: $single-border $text;
-      border-left: 10px double $text;
-      border-right: 10px double $text;
-      border-top: $single-border $text;
-      transform: skewX(-25deg);
-
-      + .nav-item {
-        margin-left: 5px;
-      }
-
-      a {
-        color: $background;
-        font-family: $sans-serif-bold-italic;
-        padding: 4px;
-        text-transform: uppercase;
-        transform: skewX(25deg);
-      }
-
-      &:hover,
-      &:active {
-        border-left: 10px double $highlight-3;
-      }
-
-      &.active {
-        border-left: 10px double $highlight-3;
-      }
+    + .nav-item {
+      margin-left: 5px;
     }
+
+    &:hover,
+    &:active {
+      border-left: 10px double $highlight-3;
+    }
+
+    &.active {
+      border-left: 10px double $highlight-3;
+    }
+  }
+
+  .nav-link {
+    color: $background;
+    font-family: $sans-serif-bold-italic;
+    font-size: .95rem;
+    padding: 4px;
+    text-transform: uppercase;
+    transform: skewX(25deg);
   }
 }

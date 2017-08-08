@@ -4,9 +4,10 @@
 
 .track-play-button {
   font-size: 32px;
-  height: 60px;
+  height: 70px;
   margin-top: 20px;
-  width: 60px;
+  max-width: 70px;
+  min-width: 70px;
 
   .fa {
     display: table-cell;
@@ -14,6 +15,10 @@
     top: 0;
     width: 60px;
   }
+}
+
+.track-background > .col-3 {
+  padding: 0 0 0 15px;
 }
 
 .playing {
