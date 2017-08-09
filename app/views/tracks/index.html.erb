@@ -4,7 +4,9 @@
   <%= render 'tracks/menus/index' %>
 </div>
 
-<%= render @tracks %>
+<div class="row">
+  <%= render @tracks %>
+</div>
 
 <div class="row">
   <%= will_paginate @tracks %>
