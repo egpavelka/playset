@@ -1,26 +1,31 @@
 // COLORS
 $white: #fff;
 $black: #000;
-$azul: #4745d1;          // y
-$carrot: #ff9b42;
-$dark-coral: #cd5334;
-$fuchsia: #68268C;   // 131, 33, 97
-$jade: #83f79c;      // 131, 247, 156
-$lapis: #473bf0;        // y
-$lizard: #0cce6b;
-$ruby: #d36060;          // y
-$salmon: #eb9486;        // y
-$sunset: #ed7d3a;
-$sunshine: #ffd400;      // y
 
+$baby: #b7e7ff;
+$blush: #ffc1c2;
+$coral: #ff6667;
+$turquoise: #05afb5;
+$fuchsia: #ff63a1;
+$sky: #367ed1;
+$sunshine: #ffeb7f;
+$tan: #d1aa81;
+$lapis: #29358e;
+
+// App scheme
 $background: $white;
 $text: $black;
 $block-solid: $white;
-$highlight-1: $azul;
-$highlight-2: $fuchsia;
-$highlight-3: $jade;
+$highlight-1: $lapis;
+$highlight-2: $coral;
+$highlight-3: $baby;
 $bg-img: 'backgrounds/texture1.png';
 
+// Track variables
+$dark: $turquoise, $coral, $lapis;
+$light: $baby, $coral, $tan, $sunshine;
+
+// Set base
 body {
   background-color: $background;
   // background-image: image-url($bg-img);
@@ -32,7 +37,3 @@ a {
   color: $text;
   text-decoration: none;
 }
-
-// Track variables
-$overlays:  $fuchsia, $lapis, $ruby, $sunset;
-$highlights: $azul, $lizard, $salmon, $sunshine;

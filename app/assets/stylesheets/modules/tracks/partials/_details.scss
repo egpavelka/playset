@@ -1,7 +1,7 @@
 .track-details {
   background-color: $text;
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
-  color: $white;
+  color: $text;
   font-size: .75rem;
   letter-spacing: -.04rem;
   margin: 25px 0 0;
@@ -32,7 +32,8 @@
   padding: 0;
 
   a {
-    border-bottom: $thin-border $highlight-1;
+    font-family: $mono-bold;
+    padding: 5px;
   }
 
   img {

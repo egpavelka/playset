@@ -4,29 +4,65 @@
     > div {
       border-bottom: 3px solid $highlight-val;
       color: $highlight-val;
+      text-shadow: 1.5px 1.5px darken($overlay-val, 60%);
     }
   }
 
   .track-details {
     background: $overlay-val;
+
+    a {
+      color: $highlight-val;
+    }
   }
 
   .track-overlay {
-    background-color: transparentize($overlay-val, .7);
+    background-color: transparentize($overlay-val, .8);
+  }
+
+  .track-base .embedded-service a {
+    background: $highlight-val;
+    color: $overlay-val;
   }
 }
 
 
-@each $overlay in $overlays {
-  $i: index($overlays, $overlay);
+// @each $overlay in $dark {
+//   $i: index($dark, $overlay);
+//
+//   @each $highlight in $light {
+//     $j: index($light, $highlight);
+//     $q: ($i - 1) * length($light);
+//     $x: $q + $j;
+//
+//     .color-scheme-#{$x} {
+//       @include track-colors($overlay, $highlight);
+//     }
+//   }
+// }
 
-  @each $highlight in $highlights {
-    $j: index($highlights, $highlight);
-    $q: ($i - 1) * length($highlights);
-    $x: $q + $j;
+$color-groups: (
+  $turquoise: ($blush, $baby, $fuchsia),
+  $lapis: ($blush, $coral, $fuchsia, $sunshine),
+  $coral: ($baby, $blush, $sunshine),
+  $sky: ($coral, $blush, $sunshine, $fuchsia)
+);
 
-    .color-scheme-#{$x} {
-      @include track-colors($overlay, $highlight);
+$i: 1;
+
+@each $base, $list in $color-groups {
+  @each $shade in $list {
+
+    .color-scheme-#{$i} {
+      @include track-colors($base, $shade);
     }
+
+    $i: $i + 1;
+
+    .color-scheme-#{$i} {
+      @include track-colors($shade, $base);
+    }
+
+    $i: $i + 1;
   }
 }
