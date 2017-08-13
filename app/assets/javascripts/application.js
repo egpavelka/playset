@@ -12,8 +12,9 @@
 //
 
 //= require jquery
+//= require rails_ujs
 //= require tether
 //= require turbolinks
+//= require bootstrap
 //= require react-server
 //= require_tree .
-//= require bootstrap
