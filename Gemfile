@@ -17,7 +17,8 @@ gem 'jquery-rails'
 # Autoprefixer
 gem 'autoprefixer-rails', '>= 6.6.1'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
+# gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'sass-rails'
 # Add paging to datasets
 gem 'will_paginate'
 # Use Bootstrap for modularity

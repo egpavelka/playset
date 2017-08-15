@@ -28,6 +28,12 @@ form {
     &:focus {
       background: $background;
       border: 0;
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofil:focus {
+      background-color: $background;
     }
   }
 
@@ -41,6 +47,7 @@ form {
   }
 
   input[type=text],
+  input[type=email],
   input[type=password] {
     border-bottom: $single-border $gray-light;
   }
@@ -50,6 +57,7 @@ form {
   }
 
   input[type=text],
+  input[type=email],
   input[type=password],
   textarea.form-control {
     width: 100%;

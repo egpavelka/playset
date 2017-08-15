@@ -1,15 +1,21 @@
 @mixin track-colors($overlay-val, $highlight-val) {
   .track-info {
 
-    > div {
-      border-bottom: 3px solid $highlight-val;
-      color: $highlight-val;
-      text-shadow: 1.5px 1.5px darken($overlay-val, 60%);
+    > span {
+      background-color: $highlight-val;
+      color: $overlay-val;
+      // text-shadow: 1.5px 1px $overlay-val;
+      //
+      // .track-year {
+      //   text-shadow: none;
+      // }
     }
   }
 
+  .track-title {
+  }
+
   .track-details {
-    background: $overlay-val;
 
     a {
       color: $highlight-val;
@@ -17,35 +23,21 @@
   }
 
   .track-overlay {
-    background-color: transparentize($overlay-val, .8);
+    background-color:  transparentize($overlay-val, .7);
   }
 
   .track-base .embedded-service a {
     background: $highlight-val;
-    color: $overlay-val;
+    // color: $highlight-val;
   }
 }
 
 
-// @each $overlay in $dark {
-//   $i: index($dark, $overlay);
-//
-//   @each $highlight in $light {
-//     $j: index($light, $highlight);
-//     $q: ($i - 1) * length($light);
-//     $x: $q + $j;
-//
-//     .color-scheme-#{$x} {
-//       @include track-colors($overlay, $highlight);
-//     }
-//   }
-// }
-
 $color-groups: (
-  $turquoise: ($blush, $baby, $fuchsia),
-  $lapis: ($blush, $coral, $fuchsia, $sunshine),
-  $coral: ($baby, $blush, $sunshine),
-  $sky: ($coral, $blush, $sunshine, $fuchsia)
+  $emerald: ($sky, $petal, $fuchsia),
+  $cobalt: ($mint, $fuchsia, $petal),
+  $fuchsia: ($gold),
+  $coral: ($gold, $sky, $mint)
 );
 
 $i: 1;

@@ -47,4 +47,16 @@
     text-transform: uppercase;
     transform: skewX(25deg);
   }
+
+  &.dropdown-menu li:hover {
+    background-color: $highlight-3;
+
+    a {
+      background-color: $highlight-3;
+    }
+  }
+
+  .dropdown-item {
+    transform: skewX(25deg);
+  }
 }
