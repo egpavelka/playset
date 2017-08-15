@@ -1,3 +1,5 @@
+@import 'config/MASTER';
+
 // Override Bootstrap variables here (defaults from bootstrap v4.0.0-alpha.6):
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -56,72 +58,73 @@ $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
 $black:  #000;
+$gray: #ccc;
 
-// $grays: (
-//   100: $gray-100,
-//   200: $gray-200,
-//   300: $gray-300,
-//   400: $gray-400,
-//   500: $gray-500,
-//   600: $gray-600,
-//   700: $gray-700,
-//   800: $gray-800,
-//   900: $gray-900
-// );
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900
+);
 
-// $blue:    #007bff;
-// $indigo:  #6610f2;
-// $purple:  #6f42c1;
-// $pink:    #e83e8c;
-// $red:     #dc3545;
-// $orange:  #fd7e14;
-// $yellow:  #ffc107;
-// $green:   #28a745;
-// $teal:    #20c997;
-// $cyan:    #17a2b8;
+$blue:    #007bff;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
 
-// $colors: (
-//   blue: $blue,
-//   indigo: $indigo,
-//   purple: $purple,
-//   pink: $pink,
-//   red: $red,
-//   orange: $orange,
-//   yellow: $yellow,
-//   green: $green,
-//   teal: $teal,
-//   cyan: $cyan,
-//   white: $white,
-//   gray: $gray-600,
-//   gray-dark: $gray-800
-// );
+$colors: (
+  blue: $blue,
+  indigo: $indigo,
+  purple: $purple,
+  pink: $pink,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  cyan: $cyan,
+  white: $white,
+  gray: $gray-600,
+  gray-dark: $gray-800
+);
 
-// $theme-colors: (
-//   primary: $blue,
-//   secondary: $gray-600,
-//   success: $green,
-//   info: $cyan,
-//   warning: $yellow,
-//   danger: $red,
-//   light: $gray-100,
-//   dark: $gray-800
-// );
+$theme-colors: (
+  primary: $highlight-1,
+  secondary: $highlight-2,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800
+);
 
 // Set a specific jump point for requesting color jumps
-// $theme-color-interval: 8%;
+$theme-color-interval: 8%;
 
 
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-// $enable-rounded:            true;
-// $enable-shadows:            false;
-// $enable-gradients:          false;
-// $enable-transitions:        true;
-// $enable-hover-media-query:  false;
-// $enable-grid-classes:       true;
-// $enable-print-styles:       true;
+$enable-rounded:            true;
+$enable-shadows:            false;
+$enable-gradients:          false;
+$enable-transitions:        true;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       true;
+$enable-print-styles:       true;
 
 
 // Spacing
@@ -130,39 +133,39 @@ $black:  #000;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-// $spacer: 1rem;
-// $spacers: (
-//   0: 0,
-//   1: ($spacer * .25),
-//   2: ($spacer * .5),
-//   3: $spacer,
-//   4: ($spacer * 1.5),
-//   5: ($spacer * 3)
-// );
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+);
 
 // This variable affects the `.h-*` and `.w-*` classes.
-// $sizes: (
-//   25: 25%,
-//   50: 50%,
-//   75: 75%,
-//   100: 100%
-// );
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
 
 // Body
 //
 // Settings for the `<body>` element.
 
-// $body-bg:       $white;
-// $body-color:    $gray-900;
+$body-bg:       $background;
+$body-color:    $text;
 
 // Links
 //
 // Style anchor elements.
 
-// $link-color:            theme-color("primary");
-// $link-decoration:       none;
-// $link-hover-color:      darken($link-color, 15%);
-// $link-hover-decoration: underline;
+$link-color:            $text;
+$link-decoration:       none;
+$link-hover-color:      darken($link-color, 15%);
+$link-hover-decoration: none;
 
 
 // Grid breakpoints
@@ -170,13 +173,13 @@ $black:  #000;
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-// $grid-breakpoints: (
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px
-// );
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 // @include _assert-starts-at-zero($grid-breakpoints);
 
@@ -185,12 +188,12 @@ $black:  #000;
 //
 // Define the maximum width of `.container` for different screen sizes.
 
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1140px
-// );
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
 
 
@@ -198,43 +201,43 @@ $black:  #000;
 //
 // Set the number of columns and specify the width of the gutters.
 
-// $grid-columns: 12;
-// $grid-gutter-width: 30px;
+$grid-columns: 12;
+$grid-gutter-width: 30px;
 
 // Components
 //
 // Define common padding and border radius sizes and more.
 
-// $line-height-lg:         1.5;
-// $line-height-sm:         1.5;
+$line-height-lg:         1.5;
+$line-height-sm:         1.5;
 
-// $border-width: 1px;
+$border-width: 1px;
 
-// $border-radius:          .25rem;
-// $border-radius-lg:       .3rem;
-// $border-radius-sm:       .2rem;
+$border-radius:          .25rem;
+$border-radius-lg:       .3rem;
+$border-radius-sm:       .2rem;
 
-// $component-active-color: $white;
-// $component-active-bg:    theme-color("primary");
+$component-active-color: $white;
+$component-active-bg:    theme-color("primary");
 
-// $caret-width:            .3em;
+$caret-width:            .3em;
 
-// $transition-base:        all .2s ease-in-out;
-// $transition-fade:        opacity .15s linear;
-// $transition-collapse:    height .35s ease;
+$transition-base:        all .2s ease-in-out;
+$transition-fade:        opacity .15s linear;
+$transition-collapse:    height .35s ease;
 
 
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
 
-// $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-// $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-// $font-family-base:       $font-family-sans-serif;
+$font-family-sans-serif: $sans-serif;
+$font-family-monospace:  $mono;
+$font-family-base:       $sans-serif-narrow;
 
-// $font-size-base: 1rem; // Assumes the browser default, typically `16px`
-// $font-size-lg:   1.25rem;
-// $font-size-sm:   .875rem;
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-lg:   1.25rem;
+$font-size-sm:   .875rem;
 
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;

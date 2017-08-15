@@ -1,18 +1,25 @@
 <% provide(:title, "sign up") %>
-<section class="content-container static-pages">
-  <div class="page-header">Sign up</div>
-    <%= form_for(@user, url: signup_path, class: "signup-form") do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
 
-      <li class="form-entry"><%= f.text_field :username, placeholder: 'USERNAME' %></li>
-
-      <li class="form-entry"><%= f.email_field :email, placeholder: 'EMAIL' %></li>
-
-      <li class="form-entry"><%= f.password_field :password, placeholder: 'PASSWORD' %></li>
-
-      <li class="form-entry"><%= f.password_field :password_confirmation, placeholder: 'CONFIRM PASSWORD' %></li>
-
-      <%= f.submit "Create account", class: "submit-button" %>
-
-    <% end %>
+<section class="content-container static-pages user-profile-form">
+  <div class="page-header">sign up</div>
+  <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <li class="form-entry">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </li>
+  <li class="form-entry">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </li>
+  <li class="form-entry">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </li>
+  <li class="form-entry">
+    <%= f.label :password_confirmation, 'Confirm password' %>
+    <%= f.password_field :password_confirmation %>
+  </li>
+  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
+  <% end %>
 </section>

@@ -19,7 +19,7 @@ class Track extends React.Component {
 
   setColorScheme() {
     const min = 1
-    const max = 28 // must be changed manually!
+    const max = 20 // must be changed manually!
     const random = Math.floor(min + Math.random() * (max - min + 1))
     this.setState({ colorScheme: random })
   }
