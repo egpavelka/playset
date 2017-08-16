@@ -1,0 +1,62 @@
+@mixin track-color-triads($backer-val, $highlight-val, $shadow-val) {
+  .track-info {
+    > span {
+      color: $highlight-val;
+      background-color: $backer-val;
+      box-shadow: 5px 6px 0 $shadow-val;
+    }
+  }
+
+  .track-details {
+    a {
+      color: $backer-val;
+    }
+  }
+  .track-base .embedded-service a {
+    background: $shadow-val;
+  }
+}
+
+// coral, fuchsia, strawberry, blush
+// lapis, sky, ice
+// forest, turquoise, sunshine, citrine
+
+$color-triad-groups: (
+  $blush: (
+    $lapis: $coral,
+    $turquoise: $fuchsia
+  ),
+  $forest: (
+    $ice: $fuchsia
+  ),
+  $fuchsia: (
+    $citrine: $lapis,
+    $ice: $forest
+  ),
+  $lapis: (
+    $blush: $coral
+  ),
+  $strawberry: (
+    $lapis: $ice,
+    $turquoise: $citrine
+  ),
+  $sky: (
+    $blush: $fuchsia
+  ),
+  $turquoise: (
+    $fuchsia: $blush,
+    $blush: $coral,
+    $citrine: $fuchsia
+  )
+);
+
+$i: 1;
+
+@each $base, $list in $color-triad-groups {
+  @each $text, $box-shadow in $list {
+    .color-scheme-#{$i} {
+      @include track-color-triads($base, $text, $box-shadow);
+    }
+    $i: $i + 1;
+  }
+}
