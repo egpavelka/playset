@@ -4,11 +4,35 @@
 @import 'modules/tracks/partials/playback';
 @import 'modules/tracks/partials/social';
 
+// index
+.tracks-container {
+  &.row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
 
+.track-container > div,
 .track {
+  display: flex;
+  flex-flow: column nowrap;
+  // justify-content: stretch;
+  // align-items: stretch;
+}
+
+.track-container > div {
+  // @extend .col-xs-12;
+  // @extend .col-md-6;
+  // @extend .col-lg-4;
+  // height: 100%;
+}
+
+// individual track
+.track {
+  height: 100%;
   background-color: $white;
   border: $single-border $black;
-  margin: 10px auto;
+  margin: 10px 0;
   max-width: 830px;
   min-width: 290px;
   padding: 10px;
