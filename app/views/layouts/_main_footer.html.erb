@@ -1,9 +1,6 @@
 <footer class="app-menu">
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <%= link_to "Home", root_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
       <%= link_to "About", about_path, class: 'nav-link' %>
     </li>
     <li class="nav-item">
@@ -13,10 +10,4 @@
       <%= link_to "Help", help_path, class: 'nav-link' %>
     </li>
   </ul>
-  <% if logged_in? %>
-  <%= link_to "Log out", logout_path, method: 'delete', class: 'nav-link' %>
-  <% else %>
-    <%= link_to "Log in", login_path, class: 'nav-link' %>
-    <%= link_to "Sign up", new_user_path, class: 'nav-link' %>
-  <% end %>
 </footer>
