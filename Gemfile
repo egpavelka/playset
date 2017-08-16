@@ -22,14 +22,14 @@ gem 'autoprefixer-rails', '>= 6.6.1'
 # Add paging to datasets
 gem 'will_paginate'
 # Use Bootstrap for modularity
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0.beta'
 # Tooltips and popovers require tether
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 3.0.0'
+gem 'uglifier', '~> 3.2.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 # Extend webpacker React support to make passing data from Rails easier
