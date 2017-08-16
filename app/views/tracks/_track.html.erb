@@ -1,6 +1,8 @@
-<%=  react_component('Track', {
-  track: track,
-  user: User.find(track.user_id).username,
-  media: track.media,
-  albumArtPath: track.album_art.url(:large),
-  formattedTime: time_ago_in_words(track.updated_at) }) %>
+<div class="track-container col-xs-12 col-md-6 col-lg-4">
+  <%=  react_component('Track', {
+    track: track,
+    user: User.find(track.user_id).username,
+    media: track.media,
+    albumArtPath: track.album_art.url(:large),
+    formattedTime: time_ago_in_words(track.updated_at) }) %>
+</div>
