@@ -23,21 +23,22 @@
 
 $color-triad-groups: (
   $blush: (
-    $lapis: $coral,
-    $turquoise: $fuchsia
+    $strawberry: $coral,
+    $forest: $fuchsia
   ),
   $forest: (
-    $ice: $fuchsia
+    $citrine: $fuchsia
   ),
   $fuchsia: (
     $citrine: $lapis,
-    $ice: $forest
+    $turquoise: $citrine
   ),
   $lapis: (
-    $blush: $coral
+    $blush: $strawberry,
+    $strawberry: $coral
   ),
   $strawberry: (
-    $lapis: $ice,
+    $ice: $lapis,
     $turquoise: $citrine
   ),
   $sky: (
@@ -45,8 +46,7 @@ $color-triad-groups: (
   ),
   $turquoise: (
     $fuchsia: $blush,
-    $blush: $coral,
-    $citrine: $fuchsia
+    $coral: $fuchsia
   )
 );
 

@@ -1,36 +1,36 @@
 // Regular
-$ax-reg: 'axiforma/Kastelov - Axiforma Book';
+$ax-reg:'/assets/axiforma/Kastelov - Axiforma Book';
 @font-face {
   font-family: 'Axiforma';
-  src: url('#{$ax-reg}.otf');
+  src: font-url('#{$ax-reg}.otf');
 }
 // Regular Italic
-$ax-reg-it: 'axiforma/Kastelov - Axiforma Book Italic';
+$ax-reg-it:'/assets/axiforma/Kastelov - Axiforma Book Italic';
 @font-face {
   font-family: 'Axiforma Italic';
-  src: url('#{$ax-reg-it}.otf');
+  src: font-url('#{$ax-reg-it}.otf');
 }
 // Light
-$ax-lt: 'axiforma/Kastelov - Axiforma Light';
+$ax-lt:'/assets/axiforma/Kastelov - Axiforma Light';
 @font-face {
   font-family: 'Axiforma Light';
-  src: url('#{$ax-lt}.otf');
+  src: font-url('#{$ax-lt}.otf');
 }
 // Light Italic
-$ax-lt-it: 'axiforma/Kastelov - Axiforma Light Italic';
+$ax-lt-it:'/assets/axiforma/Kastelov - Axiforma Light Italic';
 @font-face {
   font-family: 'Axiforma Light Italic';
-  src: url('#{$ax-lt-it}.otf');
+  src: font-url('#{$ax-lt-it}.otf');
 }
 // Bold
-$ax-bd: 'axiforma/Kastelov - Axiforma Medium';
+$ax-bd:'/assets/axiforma/Kastelov - Axiforma Medium';
 @font-face {
   font-family: 'Axiforma Bold';
-  src: url('#{$ax-bd}.otf');
+  src: font-url('#{$ax-bd}.otf');
 }
 // Bold Italic
-$ax-bd-it: 'axiforma/Kastelov - Axiforma Medium Oblique';
+$ax-bd-it:'/assets/axiforma/Kastelov - Axiforma Medium Oblique';
 @font-face {
   font-family: 'Axiforma Bold Italic';
-  src: url('#{$ax-bd-it}.otf');
+  src: font-url('#{$ax-bd-it}.otf');
 }
