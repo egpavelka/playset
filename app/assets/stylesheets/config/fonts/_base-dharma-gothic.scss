@@ -1,0 +1,36 @@
+// Regular
+$dg-reg: '/assets/dharma-gothic/DharmaGothicE_Light_R';
+@font-face {
+  font-family: 'Dharma Gothic';
+  src: font-url('#{$dg-reg}.otf');
+}
+// Regular Italic
+$dg-it: '/assets/dharma-gothic/DharmaGothicE_Light_I';
+@font-face {
+  font-family: 'Dharma Gothic Italic';
+  src: font-url('#{$dg-it}.otf');
+}
+// Light
+$dg-lt: '/assets/dharma-gothic/DharmaGothicE_ExLight_R';
+@font-face {
+  font-family: 'Dharma Gothic Light';
+  src: font-url('#{$dg-lt}.otf');
+}
+// Light Italic
+$dg-lt-it: '/assets/dharma-gothic/DharmaGothicE_ExLight_I';
+@font-face {
+  font-family: 'Dharma Gothic Light Italic';
+  src: font-url('#{$dg-lt-it}.otf');
+}
+// Bold
+$dg-bd: '/assets/dharma-gothic/DharmaGothicE_Regular_R';
+@font-face {
+  font-family: 'Dharma Gothic Bold';
+  src: font-url('#{$dg-bd}.otf');
+}
+// Bold Italic
+$dg-bd-it: '/assets/dharma-gothic/DharmaGothicE_Regular_I';
+@font-face {
+  font-family: 'Dharma Gothic Bold Italic';
+  src: font-url('#{$dg-bd-it}.otf');
+}

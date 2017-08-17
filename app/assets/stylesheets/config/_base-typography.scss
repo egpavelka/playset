@@ -1,10 +1,9 @@
-@import 'config/fonts/base-campton';
 @import 'config/fonts/base-cervo';
 @import 'config/fonts/base-decima';
+@import 'config/fonts/base-dharma-gothic';
+@import 'config/fonts/base-kelso';
 @import 'config/fonts/base-frutiger';
 @import 'config/fonts/base-itc-avant-garde';
-@import 'config/fonts/base-kelso';
-@import 'config/fonts/base-semplicita';
 
 @mixin mono($font) {
   $mono: '#{$font}' !global;
@@ -26,13 +25,13 @@
 
 @mixin sans-serif-narrow($font) {
   $sans-serif-narrow: '#{$font}' !global;
-  // $sans-serif-narrow-italic: '#{$font} Italic' !global;
+  $sans-serif-narrow-italic: '#{$font} Italic' !global;
   $sans-serif-narrow-light: '#{$font} Light' !global;
-  // $sans-serif-narrow-light-italic: '#{$font} Light Italic' !global;
+  $sans-serif-narrow-light-italic: '#{$font} Light Italic' !global;
   $sans-serif-narrow-bold: '#{$font} Bold' !global;
-  // $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
+  $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
 @include sans-serif('ITC Avant Garde');
-@include sans-serif-narrow('Cervo');
+@include sans-serif-narrow('Dharma Gothic');
 @include mono('Decima Mono');

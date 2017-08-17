@@ -1,13 +1,15 @@
 <% provide(:title, "top") %>
 
-<div class="row">
-  <%= render 'tracks/menus/index' %>
-</div>
+<section class="content-container">
+  <div class="row">
+    <%= render 'tracks/menus/index' %>
+  </div>
 
-<div class="row row-eq-height tracks-container">
-    <%= render @tracks %>
-</div>
+  <div class="row row-eq-height tracks-container">
+      <%= render @tracks %>
+  </div>
 
-<div class="row">
-  <%= will_paginate @tracks %>
-</div>
+  <div class="row">
+    <%= will_paginate @tracks %>
+  </div>
+</section>

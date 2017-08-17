@@ -28,11 +28,15 @@ class Embedded::Soundcloud
 
   # Verify
   def is_track?
-    data.kind == 'track'
+    kind == 'track'
   end
 
   def is_streamable?
-    data.sharing == 'public' && data.streamable
+    sharing == 'public' && streamable
+  end
+
+  def is_preview?
+    policy == 'SNIP'
   end
 
 private

@@ -1,25 +1,26 @@
 class Embedded::Youtube
-  api_key =  Rails.application.secrets.youtube_api_key
 
   def get_data(url)
     # API parameters from input url
     @video_id = url.match.(VALID_YT_FORMAT).captures[1]
       # First match group will be 'watch?v=' or '&v='
       # Second match group will be video ID
-    api_url = ''
-    api_call(api_url)
+    video = Yt::Video.new id: @video_id
+    Hash[
+      :title => video.title,
+      :description => video.description
+    ]
   end
 
   def set_metadata(data)
-    values = [{
+    Hash[
     :title => nil,
     :artist => nil,
     :album => nil,
     :year => nil,
-    :album_art => nil
-    },
-    self.player_url]
-    values
+    :album_art => file_from_url("https://img.youtube.com/vi/#{@video_id}/hqdefault.jpg"),
+    :media_path => self.player_url,
+    :hint => data
   end
 
   # Generate url with options for iframe
@@ -32,6 +33,9 @@ class Embedded::Youtube
   end
 
   def is_track?
+    h, m, s = length.split(':').map{ |n| n.to_i }
+    duration = h*3600 + m*60 + s
+    public? && duration <= 1200
   end
 
 end

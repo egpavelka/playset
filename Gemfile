@@ -53,9 +53,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
+# Adds support for Capybara system testing and selenium driver
+gem 'capybara'
+gem 'selenium-webdriver'
 # Poltergeist as JS driver for Capybara
 gem 'poltergeist'
-gem 'geckodriver-helper'
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'
@@ -73,9 +75,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Generate fake data population
   gem 'faker'
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
 end
 
 group :development do

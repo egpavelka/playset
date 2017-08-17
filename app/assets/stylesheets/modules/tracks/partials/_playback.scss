@@ -4,7 +4,9 @@
 
 .track-play-button {
   font-size: 32px;
-  border: $single-border $background;
+  // border: $single-border $background;
+  background-color: $text;
+  color: $white;
   height: 70px;
   margin-top: 20px;
   max-width: 70px;

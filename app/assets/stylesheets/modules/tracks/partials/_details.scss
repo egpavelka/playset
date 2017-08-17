@@ -1,14 +1,16 @@
 .track-details {
-  background-color: $background;
+  background-color: $text;
+  color: $background;
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
-  font-size: .75rem;
+  font-size: .8rem;
   letter-spacing: -.04rem;
   margin: 25px 0 0;
-  padding: 3px 20px 3px 15px;
+  padding: 2px 20px 5px 15px;
 
   a {
     font-family: $sans-serif-narrow;
     font-size: 1.25rem;
+    letter-spacing: .06rem;
   }
 }
 
@@ -16,6 +18,7 @@
   align-items: baseline;
   flex-flow: row wrap;
   justify-content: space-between;
+  color: $background;
   margin: 0;
   width: 100%;
 
