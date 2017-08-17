@@ -1,36 +1,36 @@
 // Regular
-$sem-reg: 'itc-avant-garde/ITCAvantGardeStd-Bk';
+$sem-reg: '/assets/itc-avant-garde/ITCAvantGardeStd-Bk';
 @font-face {
   font-family: 'ITC Avant Garde';
-  src: url('#{$sem-reg}.otf');
+  src: font-url('#{$sem-reg}.otf');
 }
 // Regular Italic
-$sem-it: 'itc-avant-garde/ITCAvantGardeStd-BkObl';
+$sem-it: '/assets/itc-avant-garde/ITCAvantGardeStd-BkObl';
 @font-face {
   font-family: 'ITC Avant Garde Italic';
-  src: url('#{$sem-it}.otf');
+  src: font-url('#{$sem-it}.otf');
 }
 // Light
-$sem-lt: 'itc-avant-garde/ITCAvantGardeStd-XLt';
+$sem-lt: '/assets/itc-avant-garde/ITCAvantGardeStd-XLt';
 @font-face {
   font-family: 'ITC Avant Garde Light';
-  src: url('#{$sem-lt}.otf');
+  src: font-url('#{$sem-lt}.otf');
 }
 // Light Italic
-$sem-lt-it: 'itc-avant-garde/ITCAvantGardeStd-XLtObl';
+$sem-lt-it: '/assets/itc-avant-garde/ITCAvantGardeStd-XLtObl';
 @font-face {
   font-family: 'ITC Avant Garde Light Italic';
-  src: url('#{$sem-lt-it}.otf');
+  src: font-url('#{$sem-lt-it}.otf');
 }
 // Bold
-$sem-bd: 'itc-avant-garde/ITCAvantGardeStd-Demi';
+$sem-bd: '/assets/itc-avant-garde/ITCAvantGardeStd-Demi';
 @font-face {
   font-family: 'ITC Avant Garde Bold';
-  src: url('#{$sem-bd}.otf');
+  src: font-url('#{$sem-bd}.otf');
 }
 // Bold Italic
-$sem-bd-it: 'itc-avant-garde/ITCAvantGardeStd-DemiObl';
+$sem-bd-it: '/assets/itc-avant-garde/ITCAvantGardeStd-DemiObl';
 @font-face {
   font-family: 'ITC Avant Garde Bold Italic';
-  src: url('#{$sem-bd-it}.otf');
+  src: font-url('#{$sem-bd-it}.otf');
 }

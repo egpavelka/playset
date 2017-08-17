@@ -1,36 +1,36 @@
 // Decima Mono
-$dec-reg: 'decima/DecimaMono';
+$dec-reg: '/assets/decima/DecimaMono';
 @font-face {
   font-family: 'Decima Mono';
-  src: url('#{$dec-reg}.otf');
+  src: font-url('#{$dec-reg}.otf');
 }
 // Decima Mono Italic
-$dec-it: 'decima/DecimaMono-Italic';
+$dec-it: '/assets/decima/DecimaMono-Italic';
 @font-face {
   font-family: 'Decima Mono Italic';
-  src: url('#{$dec-it}.otf');
+  src: font-url('#{$dec-it}.otf');
 }
 // Light
-$dec-lt: 'decima/DecimaMono-Light';
+$dec-lt: '/assets/decima/DecimaMono-Light';
 @font-face {
   font-family: 'Decima Mono Light';
-  src: url('#{$dec-lt}.otf');
+  src: font-url('#{$dec-lt}.otf');
 }
 // Light Italic
-$dec-lt-it: 'decima/DecimaMono-LightItalic';
+$dec-lt-it: '/assets/decima/DecimaMono-LightItalic';
 @font-face {
   font-family: 'Decima Mono Light Italic';
-  src: url('#{$dec-lt-it}.otf');
+  src: font-url('#{$dec-lt-it}.otf');
 }
 // Decima Mono Bold
-$dec-bd: 'decima/DecimaMono-Bold';
+$dec-bd: '/assets/decima/DecimaMono-Bold';
 @font-face {
   font-family: 'Decima Mono Bold';
-  src: url('#{$dec-bd}.otf');
+  src: font-url('#{$dec-bd}.otf');
 }
 // Decima Mono Bold Oblique
-$dec-bd-it: 'decima/DecimaMono-BoldItalic';
+$dec-bd-it: '/assets/decima/DecimaMono-BoldItalic';
 @font-face {
   font-family: 'Decima Mono Bold Italic';
-  src: url('#{$dec-bd-it}.otf');
+  src: font-url('#{$dec-bd-it}.otf');
 }
