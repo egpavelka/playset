@@ -30,8 +30,8 @@
 // individual track
 .track {
   height: 100%;
-  background-color: $white;
-  border: $single-border $black;
+  background-color: $text;
+  border: $single-border $text;
   margin: 10px 0;
   max-width: 830px;
   min-width: 290px;
@@ -62,8 +62,6 @@
 .track-like-button,
 .track-comment-button {
   @extend %track-circle;
-  background-color: $text;
-  color: $white;
 
   &.active-button {
     background-color: $highlight-2;

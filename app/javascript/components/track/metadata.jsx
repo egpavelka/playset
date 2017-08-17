@@ -23,7 +23,7 @@ class Metadata extends React.Component {
   render() {
 
     return (
-      <div className="col-8 offset-1 text-right track-info">
+      <div className="col-8 ml-auto text-right track-info">
         <span className="track-title">{this.props.track.title}</span>
         <span className="track-artist">{this.props.track.artist}</span>
         { this.props.track.album !== '' || this.props.track.year !== ''

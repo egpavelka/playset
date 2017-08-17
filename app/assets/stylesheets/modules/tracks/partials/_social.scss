@@ -8,9 +8,14 @@
 
 .track-comment-button,
 .track-like-button {
-  font-size: 20px;
+  background-color: $background;
+  color: $text;
   height: 40px;
   width: 40px;
+
+  &.fa {
+    font-size: 22px;
+  }
 }
 
 .track-comment-button {

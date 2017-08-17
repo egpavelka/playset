@@ -28,10 +28,14 @@ class Embedded::Spotify
 
   # Verify
   def is_track?
-    data.type == 'track'
+    type == 'track'
   end
 
   def is_streamable?
+  end
+
+  def is_preview?
+    true
   end
 
 end

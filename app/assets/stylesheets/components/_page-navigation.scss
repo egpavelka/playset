@@ -1,39 +1,36 @@
 @import 'config/MASTER';
 
 .page-nav {
-  border-bottom: $single-border $text;
   margin-top: 20px;
   width: 100%;
-}
-
-@mixin nav-tab-border($style, $color) {
-  border-left: $style $color;
-  border-right: $style $color;
-  border-top: $style $color;
-  border-bottom: 0;
-}
-
-.nav-tabs {
 
   .nav-item {
-    margin-bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    
+    + .nav-item {
+      margin-left: 4px;
+    }
 
     .nav-link {
-      @include nav-tab-border($thin-border, $gray-600);
+      border: $single-border $gray-400;
       background-color: $white;
       color: $text;
       font-family: $sans-serif-narrow-bold;
-      margin-right: 2px;
-      padding-bottom: 2px;
+      font-size: 1.1rem;
+      letter-spacing: .04rem;
+      padding: 3px 10px 2px;
       text-transform: uppercase;
     }
 
     &.active .nav-link {
-      @include nav-tab-border($single-border, $highlight-3);
+      border: $single-border $highlight-2;
     }
 
     &:hover .nav-link {
-      @include nav-tab-border($single-border, $text);
+      border: $single-border $highlight-3;
     }
   }
 }

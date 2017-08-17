@@ -1,6 +1,4 @@
 {
-  "application.js": "/packs/application-c3a5c20933a9572a74ab.js",
-  "application.js.map": "/packs/application-c3a5c20933a9572a74ab.js.map",
-  "server_rendering.js": "/packs/server_rendering-4ff88c8f50296920c354.js",
-  "server_rendering.js.map": "/packs/server_rendering-4ff88c8f50296920c354.js.map"
+  "application.js": "http://0.0.0.0:8080/packs/application.js",
+  "server_rendering.js": "http://0.0.0.0:8080/packs/server_rendering.js"
 }
