@@ -53,11 +53,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'httparty', '>= 0.14.0'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
+gem 'mechanize'
 # Adds support for Capybara system testing and selenium driver
-gem 'capybara'
-gem 'selenium-webdriver'
+# gem 'capybara'
+# gem 'selenium-webdriver'
 # Poltergeist as JS driver for Capybara
-gem 'poltergeist'
+# gem 'poltergeist'
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'

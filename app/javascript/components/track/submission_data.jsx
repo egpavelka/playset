@@ -4,19 +4,18 @@ import ReactDOM from 'react-dom'
 const SubmissionData = props => (
   <div className='col-9 track-details'>
     <span>posted&nbsp;
-      <text className='postedByText'>
-        by <a href={'/users/' + props.userId }>{ props.user }</a>
-      </text>
+      {
+        window.location.href.includes(`/users/${ props.userId }`) ?
+        null
+        : <text>
+            by <a href={`/users/${ props.userId }`}>{ props.user }</a> &mdash;
+          </text>
+      }
     </span>
     <span>
-      <span className='postedByText'>&mdash;</span>
       { props.formattedTime } ago
     </span>
   </div>
 )
-
-const SubmissionDataUserProfile = props => {
-
-}
 
 export default SubmissionData

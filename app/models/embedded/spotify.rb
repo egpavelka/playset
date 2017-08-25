@@ -22,6 +22,7 @@ class Embedded::Spotify
     :album => data.album.name,
     :year => year_from_date(data.album.release_date, '%Y'),
     :media_path => data.preview_url,
+    :preview => true,
     :album_art =>  file_from_url(data.album.images[0]['url'])
     ]
   end
