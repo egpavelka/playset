@@ -1,9 +1,10 @@
 <% provide(:title, "profile: #{ @user.name }") %>
-<section class="content-container row user-profile">
 
-  <div class="page-header profile-header col-12">
-    <div class="profile-username"><%= @user.username %></div>
-  </div>
+<div class="page-header profile-header row">
+  <div class="profile-username"><%= @user.username %></div>
+</div>
+
+<section class="content-container row user-profile">
 
   <div class="profile-info col-xs-12 col-sm-4">
     <div class="profile-name"><%= @user.name %></div>

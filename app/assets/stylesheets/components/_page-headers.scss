@@ -7,12 +7,10 @@
 
 .page-header {
   border-bottom: $single-border $highlight-2;
-  font-family: $sans-serif-narrow-bold;
-  margin: 20px 0;
-  text-transform: lowercase;
+  font-family: $sans-serif-italic;
+  margin: 20px 0 10px;
 }
 
 .page-subheader {
   font-family: $sans-serif-narrow;
-  text-transform: none;
 }

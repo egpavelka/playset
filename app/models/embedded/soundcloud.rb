@@ -16,12 +16,15 @@ class Embedded::Soundcloud
   end
 
   def set_metadata(data)
+    puts data.policy == 'SNIP'
+    puts data.is_preview?
     Hash[
     :title => data.title,
     :artist => data.user['username'],
     :album => data.release,
     :year => year_from_date(data.release_year, '%Y'),
     :media_path => data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
+    :preview => data.policy == 'SNIP',
     :album_art => file_from_url(data.artwork_url)
     ]
   end
@@ -36,7 +39,7 @@ class Embedded::Soundcloud
   end
 
   def is_preview?
-    policy == 'SNIP'
+    return policy == 'SNIP'
   end
 
 private

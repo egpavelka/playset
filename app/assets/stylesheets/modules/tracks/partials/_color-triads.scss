@@ -9,11 +9,9 @@
 
   .track-details {
     a {
-      color: $backer-val;
+      color: $highlight-val;
+      background-color: $backer-val;
     }
-  }
-  .track-base .embedded-service a {
-    background: $shadow-val;
   }
 }
 

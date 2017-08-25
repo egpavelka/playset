@@ -5,12 +5,10 @@
   font-size: .8rem;
   letter-spacing: -.04rem;
   margin: 25px 0 0;
-  padding: 2px 20px 5px 15px;
+  padding: 5px 20px 8px 15px;
 
   a {
-    font-family: $sans-serif-narrow;
-    font-size: 1.25rem;
-    letter-spacing: .06rem;
+    padding: 2px 4px 4px;
   }
 }
 
@@ -33,13 +31,21 @@
   padding: 0;
   margin-right: 15px;
 
+  .embedded-type {
+    font-size: .8rem;
+    color: $highlight-3;
+  }
+
   a {
     font-family: $mono-bold;
-    padding: 5px;
+    color: $background;
+    border: $thin-border $background;
+    padding: 4px 4px 2px;
+    text-transform: uppercase;
   }
 
   img {
-    height: 30px;
+    height: 35px;
     margin-right: 7px;
   }
 }
