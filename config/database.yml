@@ -1,7 +1,7 @@
 # postgresql
 #   gem install pg
 #
-#   Ensure the postgresql gem is defined in your Gemfile
+#   Ensure the postg<%#  %>resql gem is defined in your Gemfile
 #   gem 'pg'
 #
 default: &default
@@ -24,4 +24,6 @@ test:
 
 production:
   <<: *default
-  database: playsette_production
+  database: d8len4g8etm0er
+  username: pncxmikehbpkbc
+  password: Rails.application.secrets.heroku_pg_pw
