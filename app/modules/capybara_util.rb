@@ -1,5 +1,5 @@
 require 'capybara'
-require 'poltergeist'
+require 'capybara/poltergeist'
 
 module CapybaraUtil
 
