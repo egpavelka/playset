@@ -21,6 +21,7 @@ class Embedded::Youtube
     :album_art => file_from_url("https://img.youtube.com/vi/#{@video_id}/hqdefault.jpg"),
     :media_path => self.player_url,
     :hint => data
+  ]
   end
 
   # Generate url with options for iframe
