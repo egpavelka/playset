@@ -55,10 +55,10 @@ gem 'httparty', '>= 0.14.0'
 gem 'nokogiri'
 gem 'mechanize'
 # Adds support for Capybara system testing and selenium driver
-# gem 'capybara'
+gem 'capybara'
 # gem 'selenium-webdriver'
 # Poltergeist as JS driver for Capybara
-# gem 'poltergeist'
+gem 'poltergeist' 
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'
