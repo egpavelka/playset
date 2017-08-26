@@ -17,6 +17,8 @@ class EmbeddedsController < ApplicationController
           redirect_to edit_track_path(@track)
         else
           # error would be due to bad player_url
+          flash[:error] = @embed.errors.full_messages.to_sentence
+          flash[:error] = @track.errors.full_messages.to_sentence
           @embed.destroy
           render 'new'
         end
