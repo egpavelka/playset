@@ -5,42 +5,35 @@ class Embedded::Bandcamp
   def get_data(url)
   # Acceptable URL example
   # https://grabbingclouds.bandcamp.com/track/brewer-street
-    page = read_page(url)
-    Hash[
-    :title => page.at_xpath("//meta[@property='og:title']").attributes['content'].value,
-    :artist => page.at_xpath("//div[@id='name-section']/h3[@class='albumTitle']/span[@itemprop='byArtist']/a").text,
-    :album => page.at_xpath("//div[@id='name-section']/h3[@class='albumTitle']/span[@itemprop='inAlbum']/a/span").text,
-    :raw_date => page.at_xpath("//meta[@itemprop='datePublished']").attributes['content'].value,
-    :album_art_url => page.at_xpath("//div[@id='tralbumArt']/a").attributes['href'].value,
-    :raw_player_url => page.at_xpath("//meta[@property='og:video']").attributes['content'].value,
-    :kind => page.at_xpath("//meta[@property='og:type']").attributes['content'].value
-    ]
+    base_page = read_page(url)
+    raw_player_url = base_page.at_xpath("//meta[@property='og:video']").attributes['content'].value
+    return scrape_player(raw_player_url)
   end
 
   def set_metadata(data)
     Hash[
-    :title => data[:title],
+    :title => data[:tracks][0][:title],
     :artist => data[:artist],
-    :album => data[:album],
-    :year => year_from_date(data[:raw_date], '%Y%m%d'),
-    :media_path => parse_media_stream(data.raw_player_url),
-    :album_art => file_from_url(data[:album_art_url])
+    :album => data[:album_title],
+    :year => year_from_date(data[:publish_date], '%d %b %Y'),
+    :media_path => data[:tracks][0][:file].values.last,
+    :album_art => file_from_url(data[:album_art_lg])
     ]
   end
 
-  def parse_media_stream(stream_url)
-    track_id = stream_url.match(/^*track=([\d]+)\/*/i).captures[0]
-    player_url(track_id)
-  end
-
-  # Generate url with options for iframe
-  def player_url(track_id)
-    "https://bandcamp.com/EmbeddedPlayer/v=2/track=#{track_id}/size=small/bgcol=ffffff/linkcol=333333/artwork=none/tracklist=false/transparent=true/"
+  def scrape_player(player_url)
+    var_pattern = /var\splayerdata\s=\s(.*)\;\s*var/i
+    track = read_page(player_url)
+    scripts = track.xpath("//head//script")
+    content_script = scripts.last.children[0].content.strip
+    player_data = content_script.match(var_pattern)[1]
+    player_data.gsub!('null', 'nil')
+    eval(player_data)
   end
 
   # Verify
   def is_track?
-    data[:kind] == 'song'
+    kind == 'song'
   end
 
 end

@@ -24,6 +24,6 @@ test:
 
 production:
   <<: *default
-  database: d8len4g8etm0er
-  username: pncxmikehbpkbc
+  database: d1tgam40917nlk
+  username: bsufhrpieocsym
   password: Rails.application.secrets.heroku_pg_pw
