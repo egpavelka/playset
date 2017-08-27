@@ -6,7 +6,7 @@ module VideoMetadataUtil
     extraneous_info.each do |blah|
       :title.gsub!(blah, '')
     end
-    [:title].strip!
+    params[:title].strip!
   end
 
   def parse_title
