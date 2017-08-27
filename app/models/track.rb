@@ -13,7 +13,9 @@ class Track < ApplicationRecord
   # Tracks belong to a user and will be deleted if the account is deactivated.
   belongs_to :user
   # Set up
-  belongs_to :media, polymorphic: true, dependent: :destroy
+  has_one :track_source, as: :media, dependent: :destroy
+  has_one :embedded, through: :track_source, source: :media, source_type: 'Embedded'
+  has_one :upload, through: :track_source, source: :media, source_type: 'Upload'
 
   # Album art managed by Paperclip; URL fetching with open-uri
   has_attached_file :album_art,

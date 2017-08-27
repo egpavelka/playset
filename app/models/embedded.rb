@@ -2,7 +2,9 @@ class Embedded < ApplicationRecord
   include SessionsHelper
   include DataGrabUtil
 
-  has_one :track, as: :media, dependent: :destroy
+  has_one :track_source, as: :media
+  has_one :track, through: :track_sources
+  
   serialize :auto_metadata, Hash
   # attr_accessor :tracks
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820120604) do
+ActiveRecord::Schema.define(version: 20170827034929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20170820120604) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "track_sources", force: :cascade do |t|
+    t.string "media_type"
+    t.bigint "media_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["media_type", "media_id"], name: "index_track_sources_on_media_type_and_media_id"
+  end
+
   create_table "tracks", force: :cascade do |t|
     t.string "title"
     t.string "artist"
@@ -63,8 +71,6 @@ ActiveRecord::Schema.define(version: 20170820120604) do
     t.string "album_art_content_type"
     t.integer "album_art_file_size"
     t.datetime "album_art_updated_at"
-    t.string "media_type"
-    t.bigint "media_id"
     t.string "playback"
     t.boolean "published", default: false
     t.datetime "created_at", null: false
@@ -72,7 +78,6 @@ ActiveRecord::Schema.define(version: 20170820120604) do
     t.bigint "user_id"
     t.string "media_path"
     t.boolean "preview", default: false
-    t.index ["media_type", "media_id"], name: "index_tracks_on_media_type_and_media_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

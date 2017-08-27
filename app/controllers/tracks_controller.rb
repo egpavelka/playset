@@ -1,5 +1,10 @@
 class TracksController < ApplicationController
 
+  def new
+    @track = Track.new
+    @media = @track.track_source.new
+  end
+
   def edit
     @track = Track.find(params[:id])
   end
