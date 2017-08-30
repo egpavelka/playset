@@ -1,12 +1,21 @@
 # Methods available to multiple classes for handling data from external sources.
 
 module VideoMetadataUtil
+  attr_accessor :video
+
+  def initialize(video)
+    @video = video
+  end
+
+  def perform
+    clean_title
+  end
 
   def clean_title
     extraneous_info.each do |blah|
-      :title.gsub!(blah, '')
+      @video.title.gsub!(blah, '')
     end
-    params[:title].strip!
+    @video.title.strip!
   end
 
   def parse_title
@@ -41,23 +50,8 @@ module VideoMetadataUtil
 
 private
   def extraneous_info
-    extraneous_phrases = [
-      'audio',
-      'audio only',
-      'full song',
-      'lyric video',
-      'lyrics',
-      'lyrics on screen',
-      'new song',
-      'new video',
-      'official',
-      'official audio',
-      'official music video',
-      'official song',
-      'official video',
-      'with lyrics',
-      'w/ lyrics'
-    ]
+    extraneous_phrases = ['audio', 'audio only', 'full song', 'lyric video', 'lyrics', 'lyrics on screen', 'new song', 'new video', 'official', 'official audio', 'official music video', 'official song', 'official video', 'with lyrics', 'w/ lyrics']
+
     arr = Array.new
     extraneous_phrases.each do |phrase|
       arr << Regexp.new(Regexp.quote("[#{phrase}]"), Regexp::IGNORECASE)

@@ -1,31 +1,30 @@
 require 'soundcloud'
 
-class Embedded::Soundcloud
+class SoundcloudService
   include DataGrabUtil
-  # include CapybaraUtil
+
+  def initialize(url)
+    @data = self.get_data(url)
+  end
 
   def get_data(url)
     # Acceptable url example
     # https://soundcloud.com/theacid/the-acid-tumbling-lights
     data = call_and_catch_errors('/resolve', url: url)
-    # embed_data = call_and_catch_errors('/oembed', :url => url)
-    # data['artwork_url'] = embed_data.thumbnail_url
     page = read_page(url)
     data['artwork_url'] = page.at_xpath("//meta[@property='og:image']").attributes['content'].value
     data
   end
 
-  def set_metadata(data)
-    puts data.policy == 'SNIP'
-    puts data.is_preview?
+  def set_metadata
     Hash[
-    :title => data.title,
-    :artist => data.user['username'],
-    :album => data.release,
-    :year => year_from_date(data.release_year, '%Y'),
-    :media_path => data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
-    :preview => data.policy == 'SNIP',
-    :album_art => file_from_url(data.artwork_url)
+    :title => title,
+    :artist => user['username'],
+    :album => release,
+    :year => year_from_date(release_year, '%Y'),
+    :media_path => stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
+    :preview => policy == 'SNIP',
+    :album_art => file_from_url(artwork_url)
     ]
   end
 
@@ -39,7 +38,7 @@ class Embedded::Soundcloud
   end
 
   def is_preview?
-    return policy == 'SNIP'
+    policy == 'SNIP'
   end
 
 private
@@ -55,7 +54,7 @@ private
       :client_id => Rails.application.secrets.soundcloud_public_client_id })
   end
 
-   def call_and_catch_errors(endpoint, **args)
+  def call_and_catch_errors(endpoint, **args)
      clients = [private_client, public_client]
      call_client = clients[0]
     begin
@@ -68,13 +67,5 @@ private
       end
     end
   end
-
-  # def scrapeAlbumName(url)
-  #   full_page = visit_page(url)
-  #   albums = find_xpath('//article[@class="sidebarModule g-all-transitions-200-linear soundInSetsModule"]')[0]
-  #   if albums.all_text.contains?('In albums')
-  #     return
-  #   end
-  # end
 
 end

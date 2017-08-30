@@ -1,4 +1,4 @@
-class Embedded::Vimeo
+class VimeoService
 
   attr_accessor :embeddeds
 

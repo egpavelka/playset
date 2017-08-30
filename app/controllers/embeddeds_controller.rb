@@ -10,20 +10,17 @@ class EmbeddedsController < ApplicationController
     # Initialize embedded object belonging to current_user
     @embed = Embedded.new(embedded_params)
       if @embed.save
-        # Add current_user to metadata hash (session )
-        # should this be @track = current_user.create_track(@embed.auto_metadata...)
-        @track = @embed.create_track(@embed.generated_track_params(current_user.id))
+        @track = EmbeddedTrackService.new(source_path: @embed.source_path, source_service: @embed.source_path)
         if @track.save
           redirect_to edit_track_path(@track)
         else
-          # error would be due to bad player_url
-          flash[:error] = @embed.errors.full_messages.to_sentence
-          flash[:error] = @track.errors.full_messages.to_sentence
+          flash[:error] = @track.errors
           @embed.destroy
           render 'new'
         end
         EmbeddedsCleanupJob.set(wait: 1.hour).perform_later(@embed)
       else
+        flash[:error] = @embed.errors
         render 'new'
       end
   end
@@ -37,7 +34,7 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :playback, :user_id)
+    params.require(:embedded).permit(:source_path, :user_id)
   end
 
 end

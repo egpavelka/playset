@@ -1,5 +1,4 @@
-
-class Embedded::Bandcamp
+class BandcampService
   include DataGrabUtil
 
   def get_data(url)
