@@ -5,7 +5,7 @@ class YoutubeService
 
   def get_data(url)
     # API parameters from input url
-    @video_id = url.match(Embedded::VALID_YOUTUBE_FORMAT)[2]
+    @video_id = url.match(Embedded::valid_youtube_format)[2]
     video = Yt::Video.new id: @video_id
     Hash[
       :hint => {
