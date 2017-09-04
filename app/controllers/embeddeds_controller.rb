@@ -7,10 +7,9 @@ class EmbeddedsController < ApplicationController
   end
 
   def create
-    # Initialize embedded object belonging to current_user
     @embed = Embedded.new(embedded_params)
       if @embed.save
-        @track = EmbeddedTrackService.new(source_path: @embed.source_path, source_service: @embed.source_path)
+        @track = @embed.create_track(set_track_params)
         if @track.save
           redirect_to edit_track_path(@track)
         else
@@ -34,7 +33,20 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path, :user_id)
+    params.require(:embedded).permit(:source_path)
+  end
+
+  def set_track_params
+    track_service = set_track_service
+    if track_service[:hint]
+      flash[:notice] = track_service[:hint][:title_hint]
+    end
+    return track_service[:metadata]
+  end
+
+  def set_track_service
+    # @embed.user_id = current_user.id
+    EmbeddedTrackService.new(@embed).perform
   end
 
 end

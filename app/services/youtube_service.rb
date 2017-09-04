@@ -1,46 +1,40 @@
 require 'yt'
 
 class YoutubeService
-  include VideoMetadataUtil
+  include EmbeddingUtil
+  attr_accessor :url, :data, :id
 
-  def get_data(url)
-    # API parameters from input url
-    @video_id = url.match(Embedded::valid_youtube_format)[2]
-    video = Yt::Video.new id: @video_id
-    Hash[
-      :hint => {
-        :title_hint => video.title,
-        :description_hint => video.description
-      },
-      :title => video.title
-    ]
-    video.clean_title
-    video['year'] = video.find_year
-    return video
+  def initialize(params)
+    @url = params[:url]
+    @data = self.call
   end
 
-  def set_metadata(data)
-    Hash[
-    :title => data.parse_title[1],
-    :artist => data.parse_title[0],
-    :album => data.find_album,
-    :year => data.year,
-    :album_art => file_from_url("https://img.youtube.com/vi/#{@video_id}/hqdefault.jpg"),
-    :media_path => self.player_url,
-    :hint => data.hint
-  ]
+  def call
+    @video_id = @url.match(EmbeddingUtil::valid_youtube_format)[2]
+    return Yt::Video.new id: @video_id
+  end
+
+  def set_metadata
+    data = parse_video
+    data[:metadata][:media_path] = self.player_url
+    data[:album_art_params] = "https://img.youtube.com/vi/#{@video_id}/hqdefault.jpg"
+    return data
+  end
+
+  def parse_video
+    VideoMetadataService.new(title: @data.title, description: @data.description).perform
   end
 
   # Verify
-  def is_track?(data)
-    data.category_title == 'Music' && data.public?
+  def is_track?
+    h, m, s = @data.length.split(':').map{ |n| n.to_i }
+    duration = h*3600 + m*60 + s
+    return VideoMetadataService.is_track?(@data.title, duration) && @data.category_title == 'Music' && @data.public?
   end
-
-  private
 
   # Generate url with options for iframe
   def player_url
-    "https://www.youtube.com/embed/#{@video.id}?enablejsapi=1&color=white&controls=0&playsinline=1&showinfo=0&rel=0"
+    "https://www.youtube.com/embed/#{@video_id}?enablejsapi=1&color=white&controls=0&playsinline=1&showinfo=0&rel=0"
   end
 
 end

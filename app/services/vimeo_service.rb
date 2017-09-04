@@ -1,37 +1,34 @@
 class VimeoService
+  include EmbeddingUtil
+  attr_accessor :url, :data, :id
 
-  attr_accessor :embeddeds
-
-  def get_data(url)
-    # API parameters from input url
-    @video_id = url.match(VALID_VIMEO_FORMAT).captures[0]
-    api_url = ''
-    # Return API response
-    api_call(api_url)
+  def initialize(params)
+    @url = params[:url]
+    @data = self.call
   end
 
-  def set_metadata(data)
-    values = [{
-    :title => nil,
-    :artist =>  nil,
-    :album => nil,
-    :year => nil,
-    :album_art => nil
-    },
-    self.player_url]
-    values
+  def call
+    @video_id = url.match(EmbeddingUtil::valid_vimeo_format)[1]
+    return VimeoMe2::Video.new(Rails.application.secrets.vimeo_access_token, @video_id).video
   end
 
-  # Generate url with options for iframe
+  def set_metadata
+    data = parse_video
+    data[:metadata][:media_path] = self.player_url
+    data[:album_art_params] = @data['pictures']['sizes'].last['link']
+    return data
+  end
+
+  def parse_video
+    VideoMetadataService.new(title: @data['name'], description: @data['description']).perform
+  end
+
   def player_url
     "https://player.vimeo.com/video/#{@video_id}?color=ffffff&title=0&byline=0&portrait=0"
   end
 
-  # Verify
-  def matches_link?
-  end
-
   def is_track?
+    VideoMetadataService.is_track?(@data['name'], @data['duration']) && @data['privacy']['embed'] == 'public'
   end
 
 end

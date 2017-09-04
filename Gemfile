@@ -50,7 +50,7 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use HTTParty to manage external API calls
-gem 'httparty', '>= 0.14.0'
+gem 'httparty'
 # Nokogiri to scrape data from pages
 gem 'nokogiri'
 gem 'mechanize'
@@ -58,12 +58,13 @@ gem 'mechanize'
 gem 'capybara'
 # gem 'selenium-webdriver'
 # Poltergeist as JS driver for Capybara
-gem 'poltergeist' 
+gem 'poltergeist'
 
 # Embedding service API wrappers
 gem 'soundcloud', '>= 0.3.4'
 gem 'rspotify'
 gem 'yt'
+gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
 
 # Use Paperclip to upbload files
 gem 'paperclip', '>= 5.1.0'

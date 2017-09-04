@@ -2,38 +2,44 @@ require 'soundcloud'
 
 class SoundcloudService
   include DataGrabUtil
+  attr_accessor :url, :data
+  # Acceptable url example
+  # https://soundcloud.com/theacid/the-acid-tumbling-lights
+
+  def initialize(params)
+    @url = params[:url]
+    @data = self.call
+  end
 
   def call
-    # Acceptable url example
-    # https://soundcloud.com/theacid/the-acid-tumbling-lights
     data = call_and_catch_errors('/resolve', url: @url)
-    page = read_page(url)
-    return data.merge(
+    page = DataGrabUtil::read_page(url)
+    return data.merge!(
       :artwork_url => page.at_xpath("//meta[@property='og:image']").attributes['content'].value,
       :hint => { title_hint: page.title, description_hint: data.description }
     )
   end
 
-  def set_metadata(data)
+  def set_metadata
     Hash[
+      :hint => @data.hint,
       :metadata => {
-        title: title,
-        artist: user['username'],
-        album: release,
-        year: year_from_date(release_year, '%Y'),
-        media_path: stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
-        album_art: file_from_url(artwork_url)
+        title: @data.title,
+        artist: @data.user['username'],
+        album: @data.release,
+        media_path: @data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
       },
-      :hint => hint
+      :year_params => [@data.release_year, '%Y'],
+      :album_art_params => @data.artwork_url
     ]
   end
 
   def is_track?
-    kind == 'track'  && sharing == 'public' && streamable
+    @data.kind == 'track'  && @data.sharing == 'public' && @data.streamable
   end
 
   def is_preview?
-    policy == 'SNIP'
+    @data.policy == 'SNIP'
   end
 
 private

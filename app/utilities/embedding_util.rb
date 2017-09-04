@@ -20,7 +20,7 @@ module EmbeddingUtil
       valid_bandcamp_format => 'Bandcamp',
       valid_soundcloud_format => 'Soundcloud',
       valid_spotify_format => 'Spotify',
-      VALID_VIMEO_FORMAT => 'Vimeo',
+      valid_vimeo_format => 'Vimeo',
       valid_youtube_format => 'Youtube'
     ]
   end

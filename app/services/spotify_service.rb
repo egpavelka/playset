@@ -2,41 +2,40 @@ require 'rspotify'
 
 class SpotifyService
   include DataGrabUtil
-  include EmbeddingUtil
-  attr_accessor :url
+  attr_accessor :url, :data
   # Acceptable URL examples
   # https://open.spotify.com/track/7Cbxra8u8MxRlxiapl3pJZ
   # spotify:track:7Cbxra8u8MxRlxiapl3pJZ
 
   def initialize(params)
     @url = params[:url]
+    @data = self.call
   end
 
   def call
     track_id = @url.match(EmbeddingUtil::valid_spotify_format)[2]
-    puts track_id
     secure_client
     RSpotify::Track.find(track_id)
   end
 
-  def self.set_metadata(data)
+  def set_metadata
     Hash[
       :metadata => {
-        title: data.name,
-        artist: data.artists[0].name,
-        album: data.album.name,
-        year: DataGrabUtil::year_from_date(data.album.release_date, '%Y'),
-        media_path: data.preview_url,
-        album_art: DataGrabUtil::file_from_url(data.album.images[0]['url'])
-      }
+        title: @data.name,
+        artist: @data.artists[0].name,
+        album: @data.album.name,
+        media_path: @data.preview_url
+      },
+      :year_params => [@data.album.release_date, '%Y'],
+      :album_art_params => @data.album.images[0]['url']
     ]
   end
 
-  def self.is_track?(data)
-    data.type == 'track'
+  def is_track?
+    @data.type == 'track'
   end
 
-  def self.is_preview?(data)
+  def is_preview?
     true
   end
 
