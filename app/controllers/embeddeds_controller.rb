@@ -13,7 +13,7 @@ class EmbeddedsController < ApplicationController
         if @track.save
           redirect_to edit_track_path(@track)
         else
-          flash[:error] = @track.errors
+          flash[:error] = @track.errors.full_messages
           @embed.destroy
           render 'new'
         end
@@ -33,7 +33,7 @@ class EmbeddedsController < ApplicationController
   private
 
   def embedded_params
-    params.require(:embedded).permit(:source_path)
+    params.require(:embedded).permit(:source_path, :user_id)
   end
 
   def set_track_params
@@ -45,7 +45,6 @@ class EmbeddedsController < ApplicationController
   end
 
   def set_track_service
-    # @embed.user_id = current_user.id
     EmbeddedTrackService.new(@embed).perform
   end
 

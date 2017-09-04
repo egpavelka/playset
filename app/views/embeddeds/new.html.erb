@@ -9,6 +9,8 @@
 
     <%= render 'shared/error_messages', object: f.object %>
 
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
     <div class="form-group">
       <%= f.text_field :source_path, id: 'url_source', placeholder: 'URL' %>
     </div>

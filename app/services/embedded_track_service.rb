@@ -7,6 +7,7 @@ class EmbeddedTrackService
     @url = params[:source_path]
     @service = "#{params[:source_service]}Service"
     @user = params[:user_id]
+    puts @user
   end
 
   def perform
@@ -43,7 +44,7 @@ class EmbeddedTrackService
       year: set_year,
       album_art: set_album_art,
       playback: detect_playback,
-      preview: detect_preview,
+      # preview: detect_preview,
       user_id: @user )
   end
 
@@ -55,8 +56,8 @@ class EmbeddedTrackService
     DataGrabUtil::file_from_url(@data[:album_art_params])
   end
 
-  def set_preview
-    @service_object.method_defined? :is_preview? ? @service_object.is_preview? : false
+  def detect_preview
+    @service_object.is_preview? ? @service_object.is_preview? : false
   end
 
   def detect_playback

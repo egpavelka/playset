@@ -1,3 +1,5 @@
+require 'vimeo_me2'
+
 class VimeoService
   include EmbeddingUtil
   attr_accessor :url, :data, :id
