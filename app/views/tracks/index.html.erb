@@ -1,16 +1,9 @@
-<% provide(:title, "top") %>
+<%= render 'tracks/headers/index' %>
 
+<div class="row row-eq-height tracks-container">
+  <%= render @tracks %>
+</div>
 
-<section class="content-container">
-  <div class="page-header">CHARTS</div>
-
-  <%= render 'tracks/menus/index' %>
-
-  <div class="row row-eq-height tracks-container">
-      <%= render @tracks %>
-  </div>
-
-  <div class="row">
-    <%= will_paginate @tracks %>
-  </div>
-</section>
+<div class="row">
+  <%= will_paginate @tracks %>
+</div>

@@ -1,23 +1,16 @@
-<% provide(:title, "submit track") %>
+<%= render 'tracks/headers/submit_form' %>
 
-<section class="content-container embedded-form">
-  <div class="page-header">submit track</div>
+<%= form_for Upload.new, html: { class: 'upload-form' } do |f| %>
 
-  <%= render 'tracks/menus/submit' %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-  <%= form_for Upload.new do |f| %>
+  <%= f.hidden_field :playback, value: 'Audio' %>
 
-    <%= render 'shared/error_messages', object: f.object %>
+  <li class="form-entry">
+    <%= f.label :submission_source, 'File' %>
+    <%= f.file_field :submission_source, id: 'upload-source' %>
+  </li>
 
-    <%= f.hidden_field :playback, value: 'Audio' %>
+  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
 
-    <li class="form-entry">
-      <%= f.label :submission_source, 'File' %>
-      <%= f.file_field :submission_source, id: 'upload-source' %>
-    </li>
-
-    <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
-
-  <% end %>
-
-</section>
+<% end %>

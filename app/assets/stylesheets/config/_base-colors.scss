@@ -25,14 +25,14 @@ $highlight-1: $lapis;
 $highlight-2: $fuchsia;
 $highlight-3: $turquoise;
 $highlight-4: $citrine;
-$bg-img: 'backgrounds/texture2.png';
+// $bg-img: 'backgrounds/texture2.png';
 
 
 // Set base
 body {
   background-color: $background;
-  background-image: image-url($bg-img);
-  background-repeat: repeat;
+  // background-image: image-url($bg-img);
+  // background-repeat: repeat;
   color: $text;
 }
 

@@ -1,22 +1,15 @@
-<% provide(:title, "submit track") %>
+<%= render 'tracks/headers/submit_form' %>
 
-<section class="content-container embedded-form">
-  <div class="page-header">submit track</div>
+<%= form_for Embedded.new, html: { class: 'embedded-form' } do |f| %>
 
-  <%= render 'tracks/menus/submit' %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-  <%= form_for Embedded.new do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.text_field :source_path, id: 'url_source', placeholder: 'URL' %>
+  </div>
 
-    <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
 
-    <div class="form-group">
-      <%= f.text_field :source_path, id: 'url_source', placeholder: 'URL' %>
-    </div>
-
-    <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
-
-  <% end %>
-
-</section>
+<% end %>

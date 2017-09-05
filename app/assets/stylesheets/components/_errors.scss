@@ -13,10 +13,8 @@
 
 .alert {
   background: $block-solid;
-  border: 0;
-  border-bottom: $single-border $highlight-1;
+  border: $single-border $highlight-4;
   border-radius: 0;
-  border-top: $single-border $highlight-1;
   color: $gray;
   margin: 20px auto 0;
   padding: 10px;
