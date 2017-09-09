@@ -44,7 +44,6 @@ class EmbeddedTrackService
       year: set_year,
       album_art: set_album_art,
       playback: detect_playback,
-      # preview: detect_preview,
       user_id: @user )
   end
 
@@ -61,7 +60,11 @@ class EmbeddedTrackService
   end
 
   def detect_playback
-    ['Vimeo', 'Youtube'].include?(@service) ? 'video' : 'audio'
+    if detect_preview
+      'preview'
+    else
+      ['Vimeo', 'Youtube'].include?(@service) ? 'video' : 'audio'
+    end
   end
 
 end

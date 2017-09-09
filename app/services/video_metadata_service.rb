@@ -1,7 +1,7 @@
 # Methods available to multiple classes for handling data from external sources.
 
 class VideoMetadataService
-  attr_accessor :video, :title, :autodata
+  attr_accessor :video, :title, :response, :autodata
 
   def initialize(params)
     @title = params[:title]
@@ -32,50 +32,101 @@ class VideoMetadataService
     ]
   end
 
-  def clean_title
-    garbage = extraneous_info
-    extraneous_info.each do |blah|
-      @title.gsub!(blah, '')
-    end
-    @title.strip!
-  end
+# These are reliably classified as clutter, so they'll be removed whether they appear inside parentheses or not.
+extraneous_phrases = [ '1080p', '720p', 'audio only', 'clean version',  'full song', 'hd video', 'long version', 'lyric video', 'lyrics on screen', 'new song', 'new video', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'videoclip', 'video clip', 'visualization', 'vizualizer', 'with lyrics', 'w/ lyrics', '+ lyric' ]
+# These can be legit, so they'll only be removed if they're inside parentheses.
+extraneous_words = ['audio', 'explicit', 'hd', 'lyrics', 'official', 'video']
 
-  def find_title_and_artist
-    title_separators = [' - ', ' | ']
-    title_separators.each do |pattern|
-      unless @autodata[:title] || @autodata[:artist]
-        @title.include?(pattern) ? parse_title(pattern) : nil
-      end
+# The easiest thing to find and remove from the title is the year (if present), since the format is almost always [YYYY] or (YYYY).  (Also check the description for a year.)
+
+def find_year
+  year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
+  year_patterns.each do |pattern|
+    unless @autodata[:year]
+      parse_year(pattern)
     end
   end
+end
+
+def parse_year(pattern)
+  if @title.match(pattern)
+    @autodata[:year] = title.match(pattern)[1]
+    # @title.gsub!(title.match(year_pattern)[0], '').strip!
+  elsif @description.match(pattern)
+    @autodata[:year] = @description.match(pattern)[1]
+  end
+end
+
+# Then check for the common phrases and patterns above.
+def clean_title
+  garbage = extraneous_info
+  extraneous_info.each do |blah|
+    @title.gsub!(blah, '')
+  end
+  @title.strip!
+end
+
+def has_extraneous_info?(str)
+  extraneous_phrases.any? { |phrase| str.include?(phrase) } ||
+  extraneous_words.any? ( |word| str == word)
+end
+
+def check_parenthetical
+  para_match = @title.scan(/[\[|\(]([^\(\[\]\)]*)[\]|\)]/).reverse
+  para_match.each do |match|
+  if has_extraneous_info?(match)
+    if @title.start_with?(match) || @title.end_with
+     @title.gsub!(match, '')
+    else
+      str = @title.split(match)[-1]
+
+    end
+  elsif @title.match(para_pattern)
+  end
+end
+
+# Titles are often split by ' - ', ' | ', and ' / ' or ' // ';
+# Assuming the first part is the artist name and the second is the title should catch most cases.
+def split_title
+  splitters = /[\-\|]|\/\/|\//
+  title_arr = @title.split(splitters).each {|str| str.strip!}
+
+end
+
+# If quotation marks are used, it's pretty much always to signify the title.
+
+  # Split on - / |
+  # check for weird stuff and year; if it occurs at beginning or end, just remove it
+  # if quotation marks, title is inside
+  # if (official...) or (year) is in the left split side, title is probably to the left of it, and anything
+
+  # Kurt Vile - "Pretty Pimpin" Official Video
+  # album "b'lieve i'm goin down"
+  /['|"]([^'"]*)['|"]\sby\s([^'"]*)/i # 'I FINK U FREEKY' by DIE ANTWOORD (Official)
+  # #SELFIE (Official Music Video) - The Chainsmokers
+  # Ylvis - The Fox (What Does The Fox Say?) [Official music video HD]
+  # HYUNA - 'Bubble Pop!' (Official Music Video)
+  # Calle 13 - Se Vale To-To
+  # The Black Angels - "Bad Vibrations" Billboard Tastemakers Session
+  # AYAX Y PROK - REPROCHES (PROD BLASFEM) | VIDEOCLIP
 
   def parse_title(pattern)
     arr = @title.split(pattern, 2)
-    if @description.include?('by ' + arr[1])
-      @autodata[:artist] = arr[1]
-      @autodata[:title] = arr[0]
-    else
-      @autodata[:artist] = arr[0]
-      @autodata[:title] = arr[1]
-    end
+    @autodata[:artist] = arr[0]
+    @autodata[:title] = arr[1]
   end
 
-  def find_year
-    year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i ] # [XXXX], (XXXX) # (C) XXXX
-    year_patterns.each do |pattern|
-      unless @autodata[:year]
-        parse_year(pattern)
-      end
-    end
+  def find_title_and_artist_hard_mode
+    title_patterns = [
+      /([^"]*)\s"([^"]*)"/i # St. Vincent[1] "Hello"[2]
+    ]
   end
 
-  def parse_year(pattern)
-    if @title.match(pattern)
-      @autodata[:year] = title.match(pattern)[1]
-      @title.gsub!(title.match(year_pattern)[0], '').strip!
-    elsif @description.match(pattern)
-      @autodata[:year] = @description.match(pattern)[1]
-    end
+  def find_title_and_artist_in_description
+    title_patterns =[
+      /(track|song|single)\s"([\w\s]+)"/i,
+      /([\w\s]*)[\-\:\|]?"([\w\s]+)"/i,
+    ]
   end
 
   def find_album
@@ -94,6 +145,15 @@ class VideoMetadataService
     end
   end
 
+  def check_description_for_link
+    bandcamp_pattern = /[^#\&\?\/\s]*\.bandcamp\.com\/?[^#\&\?\/\s]*/i
+    soundcloud_pattern = /(soundcloud\.com\/?[^#\&\?\/\s\\]*)/i
+    if @description.match(bandcamp_pattern)
+      return BandcampService.new(url: @description.match(bandcamp_pattern)[1])
+    elsif @description.match(soundcloud_pattern)
+      return SoundcloudService.new(url: @description.match(soundcloud_pattern)[1])
+  end
+
   def self.is_track?(title, duration)
     return false if title.match(/[\[\(]full album[\]\)]/)
     duration <= 1200
@@ -102,8 +162,6 @@ class VideoMetadataService
 private
 
   def extraneous_info
-    extraneous_phrases = [ '1080p', '720p', 'audio', 'audio only', 'full song', 'hd video', 'lyric video', 'lyrics', 'lyrics on screen', 'new song', 'new video', 'official', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'with lyrics', 'w/ lyrics']
-
     arr = Array.new
     extraneous_phrases.each do |phrase|
       arr << Regexp.new(Regexp.quote("[#{phrase}]"), Regexp::IGNORECASE)

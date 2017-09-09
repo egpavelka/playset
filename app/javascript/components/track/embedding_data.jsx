@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom'
 const EmbeddingData = props => (
   <div className="col embedded-service"><img src={'/assets/service_icons/' +  props.sourceService + '.png'} />
     {
-      props.isPreview ?
-       <text className="embedded-type">PREVIEW&nbsp;</text>
-       : null
+      props.playback == 'audio' ?
+        null
+        : <text className="embedded-type">{ props.playback }&nbsp;</text>
     }
     via <a href={ props.sourcePath }>{ props.sourceService }</a></div>
 )

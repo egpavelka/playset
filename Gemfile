@@ -77,6 +77,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Generate fake data population
   gem 'faker'
+  gem 'foreman'
 end
 
 group :development do

@@ -27,7 +27,7 @@ class Track < ApplicationRecord
 # USER, SOURCE, MEDIA
 ####################
   validates :user_id, presence: true
-  validates :playback, inclusion: { in: %w(audio video) }
+  validates :playback, inclusion: { in: %w(audio video preview) }
   validates :media_path, presence: true
   # validates :preview, presence: true
 

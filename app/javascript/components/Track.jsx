@@ -47,7 +47,8 @@ class Track extends React.Component {
       </div>
 
         <div className="row track-base">
-          <EmbeddingData sourceService={ this.props.media.source_service } sourcePath={ this.props.media.source_path } isPreview={ this.props.track.preview } />
+          <EmbeddingData sourceService={ this.props.media.source_service } sourcePath={ this.props.media.source_path }
+          playback={ this.props.track.playback } />
           <Likes likedState={ this.state.isLiked ? 'active-button' : '' } />
         </div>
 
