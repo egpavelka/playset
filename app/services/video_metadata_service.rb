@@ -87,28 +87,47 @@ end
 
 # Titles are often split by ' - ', ' | ', and ' / ' or ' // ';
 # Assuming the first part is the artist name and the second is the title should catch most cases.
+# Any time quotation marks are in the title
 def split_title
   splitters = /[\-\|]|\/\/|\//
-  title_arr = @title.split(splitters).each {|str| str.strip!}
+  title_arr = @title.split(splitters).each {|str| str.strip!}.reject{|str| str.empty?}
 
 end
 
+##### DASHES AND OTHER STANDARD SEPARATORS #####
+# If the array returned by title split has two items,
+# Calle 13 - Se Vale To-To
+# Ss-Say - care (1985)
+# AYAX Y PROK - REPROCHES (PROD BLASFEM) | VIDEOCLIP
+# Freddie Gibbs & Madlib - Deeper (Official) - Piñata
+# Vibravoid - The Politics Of Ecstasy - HQ Stereo Version
+# Nmesh - A Face Without Eyes / Byte By Byte (Official)
+
+##### QUOTATION MARKS #####
 # If quotation marks are used, it's pretty much always to signify the title.
+# Usually, that looks like: Earl Sweatshirt "Chum"
+# But other cases:
+# Earl Sweatshirt “Hive” ft. Casey Veggies & Vince Staples
+# Anita Tijoux "A Veces" (con Hordatoj) -Oficial-
+# Kurt Vile - "Pretty Pimpin" Official Video
 
-  # Split on - / |
-  # check for weird stuff and year; if it occurs at beginning or end, just remove it
-  # if quotation marks, title is inside
-  # if (official...) or (year) is in the left split side, title is probably to the left of it, and anything
+#### BUT WAIT!
+# Blues Control "Opium Den / Fade to Blue"
+  # Don't split on standard splitting characters if they occur within quotation marks.
+# A Band Called "O" - Coasting
+# The Black Angels - "Bad Vibrations" Billboard Tastemakers Session
 
-  # Kurt Vile - "Pretty Pimpin" Official Video
+### SHOUTOUT TO: THE WORD 'BY'
+# Harlem Nocturne by Sam "The Man" Taylor
+# 'I FINK U FREEKY' by DIE ANTWOORD (Official)
+
+
   # album "b'lieve i'm goin down"
-  /['|"]([^'"]*)['|"]\sby\s([^'"]*)/i # 'I FINK U FREEKY' by DIE ANTWOORD (Official)
   # #SELFIE (Official Music Video) - The Chainsmokers
   # Ylvis - The Fox (What Does The Fox Say?) [Official music video HD]
+  # Carlo Savina - Beat Ruggente [Italy, Psych-Beat] (1966)
   # HYUNA - 'Bubble Pop!' (Official Music Video)
-  # Calle 13 - Se Vale To-To
-  # The Black Angels - "Bad Vibrations" Billboard Tastemakers Session
-  # AYAX Y PROK - REPROCHES (PROD BLASFEM) | VIDEOCLIP
+
 
   def parse_title(pattern)
     arr = @title.split(pattern, 2)
