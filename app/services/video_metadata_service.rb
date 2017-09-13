@@ -1,7 +1,7 @@
 # Methods available to multiple classes for handling data from external sources.
 
 class VideoMetadataService
-  attr_accessor :video, :title, :response, :autodata
+  attr_accessor :video, :title, :parsing, :autodata
 
   def initialize(params)
     @title = params[:title]
@@ -32,56 +32,51 @@ class VideoMetadataService
     ]
   end
 
+  # The easiest thing to find and remove from the title is the year (if present), since the format is almost always [YYYY] or (YYYY).  (Also check the description for a year.)
+
+  def find_year
+    year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
+    year_patterns.each do |pattern|
+      unless @autodata[:year]
+        parse_year(pattern)
+      end
+    end
+  end
+
+  def parse_year(pattern)
+    if @title.match(pattern)
+      @autodata[:year] = title.match(pattern)[1]
+      # @title.gsub!(title.match(year_pattern)[0], '').strip!
+    elsif @description.match(pattern)
+      @autodata[:year] = @description.match(pattern)[1]
+    end
+  end
+
 # These are reliably classified as clutter, so they'll be removed whether they appear inside parentheses or not.
-extraneous_phrases = [ '1080p', '720p', 'audio only', 'clean version',  'full song', 'hd video', 'long version', 'lyric video', 'lyrics on screen', 'new song', 'new video', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'videoclip', 'video clip', 'visualization', 'vizualizer', 'with lyrics', 'w/ lyrics', '+ lyric' ]
+extraneous_phrases = [ '1080p', '720p', 'audio only', 'clean version',  'full song', 'hd video', 'long version', 'lyric video', 'lyrics on screen', 'new song', 'new video', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'stereo version', 'videoclip', 'video clip', 'visualization', 'vizualizer', 'with lyrics', 'w/ lyrics', '+ lyric' ]
 # These can be legit, so they'll only be removed if they're inside parentheses.
 extraneous_words = ['audio', 'explicit', 'hd', 'lyrics', 'official', 'video']
 
-# The easiest thing to find and remove from the title is the year (if present), since the format is almost always [YYYY] or (YYYY).  (Also check the description for a year.)
-
-def find_year
-  year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
-  year_patterns.each do |pattern|
-    unless @autodata[:year]
-      parse_year(pattern)
-    end
-  end
-end
-
-def parse_year(pattern)
-  if @title.match(pattern)
-    @autodata[:year] = title.match(pattern)[1]
-    # @title.gsub!(title.match(year_pattern)[0], '').strip!
-  elsif @description.match(pattern)
-    @autodata[:year] = @description.match(pattern)[1]
-  end
-end
-
 # Then check for the common phrases and patterns above.
 def clean_title
-  garbage = extraneous_info
-  extraneous_info.each do |blah|
+  extraneous_phrases.each do |blah|
     @title.gsub!(blah, '')
   end
   @title.strip!
 end
 
 def has_extraneous_info?(str)
-  extraneous_phrases.any? { |phrase| str.include?(phrase) } ||
-  extraneous_words.any? ( |word| str == word)
+  extraneous_phrases.any? {|phrase| str.include?(phrase)} ||
+  extraneous_words.any? {(|word| str == word)}
 end
 
-def check_parenthetical
-  para_match = @title.scan(/[\[|\(]([^\(\[\]\)]*)[\]|\)]/).reverse
-  para_match.each do |match|
-  if has_extraneous_info?(match)
-    if @title.start_with?(match) || @title.end_with
-     @title.gsub!(match, '')
-    else
-      str = @title.split(match)[-1]
-
+def check_parentheses(str)
+  str.match(/[\[|\(][^\(\[\]\)]*[\]|\)]/).to_a.each do |match|
+    if has_extraneous_info?(match)
+      if str.start_with?(match) || str.end_with?(match)
+       str.gsub!(match, '').strip!
+      end
     end
-  elsif @title.match(para_pattern)
   end
 end
 
@@ -89,9 +84,18 @@ end
 # Assuming the first part is the artist name and the second is the title should catch most cases.
 # Any time quotation marks are in the title
 def split_title
-  splitters = /[\-\|]|\/\/|\//
-  title_arr = @title.split(splitters).each {|str| str.strip!}.reject{|str| str.empty?}
+  splitters = /\s[[\-\|]|\/\/|\/]\s/
+  @parsing = @title.split(splitters).reject{|str| str.empty?}
+  if @parsing.length
+end
 
+def sort_title_format
+  if @title.match(/"[^"]*"/)
+
+  elsif @title.match()
+  elsif @title.match()
+  else
+  end
 end
 
 ##### DASHES AND OTHER STANDARD SEPARATORS #####
