@@ -65,14 +65,11 @@ def clean_title
   @title.strip!
 end
 
-def has_extraneous_info?(str)
-  extraneous_phrases.any? {|phrase| str.include?(phrase)} ||
-  extraneous_words.any? {(|word| str == word)}
-end
-
+# Get rid of parentheses with junk if they're at the beginning or end of the title;
 def check_parentheses(str)
-  str.match(/[\[|\(][^\(\[\]\)]*[\]|\)]/).to_a.each do |match|
-    if has_extraneous_info?(match)
+  parentheses = /[\[|\(][^\(\[\]\)]*[\]|\)]/
+  str.match(parentheses).to_a.each do |match|
+    if extraneous_phrases.any? {|phrase| str.include?(phrase)} || extraneous_words.any? {(|word| str == word)}
       if str.start_with?(match) || str.end_with?(match)
        str.gsub!(match, '').strip!
       end
@@ -80,23 +77,40 @@ def check_parentheses(str)
   end
 end
 
+def check_parentheses(str)
+  parentheses = /[\[|\(][^\(\[\]\)]*[\]|\)]/
+  str.scan(parentheses)
+end
+
+def check_quotes(str)
+  quotes = /"[^"]*"/
+  str.scan(quotes)
+end
+
+def check_splitters(str)
+  splitters = /\s[[\-\|]|\/\/|\/]\s/
+  str.scan(splitters)
+end
 # Titles are often split by ' - ', ' | ', and ' / ' or ' // ';
 # Assuming the first part is the artist name and the second is the title should catch most cases.
 # Any time quotation marks are in the title
 def split_title
-  splitters = /\s[[\-\|]|\/\/|\/]\s/
-  @parsing = @title.split(splitters).reject{|str| str.empty?}
-  if @parsing.length
-end
+  quote = check_quotes(@title)[0]
+  splits = check_splitters(@title)
+  # Split on the first 'split' character--as long as it's outside quotation marks
+  if splits
+    if check_splitters(quote) && @title.index(/"/) < @title.index(splits[1])
+      splits.find {|split| @title.index(split, @title.rindex(/"/) + 1)}
+    else
+    end
+  str.split(splitters, 2)
+  elsif quotes
 
-def sort_title_format
-  if @title.match(/"[^"]*"/)
-
-  elsif @title.match()
-  elsif @title.match()
-  else
   end
 end
+#
+# @parsing = @title.split(splitters).reject{|str| str.empty?}
+# if @parsing.length
 
 ##### DASHES AND OTHER STANDARD SEPARATORS #####
 # If the array returned by title split has two items,
@@ -131,13 +145,6 @@ end
   # Ylvis - The Fox (What Does The Fox Say?) [Official music video HD]
   # Carlo Savina - Beat Ruggente [Italy, Psych-Beat] (1966)
   # HYUNA - 'Bubble Pop!' (Official Music Video)
-
-
-  def parse_title(pattern)
-    arr = @title.split(pattern, 2)
-    @autodata[:artist] = arr[0]
-    @autodata[:title] = arr[1]
-  end
 
   def find_title_and_artist_hard_mode
     title_patterns = [
