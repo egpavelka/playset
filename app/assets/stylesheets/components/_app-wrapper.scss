@@ -8,6 +8,7 @@
 
 .content-container {
   flex: 2 0 auto;
+  border-top: $single-border $highlight-2;  
   border-bottom: $single-border $highlight-2;
   margin-bottom: 15px;
 }

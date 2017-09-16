@@ -1,17 +1,14 @@
 @import 'config/MASTER';
 
 .page-nav {
-  margin: 20px 0 30px;
-  width: 100%;
+  // margin: 20px 0 30px;
+  // width: 100%;
 
   .nav-item {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: stretch;
+    margin: 5px;
 
-    + .nav-item {
-      margin-left: 4px;
+    button {
+      font-size: .85rem;
     }
 
     .nav-link {

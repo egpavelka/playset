@@ -1,13 +1,14 @@
-<div class="nav-item">
-  <%= link_to 'Submit', submit_embed_path, class: 'nav-link' %>
-</div>
-
-<div class="nav-item dropdown">
-  <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" id="dropdownChartMenu" aria-expanded="false">Charts</a>
-  <div class="dropdown-menu" aria-labelledby="dropdownChartsMenu">
-    <li><%= link_to "Audio", root_path, class: 'dropdown-item' %></li>
-    <li><%= link_to "Video", root_path, class: 'dropdown-item' %></li>
-    <li class="dropdown-divider"></li>
-    <li><%= link_to "All", root_path, class: 'dropdown-item' %></li>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Charts
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <%= link_to "Audio", root_path, class: 'dropdown-item' %>
+    <%= link_to "Video", root_path, class: 'dropdown-item' %>
+    <div class="dropdown-divider"></div>
+    <%= link_to "All", root_path, class: 'dropdown-item' %>
   </div>
-</div>
+</li>
+<li class="nav-item">
+  <%= link_to 'Submit', submit_embed_path, class: 'nav-link' %>
+</li>

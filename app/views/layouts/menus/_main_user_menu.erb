@@ -1,14 +1,21 @@
-<div class="nav-item dropdown">
-  <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" id="dropdownUserMenu" aria-expanded="false"><i class="fa fa-user"></i></a>
-  <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
-    <% if logged_in? %>
-      <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %></li>
-      <li class="dropdown-divider"></li>
-      <li><%= link_to "Log out", logout_path, method: "delete", class: 'dropdown-item' %></li>
-    <% else %>
-      <li><%= link_to "Log in", login_path, class: 'dropdown-item' %></li>
-      <li><%= link_to "Sign up", signup_path, class: 'dropdown-item' %></li>
-    <% end %>
-  </div>
-</div>
+<div class="dropdown-divider"></div>
+<% if logged_in? %>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user"></i> <%= current_user.username %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <%= link_to "Profile", current_user, class: 'dropdown-item' %>
+      <%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "Log out", logout_path, method: "delete", class: 'dropdown-item' %>
+    </div>
+  </li>
+<% else %>
+  <li class="nav-item">
+    <%= link_to "Log in", login_path, class: 'dropdown-item' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Sign up", signup_path, class: 'dropdown-item' %>
+  </li>
+<% end %>

@@ -18,11 +18,7 @@
       <%= render 'layouts/main_header' %>
       <section class="content-container">
 
-        <div class="page-header">
-          <%= yield :page_header %>
-        </div>
-
-        <%= yield :page_nav %>
+        <%= render 'layouts/menus/page_nav' %>
 
         <% flash.each do |response_type, response| %>
           <%= content_tag(:div, response, class: "card alert alert-#{response_type}") %>
