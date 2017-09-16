@@ -1,7 +1,7 @@
-@import 'config/fonts/base-decima';
+@import 'config/fonts/base-mysteria';
 @import 'config/fonts/base-dharma-gothic';
-@import 'config/fonts/base-kelso';
-@import 'config/fonts/base-itc-avant-garde';
+@import 'config/fonts/base-fabrikat-mono';
+@import 'config/fonts/base-halcyon';
 
 @mixin mono($font) {
   $mono: '#{$font}' !global;
@@ -30,6 +30,6 @@
   $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-@include sans-serif('ITC Avant Garde');
+@include sans-serif('Halcyon');
 @include sans-serif-narrow('Dharma Gothic');
-@include mono('Decima Mono');
+@include mono('Fabrikat Mono');
