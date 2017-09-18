@@ -1,15 +1,22 @@
 @import 'config/MASTER';
 
 .page-nav {
-  // margin: 20px 0 30px;
-  // width: 100%;
+  margin-top: 10px;
+  align-items: baseline;
+
+  button.navbar-toggler {
+    font-size: 1.3rem;
+    font-family: $sans-serif-narrow-bold;
+    text-transform: uppercase;
+
+    i {
+      margin-left: 5px;
+      font-size: .8rem;
+    }
+  }
 
   .nav-item {
     margin: 5px;
-
-    button {
-      font-size: .85rem;
-    }
 
     .nav-link {
       border: $single-border $gray-400;

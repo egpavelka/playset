@@ -38,9 +38,9 @@ class EmbeddedsController < ApplicationController
 
   def set_track_params
     track_service = set_track_service
-    if track_service[:hint]
-      flash[:notice] = track_service[:hint][:title_hint]
-    end
+    # if track_service[:hint]
+    #   flash[:notice] = track_service[:hint][:title_hint]
+    # end
     return track_service[:metadata]
   end
 

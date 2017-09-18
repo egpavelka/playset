@@ -1,25 +1,27 @@
 <% provide(:title, "sign up") %>
 
-<section class="content-container user-profile-form">
-  <div class="page-header">sign up</div>
-  <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <li class="form-entry">
+<%= form_for(@user, html: { class: 'signup-form', style: 'max-width: 350px;' }) do |f| %>
+
+  <div class="form-group">
     <%= f.label :username %>
-    <%= f.text_field :username %>
-  </li>
-  <li class="form-entry">
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email %>
-  </li>
-  <li class="form-entry">
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password %>
-  </li>
-  <li class="form-entry">
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :password_confirmation, 'Confirm password' %>
-    <%= f.password_field :password_confirmation %>
-  </li>
-  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
-  <% end %>
-</section>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Sign up', class: 'btn btn-primary submit-button' %>
+
+<% end %>
