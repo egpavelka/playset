@@ -1,17 +1,17 @@
-<ul class="nav flex-column page-nav">
-  <li class="<%= current_class?(user_path(@user)) %> nav-item">
+<ul class="nav page-nav">
+  <li class="nav-item">
     <%= link_to 'Overview', user_path, class: 'nav-link' %>
   </li>
-  <li class="<%= current_class?(nil) %> nav-item">
+  <li class="nav-item">
     <%= link_to 'Submitted', '#', class: 'nav-link' %>
   </li>
-  <li class="<%= current_class?(nil) %> nav-item">
+  <li class="nav-item">
     <%= link_to 'Loved', '#', class: 'nav-link' %>
   </li>
-  <li class="<%= current_class?(nil) %> nav-item">
+  <li class="nav-item">
     <%= link_to 'Comments', '#', class: 'nav-link' %>
   </li>
-  <li class="<%= current_class?(nil) %> nav-item">
+  <li class="nav-item">
     <%= link_to 'Notes', '#', class: 'nav-link' %>
   </li>
   <% if logged_in? && @user == current_user %>

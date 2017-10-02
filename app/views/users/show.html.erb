@@ -1,12 +1,10 @@
-<% provide(:title, "profile: #{ @user.name }") %>
 
-<div class="page-header profile-header row">
+<div class="page-header row">
   <div class="profile-username"><%= @user.username %></div>
 </div>
 
-<section class="content-container row user-profile">
-
-  <div class="profile-info col-xs-12 col-sm-4">
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
     <div class="profile-name"><%= @user.name %></div>
     <div class="profile-stats"><%= render "users/social/follow_stats" %></div>
     <%= render 'users/social/follow_options' if logged_in? %>
@@ -25,5 +23,4 @@
     <%= will_paginate @tracks %>
   <% end %>
 </div>
-
-</section>
+</div>

@@ -8,32 +8,29 @@
   }
 }
 
-.profile-info {
+.profile-avatar {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
 
-  .profile-avatar {
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-  }
+.profile-name {
+  font-family: $sans-serif-bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-transform: none;
+}
 
-  .profile-name {
-    font-family: $sans-serif-narrow;
-    font-size: 1.5rem;
-    margin-top: 10px;
-    text-transform: none;
-  }
+.profile-stats {
+  font-family: $sans-serif-narrow-light;
+}
 
-  .profile-stats {
-    font-family: $sans-serif-narrow-light;
-  }
+.profile-name,
+.profile-stats {
+  // padding: 0 10px 5px;
+}
 
-  .profile-name,
-  .profile-stats {
-    padding: 0 10px 5px;
-  }
-
-  .profile-bio {
-    background-color: $gray-200;
-    padding: 10px;
-  }
+.profile-bio {
+  background-color: $gray-200;
+  padding: 10px;
 }

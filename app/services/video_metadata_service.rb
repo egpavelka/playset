@@ -1,6 +1,6 @@
-# Methods available to multiple classes for handling data from external sources.
-
 class VideoMetadataService
+  # Methods available to multiple classes for handling data from external sources.
+  include LastFmLookupService
   attr_accessor :video, :title, :parsing, :autodata
 
   def initialize(params)
@@ -34,8 +34,8 @@ class VideoMetadataService
 
   # The easiest thing to find and remove from the title is the year (if present), since the format is almost always [YYYY] or (YYYY).  (Also check the description for a year.)
 
+  year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
   def find_year
-    year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
     year_patterns.each do |pattern|
       unless @autodata[:year]
         parse_year(pattern)
@@ -65,14 +65,16 @@ def clean_title
   @title.strip!
 end
 
+# Dump empty matches
+def clean_results(arr)
+  arr.reject{|obj| obj.nil?}
+end
+
 # Get rid of parentheses with junk if they're at the beginning or end of the title;
-def check_parentheses(str)
-  parentheses = /[\[|\(][^\(\[\]\)]*[\]|\)]/
-  str.match(parentheses).to_a.each do |match|
-    if extraneous_phrases.any? {|phrase| str.include?(phrase)} || extraneous_words.any? {(|word| str == word)}
-      if str.start_with?(match) || str.end_with?(match)
-       str.gsub!(match, '').strip!
-      end
+def parse_parentheses(str)
+  check_parentheses(str).each do |match|
+    if extraneous_phrases.any? {|phrase| str.include?(phrase)} || extraneous_words.any? {|word| str == word}
+
     end
   end
 end
@@ -95,6 +97,7 @@ end
 # Assuming the first part is the artist name and the second is the title should catch most cases.
 # Any time quotation marks are in the title
 def split_title
+  #
   quote = check_quotes(@title)[0]
   splits = check_splitters(@title)
   # Split on the first 'split' character--as long as it's outside quotation marks
@@ -102,10 +105,30 @@ def split_title
     if check_splitters(quote) && @title.index(/"/) < @title.index(splits[1])
       splits.find {|split| @title.index(split, @title.rindex(/"/) + 1)}
     else
+      # Treat as normal - splitter
     end
-  str.split(splitters, 2)
+    str.split(splitters, 2)
   elsif quotes
+    # Treat as normal - quotes
+    # split at quotes might result in three strings so deal with that here
+    # (maybe: if quote occurs at beginning of string, look for splitter or the word 'by' and grab artist there)
+  else
+    # GIVE UP, MANUAL ENTRY
+  end
+end
 
+def parse_lookup_params(arr)
+# Basically check for parentheses and second splitters in the strings created by split_title and, if they exist, try looking up the song first with everything up to the parentheses/split mark, and if that doesn't return anything, try again with the next segment included
+  arr.each do |str|
+    # Dump bullshit from end of each string
+    parse_parentheses(str)
+
+    if check_splitters(str) || check_parentheses(str)
+      # lookup with info up to first parenthesis or splitter
+      # otherwise try with full string
+    else
+      # lookup normally
+    end
   end
 end
 #
@@ -131,7 +154,7 @@ end
 
 #### BUT WAIT!
 # Blues Control "Opium Den / Fade to Blue"
-  # Don't split on standard splitting characters if they occur within quotation marks.
+# Don't split on standard splitting characters if they occur within quotation marks.
 # A Band Called "O" - Coasting
 # The Black Angels - "Bad Vibrations" Billboard Tastemakers Session
 
@@ -139,18 +162,11 @@ end
 # Harlem Nocturne by Sam "The Man" Taylor
 # 'I FINK U FREEKY' by DIE ANTWOORD (Official)
 
-
   # album "b'lieve i'm goin down"
   # #SELFIE (Official Music Video) - The Chainsmokers
   # Ylvis - The Fox (What Does The Fox Say?) [Official music video HD]
   # Carlo Savina - Beat Ruggente [Italy, Psych-Beat] (1966)
   # HYUNA - 'Bubble Pop!' (Official Music Video)
-
-  def find_title_and_artist_hard_mode
-    title_patterns = [
-      /([^"]*)\s"([^"]*)"/i # St. Vincent[1] "Hello"[2]
-    ]
-  end
 
   def find_title_and_artist_in_description
     title_patterns =[
@@ -197,7 +213,7 @@ private
       arr << Regexp.new(Regexp.quote("[#{phrase}]"), Regexp::IGNORECASE)
       arr << Regexp.new(Regexp.quote("(#{phrase})"), Regexp::IGNORECASE)
     end
-    return arr
+    arr
   end
-
+  end
 end
