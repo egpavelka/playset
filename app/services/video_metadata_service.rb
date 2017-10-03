@@ -1,12 +1,13 @@
 class VideoMetadataService
-  # Methods available to multiple classes for handling data from external sources.
+  # Methods available to multiple classes for handling data
+  # from external sources.
   include LastFmLookupService
   attr_accessor :video, :title, :parsing, :autodata
 
   def initialize(params)
     @title = params[:title]
     @description = params[:description]
-    @autodata = Hash.new
+    @autodata = Hash[]
   end
 
   def perform
@@ -14,32 +15,31 @@ class VideoMetadataService
     find_year
     find_title_and_artist
     find_album
-    return data_hash
+    data_hash
   end
 
   def data_hash
     Hash[
-      :hint => {
-        title_hint: @title,
-        description_hint: @description
-      },
-      :metadata => {
+      hint: { title_hint: @title, description_hint: @description },
+      metadata: {
         title: @autodata[:title],
         artist: @autodata[:artist],
         album: @autodata[:album]
       },
-      :year_params => [@autodata[:year], '%Y']
+      year_params: [@autodata[:year], '%Y']
     ]
   end
 
-  # The easiest thing to find and remove from the title is the year (if present), since the format is almost always [YYYY] or (YYYY).  (Also check the description for a year.)
+  # The easiest thing to find and remove from the title is the year
+  # (if present), since the format is almost always [YYYY] or (YYYY).
+  # (Also check the description for a year.)
 
-  year_patterns = [ /[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i ] # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
+  year_patterns = [/[\[\(]([\d]{4})[\]\)]/, /\(c\)\s?([\d]{4})/i, /year\:\s([\d]{4})/i]
+  # [YYYY], (YYYY) # (C) YYYY # Year: YYYY
+
   def find_year
     year_patterns.each do |pattern|
-      unless @autodata[:year]
-        parse_year(pattern)
-      end
+      parse_year(pattern) unless @autodata[:year]
     end
   end
 
@@ -52,32 +52,32 @@ class VideoMetadataService
     end
   end
 
-# These are reliably classified as clutter, so they'll be removed whether they appear inside parentheses or not.
-extraneous_phrases = [ '1080p', '720p', 'audio only', 'clean version',  'full song', 'hd video', 'long version', 'lyric video', 'lyrics on screen', 'new song', 'new video', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'stereo version', 'videoclip', 'video clip', 'visualization', 'vizualizer', 'with lyrics', 'w/ lyrics', '+ lyric' ]
-# These can be legit, so they'll only be removed if they're inside parentheses.
-extraneous_words = ['audio', 'explicit', 'hd', 'lyrics', 'official', 'video']
+  # These are reliably classified as clutter, so they'll be removed
+  # whether they appear inside parentheses or not.
+  extraneous_words = %w[audio explicit hd lyrics official video]
 
-# Then check for the common phrases and patterns above.
-def clean_title
-  extraneous_phrases.each do |blah|
-    @title.gsub!(blah, '')
+  extraneous_phrases = ['1080p', '720p', 'audio only', 'clean version', 'full song', 'hd video', 'long version', 'lyric video', 'lyrics on screen', 'new song', 'new video', 'official audio', 'official hd video', 'official music video', 'official song', 'official video', 'stereo version', 'videoclip', 'video clip', 'visualization', 'vizualizer', 'with lyrics', 'w/ lyrics', '+ lyric']
+
+  # Then check for the common phrases and patterns above.
+  def clean_title
+    extraneous_phrases.each do |blah|
+      @title.gsub!(blah, '')
+    end
+    @title.strip!
   end
-  @title.strip!
-end
 
-# Dump empty matches
-def clean_results(arr)
-  arr.reject{|obj| obj.nil?}
-end
+  # Dump empty matches
+  def clean_results(arr)
+    arr.reject{|obj| obj.nil?}
+  end
 
-# Get rid of parentheses with junk if they're at the beginning or end of the title;
-def parse_parentheses(str)
-  check_parentheses(str).each do |match|
-    if extraneous_phrases.any? {|phrase| str.include?(phrase)} || extraneous_words.any? {|word| str == word}
-
+  # Get rid of parentheses with junk if they're at the beginning or end of the title;
+  def parse_parentheses(str)
+    check_parentheses(str).each do |match|
+      if extraneous_phrases.any? { |phrase| str.include?(phrase)} || extraneous_words.any? {|word| str == word }
+      end
     end
   end
-end
 
 def check_parentheses(str)
   parentheses = /[\[|\(][^\(\[\]\)]*[\]|\)]/
@@ -169,51 +169,35 @@ end
   # HYUNA - 'Bubble Pop!' (Official Music Video)
 
   def find_title_and_artist_in_description
-    title_patterns =[
-      /(track|song|single)\s"([\w\s]+)"/i,
-      /([\w\s]*)[\-\:\|]?"([\w\s]+)"/i,
-    ]
+    title_patterns =[/(track|song|single)\s"([\w\s]+)"/i, /([\w\s]*)[\-\:\|]?"([\w\s]+)"/i]
   end
 
   def find_album
     album_patterns = [[/"([\w\s]+)"\s(album|Album|ALBUM|LP|EP)/, 1], [/(album|Album|ALBUM|LP|EP)\s?[\:\|\-]*\s"?([\w\s]+)/, 2], [/"([\w\s]+\s(EP|LP))"/, 1]]
 
     album_patterns.each do |pattern_set|
-      unless @autodata[:album]
-        parse_album(*pattern_set)
-      end
+      parse_album(*pattern_set) unless @autodata[:album]
     end
   end
 
   def parse_album(pattern, i)
-    if @description.match(pattern)
-      @autodata[:album] = @description.match(pattern)[i].strip
-    end
-  end
-
-  def check_description_for_link
-    bandcamp_pattern = /[^#\&\?\/\s]*\.bandcamp\.com\/?[^#\&\?\/\s]*/i
-    soundcloud_pattern = /(soundcloud\.com\/?[^#\&\?\/\s\\]*)/i
-    if @description.match(bandcamp_pattern)
-      return BandcampService.new(url: @description.match(bandcamp_pattern)[1])
-    elsif @description.match(soundcloud_pattern)
-      return SoundcloudService.new(url: @description.match(soundcloud_pattern)[1])
+    return nil unless @description.scan(pattern)
+    @autodata[:album] = @description.match(pattern)[i].strip
   end
 
   def self.is_track?(title, duration)
-    return false if title.match(/[\[\(]full album[\]\)]/)
+    return false if title.scan(/[\[\(]full album[\]\)]/)
     duration <= 1200
   end
 
-private
+  private
 
   def extraneous_info
-    arr = Array.new
+    arr = Array[]
     extraneous_phrases.each do |phrase|
       arr << Regexp.new(Regexp.quote("[#{phrase}]"), Regexp::IGNORECASE)
       arr << Regexp.new(Regexp.quote("(#{phrase})"), Regexp::IGNORECASE)
     end
     arr
-  end
   end
 end
