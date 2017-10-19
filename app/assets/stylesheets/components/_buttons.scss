@@ -1,8 +1,18 @@
 .btn,
 .btn-primary,
 .submit-button {
+  border: $thin-border transparent;
   border-radius: 0;
-  background-color: $highlight-1;
-  font-family: $sans-serif-narrow-bold;
-  font-size: 1.35rem;
+  background-color: $background;
+  color: $text;
+  font-family: $sans-serif-narrow-bold-italic;
+  font-size: 1.5rem;
+
+  &:hover,
+  &:active {
+    border-radius: 0;
+    background-color: $background;
+    color: $text;
+    border: $thin-border $highlight-4;
+  }
 }

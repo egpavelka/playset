@@ -1,27 +1,35 @@
 @import 'config/MASTER';
 
 .error-list {
-  margin-bottom: 30px;
+  padding: 15px;
+  margin: 0;
 
   li {
     border: 0;
     color: $text;
-    list-style: square inside;
+    list-style: circle inside;
     margin-top: 5px;
+    font-size: .875rem;
+    color: #555555;
   }
 }
+.error-header {
+  color: black;
+}
 
-.alert {
+.alert,
+#error_explanation {
   background: $block-solid;
   border: $single-border $highlight-4;
   border-radius: 0;
   color: $gray;
-  margin: 20px auto 0;
+  margin: 20px auto;
   padding: 10px;
 }
 
-.alert-warning {
-  background: transparentize($highlight-2, .3);
+.alert-warning,
+#error_explanation {
+  background: transparentize($highlight-2, .95);
 }
 
 .debug_dump {

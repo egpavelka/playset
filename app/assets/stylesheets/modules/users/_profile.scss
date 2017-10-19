@@ -15,14 +15,23 @@
 }
 
 .profile-name {
-  font-family: $sans-serif-bold;
+  font-family: $sans-serif-narrow-bold;
   font-size: 1.2rem;
   margin-top: 10px;
   text-transform: none;
 }
 
-.profile-stats {
-  font-family: $sans-serif-narrow-light;
+.profile-stats .stats {
+  font-size: .875rem;
+  display:  flex;
+  flex-flow: row wrap;
+
+  a {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0 1 auto;
+    padding: 2px 5px;
+  }
 }
 
 .profile-name,
