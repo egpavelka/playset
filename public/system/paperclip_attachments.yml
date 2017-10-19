@@ -3,7 +3,7 @@
   :album_art:
   - :large
   - :medium
-:TrackSubmission:
-  :album_art:
-  - :large
-  - :medium
+:User:
+  :avatar:
+  - :icon
+  - :small

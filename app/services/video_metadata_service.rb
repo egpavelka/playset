@@ -70,8 +70,9 @@ class VideoMetadataService
     # Get rid of parentheses with junk if they're at the beginning or end
     # of the title;
     def parse_parentheses(str)
-      check_parentheses(str).each do |match|
-        if extraneous_phrases.any? { |phrase| match.include?(phrase) } || extraneous_words.any? { |word| match == word }
+      check_parentheses(str).each do |parenthetical|
+        if extraneous_phrases.any? { |phrase| parenthetical.match(phrase) }
+          str.gsub(parenthetical, '')
         end
       end
     end
@@ -87,20 +88,22 @@ class VideoMetadataService
   end
 
   def check_splitters(str)
-    splitters = /\s[[\-\|]|\/\/|\/]\s/
+    splitters = %r{/\s[[\-\|]|\/\/|\/]\s/}
     str.scan(splitters)
   end
+
   # Titles are often split by ' - ', ' | ', and ' / ' or ' // ';
-  # Assuming the first part is the artist name and the second is the title should catch most cases.
+  # Assuming the first part is the artist name and the second is the title
+  # should catch most cases.
   # Any time quotation marks are in the title
+
   def split_title
-    #
     quote = check_quotes(@title)[0]
     splits = check_splitters(@title)
-    # Split on the first 'split' character--as long as it's outside quotation marks
+    # Split on first 'split' character as long as it's outside quotation marks
     if splits
       if check_splitters(quote) && @title.index(/"/) < @title.index(splits[1])
-        splits.find {|split| @title.index(split, @title.rindex(/"/) + 1)}
+        splits.find { |split| @title.index(split, @title.rindex(/"/) + 1) }
       else
         # Treat as normal - splitter
       end
@@ -108,7 +111,8 @@ class VideoMetadataService
     elsif quotes
       # Treat as normal - quotes
       # split at quotes might result in three strings so deal with that here
-      # (maybe: if quote occurs at beginning of string, look for splitter or the word 'by' and grab artist there)
+      # (maybe: if quote occurs at beginning of string,
+      # look for splitter or the word 'by' and grab artist there)
     else
       # GIVE UP, MANUAL ENTRY
     end
