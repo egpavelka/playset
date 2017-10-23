@@ -1,4 +1,6 @@
 @import 'config/fonts/base-mysteria';
+@import 'config/fonts/base-din-next-cond';
+@import 'config/fonts/base-din-next';
 @import 'config/fonts/base-dharma-gothic';
 @import 'config/fonts/base-fabrikat-mono';
 @import 'config/fonts/base-halcyon';
@@ -30,6 +32,6 @@
   $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-@include sans-serif('Halcyon');
-@include sans-serif-narrow('Dharma Gothic');
+@include sans-serif('DIN Next');
+@include sans-serif-narrow('DIN Next Condensed');
 @include mono('Fabrikat Mono');

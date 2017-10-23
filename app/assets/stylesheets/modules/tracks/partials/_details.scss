@@ -43,6 +43,12 @@
     border: $thin-border $background;
     padding: 4px 4px 2px;
     text-transform: uppercase;
+
+    &:hover,
+    &:active {
+      color: $highlight-4;
+      border: $thin-border $highlight-4;
+    }
   }
 
   img {

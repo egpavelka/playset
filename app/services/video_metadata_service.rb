@@ -52,30 +52,21 @@ class VideoMetadataService
     end
   end
 
-
-
-  # Then check for the common phrases and patterns above.
-  def clean_title
-    extraneous_phrases.each do |blah|
-      @title.gsub!(blah, '')
-    end
-    @title.strip!
+  # Dump empty matches
+  def clean_results(arr)
+    # arr.reject{ |obj| obj.nil? }
+    arr.reject(&:nil?)
   end
 
-    # Dump empty matches
-    def clean_results(arr)
-      arr.reject{|obj| obj.nil?}
-``    end
-
-    # Get rid of parentheses with junk if they're at the beginning or end
-    # of the title;
-    def parse_parentheses(str)
-      check_parentheses(str).each do |parenthetical|
-        if extraneous_phrases.any? { |phrase| parenthetical.match(phrase) }
-          str.gsub(parenthetical, '')
-        end
+  # Get rid of parentheses with junk if they're at the beginning or end
+  # of the title;
+  def parse_parentheses(str)
+    check_parentheses(str).each do |parenthetical|
+      if extraneous_phrases.any? { |phrase| parenthetical.match(phrase) }
+        str.gsub(parenthetical, '')
       end
     end
+  end
 
   def check_parentheses(str)
     parentheses = /[\[|\(][^\(\[\]\)]*[\]|\)]/

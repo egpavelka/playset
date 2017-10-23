@@ -1,0 +1,36 @@
+// Regular
+$dn-reg: '/assets/din-next/DINNextLTPro-Regular';
+@font-face {
+  font-family: 'DIN Next';
+  src: font-url('#{$dn-reg}.otf');
+}
+// Regular Italic
+$dn-it: '/assets/din-next/DINNextLTPro-Italic';
+@font-face {
+  font-family: 'DIN Next Italic';
+  src: font-url('#{$dn-it}.otf');
+}
+// Light
+$dn-lt: '/assets/din-next/DINNextLTPro-Light';
+@font-face {
+  font-family: 'DIN Next Light';
+  src: font-url('#{$dn-lt}.otf');
+}
+// Light Italic
+$dn-lt-it: '/assets/din-next/DINNextLTPro-LightItalic';
+@font-face {
+  font-family: 'DIN Next Light Italic';
+  src: font-url('#{$dn-lt-it}.otf');
+}
+// Bold
+$dn-bd: '/assets/din-next/DINNextLTPro-Heavy';
+@font-face {
+  font-family: 'DIN Next Bold';
+  src: font-url('#{$dn-bd}.otf');
+}
+// Bold Italic
+$dn-bd-it: '/assets/din-next/DINNextLTPro-HeavyItalic';
+@font-face {
+  font-family: 'DIN Next Bold Italic';
+  src: font-url('#{$dn-bd-it}.otf');
+}

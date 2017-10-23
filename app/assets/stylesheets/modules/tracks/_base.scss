@@ -71,11 +71,8 @@
 .track-details,
 .track-info {
 
-  span {
+  > span {
     display: inline-block;
-
-    &:first-child {
-      padding-right: 5px;
-    }
+    padding: 5px 5px 0;
   }
 }

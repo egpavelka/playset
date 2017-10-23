@@ -37,16 +37,14 @@ header .navbar {
     }
 // For expanding menus
     section {
-      padding-bottom: 15px;
+      padding: 15px 0;
 
       div {
-        padding-right: .5rem;
-        padding-left: .5rem;
+        padding: 2px;
       }
 
       .dropdown-divider {
-        padding: 0;
-        margin: 0.3rem .5rem .5rem;
+        margin: 2px 0 0;
       }
     }
   }
@@ -74,12 +72,18 @@ header .navbar {
         // font-size: .9rem;
       }
     }
-    &:hover {
-      border-bottom: $single-border $highlight-3;
+    &:hover .nav-link {
+      // border-bottom: $single-border $highlight-3;
+      background-color: $highlight-2;
     }
 
-    &.active {
-      border-bottom: $single-border $highlight-1;
+    &.active .nav-link {
+      // border-bottom: $single-border $highlight-1;
+      background-color: $highlight-4;
     }
+  }
+
+  .collapse.show div:hover {
+    background-color: $highlight-3;
   }
 }
