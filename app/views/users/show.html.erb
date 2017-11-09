@@ -5,7 +5,7 @@
 </nav>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-md-3 col-lg-2">
     <img src="<%= @user.avatar.url(:thumb) %>" />
     <div class="profile-name"><%= @user.name %></div>
     <div class="profile-stats"><%= render "users/social/follow_stats" %></div>
@@ -17,12 +17,14 @@
   </div>
 
 
-<div class="col-xs-12 col-sm-7 ml-auto">
+<div class="col-xs-12 col-md-8 col-lg-9 mr-auto">
   <% if @user.tracks.any? %>
-    <ol>
+    <div class="row row-eq-height tracks-container">
       <%= render @tracks %>
-    </ol>
-    <%= will_paginate @tracks %>
+    </div>
+    <div class="row">
+      <%= will_paginate @tracks %>
+    </div>
   <% end %>
 </div>
 </div>

@@ -8,65 +8,65 @@ class SoundcloudService
 
   def initialize(params)
     @url = params[:url]
-    @data = self.call
+    @data = call
   end
 
   def call
     data = call_and_catch_errors('/resolve', url: @url)
-    page = DataGrabUtil::read_page(url)
-    return data.merge!(
-      :artwork_url => page.at_xpath("//meta[@property='og:image']").attributes['content'].value,
-      :hint => { title_hint: page.title, description_hint: data.description }
+    page = DataGrabUtil.read_page(url)
+    data.merge!(
+      artwork_url: page.at_xpath("//meta[@property='og:image']")
+      .attributes['content'].value,
+      hint: { title_hint: page.title, description_hint: data.description }
     )
   end
 
   def set_metadata
     Hash[
-      :hint => @data.hint,
-      :metadata => {
+      hint: @data.hint,
+      metadata: {
         title: @data.title,
         artist: @data.user['username'],
         album: @data.release,
-        media_path: @data.stream_url, # ENDPOINT ONLY! TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
+        media_path: @data.stream_url, # ENDPOINT ONLY!
+        # TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
       },
-      :year_params => [@data.release_year, '%Y'],
-      :album_art_params => @data.artwork_url
+      year_params: [@data.release_year, '%Y'],
+      album_art_params: @data.artwork_url
     ]
   end
 
   def is_track?
-    @data.kind == 'track'  && @data.sharing == 'public' && @data.streamable
+    @data.kind == 'track' && @data.sharing == 'public' && @data.streamable
   end
 
   def is_preview?
     @data.policy == 'SNIP'
   end
 
-private
+  private
 
   def private_client
-    Soundcloud.new({
-      :client_id => Rails.application.secrets.soundcloud_client_id,
-      :client_secret => Rails.application.secrets.soundcloud_client_secret })
+    Soundcloud.new(
+      client_id: Rails.application.secrets.soundcloud_client_id,
+      client_secret: Rails.application.secrets.soundcloud_client_secret
+    )
   end
 
   def public_client
     Soundcloud.new({
-      :client_id => Rails.application.secrets.soundcloud_public_client_id })
+      client_id: Rails.application.secrets.soundcloud_public_client_id  })
   end
 
   def call_and_catch_errors(endpoint, **args)
-     clients = [private_client, public_client]
-     call_client = clients[0]
+    clients = [private_client, public_client]
+    call_client = clients[0]
     begin
       call_client.get(endpoint, **args)
     rescue Soundcloud::ResponseError => e
       puts "Error: #{e.message}, Status Code: #{e.response.code}"
-      if call_client == clients[0]
-        call_client = clients[1]
-        retry
-      end
+      return unless call_client == clients[0]
+      call_client = clients[1] && retry
     end
   end
-
 end

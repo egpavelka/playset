@@ -1,0 +1,17 @@
+//
+$ars: '/assets/autorich-sans/AutorichSans';
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url('#{$ars}.otf'),
+       font-url('#{$ars}.woff'),
+       font-url('#{$ars}.woff2');
+}
+
+// Light
+$ars-lt: '/assets/autorich-sans/AutorichSansLite';
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url('#{$ars-lt}.otf'),
+       font-url('#{ars-lt}.woff'),
+       font-url('#{ars-lt}.woff2');
+}

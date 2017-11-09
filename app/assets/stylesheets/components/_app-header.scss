@@ -4,12 +4,15 @@ header {
 
 .ps-app-title {
   // box-shadow: 8px 10px 0 -2px $highlight-1;
-  font-family: 'Mysteria', sans-serif;
+  font-family: 'Autorich Sans', sans-serif;
   font-size: 2.75rem;
   text-transform: uppercase;
-  letter-spacing: .3rem;
   padding: 0;
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
+}
+
+.navbar-brand {
+  line-height: normal;
 }

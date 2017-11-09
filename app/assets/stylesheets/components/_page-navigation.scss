@@ -2,7 +2,7 @@
 
 .page-nav {
   margin-top: 10px;
-  align-items: baseline;
+  align-items: flex-start;
 
   button.navbar-toggler {
     font-size: 1.3rem;
@@ -19,22 +19,9 @@
     margin: 5px;
 
     .nav-link {
-      border: $single-border $gray-400;
+      @include narrow-bold-caps-border(1.1rem, $text, $highlight-3);
       background-color: $white;
-      color: $text;
-      font-family: $sans-serif-narrow-bold;
-      font-size: 1.1rem;
-      letter-spacing: .04rem;
-      padding: 3px 10px 2px;
-      text-transform: uppercase;
-    }
-
-    &.active .nav-link {
-      border: $single-border $highlight-2;
-    }
-
-    &:hover .nav-link {
-      border: $single-border $highlight-3;
+      border: $single-border $gray-400;
     }
   }
 }

@@ -1,9 +1,8 @@
-@import 'config/fonts/base-mysteria';
-@import 'config/fonts/base-din-next-cond';
-@import 'config/fonts/base-din-next';
-@import 'config/fonts/base-dharma-gothic';
+@import 'config/fonts/base-fenomen-sans-cond';
+@import 'config/fonts/base-fenomen-sans';
 @import 'config/fonts/base-fabrikat-mono';
-@import 'config/fonts/base-halcyon';
+@import 'config/fonts/base-mysteria';
+@import 'config/fonts/base-autorich-sans';
 
 @mixin mono($font) {
   $mono: '#{$font}' !global;
@@ -32,6 +31,6 @@
   $sans-serif-narrow-bold-italic: '#{$font} Bold Italic' !global;
 }
 
-@include sans-serif('DIN Next');
-@include sans-serif-narrow('DIN Next Condensed');
+@include sans-serif('Fenomen Sans');
+@include sans-serif-narrow('Fenomen Sans Condensed');
 @include mono('Fabrikat Mono');

@@ -11,15 +11,15 @@
 
 .track-title {
   font-family: $sans-serif-bold-italic;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   // padding: 2px 7px 2px;
 }
 
 .track-artist {
   font-family: $sans-serif-narrow;
-  font-size: 1.875rem;
-  line-height: 1.875rem;
+  font-size: 1.5rem;
+  // line-height: 1.75rem;
   padding-bottom: 5px;
   margin-top: 15px;
   text-transform: lowercase;
@@ -27,7 +27,6 @@
 
 .track-album-info {
   margin-top: 10px;
-
 }
 
 .track-album {
@@ -37,6 +36,6 @@
 .track-year {
   font-family: $sans-serif-bold-italic;
   font-size: .875rem;
-  margin-bottom: 4px;
-  padding: 4px 4px 0;
+  // margin-bottom: 4px;
+  // padding: 4px 4px 0;
 }

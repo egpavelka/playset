@@ -1,3 +1,10 @@
+.embedded-service,
+.track-details {
+  a {
+    @include mono-bold-caps-border(.75rem, $background, $highlight-4);
+  }
+}
+
 .track-details {
   background-color: $text;
   color: $background;
@@ -6,10 +13,6 @@
   letter-spacing: -.04rem;
   margin: 25px 0 0;
   padding: 5px 20px 8px 15px;
-
-  a {
-    padding: 2px 4px 4px;
-  }
 }
 
 .track-base {
@@ -35,20 +38,6 @@
     font-size: .8rem;
     color: $highlight-3;
     text-transform: uppercase;
-  }
-
-  a {
-    font-family: $mono-bold;
-    color: $background;
-    border: $thin-border $background;
-    padding: 4px 4px 2px;
-    text-transform: uppercase;
-
-    &:hover,
-    &:active {
-      color: $highlight-4;
-      border: $thin-border $highlight-4;
-    }
   }
 
   img {

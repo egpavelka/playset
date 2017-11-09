@@ -6,33 +6,33 @@ class BandcampService
 
   def initialize(params)
     @url = params[:url]
-    @data = self.call
+    @data = call
   end
 
   def call
-    @base_page = DataGrabUtil::read_page(@url)
+    @base_page = DataGrabUtil.read_page(@url)
     @player_url = xpath_meta_property('og:video')
     data = scrape_player
-    return data.merge(
-      :hint => {
+    data.merge(
+      hint: {
         title_hint: xpath_meta_property('og:title'),
         description_hint: xpath_meta_property('og:description')
       },
-      :kind => xpath_meta_property('og:type')
+      kind: xpath_meta_property('og:type')
     )
   end
 
   def set_metadata
     Hash[
-      :hint => @data[:hint],
-      :metadata => {
+      hint: @data[:hint],
+      metadata: {
         title: @data[:tracks][0][:title],
         artist: @data[:artist],
         album: @data[:album_title],
         media_path: @data[:tracks][0][:file].values.last
       },
-      :year_params => [@data[:publish_date], '%d %b %Y'],
-      :album_art_params => @data[:album_art_lg]
+      year_params: [@data[:publish_date], '%d %b %Y'],
+      album_art_params: @data[:album_art_lg]
     ]
   end
 
@@ -53,12 +53,11 @@ class BandcampService
 
   def scrape_player
     var_pattern = /var\splayerdata\s=\s(.*)\;\s*var/i
-    track = DataGrabUtil::read_page(@player_url)
-    scripts = track.xpath("//head//script")
+    track = DataGrabUtil.read_page(@player_url)
+    scripts = track.xpath('//head//script')
     content_script = scripts.last.children[0].content.strip
     player_data = content_script.match(var_pattern)[1]
     player_data.gsub!('null', 'nil')
-    return eval(player_data)
+    eval(player_data)
   end
-
 end

@@ -6,9 +6,10 @@
 
 // index
 .tracks-container {
-  &.row {
-    margin-left: -15px;
-    margin-right: -15px;
+  &.col-xs-12,
+  &.col-md-6,
+  &.col-lg-4 {
+    min-width: 290px;
   }
 }
 
