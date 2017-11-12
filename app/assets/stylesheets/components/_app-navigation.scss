@@ -18,6 +18,7 @@ header .navbar {
     position: fixed;
     top: 15px;
     right: 0;
+    border-radius: 0;
 
     i {
       color: $gray-400;
@@ -58,12 +59,14 @@ header .navbar {
   }
 
   .nav-item {
+    padding: .5rem 1rem .25rem;
+    
     .nav-link {
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-end;
       align-items: baseline;
-      padding: 0.5rem 1rem .25rem;
+      padding: 0;
       font-family: $sans-serif-bold;
       font-size: 1.2rem;
 
@@ -83,7 +86,9 @@ header .navbar {
     }
   }
 
-  .collapse.show div:hover {
-    background-color: $highlight-3;
+  .collapse.show {
+    div:hover {
+      background-color: $highlight-3;
+    }
   }
 }

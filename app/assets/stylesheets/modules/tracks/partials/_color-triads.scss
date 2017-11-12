@@ -1,60 +1,51 @@
-@mixin track-color-triads($backer-val, $highlight-val, $shadow-val) {
+@mixin track-color-triads($fg-val, $bg-val, $play-val) {
   .track-info {
     > span {
-      color: $highlight-val;
-      background-color: transparentize($backer-val, 0.4);
-      box-shadow: 5px 6px 0 transparentize($shadow-val, 0.6);
+      color: $text;
+      border: 3px solid $text;
+      background-color: transparentize($fg-val, 0.2);
+      box-shadow: 3px 3px 0 transparentize($bg-val, 0.1),
+                  6px 6px 0 $text;
     }
   }
 
-  .track-details {
-      box-shadow: 5px 6px 0 transparentize($shadow-val, 0.6);
-    // a {
-    //   color: $highlight-val;
-    //   background-color: $backer-val;
-    // }
+  &.playing .track-overlay {
+    background-color: transparentize($play-val, .6);
   }
 }
 
-// coral, fuchsia, strawberry, blush
-// lapis, sky, ice
-// forest, turquoise, sunshine, citrine
-
 $color-triad-groups: (
-  $blush: (
-    $strawberry: $coral,
-    $forest: $fuchsia
-  ),
-  $forest: (
-    $citrine: $fuchsia
+  $blue: (
+    $green: $pink,
+    $gold: $fuchsia,
+    $lavender: $red
   ),
   $fuchsia: (
-    $citrine: $lapis,
-    $turquoise: $citrine
+    $green: $red,
+    $lavender: $red,
+    $aqua: $lapis,
+    $gold: $green,
+    $orange: $blue
   ),
-  $lapis: (
-    $blush: $strawberry,
-    $strawberry: $coral
+  $red: (
+    $gold: $fuchsia,
+    $blue: $pink,
+    $orange: $lavender,
+    $lavender: $green
   ),
-  $strawberry: (
-    $ice: $lapis,
-    $turquoise: $citrine
-  ),
-  $sky: (
-    $blush: $fuchsia
-  ),
-  $turquoise: (
-    $fuchsia: $blush,
-    $coral: $fuchsia
+  $pink: (
+    $green: $fuchsia,
+    $blue: $red,
+    $gold: $blue
   )
 );
 
 $i: 1;
 
-@each $base, $list in $color-triad-groups {
-  @each $text, $box-shadow in $list {
+@each $front, $list in $color-triad-groups {
+  @each $back, $playing in $list {
     .color-scheme-#{$i} {
-      @include track-color-triads($base, $text, $box-shadow);
+      @include track-color-triads($front, $back, $playing);
     }
     $i: $i + 1;
   }

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib".freeze]
   s.authors = ["Boris".freeze]
   s.bindir = "exe".freeze
-  s.date = "2017-10-01"
+  s.date = "2017-11-11"
   s.description = "Temp".freeze
   s.email = ["boristoet80@gmail.com".freeze]
   s.files = [".gitignore".freeze, ".rspec".freeze, ".travis.yml".freeze, "CODE_OF_CONDUCT.md".freeze, "Gemfile".freeze, "LICENSE.txt".freeze, "README.md".freeze, "Rakefile".freeze, "bin/console".freeze, "bin/setup".freeze, "fixtures/vcr_cassettes/vimeo-authenticated-user.yml".freeze, "fixtures/vcr_cassettes/vimeo-user-error.yml".freeze, "fixtures/vcr_cassettes/vimeo-user-videos-params.yml".freeze, "fixtures/vcr_cassettes/vimeo-user-videos.yml".freeze, "fixtures/vcr_cassettes/vimeo-user.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-comments-add.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-comments-delete.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-comments-edit.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-comments-view.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-comments.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-delete.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-error.yml".freeze, "fixtures/vcr_cassettes/vimeo-video-update.yml".freeze, "fixtures/vcr_cassettes/vimeo-video.yml".freeze, "lib/vimeo_me2.rb".freeze, "lib/vimeo_me2/base.rb".freeze, "lib/vimeo_me2/http/http_request.rb".freeze, "lib/vimeo_me2/http/oauth/verify.rb".freeze, "lib/vimeo_me2/user.rb".freeze, "lib/vimeo_me2/user/album.rb".freeze, "lib/vimeo_me2/user/category.rb".freeze, "lib/vimeo_me2/user/channel.rb".freeze, "lib/vimeo_me2/user/feed.rb".freeze, "lib/vimeo_me2/user/followers.rb".freeze, "lib/vimeo_me2/user/following.rb".freeze, "lib/vimeo_me2/user/groups.rb".freeze, "lib/vimeo_me2/user/likes.rb".freeze, "lib/vimeo_me2/user/upload.rb".freeze, "lib/vimeo_me2/user/videos.rb".freeze, "lib/vimeo_me2/version.rb".freeze, "lib/vimeo_me2/video.rb".freeze, "lib/vimeo_me2/video/comment.rb".freeze, "vimeo_me2.gemspec".freeze]
@@ -18,8 +18,6 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rubygems_version = "2.6.10".freeze
   s.summary = "Temp".freeze
-
-  s.installed_by_version = "2.6.10" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
