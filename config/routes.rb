@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  get '/submit', to: 'embeddeds#new'
+  get '/submit', to: 'tracks#submit'
   get '/submit/embed', to: 'embeddeds#new'
   get '/submit/upload', to: 'uploads#new'
   post '/submit/embed', to: 'embeddeds#create'

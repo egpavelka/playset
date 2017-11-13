@@ -2,8 +2,12 @@
 
 .page-nav {
   margin-top: 10px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
 
   button.navbar-toggler {
     font-size: 1.3rem;
@@ -20,9 +24,11 @@
     margin: 5px;
 
     .nav-link {
-      @include narrow-bold-caps-border(1.1rem, $text, $highlight-3);
-      background-color: $white;
-      border: $single-border $gray-400;
+      @extend %wavy-link;
+      font-family: $sans-serif-narrow-bold-italic;
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      letter-spacing: .07rem;
     }
   }
 }
