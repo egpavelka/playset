@@ -3,15 +3,14 @@ header {
 }
 
 .ps-app-title {
-  // box-shadow: 8px 10px 0 -2px $highlight-1;
-  font-family: 'Autorich Sans', sans-serif;
-  font-size: 3.5rem;
-  text-transform: uppercase;
-  padding: 0;
   display: flex;
-  justify-content: center;
   flex: 1 1 auto;
-  text-shadow: 2px 2px 0 $fuchsia, 4px 4px 0 $red;
+  font-family: 'Autorich Sans', sans-serif;
+  font-size: 3.75rem;
+  justify-content: flex-start;
+  padding: 0;
+  text-shadow: 3px 2px 0 $aqua, -3px -2px 0 $pink, 8px 7px $background, -8px -7px $background;
+  text-transform: uppercase;
 }
 
 .navbar-brand {

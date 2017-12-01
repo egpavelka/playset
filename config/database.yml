@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: playsette_dev
-  username: egpavelka
+  username: gigi
   password:
 
 # Warning: The database defined as "test" will be erased and

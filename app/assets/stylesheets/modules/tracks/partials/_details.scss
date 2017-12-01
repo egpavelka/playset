@@ -7,8 +7,8 @@
 
 .track-details {
   background-color: $text;
-  color: $background;
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
+  color: $background;
   font-size: .8rem;
   letter-spacing: -.04rem;
   margin: 25px 0 0;
@@ -17,26 +17,27 @@
 
 .track-base {
   align-items: baseline;
+  color: $background;
   flex-flow: row wrap;
   justify-content: space-between;
-  color: $background;
   margin: 0;
+  padding-top: 10px;
   width: 100%;
 
   > div {
-    margin-top: 10px;
+    // margin-top: 10px;
   }
 }
 
 .embedded-service {
   font-size: .7rem;
+  margin-right: 15px;
   min-width: 150px;
   padding: 0;
-  margin-right: 15px;
 
   .embedded-type {
-    font-size: .8rem;
     color: $highlight-3;
+    font-size: .8rem;
     text-transform: uppercase;
   }
 

@@ -17,8 +17,7 @@ class Track < ApplicationRecord
 
   # Album art managed by Paperclip; URL fetching with open-uri
   has_attached_file :album_art,
-                    styles: { medium: { geometry: '400x400>',
-                                        convert_options: '-colorspace Gray' },
+                    styles: { icon: { geometry: '300x300>' },
                               large: { geometry: '800x800>',
                                        convert_options: '-colorspace Gray' } },
                     content_type: { content_type: %r{/\Aimage\/.*\z/} },

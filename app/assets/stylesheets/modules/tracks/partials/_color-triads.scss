@@ -17,18 +17,18 @@
 $color-triad-groups: (
   $blue: (
     $green: $pink,
-    $gold: $fuchsia,
+    $yellow: $fuchsia,
     $lavender: $red
   ),
   $fuchsia: (
     $green: $red,
     $lavender: $red,
     $aqua: $lapis,
-    $gold: $green,
-    $orange: $blue
+    $yellow: $green,
+    $orchid: $blue
   ),
   $red: (
-    $gold: $fuchsia,
+    $yellow: $fuchsia,
     $blue: $pink,
     $orange: $lavender,
     $lavender: $green
@@ -36,7 +36,7 @@ $color-triad-groups: (
   $pink: (
     $green: $fuchsia,
     $blue: $red,
-    $gold: $blue
+    $yellow: $blue
   )
 );
 

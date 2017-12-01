@@ -60,6 +60,7 @@ setSoundcloudUrl() {
   }
 
   setStatesOnPause() {
+    // next_icon_by_type = this.props.
     this.setState({ isPlaying: false, nextAction: 'play' })
   }
 

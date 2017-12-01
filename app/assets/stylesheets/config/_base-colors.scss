@@ -2,35 +2,45 @@
 $white: #fff;
 $black: #000;
 
-$pink: #f09fb6;
-$fuchsia: #c807e6;
-$red: #f64444;
-$lapis: #1a0796;
-$blue: #2e71e7;
+// $fuchsia:  #b506c0;
+// $pink:     #ff2e93;
+// $red:      #ff4d4d;
+// $orange:   #e68135;
+// $yellow:   #ffe82a;
+// $green:    #adff33;
+// $aqua:     #3f9;
+// $blue:     #2e71e7;
+// $purple:   #3b00b3;
+// $lapis:    #50f;
+// $lavender: #a670db;
 
-$aqua: #6fdec8;
-$green: #29ab7d;
-
-$gold: #f7c246;
-$orange: #e68135;
-
-$lavender: #a670db;
-$purple: #41077a;
-
+$fuchsia:  #d400ff;
+$pink:     #fa58a6;
+$red:      #f66;
+$yellow:   #f9eb46;
+$green:    #adff33;
+$aqua:     #0be1b1;
+$blue:     #01b3f1;
+$lavender: #8870ee;
+$orchid:   #f7a1ee;
+// $navy:     #2e319c;
+$lapis:    #50f;
 
 // App scheme
 $background: $white;
 $text: $black;
 $block-solid: $white;
 $highlight-1: $fuchsia;
-$highlight-2: $blue;
-$highlight-3: $red;
+$highlight-2: $aqua;
+$highlight-3: $lapis;
 $highlight-4: $pink;
 
+$background-image: url('/assets/backgrounds/dots.png');
 
 // Set base
 body {
-  background-color: $background;
+  background: $background-image;
+  background-size: 130px;
   color: $text;
 }
 

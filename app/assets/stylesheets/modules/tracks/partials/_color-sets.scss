@@ -1,61 +1,25 @@
-@mixin track-color-triads($backer-val, $highlight-val, $shadow-val) {
+@mixin track-color-sets($pattern, $base) {
   .track-info {
     > span {
-      color: $highlight-val;
-      background-color: transparentize($backer-val, 0.4);
-      box-shadow: 5px 6px 0 transparentize($shadow-val, 0.6);
+      color: $text;
+      border: 3px solid $text;
+      background-image: url('/assets/backgrounds/patterns/dgl_#{$pattern}.png');
+      box-shadow: 3px 3px 0 transparentize($base, 0.1),
+                  6px 6px 0 $text;
     }
   }
-
-  .track-details {
-      box-shadow: 5px 6px 0 transparentize($shadow-val, 0.6);
-    // a {
-    //   color: $highlight-val;
-    //   background-color: $backer-val;
-    // }
-  }
 }
-
-// coral, fuchsia, strawberry, blush
-// lapis, sky, ice
-// forest, turquoise, sunshine, citrine
-
-$color-triad-groups: (
-  $blush: (
-    $strawberry: $coral,
-    $forest: $fuchsia
-  ),
-  $forest: (
-    $citrine: $fuchsia
-  ),
-  $fuchsia: (
-    $citrine: $lapis,
-    $turquoise: $citrine
-  ),
-  $lapis: (
-    $blush: $strawberry,
-    $strawberry: $coral
-  ),
-  $strawberry: (
-    $ice: $lapis,
-    $turquoise: $citrine
-  ),
-  $sky: (
-    $blush: $fuchsia
-  ),
-  $turquoise: (
-    $fuchsia: $blush,
-    $coral: $fuchsia
-  )
-);
+$color-list: ('fuchsia', 'pink', 'red', 'yellow', 'green', 'aqua', 'blue', 'lavender', 'orchid', 'lapis');
 
 $i: 1;
 
-@each $base, $list in $color-triad-groups {
-  @each $text, $box-shadow in $list {
-    .color-scheme-#{$i} {
-      @include track-color-triads($base, $text, $box-shadow);
+@each $base in $color-scheme {
+  @each $pattern in $color-scheme {
+    @if $pattern != $base {
+      .color-scheme-#{$i} {
+        @include track-color-sets($pattern, $base);
+      }
+      $i: $i + 1;
     }
-    $i: $i + 1;
   }
 }
