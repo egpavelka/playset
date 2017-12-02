@@ -17,27 +17,17 @@
 .track {
   display: flex;
   flex-flow: column nowrap;
-  // justify-content: stretch;
-  // align-items: stretch;
-}
-
-.track-container > div {
-  // @extend .col-xs-12;
-  // @extend .col-md-6;
-  // @extend .col-lg-4;
-  // height: 100%;
 }
 
 // individual track
 .track {
-  height: 100%;
   background-color: $text;
   border: $single-border $text;
+  height: 100%;
   margin: 10px 0;
   max-width: 830px;
   min-width: 290px;
   padding: 10px;
-  // z-index: -5;
 }
 
 .track-background {
@@ -46,9 +36,9 @@
 }
 
 .track-overlay {
+  justify-content: space-between;
   overflow: auto;
   padding: 20px 0;
-  justify-content: space-between;
 }
 
 // COMMON
@@ -70,8 +60,8 @@
 }
 
 .track-details {
-  max-height: fit-content;
   align-self: flex-end;
+  max-height: fit-content;
 }
 
 .track-details,
@@ -79,6 +69,6 @@
 
   > span {
     display: inline-block;
-    padding: 5px 5px 0;
+    padding: 5px 5px 2px;
   }
 }

@@ -1,5 +1,5 @@
 header .navbar {
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-between;
   margin-left: -15px;
   margin-right: -15px;
@@ -21,7 +21,7 @@ header .navbar {
     top: 15px;
 
     i {
-      color: $gray-400;
+      color: $pink;
     }
   }
 
@@ -53,30 +53,24 @@ header .navbar {
 }
 
 .app-menu {
+  flex: 3 0 auto;
   justify-content: flex-end;
 
   .navbar-nav {
     align-items: flex-end;
   }
 
-  %links-are-rows {
-    align-items: baseline;
-    display: flex;
-    flex-flow: row nowrap;
-    font-family: $sans-serif-bold;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    justify-content: flex-end;
-  }
-
   .nav-item {
-    @extend %links-are-rows;
-    // @extend %diagonal-link;
     @extend %wavy-link;
 
     .nav-link {
-      @extend %links-are-rows;
+      align-items: baseline;
+      display: flex;
+      flex-flow: row nowrap;
+      font-family: $sans-serif-bold;
       font-size: 1.2rem;
+      justify-content: flex-end;
+      line-height: 2rem;
       padding: 2px 2px 2px 5px;
 
       &.session-nav {
