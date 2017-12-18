@@ -10,9 +10,7 @@ class BandcampService
   end
 
   def call
-    @base_page = DataGrabUtil.read_page(@url)
-    @player_url = xpath_meta_property('og:video')
-    data = scrape_player
+    data = base_call
     data.merge(
       hint: {
         title_hint: xpath_meta_property('og:title'),
@@ -22,9 +20,16 @@ class BandcampService
     )
   end
 
+  # This is separate because it needs to be called
+  def base_call
+    @base_page = DataGrabUtil.read_page(@url)
+    @player_url = xpath_meta_property('og:video')
+    return scrape_player
+  end
+
   def set_metadata
     Hash[
-      hint: @data[:hint],
+      hint: @data[:hint],rack
       metadata: {
         title: @data[:tracks][0][:title],
         artist: @data[:artist],
@@ -59,5 +64,10 @@ class BandcampService
     player_data = content_script.match(var_pattern)[1]
     player_data.gsub!('null', 'nil')
     eval(player_data)
+
+    def self.get_media_link(url)
+      @url = url
+      return @data[:tracks][0][:file].values.last
+    end
   end
 end
