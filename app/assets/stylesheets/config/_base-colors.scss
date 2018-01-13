@@ -39,7 +39,7 @@ $background-image: url('/assets/backgrounds/dots.png');
 
 // Set base
 body {
-  background: #ffeffe;
+  background: $white;
   background-size: 130px;
   color: $text;
 }

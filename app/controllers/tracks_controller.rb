@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
-
+  require 'nokogiri'
+  
   def edit
     @track = Track.find(params[:id])
   end
@@ -24,6 +25,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    check_bandcamp
     @track = Track.find(params[:id])
     @user = User.find(@track.user_id)
   end
@@ -36,6 +38,25 @@ class TracksController < ApplicationController
 
   def track_params
     params.require(:track).permit(:playback, :title, :artist, :album, :year, :album_art)
+  end
+
+  def check_bandcamp
+    track = Track.find(params[:id])
+    if (track.media_type == 'Embedded') && (Embedded.find(track.media_id).source_service == 'Bandcamp')
+      # embed = Embedded.find(track.media_id)
+      begin
+        Nokogiri::HTML(open(track.media_path)) do
+          puts "ayy"
+          return
+        end
+      rescue OpenURI::HTTPError => e
+        puts e
+        new_call = BandcampService.new(url: url.source_path).base_call
+        new_media = new_call[:tracks][0][:file].values.last
+        track.media_path = new_media
+        track.save!
+      end
+    end
   end
 
 end

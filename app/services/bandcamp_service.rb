@@ -9,8 +9,16 @@ class BandcampService
     @data = call
   end
 
+  # Extract media player link from original url,
+  def base_call
+    @base_page = DataGrabUtil.read_page(@url)
+    @player_url = xpath_meta_property('og:video')
+    return scrape_player
+  end
+
   def call
     data = base_call
+    # merge with basic data from submitted url
     data.merge(
       hint: {
         title_hint: xpath_meta_property('og:title'),
@@ -20,16 +28,9 @@ class BandcampService
     )
   end
 
-  # This is separate because it needs to be called
-  def base_call
-    @base_page = DataGrabUtil.read_page(@url)
-    @player_url = xpath_meta_property('og:video')
-    return scrape_player
-  end
-
   def set_metadata
     Hash[
-      hint: @data[:hint],rack
+      hint: @data[:hint],
       metadata: {
         title: @data[:tracks][0][:title],
         artist: @data[:artist],
@@ -50,24 +51,20 @@ class BandcampService
     !@data[:exclusive_show_anywhere].nil?
   end
 
-  private
-
+  # Grab from meta tags in submitted url
   def xpath_meta_property(property)
     @base_page.at_xpath("//meta[@property='#{property}']").attributes['content'].value
   end
 
+  # Open media player url, parse javascript in header for all the media data
   def scrape_player
     var_pattern = /var\splayerdata\s=\s(.*)\;\s*var/i
     track = DataGrabUtil.read_page(@player_url)
     scripts = track.xpath('//head//script')
     content_script = scripts.last.children[0].content.strip
     player_data = content_script.match(var_pattern)[1]
+    # swap js for ruby
     player_data.gsub!('null', 'nil')
     eval(player_data)
-
-    def self.get_media_link(url)
-      @url = url
-      return @data[:tracks][0][:file].values.last
-    end
   end
 end

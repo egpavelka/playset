@@ -1,5 +1,5 @@
 class EmbeddedsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :update, :destroy]
+  before_action :logged_in_user, only: %i[new create update destroy]
 
   def new
     @embed = Embedded.new
