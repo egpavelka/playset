@@ -12,7 +12,11 @@ class BandcampService
   # Extract media player link from original url,
   def base_call
     @base_page = DataGrabUtil.read_page(@url)
-    @player_url = xpath_meta_property('og:video')
+    if @url.include?('/EmbeddedPlayer/v=2')
+      @player_url = @url
+    else
+      @player_url = xpath_meta_property('og:video')
+    end
     return scrape_player
   end
 

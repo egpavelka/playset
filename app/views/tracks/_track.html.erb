@@ -4,5 +4,5 @@
     user: User.find(track.user_id).username,
     media: track.media,
     albumArtPath: track.album_art.url(:large),
-    formattedTime: time_ago_in_words(track.updated_at) }) %>
+    formattedTime: time_ago_in_words(track.created_at) }) %>
 </div>

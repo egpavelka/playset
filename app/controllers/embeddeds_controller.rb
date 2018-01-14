@@ -15,12 +15,12 @@ class EmbeddedsController < ApplicationController
         else
           flash[:error] = @track.errors.full_messages
           @embed.destroy
-          render 'new'
+          redirect_to submit_path
         end
         EmbeddedsCleanupJob.set(wait: 1.hour).perform_later(@embed)
       else
-        flash[:error] = @embed.errors
-        render 'new'
+        flash[:error] = @embed.errors.full_messages[0]
+        redirect_to submit_path
       end
   end
 
