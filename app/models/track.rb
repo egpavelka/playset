@@ -60,6 +60,28 @@ class Track < ApplicationRecord
   def missing_metadata_error
   end
 
+  ##############################
+  # RELOAD EXPIRED BANDCAMP LINKS
+  # WHEN THEY ARE VIEWED
+  ###############################
+  after_find :check_bandcamp, only: [:show, :index]
+
+  def check_bandcamp
+    if (self.media_type == 'Embedded') && (Embedded.find(self.media_id).source_service == 'Bandcamp')
+      begin
+        Nokogiri::HTML(open(self.media_path)) do
+          return
+        end
+      rescue OpenURI::HTTPError => e
+        embed = Embedded.find(self.media_id)
+        new_call = BandcampService.new(url: embed.source_path).base_call
+        new_media = new_call[:tracks][0][:file].values.last
+        self.media_path = new_media
+        self.save!
+      end
+    end
+  end
+
   ####################
   # SOCIAL ATTRIBUTES:
   # LIKES AND COMMENTS
