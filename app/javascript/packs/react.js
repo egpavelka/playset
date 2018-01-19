@@ -7,6 +7,9 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+//= require jquery3
+//= require popper
+//= require bootstrap
 import '../application/bootstrap'
 
 console.log('w e b p a c k e r  i s  h e r e')

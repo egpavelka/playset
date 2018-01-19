@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   require 'nokogiri'
-  
+
   def edit
     @track = Track.find(params[:id])
   end
@@ -30,7 +30,7 @@ class TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.where(published: true).paginate(page: params[:page])
+    @tracks = Track.where(published: true).paginate(page: params[:page], per_page: 20)
   end
 
   private

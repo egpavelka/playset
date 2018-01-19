@@ -8,12 +8,12 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Re-add jquery ugh
 gem 'jquery-rails'
-# Autoprefixer
+# Autoprefixerbundl
 gem 'autoprefixer-rails', '>= 6.6.1'
 # Use SCSS for stylesheets
 # gem 'bootstrap-sass', '~> 3.3.7'
@@ -21,7 +21,7 @@ gem 'autoprefixer-rails', '>= 6.6.1'
 # Add paging to datasets
 gem 'will_paginate'
 # Use Bootstrap for modularity
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap'
 # Tooltips and popovers require tether
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
