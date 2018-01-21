@@ -26,7 +26,12 @@ form {
     }
 
     &:focus {
-      background: $background;
+      background-image: url('/assets/backgrounds/patterns/dgl_orchid.png');
+      background-size: 11px;
+      text-shadow: .07rem .07rem $background,
+                   -.07rem .07rem $background,
+                   -.07rem -.07rem $background,
+                   .07rem -.07rem $background;
       border: 0;
       outline: none;
     }
