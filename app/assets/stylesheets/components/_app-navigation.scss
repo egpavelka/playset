@@ -34,6 +34,7 @@ header .navbar {
         font-size: .8rem;
         margin-left: 5px;
         margin-right: 0;
+        padding: 10px 0;
       }
     }
 
@@ -61,9 +62,9 @@ header .navbar {
   }
 
   .nav-item {
-    @extend %wavy-link;
 
     .nav-link {
+      @extend %wavy-link;
       align-items: baseline;
       display: flex;
       flex-flow: row nowrap;
@@ -71,16 +72,17 @@ header .navbar {
       font-size: 1.2rem;
       justify-content: flex-end;
       line-height: 2rem;
-      padding: 2px 2px 2px 5px;
+      padding: 2px 10px;
 
       &.session-nav {
-        font-family: $mono-bold;
-        font-size: .8rem;
+       // font-family: $mono-bold;
+       //  font-size: .8rem;
       }
     }
   }
 
   .collapse.show {
+
     div:hover {
       background-color: $highlight-3;
     }

@@ -1,17 +1,19 @@
-<% if logged_in? %>
-  <li class="nav-item">
-    <a class="nav-link session-nav" data-toggle="collapse" href="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-      <i class="fa fa-user"></i> <%= current_user.username %>
-      <i class="fa fa-caret-down" aria-hidden="true"></i>
-    </a>
-    <section class="collapse" id="collapseUser">
+
+<li class="nav-item">
+  <a class="nav-link session-nav" data-toggle="collapse" href="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+    <i class="fa fa-user"></i>
+    <% if logged_in? %><%= current_user.username %><% end %>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  </a>
+  <section class="collapse" id="collapseUser">
+    <% if logged_in? %>
       <div><%= link_to "Profile", current_user %></div>
       <div><%= link_to "Settings", edit_user_path(current_user) %></div>
       <div class="dropdown-divider"></div>
       <div><%= link_to "Log out", logout_path, method: "delete" %></div>
-    </section>
-  </li>
-<% else %>
-  <li class="nav-item" style="margin-right: 0;"><%= link_to "Log in", login_path, class: 'nav-link session-nav' %> // <%= link_to "Sign up", signup_path, class: 'nav-link session-nav' %></li>
-  <li class="nav-item"></li>
-<% end %>
+    <% else %>
+      <div><%= link_to "Log in", login_path %></div>
+      <div> <%= link_to "Sign up", signup_path  %></div>
+    <% end %>
+  </section>
+</li>

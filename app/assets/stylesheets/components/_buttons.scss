@@ -13,6 +13,13 @@
     border-radius: 0;
     background-color: $background;
     color: $text;
-    border: $thin-border $highlight-4;
+    text-shadow: 3px 2px 0 $blue, -3px -2px 0 $pink;
+  }
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:link {
+    border: 0;
   }
 }
