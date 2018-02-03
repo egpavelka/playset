@@ -2,14 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Track from './Track'
 
-class Tracks extends React.Component {
+class TrackBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: 1,
-      tracksPerPage: 50,
-      hasTrackPlaying: false,
-      currentTrack: nil // id of track playing
+      playing: false,
+      currentTrack: nil,
+      trackList: nil
     }
   }
 
