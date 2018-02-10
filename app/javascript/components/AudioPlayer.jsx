@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PlayButton from './track/play_button'
-import { soundcloudPublicClientId } from '../assets/secrets'
+import { soundcloudPublicClientId } from '../constants/secrets'
 
 class AudioPlayer extends React.Component {
   constructor(props) {

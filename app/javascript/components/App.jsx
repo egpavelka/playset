@@ -1,8 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+// import actions
 import TrackList from './TrackList'
-import PlayerBar from './PlayerBar'
+import Playbar from './Playbar'
 
 const App = () => (
-  <div className="row row-eq-height tracks-container">
-  </div>
+  <section>
+    <TrackList />
+    <Playbar />
+  </section>
 )
+
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+      actions: bindActionCreators(actions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -45,6 +45,7 @@
     "webpacker-react": "^0.3.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "webpack-dev-server": "^2.6.1"
   }
 }

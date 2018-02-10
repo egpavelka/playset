@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Track from './Track'
 
-export default class PlayerBar extends React.Component {
+export default class Playbar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +25,7 @@ export default class PlayerBar extends React.Component {
   render() {
 
     return (
-      <div class="playerbar"></div>
+      <div class="playbar"></div>
     )
   }
 }
