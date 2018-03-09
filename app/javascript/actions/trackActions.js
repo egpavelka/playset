@@ -1,8 +1,4 @@
-import * as types from '../constants/actionTypes'
-
-export function setCurrent(track) {
-
-}
+import * as types from '../constants/actionTypes';
 
 export const playTrack = track => {
 
@@ -13,7 +9,7 @@ export const setAudio = () => {
     this._setSoundcloudUrl()
   } else {
     this.setState({ trackAudio: new Audio(this.props.track.media_path), audioLoaded: true }, () => { this._setListenersOnAudioLoad() })
-  }
+1  }
 }
 
 export function setListenersOnAudioLoad() {
@@ -24,8 +20,8 @@ export function setListenersOnAudioLoad() {
   )
 }
 
-export function setSoundcloudUrl() {
-  var callUrl = this.props.track.media_path + '?client_id=' +  soundcloudPublicClientId
+function setSoundcloudUrl() {
+    var callUrl = this.props.track.media_path + '?client_id=' +  soundcloudPublicClientId;
   fetch(callUrl)
   .then((response) => {
     this.setState({ trackAudio: new Audio(response.url),  audioLoaded: true },
