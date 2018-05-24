@@ -1,16 +1,13 @@
-import * from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';]
 
-const initialState = {
-  tracks: [],
-  currentTrack: {}
-};
+const initialState = [];
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    default:
-      return state;
-    
+    case actionTypes.TRACKS_SET:
+      return setTracks(state, action)
   }
+  return state;
 };
 
 export default rootReducer;

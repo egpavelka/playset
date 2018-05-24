@@ -31,4 +31,8 @@
 config/secrets.yml.key
 
 # Ignore JS secrets file
-# /app/javascript/constants/secrets.js
+/app/javascript/constants/secrets.js
+
+# Ignore projectile/org files
+/.projectile
+/*.org
