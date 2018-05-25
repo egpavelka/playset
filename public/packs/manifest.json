@@ -1,4 +1,26 @@
 {
-  "react.js": "http://0.0.0.0:8080/packs/react.js",
-  "server_rendering.js": "http://0.0.0.0:8080/packs/server_rendering.js"
+  "actions/message.js": "/packs/actions/message-7f141e8155f73f139913.js",
+  "actions/message.js.map": "/packs/actions/message-7f141e8155f73f139913.js.map",
+  "assets/stylesheets/app.css": "/packs/assets/stylesheets/app-d41d8cd98f00b204e9800998ecf8427e.css",
+  "assets/stylesheets/app.css.map": "/packs/assets/stylesheets/app-d41d8cd98f00b204e9800998ecf8427e.css.map",
+  "assets/stylesheets/app.js": "/packs/assets/stylesheets/app-87b86d6fc7915805ef81.js",
+  "assets/stylesheets/app.js.map": "/packs/assets/stylesheets/app-87b86d6fc7915805ef81.js.map",
+  "components/InputPreview.js": "/packs/components/InputPreview-06ad18d028478efa0c42.js",
+  "components/InputPreview.js.map": "/packs/components/InputPreview-06ad18d028478efa0c42.js.map",
+  "constants/index.js": "/packs/constants/index-a4cb59433bbb16333621.js",
+  "constants/index.js.map": "/packs/constants/index-a4cb59433bbb16333621.js.map",
+  "containers/App.js": "/packs/containers/App-9052d51a8714b8887e0f.js",
+  "containers/App.js.map": "/packs/containers/App-9052d51a8714b8887e0f.js.map",
+  "containers/about.js": "/packs/containers/about-ec05c4a48a7e35de7ff9.js",
+  "containers/about.js.map": "/packs/containers/about-ec05c4a48a7e35de7ff9.js.map",
+  "index.js": "/packs/index-1078fa176ed8e7e0ca1d.js",
+  "index.js.map": "/packs/index-1078fa176ed8e7e0ca1d.js.map",
+  "reducers/message.js": "/packs/reducers/message-99ca61a8a09458d5298f.js",
+  "reducers/message.js.map": "/packs/reducers/message-99ca61a8a09458d5298f.js.map",
+  "reducers/rootReducer.js": "/packs/reducers/rootReducer-7c141c577c4d267e68e3.js",
+  "reducers/rootReducer.js.map": "/packs/reducers/rootReducer-7c141c577c4d267e68e3.js.map",
+  "routes.js": "/packs/routes-fa499581571089f2a0b9.js",
+  "routes.js.map": "/packs/routes-fa499581571089f2a0b9.js.map",
+  "store.js": "/packs/store-4ca0d80f00f42605ce06.js",
+  "store.js.map": "/packs/store-4ca0d80f00f42605ce06.js.map"
 }

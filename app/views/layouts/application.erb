@@ -4,33 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title><%= full_title(yield(:title)) %></title>
+    <title>playsette</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'react', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
-
+    <%= javascript_pack_tag 'index' %>
+    <%= stylesheet_pack_tag 'assets/stylesheets/app' %>
     <!--[if lt IE 9]> <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"> </script> <![endif]-->
   </head>
 
   <body>
-    <div class="container-fluid">
-      <%= render 'layouts/main_header' %>
-      <section class="content-container">
-
-        <%= render 'layouts/menus/page_nav' %>
-
-        <% flash.each do |response_type, response| %>
-          <div class="card <%= flash_class(response_type) %>">
-            <%= response %>
-          </div>
-        <% end %>
-
-          <%= yield %>
-
-      </section>
-    </div> <!-- container/wrapper -->
-
+    <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
