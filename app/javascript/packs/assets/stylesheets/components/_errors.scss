@@ -1,0 +1,47 @@
+@import '../config/MASTER';
+@import '../vendor/bootstrap_variables';
+
+.error-list {
+  padding: 15px;
+  margin: 0;
+
+  li {
+    border: 0;
+    color: $text;
+    list-style: circle inside;
+    margin-top: 5px;
+    font-size: .875rem;
+    color: #555555;
+  }
+}
+.error-header {
+  color: black;
+}
+
+.alert,
+#error_explanation {
+  background: $block-solid;
+  border: $single-border $highlight-4;
+  border-radius: 0;
+  color: $gray;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.alert-warning,
+#error_explanation {
+  background: transparentize($highlight-2, .95);
+}
+
+.debug_dump {
+  background-color: transparentize($block-solid, .3);
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.field_with_errors {
+
+  label {
+    font-family: $sans-serif-bold-italic;
+  }
+}

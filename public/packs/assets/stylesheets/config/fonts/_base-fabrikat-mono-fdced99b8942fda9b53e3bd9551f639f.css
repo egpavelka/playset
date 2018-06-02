@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+
+/*# sourceMappingURL=_base-fabrikat-mono-fdced99b8942fda9b53e3bd9551f639f.css.map*/

@@ -1,0 +1,2437 @@
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Fabrikat Mono";
+}
+
+ol,
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.btn,
+.btn-primary,
+.submit-button {
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-color: #fff;
+  color: #000;
+  font-family: "Fenomen Sans Condensed Bold Italic";
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+.btn:hover,
+.btn:active,
+.btn-primary:hover,
+.btn-primary:active,
+.submit-button:hover,
+.submit-button:active {
+  border-radius: 0;
+  background-color: #fff;
+  color: #000;
+  text-shadow: 3px 2px 0 #02a9ea, -3px -2px 0 #fa58a6;
+}
+
+.btn:hover,
+.btn:active,
+.btn:visited,
+.btn:link,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:link,
+.submit-button:hover,
+.submit-button:active,
+.submit-button:visited,
+.submit-button:link {
+  border: 0;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.container-fluid {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.content-container {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 0 auto;
+          flex: 2 0 auto;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+header .navbar {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 0 15px;
+}
+
+header .navbar .navbar-brand,
+header .navbar .nav-item,
+header .navbar .dropdown-divider,
+header .navbar .navbar-toggler {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+header .navbar .navbar-toggler {
+  border-radius: 0;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 15px;
+}
+
+header .navbar .navbar-toggler i {
+  color: #fa58a6;
+}
+
+header .navbar .nav-item i {
+  margin-right: 10px;
+}
+
+header .navbar .nav-item i:last-child {
+  font-size: 12.8px;
+  font-size: .8rem;
+  margin-left: 5px;
+  margin-right: 0;
+  padding: 10px 0;
+}
+
+header .navbar .nav-item section {
+  padding: 15px 0;
+}
+
+header .navbar .nav-item section div {
+  padding: 2px;
+}
+
+header .navbar .nav-item section .dropdown-divider {
+  margin: 2px 0 0;
+}
+
+.app-menu {
+  -webkit-box-flex: 3;
+      -ms-flex: 3 0 auto;
+          flex: 3 0 auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.app-menu .navbar-nav {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.app-menu .nav-item .nav-link {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  font-family: "Fenomen Sans Bold";
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  line-height: 32px;
+  line-height: 2rem;
+  padding: 2px 10px;
+}
+
+.app-menu .collapse.show div:hover {
+  background-color: #50f;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+header {
+  margin-top: 15px;
+  border-bottom: 2px solid #000;
+}
+
+.ps-app-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 3 auto;
+          flex: 1 3 auto;
+  font-family: 'Autorich Sans', sans-serif;
+  font-size: 60px;
+  font-size: 3.75rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0;
+  text-shadow: 3px 2px 0 #02a9ea, -3px -2px 0 #fa58a6;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  line-height: normal;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.page-nav {
+  margin-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-nav .navbar-collapse {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.page-nav button.navbar-toggler {
+  font-size: 20.8px;
+  font-size: 1.3rem;
+  font-family: "Fenomen Sans Condensed Bold";
+  text-transform: uppercase;
+}
+
+.page-nav button.navbar-toggler i {
+  margin-left: 5px;
+  font-size: 12.8px;
+  font-size: .8rem;
+}
+
+.page-nav .nav-item {
+  margin: 5px;
+}
+
+.page-nav .nav-item .nav-link {
+  font-family: "Fenomen Sans Condensed Bold Italic";
+  text-transform: uppercase;
+  font-size: 20px;
+  font-size: 1.25rem;
+  letter-spacing: 1.12px;
+  letter-spacing: .07rem;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.page-header,
+.page-subheader {
+  font-size: 32px;
+  font-size: 2rem;
+}
+
+.page-header {
+  font-family: "Fenomen Sans";
+}
+
+.page-subheader {
+  font-family: "Fenomen Sans Condensed";
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.error-list {
+  padding: 15px;
+  margin: 0;
+}
+
+.error-list li {
+  border: 0;
+  color: #000;
+  list-style: circle inside;
+  margin-top: 5px;
+  font-size: 14px;
+  font-size: .875rem;
+  color: #555555;
+}
+
+.error-header {
+  color: black;
+}
+
+.alert,
+#error_explanation {
+  background: #fff;
+  border: 2px solid #faff00;
+  border-radius: 0;
+  color: #555555;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.alert-warning,
+#error_explanation {
+  background: rgba(2, 169, 234, .05);
+}
+
+.debug_dump {
+  background-color: rgba(255, 255, 255, .7);
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.field_with_errors label {
+  font-family: "Fenomen Sans Bold Italic";
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.app-menu .nav-item .active.nav-link,
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.app-menu .nav-item .nav-link:not(.active):hover,
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.pagination {
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+}
+
+.pagination a,
+.pagination span {
+  padding: 0 0.3em;
+}
+
+.pagination .disabled {
+  color: #aaaaaa;
+}
+
+.pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #02a9ea;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  border-radius: 1em;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: black;
+}
+
+.pagination a:hover,
+.pagination a:focus {
+  text-decoration: underline;
+}
+
+
+/*# sourceMappingURL=_MASTER-08260b2ab09a57050d1a5d7480e3d151.css.map*/

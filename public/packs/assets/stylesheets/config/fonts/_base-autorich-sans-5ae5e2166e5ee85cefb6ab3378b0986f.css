@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+
+/*# sourceMappingURL=_base-autorich-sans-5ae5e2166e5ee85cefb6ab3378b0986f.css.map*/

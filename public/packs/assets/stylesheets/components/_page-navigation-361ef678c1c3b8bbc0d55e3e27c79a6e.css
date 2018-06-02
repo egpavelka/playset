@@ -1,0 +1,251 @@
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.page-nav .nav-item .active.nav-link {
+  background-position: 0% 85%;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  background: #ff01fb;
+}
+
+.page-nav .nav-item .nav-link:not(.active):hover {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+}
+
+.page-nav {
+  margin-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-nav .navbar-collapse {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.page-nav button.navbar-toggler {
+  font-size: 20.8px;
+  font-size: 1.3rem;
+  font-family: "Fenomen Sans Condensed Bold";
+  text-transform: uppercase;
+}
+
+.page-nav button.navbar-toggler i {
+  margin-left: 5px;
+  font-size: 12.8px;
+  font-size: .8rem;
+}
+
+.page-nav .nav-item {
+  margin: 5px;
+}
+
+.page-nav .nav-item .nav-link {
+  font-family: "Fenomen Sans Condensed Bold Italic";
+  text-transform: uppercase;
+  font-size: 20px;
+  font-size: 1.25rem;
+  letter-spacing: 1.12px;
+  letter-spacing: .07rem;
+}
+
+
+/*# sourceMappingURL=_page-navigation-361ef678c1c3b8bbc0d55e3e27c79a6e.css.map*/

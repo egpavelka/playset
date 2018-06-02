@@ -1,0 +1,543 @@
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+/*
+    Display
+ */
+
+/*
+    Flex direction
+ */
+
+/*
+    Flex wrap
+ */
+
+/*
+    Flex flow
+ */
+
+/*
+    Order
+ */
+
+/*
+    Flex grow
+ */
+
+/*
+    Flex shrink
+ */
+
+/*
+    Flex basis
+ */
+
+/*
+    Flex
+ */
+
+/*
+    Justify content
+ */
+
+/*
+    Align items
+ */
+
+/*
+    Align self
+ */
+
+/*
+    Align content
+ */
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Condensed Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansXCNSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoRegular.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLight.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Light Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBold.otf");
+}
+
+@font-face {
+  font-family: 'Fabrikat Mono Bold Italic';
+  src: font-url("/assets/fabrikat-mono/FabrikatMonoBoldItalic.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria';
+  src: font-url("/assets/mysteria/Mysteria-Light.otf");
+}
+
+@font-face {
+  font-family: 'Mysteria Bold';
+  src: font-url("/assets/mysteria/Mysteria-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Autorich Sans';
+  src: font-url("/assets/autorich-sans/AutorichSans.otf"), font-url("/assets/autorich-sans/AutorichSans.woff"), font-url("/assets/autorich-sans/AutorichSans.woff2");
+}
+
+@font-face {
+  font-family: 'AutorichSansLite';
+  src: font-url("/assets/autorich-sans/AutorichSansLite.otf"), font-url("ars-lt.woff"), font-url("ars-lt.woff2");
+}
+
+body {
+  background: #fff;
+  background-size: 130px;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+form {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin: 50px auto;
+}
+
+form label {
+  color: #02a9ea;
+  font-family: "Fenomen Sans Bold";
+  font-size: 12.8px;
+  font-size: .8rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-transform: uppercase;
+}
+
+form input,
+form select {
+  border: 0;
+  font-family: "Fabrikat Mono";
+}
+
+form input::-webkit-input-placeholder,
+form select::-webkit-input-placeholder {
+  font-family: "Fabrikat Mono";
+}
+
+form input:-ms-input-placeholder,
+form select:-ms-input-placeholder {
+  font-family: "Fabrikat Mono";
+}
+
+form input::-ms-input-placeholder,
+form select::-ms-input-placeholder {
+  font-family: "Fabrikat Mono";
+}
+
+form input::placeholder,
+form select::placeholder {
+  font-family: "Fabrikat Mono";
+}
+
+form input:focus,
+form select:focus {
+  background-size: 40px;
+  text-shadow: 1.12px 1.12px #fff, -1.12px 1.12px #fff, -1.12px -1.12px #fff, 1.12px -1.12px #fff;
+  text-shadow: 0.07rem 0.07rem #fff, -0.07rem 0.07rem #fff, -0.07rem -0.07rem #fff, 0.07rem -0.07rem #fff;
+  border: 0;
+  outline: none;
+}
+
+form input:-webkit-autofill,
+form input:-webkit-autofil:focus,
+form select:-webkit-autofill,
+form select:-webkit-autofil:focus {
+  background-color: #fff;
+}
+
+form select {
+  background: #fff;
+  border-bottom: 2px solid #777777;
+}
+
+form select:focus {
+  border-bottom: 2px solid #02a9ea;
+}
+
+form input[type=text],
+form input[type=email],
+form input[type=password] {
+  border-bottom: 2px solid #777777;
+}
+
+form textarea.form-control {
+  border: 2px solid #777777;
+}
+
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form textarea.form-control {
+  width: 100%;
+}
+
+form input[type=text]:focus,
+form input[type=email]:focus,
+form input[type=password]:focus,
+form textarea.form-control:focus {
+  border-color: #02a9ea;
+}
+
+form .btn {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+form .col,
+form .col-4,
+form .col-sm-5,
+form .col-8,
+form .col-xs-12 {
+  padding: 0;
+}
+
+.form-control {
+  border: 0;
+  border-radius: 0;
+}
+
+.form-control-file {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin: 10px 0 30px;
+}
+
+small.form-text {
+  padding-top: 6px;
+}
+
+.embedded-form,
+.upload-form {
+  max-width: 350px;
+}
+
+.track-submission-form {
+  max-width: 500px;
+}
+
+.stretch-select-stack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 5px !important;
+}
+
+.stretch-select-stack select {
+  padding: 8px 12px;
+  padding: .5rem .75rem;
+}
+
+
+/*# sourceMappingURL=_track-a56c841e9dcea15a8b5c5def66d934d4.css.map*/

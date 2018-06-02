@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Fenomen Sans';
+  src: font-url("/assets/fenomen-sans/FenomenSansBook.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansBookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light';
+  src: font-url("/assets/fenomen-sans/FenomenSansLight.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Light Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBold.otf");
+}
+
+@font-face {
+  font-family: 'Fenomen Sans Bold Italic';
+  src: font-url("/assets/fenomen-sans/FenomenSansSemiBoldItalic.otf");
+}
+
+
+/*# sourceMappingURL=_base-fenomen-sans-56d33c2f247edffcc46478cf315ab74d.css.map*/

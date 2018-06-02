@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import InputPreview from '../components/InputPreview'
+import Header from '../components/Header'
 import { setMessage } from '../actions/message'
 import { connect } from 'react-redux'
 
@@ -11,7 +12,10 @@ class App extends Component {
   render () {
     const { message } = this.props.messageReducer
     return (
-      <InputPreview value={ message } onChange={ this._onChange }/>
+      <div>
+        <Header />
+        <InputPreview value={ message } onChange={ this._onChange }/>
+      </div>
     )
   }
 }
