@@ -1,0 +1,32 @@
+<%= render 'tracks/headers/submit_form' %>
+
+<%= form_for Embedded.new, html: { class: 'embedded-form active' } do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <% if logged_in? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :source_path, id: 'url_source', placeholder: 'URL' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
+
+<% end %>
+
+<%= form_for Upload.new, html: { class: 'upload-form', style: 'display:none' } do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.hidden_field :playback, value: 'Audio' %>
+
+  <li class="form-entry">
+    <%= f.label :submission_source, 'File' %>
+    <%= f.file_field :submission_source, id: 'upload-source' %>
+  </li>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
+
+<% end %>

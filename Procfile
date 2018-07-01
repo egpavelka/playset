@@ -1,2 +1,2 @@
-react: ./bin/webpack-dev-server --hot
-rails: rails s
+react: cd client && npm start
+rails: cd api && rails s

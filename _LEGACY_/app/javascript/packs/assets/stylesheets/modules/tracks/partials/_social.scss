@@ -1,0 +1,47 @@
+@import '../../../config/MASTER';
+
+.track-social {
+  padding: 0;
+
+  > div {
+    flex-wrap: nowrap;
+  }
+}
+
+.track-comment-button,
+.track-like-button {
+  background-color: $background;
+  color: $text;
+  height: 37px;
+  width: 37px;
+
+  &.fa {
+    font-size: 22px;
+  }
+}
+
+.track-comment-button {
+  padding-top: 6px;
+}
+
+.track-like-button {
+  padding-top: 10px;
+}
+
+.track-comment-count {
+  padding: 0 20px 0 5px;
+}
+
+.track-like-count {
+  padding: 0 0 0 5px;
+}
+
+.social-col {
+  align-items: center;
+  display: inline-flex;
+  flex-grow: 0;
+}
+
+.liked {
+  background-color: $highlight-2;
+}

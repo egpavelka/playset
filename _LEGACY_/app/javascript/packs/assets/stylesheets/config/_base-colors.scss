@@ -1,0 +1,41 @@
+// COLORS
+$white: #fff;
+$black: #000;
+
+$fuchsia:  #d400ff;
+$pink:     #fa58a6;
+$red:      #f66;
+// $yellow:   #faff00;
+$green:    #adff33;
+$aqua:     #0be1b1;
+// $blue:     #02a9ea;
+$lavender: #8870ee;
+$orchid:   #f7a1ee;
+$lapis:    #50f;
+
+$magenta: #ff01fb;
+$blue: #02a9ea;
+$yellow: #faff00;
+
+// App scheme
+$background: $white;
+$text: $black;
+$block-solid: $white;
+$highlight-1: $magenta;
+$highlight-2: $blue;
+$highlight-3: $lapis;
+$highlight-4: $yellow;
+
+$background-image: url('/assets/backgrounds/dots.png');
+
+// Set base
+body {
+  background: $white;
+  background-size: 130px;
+  color: $text;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+}

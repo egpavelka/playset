@@ -1,0 +1,245 @@
+  [1m[35m (578.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "playsette_test"[0m
+  [1m[35m (1711.3ms)[0m  [1m[35mCREATE DATABASE "playsette_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "alembic_version" CASCADE[0m
+  [1m[35m (94.4ms)[0m  [1m[35mCREATE TABLE "alembic_version" ("version_num" character varying(32) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "assigned_exercise" CASCADE[0m
+  [1m[35m (76.9ms)[0m  [1m[35mCREATE TABLE "assigned_exercise" ("id" serial NOT NULL PRIMARY KEY, "order" integer, "allow_subs" boolean, "target_sets" integer, "target_reps" integer)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (98.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" text, "commentable_type" character varying, "commentable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint)[0m
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commentable_type_and_commentable_id" ON "comments"  ("commentable_type", "commentable_id")[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "embeddeds" CASCADE[0m
+  [1m[35m (88.2ms)[0m  [1m[35mCREATE TABLE "embeddeds" ("id" bigserial primary key, "source_path" character varying, "source_service" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint)[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCREATE  INDEX  "index_embeddeds_on_user_id" ON "embeddeds"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "equipment" CASCADE[0m
+  [1m[35m (43.9ms)[0m  [1m[35mCREATE TABLE "equipment" ("id" serial NOT NULL PRIMARY KEY, "name" character varying(80), "has_weight" boolean)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "exercise" CASCADE[0m
+  [1m[35m (99.1ms)[0m  [1m[35mCREATE TABLE "exercise" ("id" serial NOT NULL PRIMARY KEY, "name" character varying(255), "image_url" character varying, "image_filename" character varying, "video_url" character varying, "is_public" boolean, "measure_by" character varying)[0m
+  [1m[35m (64.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "exercise_name_key" ON "exercise"  ("name")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "exercise_log" CASCADE[0m
+  [1m[35m (65.2ms)[0m  [1m[35mCREATE TABLE "exercise_log" ("id" serial NOT NULL PRIMARY KEY, "equipment" character varying(80), "sets" integer, "reps" integer, "is_substitution" boolean)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (64.8ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "follower_id" bigint, "followed_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (62.9ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_followed_id" ON "follows"  ("followed_id")[0m
+  [1m[35m (62.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_follows_on_follower_id_and_followed_id" ON "follows"  ("follower_id", "followed_id")[0m
+  [1m[35m (62.4ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_follower_id" ON "follows"  ("follower_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  [1m[35m (109.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "user_id" bigint, "likeable_type" character varying, "likeable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (62.5ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_likeable_type_and_likeable_id" ON "likes"  ("likeable_type", "likeable_id")[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_user_id" ON "likes"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (85.6ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "title" character varying, "artist" character varying, "album" character varying, "year" character varying, "album_art_file_name" character varying, "album_art_content_type" character varying, "album_art_file_size" integer, "album_art_updated_at" timestamp, "media_type" character varying, "media_id" bigint, "playback" character varying, "published" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint, "media_path" character varying)[0m
+  [1m[35m (53.9ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_media_type_and_media_id" ON "tracks"  ("media_type", "media_id")[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_user_id" ON "tracks"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "uploads" CASCADE[0m
+  [1m[35m (88.0ms)[0m  [1m[35mCREATE TABLE "uploads" ("id" bigserial primary key, "audio_file_name" character varying, "audio_content_type" character varying, "audio_file_size" integer, "audio_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "{:foreign_key=>true}_id" bigint)[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE  INDEX  "index_uploads_on_{:foreign_key=>true}_id" ON "uploads"  ("{:foreign_key=>true}_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user" CASCADE[0m
+  [1m[35m (109.7ms)[0m  [1m[35mCREATE TABLE "user" ("id" serial NOT NULL PRIMARY KEY, "email" character varying(255), "password" character varying(255), "username" character varying(40))[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "user_email_key" ON "user"  ("email")[0m
+  [1m[35m (52.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "user_username_key" ON "user"  ("username")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (108.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "name" character varying, "password_digest" character varying, "remember_digest" character varying, "activation_digest" character varying, "activated" boolean DEFAULT 'f', "activated_at" timestamp, "profile_bio" text, "admin" boolean DEFAULT 'f', "reset_digest" character varying, "reset_sent_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "workout" CASCADE[0m
+  [1m[35m (98.6ms)[0m  [1m[35mCREATE TABLE "workout" ("id" serial NOT NULL PRIMARY KEY, "image_url" character varying, "image_filename" character varying, "is_public" boolean)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "workout_log" CASCADE[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE TABLE "workout_log" ("id" serial NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.7ms)[0m  [1m[35mALTER TABLE "embeddeds" ADD CONSTRAINT "fk_rails_c0571f0e44"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.7ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.9ms)[0m  [1m[35mALTER TABLE "tracks" ADD CONSTRAINT "fk_rails_a9ae83adcc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (98.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170906025218)[0m
+  [1m[35m (10.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170704151428),
+(20170730061416),
+(20170730062300),
+(20170817174413),
+(20170704193411),
+(20170705160205),
+(20170808021437),
+(20170820120604),
+(20170730064119),
+(20170904104232),
+(20170730062408),
+(20170704215241),
+(20170704201303),
+(20170730061735),
+(20170704203915),
+(20170820113917),
+(20170803033835);
+
+[0m
+  [1m[35m (98.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-06-15 09:21:26.405126"], ["updated_at", "2018-06-15 09:21:26.405126"]]
+  [1m[35m (25.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.5ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "alembic_version" DISABLE TRIGGER ALL;ALTER TABLE "assigned_exercise" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "equipment" DISABLE TRIGGER ALL;ALTER TABLE "exercise" DISABLE TRIGGER ALL;ALTER TABLE "exercise_log" DISABLE TRIGGER ALL;ALTER TABLE "follows" DISABLE TRIGGER ALL;ALTER TABLE "uploads" DISABLE TRIGGER ALL;ALTER TABLE "user" DISABLE TRIGGER ALL;ALTER TABLE "workout" DISABLE TRIGGER ALL;ALTER TABLE "workout_log" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "embeddeds" DISABLE TRIGGER ALL;ALTER TABLE "tracks" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "tracks"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

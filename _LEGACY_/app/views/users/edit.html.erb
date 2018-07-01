@@ -1,0 +1,50 @@
+<%= render 'users/headers/edit' %>
+
+<%= form_for(@user, html: { class: 'user-profile-form' }) do |f| %>
+
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="page-subheader">
+    Edit your profile
+  </div>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :profile_bio, 'Bio' %>
+      <%= f.text_area :profile_bio, cols: 40, rows: 15, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :avatar %>
+      <% if @user.has_attribute?(:avatar) %>
+        <%= image_tag @user.avatar.url(:thumb), style: 'height: 80px; width: 80px;' %>
+      <% end %>
+      <%= f.file_field :avatar, class: 'form-control-file', prompt: 'Browse...' %>
+    </div>
+
+    <div class="page-subheader">
+      Account settings
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group row">
+      <div class="col-xs-12 col-sm-5">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="col-xs-12 col-sm-5 ml-auto">
+        <%= f.label :password_confirmation, 'Confirm password' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </div>
+
+    <%= f.submit 'Submit', class: 'btn btn-primary submit-button' %>
+
+  <% end %>

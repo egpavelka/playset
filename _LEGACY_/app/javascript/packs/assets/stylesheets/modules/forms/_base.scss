@@ -1,0 +1,104 @@
+@import '../../config/MASTER';
+@import '../../vendor/bootstrap_variables';
+
+form {
+  align-items: stretch;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 50px auto;
+
+  label {
+    color: $highlight-2;
+    font-family: $sans-serif-bold;
+    font-size: .8rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-transform: uppercase;
+  }
+
+////////////////////// FIELD TYPES //////////////////////
+  input,
+  select {
+    border: 0;
+    font-family: $mono;
+
+    &::placeholder {
+      font-family: $mono;
+    }
+
+    &:focus {
+      // background-image: url('/assets/backgrounds/patterns/dgl_lt_grey.png');
+      background-size: 40px;
+      text-shadow: .07rem .07rem $background,
+                   -.07rem .07rem $background,
+                   -.07rem -.07rem $background,
+                   .07rem -.07rem $background;
+      border: 0;
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofil:focus {
+      background-color: $background;
+    }
+  }
+
+  select {
+    background: $background;
+    border-bottom: $single-border $gray-light;
+
+    &:focus {
+      border-bottom: $single-border $highlight-2;
+    }
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    border-bottom: $single-border $gray-light;
+  }
+
+  textarea.form-control {
+    border: $single-border $gray-light;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  textarea.form-control {
+    width: 100%;
+
+    &:focus {
+      border-color: $highlight-2;
+    }
+  }
+
+  .btn {
+    align-self: flex-end;
+  }
+
+  .col,
+  .col-4,
+  .col-sm-5,
+  .col-8,
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+.form-control {
+  border: 0;
+  border-radius: 0;
+}
+
+.form-control-file {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin: 10px 0 30px;
+}
+
+small.form-text {
+  padding-top: 6px;
+}
