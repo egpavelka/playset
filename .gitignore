@@ -7,28 +7,19 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
-*/log/*
-*/tmp/*
-!/log/.keep
-!/tmp/.keep
-*/vendor/cache/*
-*/yarn-error.log
-
+/api/log/*
+/api/tmp/*
+!/api/log/.keep
+!/api/tmp/.keep
+/api/vendor/cache/*
 *.byebug_history
-# /public/packs
-*/node_modules
-
-# Ignore application configuration
-# /config/secrets.yml
-
-# Ignore encrypted secrets key file.
-*/config/secrets.yml.key
+/api/config/secrets.yml.key
 
 # Ignore projectile/org files
 /.projectile
 /*.org
+
+# Ignore JS
+/client/yarn.lock
+/client/node_modules/
