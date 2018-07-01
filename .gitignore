@@ -12,25 +12,22 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+*/log/*
+*/tmp/*
 !/log/.keep
 !/tmp/.keep
-/vendor/cache/*
-/yarn-error.log
+*/vendor/cache/*
+*/yarn-error.log
 
-.byebug_history
+*.byebug_history
 # /public/packs
-/node_modules
+*/node_modules
 
 # Ignore application configuration
 # /config/secrets.yml
 
 # Ignore encrypted secrets key file.
-config/secrets.yml.key
-
-# Ignore JS secrets file
-/app/javascript/constants/secrets.js
+*/config/secrets.yml.key
 
 # Ignore projectile/org files
 /.projectile
