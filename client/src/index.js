@@ -7,8 +7,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 const link = new HttpLink({
-  uri: '/graphql',
-  credentials: 'include'
+  uri: 'http://localhost:5100/graphql'
 })
 
 const client = new ApolloClient({
