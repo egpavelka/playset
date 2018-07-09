@@ -1,22 +1,19 @@
-class Types::QueryType < GraphQL::Schema::Object
-  # Add root-level fields here.
-  # They will be entry points for queries on your schema.
+# class Types::QueryType < Types::BaseObject
+#   graphql_name 'Query'
 
-  field :user, Types::UserType, null: true do
-    description "find a user by ID"
-    argument :id, ID, required: true
-  end
+#   field :users, Types::UserType, null: false, description: "test"
 
-  def user(id:)
-    User.find(id)
-  end
+#   def users
+#     return User.first
+#   end
+# end
 
-  field :users, [Types::UserType], null: true
+Types::QueryType = GraphQL::ObjectType.define do
+  name 'Query'
 
-  def users
-        User.all
+  # queries are just represented as fields
+  field :allUsers, !types[Types::UserType] do
+    # resolve would be called in order to fetch data for that field
+    resolve -> (obj, args, ctx) { User.all }
   end
 end
-
-# field :track, Types::TrackType, null: true do
-# end

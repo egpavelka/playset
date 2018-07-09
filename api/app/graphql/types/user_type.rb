@@ -1,7 +1,15 @@
-class Types::UserType < GraphQL::Schema::Object
-  field :id, ID, null: false
-  field :username, String, null: false
-  field :email, String, null: false
-  field :name, String, null: false
-  field :password_digest, String, null: false
+# class Types::UserType < Types::BaseObject
+#   graphql_name 'User'
+
+#   field :name, String, null: true
+#   field :username, String, null: true
+#   field :email, String, null: true
+# end
+
+Types::UserType = GraphQL::ObjectType.define do
+  name 'User'
+
+  field :id, !types.ID
+  field :username, !types.String
+  field :email, !types.String
 end

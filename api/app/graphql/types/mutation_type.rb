@@ -1,8 +1,8 @@
 class Types::MutationType < GraphQL::Schema::Object
+  graphql_name 'Mutation'
 
-  field :user, String, null: false,
-        description: "An example field added by the generator"
-  field :users, Types::UserType, null: false
+  field :test_field, String, null: false,
+        description: "An example field generator"
   def test_field
     "Hello World"
   end
