@@ -5,21 +5,21 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+.bundle
 
 # Ignore all logfiles and tempfiles.
-/api/log/*
-/api/tmp/*
-!/api/log/.keep
-!/api/tmp/.keep
-/api/vendor/cache/*
+api/log/*
+api/tmp/*
+!api/log/.keep
+!api/tmp/.keep
+api/vendor/cache/*
 *.byebug_history
-/api/config/secrets.yml.key
+api/config/secrets.yml.key
 
 # Ignore projectile/org files
-/.projectile
-/*.org
+.projectile
+*.org
 
 # Ignore JS
-/client/yarn.lock
-/client/node_modules/
+client/yarn.lock
+client/node_modules/
