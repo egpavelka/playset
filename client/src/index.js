@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloClient, HttpLink, InMemoryCache }  from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import App from './App'
+import App from './components/application/App'
 import registerServiceWorker from './registerServiceWorker'
 
 const link = new HttpLink({

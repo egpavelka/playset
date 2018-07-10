@@ -24,7 +24,7 @@ const TestComponent = () => (
       if (loading) return "Loading...";
       if (error) return `Error! ${ error.message }`;
        
-       return data.users.map(({ id, username }) => (
+       return data.allUsers.map(({ id, username }) => (
          <div key={id}>
          {`${id}: ${username}`}
          </div>
