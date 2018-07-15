@@ -1,21 +1,21 @@
 module EmbeddingUtil
-  def self.valid_bandcamp_format
+  def valid_bandcamp_format
     /^https?:\/\/[^#\&\?\/\s]*\.bandcamp\.com\/track\/[^#\&\?\/\s]*$/i
   end
-  def self.valid_soundcloud_format
+  def valid_soundcloud_format
     /^(https?:\/\/)?(www.|m\.)?soundcloud\.com\/[\w\-\.]+\/[\w\-\.]+$/i
   end
-  def self.valid_spotify_format
+  def valid_spotify_format
     /^(spotify:track:|https?:\/\/[a-z]+\.spotify\.com\/track\/)([^#\&\?\/]*)$/i
   end
-  def self.valid_vimeo_format
+  def valid_vimeo_format
     /^https?:\/\/vimeo\.com\/+([^#\&\?\/]*)/i
   end
-  def self.valid_youtube_format
+  def valid_youtube_format
     /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*)$/i
   end
 
-  def self.supported_sources
+  def supported_sources
     Hash[
       valid_bandcamp_format => 'Bandcamp',
       valid_soundcloud_format => 'Soundcloud',
@@ -23,6 +23,15 @@ module EmbeddingUtil
       valid_vimeo_format => 'Vimeo',
       valid_youtube_format => 'Youtube'
     ]
+  end
+
+  def self.set_source(url)
+    url_source = supported_sources.keys.detect { |valid_format| url.match(valid_format) }
+    if url_source
+      return supported_sources.fetch(url_source)
+    else
+      errors.add(:base, "The URL could not be matched to a track from a supported source.")
+    end
   end
 
 end

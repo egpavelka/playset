@@ -12,7 +12,7 @@ import gql from 'graphql-tag'
 
 const GET_USERS = gql `
     {
-        allUsers {
+        users {
             id
             username
         }
@@ -24,7 +24,7 @@ const TestComponent = () => (
       if (loading) return "Loading...";
       if (error) return `Error! ${ error.message }`;
        
-       return data.allUsers.map(({ id, username }) => (
+       return data.users.map(({ id, username }) => (
          <div key={id}>
          {`${id}: ${username}`}
          </div>
