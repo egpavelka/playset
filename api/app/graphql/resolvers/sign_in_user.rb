@@ -24,7 +24,7 @@ class Resolvers::SignInUser < GraphQL::Function
     ctx[:session][:token] = token
 
     OpenStruct.new({
-                     user:user,
+                     user: user,
                      token: token
                    })
   end

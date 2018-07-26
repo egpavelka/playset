@@ -40,4 +40,20 @@ class Track < ApplicationRecord
   # RETURN error (not a valid or supported url) or data from api
   #        -> populate next step in react form (metadata, preview)
   # VERIFY user approves details, new track object is created
+
+  def Track.test_this
+    Hash[
+      hint: "hello"
+    ]
+  end
+
+  # def check_url
+  #   # check for current user is in front-end logic
+  #   # since aggregated tracks will have auto-user
+  #   begin
+  #     EmbeddingUtil.set_source()
+  #   rescue =>
+  #         return "There was an error with your submission. Links must be to single tracks (not playlists, channels, or albums) from one of the supported services."
+  #   end
+  # end
 end
