@@ -23,3 +23,4 @@ api/config/secrets.yml.key
 # Ignore JS
 client/yarn.lock
 client/node_modules/
+client/.jsbeautifyrc

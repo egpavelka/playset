@@ -1,5 +1,5 @@
-class Resolvers::SignInUser < GraphQL::Function
-  argument :email, !Types::AuthProviderEmailInput
+class Resolvers::UserLogin < GraphQL::Function
+  argument :username, !Types::AuthProviderUsernameInput
 
   type do
     name 'SigninPayload'
@@ -9,11 +9,11 @@ class Resolvers::SignInUser < GraphQL::Function
   end
 
   def call(_obj, args, ctx)
-    input = args[:email]
+    input = args[:username]
 
     return unless input
 
-    user = User.find_by email: input[:email]
+    user = User.find_by username: input[:username]
 
     return unless user
     return unless user.authenticate(input[:password])

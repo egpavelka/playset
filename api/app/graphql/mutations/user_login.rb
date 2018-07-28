@@ -1,5 +1,5 @@
-class Mutations::LoginUser < GraphQL::Function
-  argument :email, !Types::AuthProviderEmailInput
+class Mutations::UserLogin < GraphQL::Function
+  argument :username, !Types::AuthProviderUsernameInput
 
   types Types::AuthenticateType
 
@@ -7,7 +7,7 @@ class Mutations::LoginUser < GraphQL::Function
     input = args[:email]
     return unless input
 
-    user = User.find_by(email: input[:email])
+    user = User.find_by(username: input[:username])
     return unless user
     return unless user.authenticate(input[:password])
 
