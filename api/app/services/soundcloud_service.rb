@@ -24,13 +24,11 @@ class SoundcloudService
   def set_metadata
     Hash[
       hint: @data.hint,
-      metadata: {
-        title: @data.title,
-        artist: @data.user['username'],
-        album: @data.release,
-        media_path: @data.stream_url, # ENDPOINT ONLY!
-        # TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
-      },
+      title: @data.title,
+      artist: @data.user['username'],
+      album: @data.release,
+      media_url: @data.stream_url, # ENDPOINT ONLY!
+      # TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
       year_params: [@data.release_year, '%Y'],
       album_art_params: @data.artwork_url
     ]

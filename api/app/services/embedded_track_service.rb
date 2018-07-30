@@ -4,10 +4,8 @@ class EmbeddedTrackService
   attr_accessor :service_object, :data
 
   def initialize(params)
-    @url = params[:source_path]
-    @service = "#{params[:source_service]}Service"
-    @user = params[:user_id]
-    puts @user
+    @url = params[:url]
+    @service = "#{params[:service]}Service"
   end
 
   def perform
@@ -40,11 +38,10 @@ class EmbeddedTrackService
   end
 
   def postprocess_metadata
-    @data[:metadata].merge!(
+    @data.merge!(
       year: set_year,
       album_art: set_album_art,
-      playback: detect_playback,
-      user_id: @user )
+      media_type: detect_playback)
   end
 
   def set_year

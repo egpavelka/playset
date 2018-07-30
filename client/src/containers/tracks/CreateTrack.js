@@ -13,7 +13,7 @@ const CHECK_TRACK_MUTATION = gql`
 `
 const CREATE_TRACK_MUTATION = gql`
 mutation CreateTrackMutation($submittedUrl: String!, $mediaUrl: !String, $title: String! $artist: String!, $album: String!, $year: String!, $sourceService: String!, $sourceServiceId: String!, $mediaType: String!, userId: String!) {
-  create_track(submittedUrl: $submittedUrl, mediaUrl: $mediaUrl, title: $title, artist: $artist, album: $album, year: $year, sourceService: $sourceService, sourceServiceId: $sourceServiceId, mediaType: $mediaType, userId: $userId) {
+  create_track(submitted_url: $submittedUrl, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, year: $year, source_service: $sourceService, source_service_id: $sourceServiceId, media_type: $mediaType, user_id: $userId) {
     // ...
   }
 }

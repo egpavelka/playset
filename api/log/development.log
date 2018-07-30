@@ -7359,3 +7359,127 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 0.3ms)
 
 
+Started POST "/graphql" for ::1 at 2018-07-27 21:28:57 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:28:59 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:29:00 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: $username, email: $email, name: $name, password: $password) {\n    token\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:29:15 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"IntrospectionQuery", "variables"=>{}, "query"=>"query IntrospectionQuery {\n  __schema {\n    queryType {\n      name\n    }\n    mutationType {\n      name\n    }\n    subscriptionType {\n      name\n    }\n    types {\n      ...FullType\n    }\n    directives {\n      name\n      description\n      locations\n      args {\n        ...InputValue\n      }\n    }\n  }\n}\n\nfragment FullType on __Type {\n  kind\n  name\n  description\n  fields(includeDeprecated: true) {\n    name\n    description\n    args {\n      ...InputValue\n    }\n    type {\n      ...TypeRef\n    }\n    isDeprecated\n    deprecationReason\n  }\n  inputFields {\n    ...InputValue\n  }\n  interfaces {\n    ...TypeRef\n  }\n  enumValues(includeDeprecated: true) {\n    name\n    description\n    isDeprecated\n    deprecationReason\n  }\n  possibleTypes {\n    ...TypeRef\n  }\n}\n\nfragment InputValue on __InputValue {\n  name\n  description\n  type {\n    ...TypeRef\n  }\n  defaultValue\n}\n\nfragment TypeRef on __Type {\n  kind\n  name\n  ofType {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n", "graphql"=>{"operationName"=>"IntrospectionQuery", "variables"=>{}, "query"=>"query IntrospectionQuery {\n  __schema {\n    queryType {\n      name\n    }\n    mutationType {\n      name\n    }\n    subscriptionType {\n      name\n    }\n    types {\n      ...FullType\n    }\n    directives {\n      name\n      description\n      locations\n      args {\n        ...InputValue\n      }\n    }\n  }\n}\n\nfragment FullType on __Type {\n  kind\n  name\n  description\n  fields(includeDeprecated: true) {\n    name\n    description\n    args {\n      ...InputValue\n    }\n    type {\n      ...TypeRef\n    }\n    isDeprecated\n    deprecationReason\n  }\n  inputFields {\n    ...InputValue\n  }\n  interfaces {\n    ...TypeRef\n  }\n  enumValues(includeDeprecated: true) {\n    name\n    description\n    isDeprecated\n    deprecationReason\n  }\n  possibleTypes {\n    ...TypeRef\n  }\n}\n\nfragment InputValue on __InputValue {\n  name\n  description\n  type {\n    ...TypeRef\n  }\n  defaultValue\n}\n\nfragment TypeRef on __Type {\n  kind\n  name\n  ofType {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"}}
+Completed 200 OK in 60ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:29:15 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"IntrospectionQuery", "variables"=>{}, "query"=>"query IntrospectionQuery {\n  __schema {\n    queryType {\n      name\n    }\n    mutationType {\n      name\n    }\n    subscriptionType {\n      name\n    }\n    types {\n      ...FullType\n    }\n    directives {\n      name\n      description\n      locations\n      args {\n        ...InputValue\n      }\n    }\n  }\n}\n\nfragment FullType on __Type {\n  kind\n  name\n  description\n  fields(includeDeprecated: true) {\n    name\n    description\n    args {\n      ...InputValue\n    }\n    type {\n      ...TypeRef\n    }\n    isDeprecated\n    deprecationReason\n  }\n  inputFields {\n    ...InputValue\n  }\n  interfaces {\n    ...TypeRef\n  }\n  enumValues(includeDeprecated: true) {\n    name\n    description\n    isDeprecated\n    deprecationReason\n  }\n  possibleTypes {\n    ...TypeRef\n  }\n}\n\nfragment InputValue on __InputValue {\n  name\n  description\n  type {\n    ...TypeRef\n  }\n  defaultValue\n}\n\nfragment TypeRef on __Type {\n  kind\n  name\n  ofType {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n", "graphql"=>{"operationName"=>"IntrospectionQuery", "variables"=>{}, "query"=>"query IntrospectionQuery {\n  __schema {\n    queryType {\n      name\n    }\n    mutationType {\n      name\n    }\n    subscriptionType {\n      name\n    }\n    types {\n      ...FullType\n    }\n    directives {\n      name\n      description\n      locations\n      args {\n        ...InputValue\n      }\n    }\n  }\n}\n\nfragment FullType on __Type {\n  kind\n  name\n  description\n  fields(includeDeprecated: true) {\n    name\n    description\n    args {\n      ...InputValue\n    }\n    type {\n      ...TypeRef\n    }\n    isDeprecated\n    deprecationReason\n  }\n  inputFields {\n    ...InputValue\n  }\n  interfaces {\n    ...TypeRef\n  }\n  enumValues(includeDeprecated: true) {\n    name\n    description\n    isDeprecated\n    deprecationReason\n  }\n  possibleTypes {\n    ...TypeRef\n  }\n}\n\nfragment InputValue on __InputValue {\n  name\n  description\n  type {\n    ...TypeRef\n  }\n  defaultValue\n}\n\nfragment TypeRef on __Type {\n  kind\n  name\n  ofType {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"}}
+Completed 200 OK in 71ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:56:06 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:56:30 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: {username: $username, password: $password}, email: $email, name: $name) {\n    token\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(username: {username: $username, password: $password}, email: $email, name: $name) {\n    token\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:57:14 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:57:29 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name) {\n    token\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"test", "email"=>"test@test.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name) {\n    token\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 21:59:37 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"mutation {\n  signup(authProvider: {\n    username:\"test\",\n    password:\"test\"\n  },\n  email:\"test\",\n  name:\"test\") {\n    id\n  }\n}", "variables"=>nil, "graphql"=>{"query"=>"mutation {\n  signup(authProvider: {\n    username:\"test\",\n    password:\"test\"\n  },\n  email:\"test\",\n  name:\"test\") {\n    id\n  }\n}", "variables"=>nil}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 22:00:11 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"mutation {\n  signup(authProvider: {\n    username:{\n      username:\"test\",\n      password:\"test\"\n    }\n  },\n  email:\"test\",\n  name:\"test\") {\n    id\n  }\n}", "variables"=>nil, "graphql"=>{"query"=>"mutation {\n  signup(authProvider: {\n    username:{\n      username:\"test\",\n      password:\"test\"\n    }\n  },\n  email:\"test\",\n  name:\"test\") {\n    id\n  }\n}", "variables"=>nil}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Create (64.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "test"], ["email", "test"], ["name", "test"], ["password_digest", "$2a$10$WUmSyxsz4eGZia2k3RCmqO6MGgLiyje.lV7aKAXhQyDWI971FmQte"], ["created_at", "2018-07-28 02:00:11.483158"], ["updated_at", "2018-07-28 02:00:11.483158"]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 156ms (Views: 0.2ms | ActiveRecord: 86.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-27 22:07:09 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"mutation {\n  signup(authProvider: {\n    username:{\n      username:\"test\",\n      password:\"test\"\n    }\n  },\n  email:\"test\",\n  name:\"test\") {\n    token\n  }\n}", "variables"=>nil, "graphql"=>{"query"=>"mutation {\n  signup(authProvider: {\n    username:{\n      username:\"test\",\n      password:\"test\"\n    }\n  },\n  email:\"test\",\n  name:\"test\") {\n    token\n  }\n}", "variables"=>nil}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-28 00:10:20 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-28 00:10:43 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"tester", "email"=>"test@tester.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name)\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"tester", "email"=>"test@tester.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name)\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-28 00:12:27 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-07-28 00:12:46 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"SignupMutation", "variables"=>{"username"=>"tester", "email"=>"test@tester.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name) {\n    id\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"SignupMutation", "variables"=>{"username"=>"tester", "email"=>"test@tester.com", "name"=>"test", "password"=>"[FILTERED]"}, "query"=>"mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {\n  signup(authProvider: {username: {username: $username, password: $password}}, email: $email, name: $name) {\n    id\n    __typename\n  }\n}\n"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@tester.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "tester"], ["email", "test@tester.com"], ["name", "test"], ["password_digest", "$2a$10$NFjWJ7LxgPY3Ae3cysUBQOdvWeDVv/wnrl8uMMLvAFyq8dRWUYAwa"], ["created_at", "2018-07-28 04:12:46.161922"], ["updated_at", "2018-07-28 04:12:46.161922"]]
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 115ms (Views: 0.3ms | ActiveRecord: 43.8ms)
+
+
+  [1m[36mTrack Load (36.1ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8343670822604057115)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveSourceServiceIdFromTracks (20180728072251)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.2ms)[0m  [1m[35mALTER TABLE "tracks" DROP COLUMN "source_service_id"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tracks" RENAME COLUMN "submitted_url" TO "url"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180728072251"]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (19.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8343670822604057115)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

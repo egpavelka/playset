@@ -16,7 +16,7 @@ class Resolvers::UserSignup < GraphQL::Function
       username: args[:authProvider][:username][:username],
       email: args[:email],
       name: args[:name],
-      password: args[:authProvider][:email][:password]
+      password: args[:authProvider][:username][:password]
     )
   end
 

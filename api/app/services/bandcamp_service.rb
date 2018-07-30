@@ -35,12 +35,10 @@ class BandcampService
   def set_metadata
     Hash[
       hint: @data[:hint],
-      metadata: {
-        title: @data[:tracks][0][:title],
-        artist: @data[:artist],
-        album: @data[:album_title],
-        media_path: @data[:tracks][0][:file].values.last
-      },
+      title: @data[:tracks][0][:title],
+      artist: @data[:artist],
+      album: @data[:album_title],
+      media_path: @data[:tracks][0][:file].values.last,
       year_params: [@data[:publish_date], '%d %b %Y'],
       album_art_params: @data[:album_art_lg]
     ]

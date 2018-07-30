@@ -25,7 +25,7 @@ module EmbeddingUtil
     ]
   end
 
-  def self.set_source(url)
+  def self.set_service(url)
     url_source = supported_sources.keys.detect { |valid_format| url.match(valid_format) }
     if url_source
       return supported_sources.fetch(url_source)

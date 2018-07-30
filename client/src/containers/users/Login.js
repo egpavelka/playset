@@ -7,9 +7,16 @@ import { Mutation } from 'react-apollo'
 
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {
-    signup(username: $username, email: $email, name: $name, password: $password) {
-      token
-    }
+    signup(authProvider: {
+      username: {
+        username: $username,
+        password: $password
+      }
+    },
+      email: $email,
+      name: $name) {
+        id
+      }
   }
 `
 
