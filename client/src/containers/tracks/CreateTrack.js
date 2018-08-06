@@ -1,79 +1,115 @@
 import React from 'react'
 import { Button, Form } from 'reactstrap'
-import FormInput from '../application/Forms/FormInput'
+import FormInput from '../../components/forms/FormInput'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 
-const CHECK_TRACK_MUTATION = gql`
-  mutation CheckTrackMutation($submittedUrl: String!) {
-    check_track(submittedUrl: $submittedUrl) {
-      // ...
+const NEW_TRACK_MUTATION = gql`
+  mutation NewTrackMutation($url: String!) {
+    new_track(url: $url) {
+      url
+      service
+      media_url
+      media_type
+      title
+      artist
+      album
+      year
     }
   }
 `
 const CREATE_TRACK_MUTATION = gql`
-mutation CreateTrackMutation($submittedUrl: String!, $mediaUrl: !String, $title: String! $artist: String!, $album: String!, $year: String!, $sourceService: String!, $sourceServiceId: String!, $mediaType: String!, userId: String!) {
-  create_track(submitted_url: $submittedUrl, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, year: $year, source_service: $sourceService, source_service_id: $sourceServiceId, media_type: $mediaType, user_id: $userId) {
-    // ...
-  }
-}
+  mutation CreateTrackMutation(
+    $url: String!,
+    $service: String!,
+    $mediaUrl: String!,
+    $mediaType: String!,
+    $title: String!
+    $artist: String!,
+    $album: String,
+    $year: Int) {
+      create_track(
+        url: $url,
+        service: $service,
+        media_type: $mediaType,
+        media_url: $mediaUrl,
+        title: $title,
+        artist: $artist,
+        album: $album,
+        year: $year) {
+          url
+        }
+    }
 `
 class CreateTrack extends React.Component {
   state = {
-    valid: '',
-    submittedUrl: '',
+    valid: false,
+    url: '',
     mediaUrl: '',
-    sourceService: '',
-    sourceServiceId: '',
+    service: '',
     mediaType: '',
-    userId: '',
     title: '',
     artist: '',
     album: '',
-    year: ''
+    year: null
   }
 
   render () {
-    const { submittedUrl, title, artist, album, year } = this.state
+    const { valid, url, mediaUrl, service, mediaType, title, artist, album, year } = this.state
     return (
       <Form>
+        <h4>{ valid ? 'Verify track information' : 'Submit track link'}</h4>
         {!valid && (
-           <FormInput fieldName='submittedUrl'
-                      label='url'
-                      value={ submittedUrl }
+           <FormInput fieldName='url'                  
+                      value={ url }
                       update={ e => this.setState(
-                          { submittedUrl: e.target.value })}/>
+                          { url: e.target.value })}/>
         )}
         {valid && (
-           <FormInput fieldName='title'
-                      value={ title }
-                      update={ e => this.setState(
-                          { title: e.target.value })}/>
-           <FormInput fieldName='artist'
-                      value={ artist }
-                      update={ e => this.setState(
-                          { artist: e.target.value })}/>
-           <FormInput fieldName='album'
-                      value={ album }
-                      update={ e => this.setState(
-                          { album: e.target.value })}/>
-           <FormInput fieldName='year'
-                      value={ year }
-                      update={ e => this.setState(
-                          { year: e.target.value })}/>
+           <section>
+             
+             <FormInput fieldName='title'
+                        value={ title }
+                        update={ e => this.setState(
+                            { title: e.target.value })}/>
+             <FormInput fieldName='artist'
+                        value={ artist }
+                        update={ e => this.setState(
+                            { artist: e.target.value })}/>
+             <FormInput fieldName='album'
+                        value={ album }
+                        update={ e => this.setState(
+                            { album: e.target.value })}/>
+             <FormInput fieldName='year'
+                        value={ year }
+                        update={ e => this.setState(
+                            { year: e.target.value })}/>
+           </section>
         )}
+
+        <Mutation mutation={ valid ? CREATE_TRACK_MUTATION : NEW_TRACK_MUTATION }
+                  variables={{ url, service, mediaUrl, mediaType, title, artist, album, year }}
+                  onCompleted={ data => this._confirm(data) }>
+          { mutation => (
+            <Button onClick={ mutation }>
+              {valid ? 'confirm' : 'submit'}
+            </Button>
+          )}
+        </Mutation>
+
       </Form>
     )
   }
 
   _confirm = async data => {
-    /* const { token } = this.state.login ? data.login : data.signup
-     * this._saveUserData(token)
-     * this.props.history.push(`/`)
-     */ }
 
-  _saveUserData = token => {
-    /* localStorage.setItem(AUTH_TOKEN, token)*/
+    if(!this.state.valid) {
+      var info = data.new_track
+
+      this.setState({ valid: true, url: info.url, mediaUrl: info.media_url, mediaType: info.media_type, service: info.service, title: info.title, artist: info.artist, album: info.album, year: info.year })
+    } else {
+      this.props.history.push('/')
+    }
   }
 }
 

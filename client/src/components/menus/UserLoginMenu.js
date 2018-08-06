@@ -4,7 +4,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap'
-import MainNavLink from './MainNavLink'
 import MainDropdownLink from './MainDropdownLink'
 import { AUTH_TOKEN } from '../../constants'
 

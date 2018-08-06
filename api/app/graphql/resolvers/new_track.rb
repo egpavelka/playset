@@ -1,30 +1,39 @@
 class Resolvers::NewTrack < GraphQL::Function
-  name 'NewTrack'
-
-  argument :id, !types.ID
   argument :url, !types.String
-  argument :media_url, !types.String
-  argument :service, !types.String
-  argument :media_type, !types.String
-  argument :title, !types.String
-  argument :artist, !types.String
-  argument :album, !types.String
-  argument :year, !types.Int
+  type do
+    name 'TrackPayload'
+    field :url, !types.String
+    field :media_url, !types.String
+    field :service, !types.String
+    field :media_type, !types.String
+    field :title, types.String
+    field :artist, types.String
+    field :album, types.String
+    field :year, types.Int
+  end
 
   # _obj is parent object (can be nil)
   # _ctx is graphql context
-  def call(_obj, args, _ctx)
-    service = EmbeddingUtil.set_service(args[:url])
-    track = EmbeddedTrackService.new(url: args[:url], service: service)
-    {
-      url: args[:url],
-      media_url:  track.media_url,
-      service: service,
-      media_type: track.media_type,
-      title: track.title,
-      artist: track.title,
-      album: track.album,
-      year: track.year_params
-    }
+  def call(obj, args, ctx)
+    url = args[:url]
+
+    return unless url
+
+    service = EmbeddingUtil.set_service(url)
+    # reject unrecognized url
+    return unless service
+
+    track = EmbeddedTrackService.new(url: url, service: service).perform
+
+    OpenStruct.new({
+                     url: url,
+                     service: service,
+                     media_url:  track[:media_url],
+                     media_type: track[:media_type],
+                     title: track[:title],
+                     artist: track[:artist],
+                     album: track[:album],
+                     year: track[:year]
+                   })
   end
 end

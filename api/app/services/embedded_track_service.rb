@@ -10,7 +10,7 @@ class EmbeddedTrackService
 
   def perform
     begin
-      call_source
+      call_source # create service object for the corresponding third party service 
       parse_data
     rescue => e
       # errors.add(:base, "Not a valid track resource.")
@@ -40,7 +40,8 @@ class EmbeddedTrackService
   def postprocess_metadata
     @data.merge!(
       year: set_year,
-      album_art: set_album_art,
+      # TODO: change code in track model to use active_storage rather than paperclip for file management
+      # album_art: set_album_art,
       media_type: detect_playback)
   end
 

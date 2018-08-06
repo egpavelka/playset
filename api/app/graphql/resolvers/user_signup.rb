@@ -5,8 +5,8 @@ class Resolvers::UserSignup < GraphQL::Function
     argument :username, Types::AuthProviderUsernameInput
   end
 
-  argument :email, !types.String
-  argument :name, !types.String
+  argument :email, types.String
+  argument :name, types.String
   argument :authProvider, !AuthProviderInput
 
   type Types::UserType

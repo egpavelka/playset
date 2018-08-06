@@ -243,6 +243,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   capybara
+  coderay (~> 1.1)
   graphiql-rails
   graphql
   httparty
@@ -263,9 +264,6 @@ DEPENDENCIES
   vimeo_me2!
   web-console
   yt
-
-RUBY VERSION
-   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.3

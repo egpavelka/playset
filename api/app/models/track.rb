@@ -15,10 +15,10 @@ class Track < ApplicationRecord
   # USER, SOURCE, MEDIA
   ####################
   validates :user_id, presence: true
-  validates :submitted_url, presence: true
+  validates :url, presence: true
 
-  validates :source_service, inclusion: { in: %w[bandcamp spotify soundcloud vimeo youtube] }
-  validates :media_type, inclusion: { in: %w[audio video preview] }
+  validates :service, inclusion: { in: %w[Bandcamp Spotify Soundcloud Vimeo Youtube] }
+  # validates :media_type, inclusion: { in: %w[audio video preview] }
   ####################
   # AFTER MEDIA SOURCE:
   # METADATA AND ARTWORK
@@ -33,27 +33,4 @@ class Track < ApplicationRecord
   #                                                     'image/gif',
   #                                                     'image/png'] }
 
-  # SUBMIT submitted_url
-  #        -> include current user id or return login/signup form
-  #        -> determine if it's a valid url for a supported service
-  #        -> if so, create service object to get data from external apis
-  # RETURN error (not a valid or supported url) or data from api
-  #        -> populate next step in react form (metadata, preview)
-  # VERIFY user approves details, new track object is created
-
-  def Track.test_this
-    Hash[
-      hint: "hello"
-    ]
-  end
-
-  # def check_url
-  #   # check for current user is in front-end logic
-  #   # since aggregated tracks will have auto-user
-  #   begin
-  #     EmbeddingUtil.set_source()
-  #   rescue =>
-  #         return "There was an error with your submission. Links must be to single tracks (not playlists, channels, or albums) from one of the supported services."
-  #   end
-  # end
-end
+ end

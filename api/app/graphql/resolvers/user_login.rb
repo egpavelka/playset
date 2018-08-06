@@ -8,7 +8,7 @@ class Resolvers::UserLogin < GraphQL::Function
     field :user, Types::UserType
   end
 
-  def call(_obj, args, ctx)
+  def call(obj, args, ctx)
     input = args[:username]
 
     return unless input
@@ -18,7 +18,7 @@ class Resolvers::UserLogin < GraphQL::Function
     return unless user
     return unless user.authenticate(input[:password])
 
-    crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base.byteslice(0..31))
+    crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
     token = crypt.encrypt_and_sign("user-id#{ user.id }")
 
     ctx[:session][:token] = token

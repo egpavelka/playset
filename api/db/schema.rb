@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_28_072251) do
+ActiveRecord::Schema.define(version: 2018_08_06_112719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,13 @@ ActiveRecord::Schema.define(version: 2018_07_28_072251) do
     t.string "title"
     t.string "artist"
     t.string "album"
-    t.string "source_service"
+    t.string "service"
     t.string "media_type"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "media_url"
+    t.integer "year"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

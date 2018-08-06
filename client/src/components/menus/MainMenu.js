@@ -8,7 +8,6 @@ import {
   Nav } from 'reactstrap'
 import UserLoginMenu from './UserLoginMenu'
 import MainNavLink from './MainNavLink'
-import MainDropdownLink from './MainDropdownLink'
 
 class MainMenu extends React.Component {
   constructor(props) {
@@ -26,12 +25,6 @@ class MainMenu extends React.Component {
     })
   }
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
-
   render() {
     return (
       <Navbar color="light" light expand="md">
@@ -39,7 +32,7 @@ class MainMenu extends React.Component {
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <MainNavLink endpoint="/login" title="login"/>
+            <MainNavLink endpoint="/submit" title="submit"/>
             <UserLoginMenu />
           </Nav>
         </Collapse>

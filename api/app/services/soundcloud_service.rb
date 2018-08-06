@@ -13,12 +13,12 @@ class SoundcloudService
 
   def call
     data = call_and_catch_errors('/resolve', url: @url)
-    page = DataGrabUtil.read_page(url)
-    data.merge!(
-      artwork_url: page.at_xpath("//meta[@property='og:image']")
-      .attributes['content'].value,
-      hint: { title_hint: page.title, description_hint: data.description }
-    )
+    # page = DataGrabUtil.read_page(url)
+    # data.merge!(
+    #   artwork_url: page.at_xpath("//meta[@property='og:image']")
+    #   .attributes['content'].value,
+    #   hint: { title_hint: page.title, description_hint: data.description }
+    # )
   end
 
   def set_metadata
@@ -46,18 +46,18 @@ class SoundcloudService
 
   def private_client
     Soundcloud.new(
-      client_id: Rails.application.secrets.soundcloud_client_id,
-      client_secret: Rails.application.secrets.soundcloud_client_secret
+      client_id: Rails.application.credentials[:soundcloud_client_id],
+      client_secret: Rails.application.credentials[:soundcloud_client_secret]
     )
   end
 
   def public_client
     Soundcloud.new({
-      client_id: Rails.application.secrets.soundcloud_public_client_id  })
+      client_id: Rails.application.credentials[:soundcloud_public_client_id]  })
   end
 
   def call_and_catch_errors(endpoint, **args)
-    clients = [private_client, public_client]
+    clients = [public_client, private_client]
     call_client = clients[0]
     begin
       call_client.get(endpoint, **args)

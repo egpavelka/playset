@@ -11,7 +11,7 @@ class VimeoService
 
   def call
     @video_id = url.match(EmbeddingUtil::valid_vimeo_format)[1]
-    return VimeoMe2::Video.new(Rails.application.secrets.vimeo_access_token, @video_id).video
+    return VimeoMe2::Video.new(Rails.application.credentials.vimeo_access_token, @video_id).video
   end
 
   def set_metadata

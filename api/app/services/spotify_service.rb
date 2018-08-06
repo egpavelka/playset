@@ -42,7 +42,7 @@ class SpotifyService
   private
 
   def secure_client
-    RSpotify.authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
+    RSpotify.authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
   end
 
 end
