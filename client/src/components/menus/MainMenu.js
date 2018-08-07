@@ -28,7 +28,7 @@ class MainMenu extends React.Component {
   render() {
     return (
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">playsette</NavbarBrand>
+        <NavbarBrand href="/" className="ps-app-title">playsette</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>

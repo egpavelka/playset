@@ -10847,3 +10847,18 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 24.6ms)
 
 
+Started POST "/graphql" for 127.0.0.1 at 2018-08-06 22:05:58 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/graphql" for 127.0.0.1 at 2018-08-07 03:54:23 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  users {\n    id\n    username\n    __typename\n  }\n}\n"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+

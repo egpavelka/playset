@@ -1,0 +1,21 @@
+@import '../config/MASTER';
+
+header {
+  margin-top: 15px;
+  border-bottom: $single-border $text;
+}
+
+.ps-app-title {
+  display: flex;
+  flex: 1 3 auto;
+  font-family: 'Autorich Sans', sans-serif;
+  font-size: 3.75rem;
+  justify-content: flex-start;
+  padding: 0;
+  text-shadow: 3px 2px 0 $blue, -3px -2px 0 $pink;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  line-height: normal;
+}

@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'assets/stylesheets/application.css'
 import App from './containers/App'
 import registerServiceWorker from './registerServiceWorker'
 

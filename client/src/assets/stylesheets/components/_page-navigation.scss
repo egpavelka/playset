@@ -1,0 +1,34 @@
+@import '../config/MASTER';
+
+.page-nav {
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  button.navbar-toggler {
+    font-size: 1.3rem;
+    font-family: $sans-serif-narrow-bold;
+    text-transform: uppercase;
+
+    i {
+      margin-left: 5px;
+      font-size: .8rem;
+    }
+  }
+
+  .nav-item {
+    margin: 5px;
+
+    .nav-link {
+      @extend %wavy-link;
+      font-family: $sans-serif-narrow-bold-italic;
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      letter-spacing: .07rem;
+    }
+  }
+}
