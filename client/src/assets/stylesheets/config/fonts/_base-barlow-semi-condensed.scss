@@ -1,0 +1,32 @@
+// Regular
+$barlow-semi-cond: '../../../fonts/barlow-semi-condensed/BarlowSemiCondensed';
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: font-url('#{$barlow-semi-cond}-Regular.ttf');
+}
+// Regular Italic
+@font-face {
+  font-family: 'Barlow Semi Condensed Italic';
+  src: font-url('#{$barlow-semi-cond}-Italic.ttf');
+}
+// Light
+@font-face {
+  font-family: 'Barlow Semi Condensed Light';
+  src: font-url('#{$barlow-semi-cond}-Light.otf');
+}
+// Light Italic
+@font-face {
+  font-family: 'Barlow Semi Condensed Light Italic';
+  src: font-url('#{$barlow-semi-cond}-LightItalic.otf');
+}
+// Bold
+@font-face {
+  font-family: 'Barlow Semi Condensed Bold';
+  src: font-url('#{$barlow-semi-cond}-Bold.otf');
+}
+// Bold Italic
+@font-face {
+  font-family: 'Barlow Semi Condensed Bold Italic';
+  src: font-url('#{$barlow-semi-cond}-BoldItalic.otf');
+}

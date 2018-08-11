@@ -7,14 +7,14 @@ class Resolvers::CreateTrack < GraphQL::Function
   argument :title, !types.String
   argument :artist, !types.String
   argument :album, types.String
-  argument :year, types.Int
+  argument :year, types.String
+  # argument :user, Types::UserType
 
   type Types::TrackType
 
   # _obj is parent object (can be nil)
   # _ctx is graphql context
   def call(_obj, args, ctx)
-    puts ctx
     Track.create!(
       url: args[:url],
       media_url: args[:media_url],
@@ -25,7 +25,7 @@ class Resolvers::CreateTrack < GraphQL::Function
       album: args[:album],
       year: args[:year],
       # user: ctx[:current_user]
-      user_id: 1
+      user_id: "1"
     )
   end
 end

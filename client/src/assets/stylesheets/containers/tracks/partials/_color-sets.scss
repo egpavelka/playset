@@ -1,0 +1,39 @@
+// @import '../../../config/MASTER';
+
+// @mixin track-color-sets($pattern, $base) {
+//   .track-info {
+//     > span {
+//       background-image: url('/assets/backgrounds/patterns/dgl_#{$pattern}.png');
+//       background-size: 11px;
+//       border: 3px solid $text;
+//       box-shadow: 3px 3px 0 transparentize($base, .1),
+//                   6px 6px 0 $text;
+//       color: $text;
+//       text-shadow: .07rem .07rem $background,
+//                    -.07rem .07rem $background,
+//                    -.07rem -.07rem $background,
+//                    .07rem -.07rem $background;
+//     }
+
+//     .track-year {
+//       background: $base;
+//     }
+//   }
+// }
+
+// $color-scheme: ($fuchsia, $pink, $red, $yellow, $green, $aqua, $blue, $lavender, $orchid, $lapis);
+// $color-names: ('fuchsia', 'pink', 'red', 'yellow', 'green', 'aqua', 'blue', 'lavender', 'orchid', 'lapis');
+
+// $i: 1;
+
+// @each $base in $color-scheme {
+//   @each $name in $color-names {
+//     @if $name != $base {
+//       .color-scheme-#{$i} {
+//         @include track-color-sets($name, $base);
+//       }
+
+//       $i: $i + 1;
+//     }
+//   }
+// }

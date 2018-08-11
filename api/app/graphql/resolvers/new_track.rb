@@ -9,12 +9,12 @@ class Resolvers::NewTrack < GraphQL::Function
     field :title, types.String
     field :artist, types.String
     field :album, types.String
-    field :year, types.Int
+    field :year, types.String
   end
 
   # _obj is parent object (can be nil)
   # _ctx is graphql context
-  def call(obj, args, ctx)
+  def call(_obj, args, ctx)
     url = args[:url]
 
     return unless url

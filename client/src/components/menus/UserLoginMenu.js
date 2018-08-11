@@ -12,27 +12,28 @@ class UserMenu extends React.Component {
     const authToken = localStorage.getItem(AUTH_TOKEN)
 
     return (
-       <UncontrolledDropdown nav inNavbar>
+      <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
           Account
         </DropdownToggle>
         <DropdownMenu right>
-        {authToken && (
-            <MainDropdownLink endpoint="/profile" text="profile" />
-        )}
-        <DropdownItem divider />
-        {authToken ? (
-            <DropdownItem onClick={() => {
-              localStorage.removeItem(AUTH_TOKEN)
-              this.props.history.push('/')
-            }}>
-            logout
-          </DropdownItem>
-        ) : (
-            <MainDropdownLink endpoint="/login" title="login" />
-        )}
+          
+          {authToken ? (
+             <section>
+               <MainDropdownLink endpoint="/profile" title="profile" />
+               <DropdownItem divider />
+               <DropdownItem onClick={() => {
+                   localStorage.removeItem(AUTH_TOKEN)
+                   this.props.history.push('/')
+               }}>
+                 logout
+               </DropdownItem>
+             </section>
+          ) : (
+             <MainDropdownLink endpoint="/login" title="login" />
+          )}
         </DropdownMenu>
-        </UncontrolledDropdown>
+      </UncontrolledDropdown>
     )
   }
 }

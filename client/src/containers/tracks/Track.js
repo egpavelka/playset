@@ -1,58 +1,28 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import AudioPlayer from './AudioPlayer'
-import Likes from './Likes'
-import Metadata from './track/metadata'
-import SubmissionData from './track/submission_data'
-import EmbeddingData from './track/embedding_data'
+import React, { Component } from 'react'
+// import AudioPlayer from './AudioPlayer'
+import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardFooter } from 'reactstrap'
 
-class Track extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isLiked: false,
-      colorScheme: 1
-    }
-    this._setColorScheme = this.setColorScheme.bind(this)
-  }
-
-  setColorScheme() {
-    const min = 1
-    const max = 100 // must be changed manually!
-    const random = Math.floor(min + Math.random() * (max - min + 1))
-    this.setState({ colorScheme: random })
-  }
-
-  componentWillMount() {
-    this._setColorScheme()
+class Track extends Component {
+  state = {
+    playing: false,
+    album_art: 'https://i.ytimg.com/vi/7PmUtmfTmbg/maxresdefault.jpg'
   }
 
   render() {
-
-    var backgroundArtStyle = {
-      backgroundImage: 'url(' + this.props.albumArtPath + ')',
-      backgroundPosition: 'center'
-    }
-
     return (
-      <div id={ 'track-' + this.props.track.id } className={`row track color-scheme-` + this.state.colorScheme }>
-
-      <div className="col-12 track-background" style={ backgroundArtStyle }>
-        <div className="row track-overlay">
-          <AudioPlayer track={ this.props.track } embeddedService={ this.props.media.source_service } />
-          <Metadata track={ this.props.track } />
-          <SubmissionData userId={ this.props.track.user_id } user={ this.props.user } formattedTime={ this.props.formattedTime } />
+        <div>
+        <Card inverse>
+        <CardImg width="100%" src={ this.state.album_art } />
+        <CardImgOverlay>
+          <CardTitle className='track-title'>{ this.props.title }</CardTitle>
+          <CardTitle className='track-artist'>{ this.props.artist }</CardTitle>
+          <CardText className='track-album'>{ this.props.album }</CardText>
+        </CardImgOverlay>
+        <CardFooter className="text-muted track-info">
+          { this.props.service }
+        </CardFooter>
+        </Card>
         </div>
-      </div>
-
-        <div className="row track-base">
-          <EmbeddingData sourceService={ this.props.media.source_service } sourcePath={ this.props.media.source_path }
-          playback={ this.props.track.playback } />
-          <Likes likedState={ this.state.isLiked ? 'active-button' : '' } />
-        </div>
-
-      </div>
     )
   }
 }

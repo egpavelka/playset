@@ -1,6 +1,6 @@
 class Track < ApplicationRecord
   # Tracks belong to a user and will be deleted if the account is deactivated.
-  belongs_to :user
+  belongs_to :user, validate: true
 
   # Album art managed by Paperclip; URL fetching with open-uri
   # has_attached_file :album_art,
@@ -14,7 +14,6 @@ class Track < ApplicationRecord
   # INITIALIZE TRACK:
   # USER, SOURCE, MEDIA
   ####################
-  validates :user_id, presence: true
   validates :url, presence: true
 
   validates :service, inclusion: { in: %w[Bandcamp Spotify Soundcloud Vimeo Youtube] }

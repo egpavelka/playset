@@ -8,7 +8,7 @@ class Resolvers::UserLogin < GraphQL::Function
     field :user, Types::UserType
   end
 
-  def call(obj, args, ctx)
+  def call(_obj, args, ctx)
     input = args[:username]
 
     return unless input
@@ -22,6 +22,9 @@ class Resolvers::UserLogin < GraphQL::Function
     token = crypt.encrypt_and_sign("user-id#{ user.id }")
 
     ctx[:session][:token] = token
+
+    puts token + "token"
+    puts ctx.to_h
 
     OpenStruct.new({
                      user: user,

@@ -9,7 +9,6 @@ Types::TrackType = GraphQL::ObjectType.define do
   field :title, !types.String
   field :artist, !types.String
   field :album, !types.String
-  field :year, !types.Int
-
-  field :user, -> { Types::UserType } #, property: user
+  field :year, !types.String
+  field :user, -> { Types::UserType }
 end

@@ -1,0 +1,32 @@
+// Regular
+$asap: '../../../fonts/asap/Asap';
+
+@font-face {
+  font-family: 'Asap';
+  src: font-url('#{$asap}-Regular.ttf');
+}
+// Regular Italic
+@font-face {
+  font-family: 'Asap Italic';
+  src: font-url('#{$asap}-Italic.ttf');
+}
+// Light
+@font-face {
+  font-family: 'Asap Light';
+  src: font-url('#{$asap}-Light.otf');
+}
+// Light Italic
+@font-face {
+  font-family: 'Asap Light Italic';
+  src: font-url('#{$asap}-LightItalic.otf');
+}
+// Bold
+@font-face {
+  font-family: 'Asap Bold';
+  src: font-url('#{$asap}-Bold.otf');
+}
+// Bold Italic
+@font-face {
+  font-family: 'Asap Bold Italic';
+  src: font-url('#{$asap}-BoldItalic.otf');
+}

@@ -27,7 +27,7 @@ const CREATE_TRACK_MUTATION = gql`
     $title: String!
     $artist: String!,
     $album: String,
-    $year: Int) {
+    $year: String) {
       create_track(
         url: $url,
         service: $service,
@@ -36,7 +36,8 @@ const CREATE_TRACK_MUTATION = gql`
         title: $title,
         artist: $artist,
         album: $album,
-        year: $year) {
+        year: $year
+      ) {
           url
         }
     }
@@ -51,7 +52,7 @@ class CreateTrack extends React.Component {
     title: '',
     artist: '',
     album: '',
-    year: null
+    year: ''
   }
 
   render () {

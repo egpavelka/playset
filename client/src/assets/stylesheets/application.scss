@@ -1,6 +1,4 @@
-@import './vendor/bootstrap_variables'
-@import './config/MASTER'
-@import './components/MASTER'
-@import './modules/forms/MASTER'
-@import './modules/tracks/MASTER'
-@import './modules/users/MASTER'
+@import './config/MASTER';
+@import './components/MASTER';
+@import './containers/tracks/MASTER';
+

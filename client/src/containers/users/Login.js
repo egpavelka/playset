@@ -93,6 +93,7 @@ class Login extends Component {
 
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
+    console.log(localStorage)
   }
 }
 

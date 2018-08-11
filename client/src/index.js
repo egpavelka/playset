@@ -6,16 +6,18 @@ import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'assets/stylesheets/application.css'
+import './assets/stylesheets/application.scss'
 import App from './containers/App'
 import registerServiceWorker from './registerServiceWorker'
 
 const link = new HttpLink({
-  uri: 'http://localhost:5100/graphql'
+  uri: 'http://localhost:5100/graphql',
+  credentials: 'same-origin'
 })
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem(AUTH_TOKEN)
+  console.log(token + "token")
   return {
     headers: {
       ...headers,
@@ -26,12 +28,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(link),
-  cache: new InMemoryCache(),
-  /* clientState: {
-   *   defaults,
-   *   resolvers,
-   *   typeDefs
-   * }*/
+  cache: new InMemoryCache()
 })
 
 const AppWithProvider = () => (

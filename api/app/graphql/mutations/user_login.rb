@@ -3,7 +3,7 @@ class Mutations::UserLogin < GraphQL::Function
 
   types Types::AuthenticateType
 
-  def call(obj, args, ctx)
+  def call(_obj, args, _ctx)
     input = args[:username]
     return unless input
 
