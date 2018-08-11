@@ -24,4 +24,4 @@ api/config/secrets.yml.key
 client/yarn.lock
 client/node_modules/
 client/.jsbeautifyrc
-client/src/assets/fonts
+client/src/assets/fonts/
