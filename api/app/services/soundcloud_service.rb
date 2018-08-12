@@ -13,12 +13,12 @@ class SoundcloudService
 
   def call
     data = call_and_catch_errors('/resolve', url: @url)
-    # page = DataGrabUtil.read_page(url)
-    # data.merge!(
-    #   artwork_url: page.at_xpath("//meta[@property='og:image']")
-    #   .attributes['content'].value,
-    #   hint: { title_hint: page.title, description_hint: data.description }
-    # )
+    page = DataGrabUtil.read_page(url)
+    data.merge!(
+      artwork_url: page.at_xpath("//meta[@property='og:image']")
+      .attributes['content'].value,
+      hint: { title_hint: page.title, description_hint: data.description }
+    )
   end
 
   def set_metadata

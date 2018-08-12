@@ -13,8 +13,10 @@ api/tmp/*
 !api/log/.keep
 !api/tmp/.keep
 api/vendor/cache/*
+api/config/credentials.yml.enc
 *.byebug_history
-api/config/secrets.yml.key
+
+_LEGACY_/
 
 # Ignore projectile/org files
 .projectile

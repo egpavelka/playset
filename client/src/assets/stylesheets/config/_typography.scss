@@ -1,18 +1,14 @@
 @import './fonts/base-asap';
 @import './fonts/base-asap-condensed';
-@import './fonts/base-barlow';
-@import './fonts/base-barlow-semi-condensed';
-@import './fonts/base-barlow-condensed';
 @import './fonts/base-aziga-regular';
 @import './fonts/base-frank-ruhl-libre';
 
 @mixin serif($font) {
   $serif: '#{$font}' !global;
-  $serif-italic: '#{$font} Italic' !global;
   $serif-light: '#{$font} Light' !global;
-  $serif-light-italic: '#{$font} Light Italic' !global;
+  $serif-medium: '#{$font} Medium' !global;
   $serif-bold: '#{$font} Bold' !global;
-  $serif-bold-italic: '#{$font} Bold Italic' !global;
+  $serif-black: '#{$font} Black' !global;
 }
 
 @mixin sans-serif($font) {
@@ -40,6 +36,6 @@ $brand-font: 'Aziga' !global;
 
 // Bootstrap variables
 
-$font-family-sans-serif: $serif;
+$font-family-sans-serif: $serif-bold;
 $font-family-monospace:  $sans-serif;
 $font-family-base: $sans-serif-narrow;

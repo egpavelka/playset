@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 // import AudioPlayer from './AudioPlayer'
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardFooter } from 'reactstrap'
+import { Card, CardFooter, CardImg, CardImgOverlay, CardText, CardTitle } from 'reactstrap'
 
 class Track extends Component {
   state = {
-    playing: false,
-    album_art: 'https://i.ytimg.com/vi/7PmUtmfTmbg/maxresdefault.jpg'
+    playing: false
   }
 
   render() {
     return (
-        <div>
-        <Card inverse>
-        <CardImg width="100%" src={ this.state.album_art } />
+      <Card inverse>
+        <CardImg width="100%" src={ this.props.album_art } />
         <CardImgOverlay>
           <CardTitle className='track-title'>{ this.props.title }</CardTitle>
           <CardTitle className='track-artist'>{ this.props.artist }</CardTitle>
@@ -21,8 +19,8 @@ class Track extends Component {
         <CardFooter className="text-muted track-info">
           { this.props.service }
         </CardFooter>
-        </Card>
-        </div>
+      </Card>
+      
     )
   }
 }

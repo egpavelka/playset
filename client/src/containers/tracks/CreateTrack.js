@@ -14,6 +14,7 @@ const NEW_TRACK_MUTATION = gql`
       title
       artist
       album
+      artwork_url
       year
     }
   }
@@ -27,6 +28,7 @@ const CREATE_TRACK_MUTATION = gql`
     $title: String!
     $artist: String!,
     $album: String,
+    $artwork_url: String,
     $year: String) {
       create_track(
         url: $url,
@@ -36,6 +38,7 @@ const CREATE_TRACK_MUTATION = gql`
         title: $title,
         artist: $artist,
         album: $album,
+        artwork_url: $artwork_url,
         year: $year
       ) {
           url
@@ -52,11 +55,12 @@ class CreateTrack extends React.Component {
     title: '',
     artist: '',
     album: '',
+    artwork_url: '',
     year: ''
   }
 
   render () {
-    const { valid, url, mediaUrl, service, mediaType, title, artist, album, year } = this.state
+    const { valid, url, mediaUrl, service, mediaType, title, artist, album, artwork_url, year } = this.state
     return (
       <Form>
         <h4>{ valid ? 'Verify track information' : 'Submit track link'}</h4>
@@ -89,7 +93,7 @@ class CreateTrack extends React.Component {
         )}
 
         <Mutation mutation={ valid ? CREATE_TRACK_MUTATION : NEW_TRACK_MUTATION }
-                  variables={{ url, service, mediaUrl, mediaType, title, artist, album, year }}
+                  variables={{ url, service, mediaUrl, mediaType, title, artist, album, artwork_url, year }}
                   onCompleted={ data => this._confirm(data) }>
           { mutation => (
             <Button onClick={ mutation }>

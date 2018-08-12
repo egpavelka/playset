@@ -12580,3 +12580,358 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.7ms)
 
 
+Started POST "/graphql" for ::1 at 2018-08-11 07:15:41 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-11 07:17:22 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-11 07:22:26 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-11 07:34:28 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 02:51:42 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.8ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 02:52:11 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 02:54:30 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 02:54:47 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 02:56:24 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:00:26 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.7ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:00:58 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:02:47 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:03:15 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:05:13 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:06:21 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.7ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:08:42 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (1.7ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:10:26 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:13:44 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:14:44 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:15:29 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:17:22 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 03:18:08 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTrack Load (0.3ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/graphql" for ::1 at 2018-08-12 07:46:55 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `has_one_attached' for #<Class:0x00007fa68ce853e8>):
+  
+app/models/track.rb:5:in `<class:Track>'
+app/models/track.rb:1:in `<top (required)>'
+app/graphql/types/query_type.rb:10:in `block (3 levels) in <top (required)>'
+app/controllers/graphql_controller.rb:11:in `execute'
+Started POST "/graphql" for ::1 at 2018-08-12 07:50:19 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `has_one_attached' for #<Class:0x00007f69b0a01218>):
+  
+app/models/track.rb:5:in `<class:Track>'
+app/models/track.rb:1:in `<top (required)>'
+app/graphql/types/query_type.rb:10:in `block (3 levels) in <top (required)>'
+app/controllers/graphql_controller.rb:11:in `execute'
+Started POST "/graphql" for ::1 at 2018-08-12 07:53:28 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/gigi/Code/Current/playsette/api/app/graphql/resolvers/create_track.rb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+      user_id: "1"
+      ^~~~~~~
+/home/gigi/Code/Current/playsette/api/app/graphql/resolvers/create_track.rb:31: syntax error, unexpected ')', expecting keyword_end
+    )
+    ^):
+  
+app/graphql/resolvers/create_track.rb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/graphql/resolvers/create_track.rb:31: syntax error, unexpected ')', expecting keyword_end
+app/graphql/types/mutation_type.rb:8:in `block in <top (required)>'
+app/controllers/graphql_controller.rb:11:in `execute'
+Started POST "/graphql" for ::1 at 2018-08-12 07:54:13 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:04:41 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20180711100234)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20180812123042)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (470.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (44.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  [1m[35m (32.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180812123042"]]
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/graphql" for ::1 at 2018-08-12 08:31:48 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 40ms (Views: 0.3ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:37:28 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 45ms (Views: 0.4ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:37:59 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    year\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    year\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 959ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:38:03 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534163880&t=abf22208901a11743fc42f4651bb6c4cb92d057c&token=1534163880_9a786cc621c6dced141d5e7993643b919b47561e", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, year: $year) {\n    url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534163880&t=abf22208901a11743fc42f4651bb6c4cb92d057c&token=1534163880_9a786cc621c6dced141d5e7993643b919b47561e", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, year: $year) {\n    url\n    __typename\n  }\n}\n"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/graphql/resolvers/create_track.rb:20:in `call'
+app/controllers/graphql_controller.rb:11:in `execute'
+Started POST "/graphql" for ::1 at 2018-08-12 08:41:43 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "artwork_url"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    artwork_url\n    year\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "artwork_url"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    artwork_url\n    year\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 714ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:41:45 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534164103&t=8572f7ccbb7240e6cb96a59f0d08bab2387a6b40&token=1534164103_802a5001b4d66f7578a442a8c0ab5e06f1c648bb", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "artwork_url"=>"", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $artwork_url: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, artwork_url: $artwork_url, year: $year) {\n    url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534164103&t=8572f7ccbb7240e6cb96a59f0d08bab2387a6b40&token=1534164103_802a5001b4d66f7578a442a8c0ab5e06f1c648bb", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "artwork_url"=>"", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $artwork_url: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, artwork_url: $artwork_url, year: $year) {\n    url\n    __typename\n  }\n}\n"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - ):
+  
+app/graphql/resolvers/create_track.rb:20:in `call'
+app/controllers/graphql_controller.rb:11:in `execute'
+Started POST "/graphql" for ::1 at 2018-08-12 08:42:37 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "artwork_url"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    artwork_url\n    year\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"NewTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"", "mediaUrl"=>"", "mediaType"=>"", "title"=>"", "artist"=>"", "album"=>"", "artwork_url"=>"", "year"=>""}, "query"=>"mutation NewTrackMutation($url: String!) {\n  new_track(url: $url) {\n    url\n    service\n    media_url\n    media_type\n    title\n    artist\n    album\n    artwork_url\n    year\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 613ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:42:39 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534164157&t=74c2795d0b5d5881c7bc320f3a370b346317d7cc&token=1534164157_531a528e9ab0ffdc3aafe676bca0d6bff44b84af", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "artwork_url"=>"", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $artwork_url: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, artwork_url: $artwork_url, year: $year) {\n    url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>"CreateTrackMutation", "variables"=>{"url"=>"https://sunarawmonofonus.bandcamp.com/track/bump-up", "service"=>"Bandcamp", "mediaUrl"=>"https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534164157&t=74c2795d0b5d5881c7bc320f3a370b346317d7cc&token=1534164157_531a528e9ab0ffdc3aafe676bca0d6bff44b84af", "mediaType"=>"audio", "title"=>"Bump Up", "artist"=>"Sun Araw", "album"=>"Houston Abstros", "artwork_url"=>"", "year"=>"2017"}, "query"=>"mutation CreateTrackMutation($url: String!, $service: String!, $mediaUrl: String!, $mediaType: String!, $title: String!, $artist: String!, $album: String, $artwork_url: String, $year: String) {\n  create_track(url: $url, service: $service, media_type: $mediaType, media_url: $mediaUrl, title: $title, artist: $artist, album: $album, artwork_url: $artwork_url, year: $year) {\n    url\n    __typename\n  }\n}\n"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrack Create (0.8ms)[0m  [1m[32mINSERT INTO "tracks" ("url", "title", "artist", "album", "service", "media_type", "created_at", "updated_at", "media_url", "user_id", "year") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["url", "https://sunarawmonofonus.bandcamp.com/track/bump-up"], ["title", "Bump Up"], ["artist", "Sun Araw"], ["album", "Houston Abstros"], ["service", "Bandcamp"], ["media_type", "audio"], ["created_at", "2018-08-12 12:42:40.023180"], ["updated_at", "2018-08-12 12:42:40.023180"], ["media_url", "https://t4.bcbits.com/stream/36d285226e82ccb2c5fbd5bdff88041d/mp3-128/2754008327?p=0&ts=1534164157&t=74c2795d0b5d5881c7bc320f3a370b346317d7cc&token=1534164157_531a528e9ab0ffdc3aafe676bca0d6bff44b84af"], ["user_id", 1], ["year", "2017"]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 29.6ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:42:40 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:43:21 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.9ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:43:43 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:43:55 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:44:18 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/graphql" for ::1 at 2018-08-12 08:44:35 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    album_art\n    year\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    album_art\n    year\n    __typename\n  }\n}\n"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+

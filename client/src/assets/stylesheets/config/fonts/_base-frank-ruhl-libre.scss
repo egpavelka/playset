@@ -3,30 +3,25 @@ $frl: '../../../fonts/frank-ruhl-libre/FrankRuhlLibre';
 
 @font-face {
   font-family: 'Frank Ruhl Libre';
-  src: font-url('#{$frl}-Medium.ttf');
-}
-// Regular Italic
-@font-face {
-  font-family: 'Frank Ruhl Libre Italic';
-  src: font-url('#{$frl}-Medium.ttf');
+  src: font-url('#{$frl}-Regular.ttf');
 }
 // Light
 @font-face {
   font-family: 'Frank Ruhl Libre Light';
-  src: font-url('#{$frl}-Regular.ttf');
+  src: font-url('#{$frl}-Light.ttf');
 }
-// Light Italic
+// Medium
 @font-face {
-  font-family: 'Frank Ruhl Libre Light Italic';
-  src: font-url('#{$frl}-Regular.ttf');
+  font-family: 'Frank Ruhl Libre Medium';
+  src: font-url('#{$frl}-Medium.ttf');
 }
 // Bold
 @font-face {
   font-family: 'Frank Ruhl Libre Bold';
   src: font-url('#{$frl}-Bold.ttf');
 }
-// Bold Italic
+// Black
 @font-face {
-  font-family: 'Frank Ruhl Libre Bold Italic';
-  src: font-url('#{$frl}-Bold.ttf');
+  font-family: 'Frank Ruhl Libre Black';
+  src: font-url('#{$frl}-Black.ttf');
 }

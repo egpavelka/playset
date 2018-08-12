@@ -2,6 +2,7 @@ class Track < ApplicationRecord
   # Tracks belong to a user and will be deleted if the account is deactivated.
   belongs_to :user, validate: true
 
+  has_one_attached :album_art
   # Album art managed by Paperclip; URL fetching with open-uri
   # has_attached_file :album_art,
   #                   styles: { icon: { geometry: '300x300>' },

@@ -1,9 +1,0 @@
----
-:Track:
-  :album_art:
-  - :large
-  - :medium
-:User:
-  :avatar:
-  - :icon
-  - :small

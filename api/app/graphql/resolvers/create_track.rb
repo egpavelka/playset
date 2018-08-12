@@ -1,4 +1,5 @@
 class Resolvers::CreateTrack < GraphQL::Function
+  require 'open-uri'
 
   argument :url, !types.String
   argument :media_url, !types.String
@@ -8,6 +9,7 @@ class Resolvers::CreateTrack < GraphQL::Function
   argument :artist, !types.String
   argument :album, types.String
   argument :year, types.String
+  argument :artwork_url, types.String
   # argument :user, Types::UserType
 
   type Types::TrackType
@@ -15,6 +17,7 @@ class Resolvers::CreateTrack < GraphQL::Function
   # _obj is parent object (can be nil)
   # _ctx is graphql context
   def call(_obj, args, ctx)
+    album_art = URI.parse(args[:artwork_url])
     Track.create!(
       url: args[:url],
       media_url: args[:media_url],
@@ -24,6 +27,7 @@ class Resolvers::CreateTrack < GraphQL::Function
       artist: args[:artist],
       album: args[:album],
       year: args[:year],
+      album_art: album_art,
       # user: ctx[:current_user]
       user_id: "1"
     )
