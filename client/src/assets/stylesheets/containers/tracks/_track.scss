@@ -1,12 +1,38 @@
-.track-title,
-.track-artist {
-  font-family: $serif;
+.card {
+  min-width: 300px;
+  margin-top: 20px;
+  padding: 15px;
 }
 
-.track-title {
+.card-img-overlay {
+  border:6px solid #555;
+  margin: 15px;
+  background-color: transparentize($lapis, 0.3)
+}
+
+.card-title,
+.card-subtitle,
+.card-text {
+  font-family: $serif;
+  width: fit-content;
+}
+
+.card-title {
   font-size: 3.5rem;
 }
 
-.track-artist {
+.card-subtitle {
   font-size: 2.5rem;
+}
+
+.card-text {
+  font-size: 1.5rem;
+  margin-top: .375rem;
+}
+
+.play-button {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  font-size: 4rem;
 }

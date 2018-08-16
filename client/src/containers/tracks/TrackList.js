@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { CardColumns, CardDeck } from 'reactstrap'
+import { CardDeck } from 'reactstrap'
 import Track from './Track'
 
 const GET_TRACKS = gql`
@@ -13,8 +13,8 @@ const GET_TRACKS = gql`
       title
       artist
       album
-      album_art
       year
+      album_art_url
     }
   }
 `
@@ -30,8 +30,10 @@ const TrackList = () => (
              service={ track.service }
              media_url={ track.media_url }
              title= { track.title }
-             artist={ track.artist }
-           album_art={ track.album_art }
+             artist={ track.artist }             
+             album={ track.album }
+             year={ track.year }
+             album_art_url={ track.album_art_url }
            />
          ))
          

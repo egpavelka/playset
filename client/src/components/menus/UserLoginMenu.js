@@ -4,8 +4,11 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import MainDropdownLink from './MainDropdownLink'
 import { AUTH_TOKEN } from '../../constants'
+
 
 class UserMenu extends React.Component {
   render () {
@@ -14,7 +17,7 @@ class UserMenu extends React.Component {
     return (
       <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
-          Account
+          <FontAwesomeIcon icon={ faUserCircle } />
         </DropdownToggle>
         <DropdownMenu right>
           

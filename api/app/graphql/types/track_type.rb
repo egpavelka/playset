@@ -8,7 +8,9 @@ Types::TrackType = GraphQL::ObjectType.define do
   field :media_type, !types.String
   field :title, !types.String
   field :artist, !types.String
-  field :album, !types.String
-  field :year, !types.String
+  field :album, types.String
+  field :year, types.String
+  field :album_art_origin, types.String
+  field :album_art_url, types.String
   field :user, -> { Types::UserType }
 end

@@ -15,6 +15,7 @@ api/tmp/*
 api/vendor/cache/*
 api/config/credentials.yml.enc
 *.byebug_history
+*.#*
 
 _LEGACY_/
 

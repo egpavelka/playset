@@ -2,11 +2,17 @@ import React from 'react'
 import MainMenu from '../components/menus/MainMenu'
 import { Switch, Route } from 'react-router-dom'
 import { Container } from 'reactstrap'
-import TrackList from '../containers/tracks/TrackList'
 
 // Routes
 import Login from './users/Login'
 import CreateTrack from './tracks/CreateTrack'
+import TrackList from '../containers/tracks/TrackList'
+
+// FontAwesome base
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons'
+library.add(faEnvelope, faKey)
+
 const App = () => (
   <div className="App">
     <header className="App-header">

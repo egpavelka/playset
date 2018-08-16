@@ -27,8 +27,12 @@ Rails.application.configure do
   end
 
   # Store files locally.
-  # config.active_storage.service = :local
-  
+  config.active_storage.service = :local
+
+  # Set host
+  config.action_mailer.default_url_options = { host: 'localhost:5100' }
+  Rails.application.routes.default_url_options[:host] = 'localhost:5100'
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

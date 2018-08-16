@@ -36,6 +36,6 @@ $brand-font: 'Aziga' !global;
 
 // Bootstrap variables
 
-$font-family-sans-serif: $serif-bold;
-$font-family-monospace:  $sans-serif;
-$font-family-base: $sans-serif-narrow;
+$font-family-sans-serif: $serif-bold !global;
+$font-family-monospace:  $sans-serif !global;
+$font-family-base: $sans-serif-narrow !global;

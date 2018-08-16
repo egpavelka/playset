@@ -40,17 +40,11 @@ class EmbeddedTrackService
   def postprocess_metadata
     @data.merge!(
       year: set_year,
-      # TODO: change code in track model to use active_storage rather than paperclip for file management
-      # album_art: set_album_art,
       media_type: detect_playback)
   end
 
   def set_year
     DataGrabUtil::year_from_date(@data[:year_params][0], @data[:year_params][1])
-  end
-
-  def set_album_art
-    DataGrabUtil::file_from_url(@data[:album_art_params])
   end
 
   def detect_preview

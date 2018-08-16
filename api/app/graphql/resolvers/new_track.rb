@@ -10,7 +10,7 @@ class Resolvers::NewTrack < GraphQL::Function
     field :artist, types.String
     field :album, types.String
     field :year, types.String
-    field :artwork_url, types.String
+    field :album_art_origin, types.String
   end
 
   # _obj is parent object (can be nil)
@@ -35,7 +35,7 @@ class Resolvers::NewTrack < GraphQL::Function
                      artist: track[:artist],
                      album: track[:album],
                      year: track[:year],
-                     artwork_url: track[:artwork_url]
+                     album_art_origin: track[:album_art_origin]
                    })
   end
 end

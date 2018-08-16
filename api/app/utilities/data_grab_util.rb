@@ -9,7 +9,7 @@ module DataGrabUtil
 
 ## FETCH DATA
   def self.file_from_url(url)
-    URI.parse(url)
+    open(url)
   end
 
   def self.read_json(url)

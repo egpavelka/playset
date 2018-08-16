@@ -15,7 +15,7 @@ class SoundcloudService
     data = call_and_catch_errors('/resolve', url: @url)
     page = DataGrabUtil.read_page(url)
     data.merge!(
-      artwork_url: page.at_xpath("//meta[@property='og:image']")
+      album_art_origin: page.at_xpath("//meta[@property='og:image']")
       .attributes['content'].value,
       hint: { title_hint: page.title, description_hint: data.description }
     )
@@ -30,7 +30,7 @@ class SoundcloudService
       media_url: @data.stream_url, # ENDPOINT ONLY!
       # TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
       year_params: [@data.release_year, '%Y'],
-      album_art_params: @data.artwork_url
+      album_art_origin: @data.album_art_origin
     ]
   end
 

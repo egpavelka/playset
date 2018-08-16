@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // import AudioPlayer from './AudioPlayer'
-import { Card, CardFooter, CardImg, CardImgOverlay, CardText, CardTitle } from 'reactstrap'
+import { Card, CardFooter, CardImg, CardImgOverlay, CardSubtitle, CardText, CardTitle } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
 class Track extends Component {
   state = {
@@ -10,13 +12,20 @@ class Track extends Component {
   render() {
     return (
       <Card inverse>
-        <CardImg width="100%" src={ this.props.album_art } />
+        <CardImg width="100%" src={ this.props.album_art_url } />
         <CardImgOverlay>
-          <CardTitle className='track-title'>{ this.props.title }</CardTitle>
-          <CardTitle className='track-artist'>{ this.props.artist }</CardTitle>
-          <CardText className='track-album'>{ this.props.album }</CardText>
+          <FontAwesomeIcon className='play-button' icon={ faPlayCircle } />
+          <CardTitle>
+            { this.props.title }
+          </CardTitle>
+          <CardSubtitle>
+            { this.props.artist }
+          </CardSubtitle>
+          <CardText>
+            { this.props.album }
+          </CardText>
         </CardImgOverlay>
-        <CardFooter className="text-muted track-info">
+        <CardFooter className="text-muted">
           { this.props.service }
         </CardFooter>
       </Card>
