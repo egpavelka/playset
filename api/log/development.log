@@ -15734,3 +15734,263 @@ Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
 
 
+Started POST "/graphql" for ::1 at 2018-08-24 03:14:36 -0400
+  [1m[35m (96.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (73.7ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 1317ms (Views: 0.4ms | ActiveRecord: 372.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae174dccddaf6d9b1548833d8eff3908fa228c85/4_Old%20Grey_Dope%20Body.png" for ::1 at 2018-08-24 03:14:47 -0400
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37dc567516966dc65d413bea058aaa4811585e04/5_Bubblin_anderson%20.paak.image-jpeg" for ::1 at 2018-08-24 03:14:47 -0400
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--caf0c96d7a44483a651bd52050a5d11026d29fde/3_Bump%20Up_Sun%20Araw.png" for ::1 at 2018-08-24 03:14:47 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--caf0c96d7a44483a651bd52050a5d11026d29fde", "filename"=>"3_Bump Up_Sun Araw"}
+Processing by ActiveStorage::BlobsController#show as 
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae174dccddaf6d9b1548833d8eff3908fa228c85", "filename"=>"4_Old Grey_Dope Body"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37dc567516966dc65d413bea058aaa4811585e04", "filename"=>"5_Bubblin_anderson .paak"}
+  [1m[36mActiveStorage::Blob Load (180.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (180.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (180.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+[36m  Disk Storage (747.6ms) [0m[34mGenerated URL for file at key: 3beC5HKwKzimxKp9EQzEpQgs (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--33c63ebd6e726e0f3235b2378cca7489f75d6ed0/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--33c63ebd6e726e0f3235b2378cca7489f75d6ed0/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png
+Completed 302 Found in 1854ms (ActiveRecord: 184.7ms)
+
+
+[36m  Disk Storage (747.1ms) [0m[34mGenerated URL for file at key: ax7r71La5vsmwJCiAunikbQS (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY5WiIsInB1ciI6ImJsb2Jfa2V5In19--4c4e478aee91661cf2337338ccf5958538ddf4fc/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY5WiIsInB1ciI6ImJsb2Jfa2V5In19--4c4e478aee91661cf2337338ccf5958538ddf4fc/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg
+Completed 302 Found in 1854ms (ActiveRecord: 184.1ms)
+
+
+[36m  Disk Storage (747.8ms) [0m[34mGenerated URL for file at key: mdRHkNLBRLYyv6mTCY16BPZS (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--4ddb361ec83203b9dac39a54ab56034f438f8d77/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--4ddb361ec83203b9dac39a54ab56034f438f8d77/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png
+Completed 302 Found in 1855ms (ActiveRecord: 185.6ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY5WiIsInB1ciI6ImJsb2Jfa2V5In19--4c4e478aee91661cf2337338ccf5958538ddf4fc/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg" for ::1 at 2018-08-24 03:14:49 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--33c63ebd6e726e0f3235b2378cca7489f75d6ed0/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png" for ::1 at 2018-08-24 03:14:49 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--4ddb361ec83203b9dac39a54ab56034f438f8d77/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png" for ::1 at 2018-08-24 03:14:49 -0400
+Processing by ActiveStorage::DiskController#show as 
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Bump Up_Sun Araw.png\"; filename*=UTF-8''3_Bump%20Up_Sun%20Araw.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--33c63ebd6e726e0f3235b2378cca7489f75d6ed0", "filename"=>"3_Bump Up_Sun Araw"}
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"5_Bubblin_anderson .paak.image-jpeg\"; filename*=UTF-8''5_Bubblin_anderson%20.paak.image-jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY5WiIsInB1ciI6ImJsb2Jfa2V5In19--4c4e478aee91661cf2337338ccf5958538ddf4fc", "filename"=>"5_Bubblin_anderson .paak"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Old Grey_Dope Body.png\"; filename*=UTF-8''4_Old%20Grey_Dope%20Body.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDgtMjRUMDc6MTk6NDguNjY4WiIsInB1ciI6ImJsb2Jfa2V5In19--4ddb361ec83203b9dac39a54ab56034f438f8d77", "filename"=>"4_Old Grey_Dope Body"}
+[36m  Disk Storage (187.1ms) [0m[34mDownloaded file from key: ax7r71La5vsmwJCiAunikbQS[0m
+Completed 200 OK in 188ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (190.8ms) [0m[34mDownloaded file from key: 3beC5HKwKzimxKp9EQzEpQgs[0m
+Completed 200 OK in 192ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (191.0ms) [0m[34mDownloaded file from key: mdRHkNLBRLYyv6mTCY16BPZS[0m
+Completed 200 OK in 192ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-09-12 00:46:32 -0400
+  [1m[35m (9.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/graphql" for ::1 at 2018-09-19 02:04:10 -0400
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMediaEndpointToTrack (20180824100425)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180824100425"]]
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (21.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMediaEndpointToTrack (20180824100425)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180824100425"]]
+  [1m[35m (165.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7899275574939970200)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMediaEndpointToTrack (20180824100425)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (198.7ms)[0m  [1m[35mALTER TABLE "tracks" ADD "media_endpoint" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180824100425"]]
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7899275574939970200)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/graphql" for ::1 at 2018-09-20 22:36:50 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (29.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 243ms (Views: 0.3ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--caf0c96d7a44483a651bd52050a5d11026d29fde/3_Bump%20Up_Sun%20Araw.png" for ::1 at 2018-09-20 22:36:51 -0400
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37dc567516966dc65d413bea058aaa4811585e04/5_Bubblin_anderson%20.paak.image-jpeg" for ::1 at 2018-09-20 22:36:51 -0400
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae174dccddaf6d9b1548833d8eff3908fa228c85/4_Old%20Grey_Dope%20Body.png" for ::1 at 2018-09-20 22:36:51 -0400
+Processing by ActiveStorage::BlobsController#show as 
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37dc567516966dc65d413bea058aaa4811585e04", "filename"=>"5_Bubblin_anderson .paak"}
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--caf0c96d7a44483a651bd52050a5d11026d29fde", "filename"=>"3_Bump Up_Sun Araw"}
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae174dccddaf6d9b1548833d8eff3908fa228c85", "filename"=>"4_Old Grey_Dope Body"}
+  [1m[36mActiveStorage::Blob Load (16.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (15.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (21.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[36m  Disk Storage (143.0ms) [0m[34mGenerated URL for file at key: mdRHkNLBRLYyv6mTCY16BPZS (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png)[0m
+[36m  Disk Storage (143.2ms) [0m[34mGenerated URL for file at key: 3beC5HKwKzimxKp9EQzEpQgs (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png
+[36m  Disk Storage (144.7ms) [0m[34mGenerated URL for file at key: ax7r71La5vsmwJCiAunikbQS (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png
+Completed 302 Found in 209ms (ActiveRecord: 19.6ms)
+
+
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg
+Completed 302 Found in 210ms (ActiveRecord: 20.4ms)
+
+
+Completed 302 Found in 209ms (ActiveRecord: 25.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png" for ::1 at 2018-09-20 22:36:51 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png" for ::1 at 2018-09-20 22:36:51 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg" for ::1 at 2018-09-20 22:36:51 -0400
+Processing by ActiveStorage::DiskController#show as 
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"5_Bubblin_anderson .paak.image-jpeg\"; filename*=UTF-8''5_Bubblin_anderson%20.paak.image-jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5", "filename"=>"5_Bubblin_anderson .paak"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Old Grey_Dope Body.png\"; filename*=UTF-8''4_Old%20Grey_Dope%20Body.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c", "filename"=>"4_Old Grey_Dope Body"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Bump Up_Sun Araw.png\"; filename*=UTF-8''3_Bump%20Up_Sun%20Araw.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025", "filename"=>"3_Bump Up_Sun Araw"}
+[36m  Disk Storage (13.9ms) [0m[34mDownloaded file from key: ax7r71La5vsmwJCiAunikbQS[0m
+Completed 200 OK in 15ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (16.2ms) [0m[34mDownloaded file from key: 3beC5HKwKzimxKp9EQzEpQgs[0m
+Completed 200 OK in 17ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (18.3ms) [0m[34mDownloaded file from key: mdRHkNLBRLYyv6mTCY16BPZS[0m
+Completed 200 OK in 20ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-09-20 22:36:56 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    media_url\n    service\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5/5_Bubblin_anderson%20.paak.image-jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%225_Bubblin_anderson+.paak.image-jpeg%22%3B+filename%2A%3DUTF-8%27%275_Bubblin_anderson%2520.paak.image-jpeg" for ::1 at 2018-09-20 22:36:56 -0400
+Processing by ActiveStorage::DiskController#show as 
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"5_Bubblin_anderson .paak.image-jpeg\"; filename*=UTF-8''5_Bubblin_anderson%20.paak.image-jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFoZURkeU56Rk1ZVFYyYzIxM1NrTnBRWFZ1YVd0aVVWTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--b72f9193b1a7f25b96dd489839292aff792549d5", "filename"=>"5_Bubblin_anderson .paak"}
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c/4_Old%20Grey_Dope%20Body.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Old+Grey_Dope+Body.png%22%3B+filename%2A%3DUTF-8%27%274_Old%2520Grey_Dope%2520Body.png" for ::1 at 2018-09-20 22:36:56 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025/3_Bump%20Up_Sun%20Araw.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Bump+Up_Sun+Araw.png%22%3B+filename%2A%3DUTF-8%27%273_Bump%2520Up_Sun%2520Araw.png" for ::1 at 2018-09-20 22:36:56 -0400
+[36m  Disk Storage (0.8ms) [0m[34mDownloaded file from key: ax7r71La5vsmwJCiAunikbQS[0m
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Bump Up_Sun Araw.png\"; filename*=UTF-8''3_Bump%20Up_Sun%20Araw.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDB6WW1WRE5VaExkMHQ2YVcxNFMzQTVSVkY2UlhCUlozTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9f0d0b107f4dbac32a09174e5fded4c425317025", "filename"=>"3_Bump Up_Sun Araw"}
+Processing by ActiveStorage::DiskController#show as PNG
+[36m  Disk Storage (0.8ms) [0m[34mDownloaded file from key: 3beC5HKwKzimxKp9EQzEpQgs[0m
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Old Grey_Dope Body.png\"; filename*=UTF-8''4_Old%20Grey_Dope%20Body.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF0WkZKSWEwNU1RbEpNV1hsMk5tMVVRMWt4TmtKUVdsTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMDktMjFUMDI6NDE6NTEuNDk0WiIsInB1ciI6ImJsb2Jfa2V5In19--4d6e22040be7bffa7c7be7e22b17d9f09637285c", "filename"=>"4_Old Grey_Dope Body"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: mdRHkNLBRLYyv6mTCY16BPZS[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
