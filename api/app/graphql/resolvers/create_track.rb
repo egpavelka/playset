@@ -1,7 +1,8 @@
 class Resolvers::CreateTrack < GraphQL::Function
 
   argument :url, !types.String
-  argument :media_url, !types.String
+  argument :media_url, types.String
+  argument :media_query_url, types.String
   argument :service, !types.String
   argument :media_type, !types.String
   argument :title, !types.String
@@ -19,6 +20,7 @@ class Resolvers::CreateTrack < GraphQL::Function
     Track.create!(
       url: args[:url],
       media_url: args[:media_url],
+      media_query_url: args[:media_query_url],
       service: args[:service],
       media_type: args[:media_type],
       title: args[:title],

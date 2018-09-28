@@ -6,13 +6,17 @@ class Track < ApplicationRecord
   belongs_to :user, validate: true
 
   validates :url, presence: true
-  validates :service, inclusion: { in: %w[Bandcamp Spotify Soundcloud Vimeo Youtube] }
+  validates :service, inclusion: { in: %w[Bandcamp Deezer Spotify Soundcloud Vimeo Youtube] }
   validates :media_type, inclusion: { in: %w[audio video preview] }
   validates :title, length: { maximum: 255 }, presence: true
   validates :artist, length: { maximum: 255 }, presence: true
   validates :album, length: { maximum: 255 }, allow_blank: true
   validates :year, length: { is: 4 }, allow_blank: true
 
+
+  def check_media_source
+    media_url || media_query_url
+  end
   ## CREATE AND VALIDATE ALBUM ART FROM URL##
 
   has_one_attached :album_art

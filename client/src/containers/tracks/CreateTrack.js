@@ -10,6 +10,7 @@ const NEW_TRACK_MUTATION = gql`
       url
       service
       media_url
+      media_query_url
       media_type
       title
       artist
@@ -24,6 +25,7 @@ const CREATE_TRACK_MUTATION = gql`
     $url: String!,
     $service: String!,
     $mediaUrl: String!,
+    $mediaQueryUrl: String!,
     $mediaType: String!,
     $title: String!
     $artist: String!,
@@ -35,6 +37,7 @@ const CREATE_TRACK_MUTATION = gql`
         service: $service,
         media_type: $mediaType,
         media_url: $mediaUrl,
+        media_query_url: $mediaQueryUrl,
         title: $title,
         artist: $artist,
         album: $album,
@@ -50,6 +53,7 @@ class CreateTrack extends React.Component {
     valid: false,
     url: '',
     mediaUrl: '',
+    mediaQueryUrl: '',
     service: '',
     mediaType: '',
     title: '',
@@ -60,7 +64,7 @@ class CreateTrack extends React.Component {
   }
 
   render () {
-    const { valid, url, mediaUrl, service, mediaType, title, artist, album, year, albumArtOrigin } = this.state
+    const { valid, url, mediaUrl, mediaQueryUrl, service, mediaType, title, artist, album, year, albumArtOrigin } = this.state
     return (
       <Form>
         <h4>{ valid ? 'Verify track information' : 'Submit track link'}</h4>
@@ -93,7 +97,7 @@ class CreateTrack extends React.Component {
         )}
 
         <Mutation mutation={ valid ? CREATE_TRACK_MUTATION : NEW_TRACK_MUTATION }
-                  variables={{ url, service, mediaUrl, mediaType, title, artist, album, year, albumArtOrigin }}
+                  variables={{ url, service, mediaUrl, mediaQueryUrl, mediaType, title, artist, album, year, albumArtOrigin }}
                   onCompleted={ data => this._confirm(data) }>
           { mutation => (
             <Button onClick={ mutation }>
@@ -111,7 +115,7 @@ class CreateTrack extends React.Component {
     if(!this.state.valid) {
       var info = data.new_track
 
-      this.setState({ valid: true, url: info.url, mediaUrl: info.media_url, mediaType: info.media_type, service: info.service, title: info.title, artist: info.artist, album: info.album, year: info.year, albumArtOrigin: info.album_art_origin })
+      this.setState({ valid: true, url: info.url, mediaUrl: info.media_url, mediaQueryUrl: info.media_query_url, mediaType: info.media_type, service: info.service, title: info.title, artist: info.artist, album: info.album, year: info.year, albumArtOrigin: info.album_art_origin })
     } else {
       this.props.history.push('/')
     }

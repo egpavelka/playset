@@ -27,7 +27,7 @@ class SoundcloudService
       title: @data.title,
       artist: @data.user['username'],
       album: @data.release,
-      media_endpoint: @data.stream_url, # ENDPOINT ONLY!
+      media_query_url: @data.stream_url, # ENDPOINT ONLY!
       # TIME-LIMITED CACHE FOR CALLS TO STREAMING LINKS; GENERATE ON 'PLAY'
       year_params: [@data.release_year, '%Y'],
       album_art_origin: @data.album_art_origin

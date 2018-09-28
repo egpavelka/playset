@@ -39,6 +39,7 @@ class BandcampService
       artist: @data[:artist],
       album: @data[:album_title],
       media_url: @data[:tracks][0][:file].values.last,
+      media_query_url: @player_url,
       year_params: [@data[:publish_date], '%d %b %Y'],
       album_art_origin: @data[:album_art_lg]
     ]

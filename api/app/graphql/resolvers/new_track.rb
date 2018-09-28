@@ -4,6 +4,7 @@ class Resolvers::NewTrack < GraphQL::Function
     name 'TrackPayload'
     field :url, !types.String
     field :media_url, !types.String
+    field :media_query_url, !types.String
     field :service, !types.String
     field :media_type, !types.String
     field :title, types.String
@@ -30,6 +31,7 @@ class Resolvers::NewTrack < GraphQL::Function
                      url: url,
                      service: service,
                      media_url:  track[:media_url],
+                     media_query_url: track[:media_query_url],
                      media_type: track[:media_type],
                      title: track[:title],
                      artist: track[:artist],
