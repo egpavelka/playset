@@ -17,6 +17,22 @@ class Track < ApplicationRecord
   def check_media_source
     media_url || media_query_url
   end
+
+  after_find :check_bandcamp
+
+  def check_bandcamp
+    if (self.service == 'Bandcamp')
+      begin
+        Nokogiri::HTML(open(self.media_url)) do
+          return
+        end
+      rescue OpenURI::HTTPError => e
+        new_call = BandcampService.new(url: self.url).base_call
+        self.media_url = new_call[:tracks][0][:file].values.last
+        self.save!
+      end
+    end
+  end
   ## CREATE AND VALIDATE ALBUM ART FROM URL##
 
   has_one_attached :album_art

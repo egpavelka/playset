@@ -8,8 +8,9 @@ const GET_TRACKS = gql`
   {
     tracks {
       id
-      media_url
       service
+      media_url
+      media_query_url
       title
       artist
       album
@@ -29,6 +30,7 @@ const TrackList = () => (
              id={ track.id }
              service={ track.service }
              media_url={ track.media_url }
+             media_query_url={ track.media_query_url }
              title= { track.title }
              artist={ track.artist }             
              album={ track.album }

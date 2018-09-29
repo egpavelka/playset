@@ -28,3 +28,4 @@ client/yarn.lock
 client/node_modules/
 client/.jsbeautifyrc
 client/src/assets/fonts/
+client/src/secrets.js
