@@ -10,8 +10,8 @@
 # Ignore all logfiles and tempfiles.
 api/log/*
 api/tmp/*
-!api/log/.keep
-!api/tmp/.keep
+!api/log/*
+!api/tmp/*
 api/vendor/cache/*
 api/config/credentials.yml.enc
 *.byebug_history
