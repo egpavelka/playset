@@ -7,7 +7,6 @@ import { soundcloudPublicClientId } from '../../secrets'
 class Track extends Component {
   state = {
     media_url: this.props.media_url,
-    audio: null,
     loaded: false,
     playing: false,
     nextAction: 'play',
@@ -23,43 +22,31 @@ class Track extends Component {
       .catch((error) => { console.log(error) })
   }
 
-  setAudio() {
-    if (this.props.service == 'Soundcloud') {
+  componentWillMount() {
+    if (this.props.service === 'Soundcloud') {
       this.setSoundcloudUrl()
     }
-    this.state.audio = new Audio(this.state.media_url)
-    this.state.loaded = true
-    this.setListenersOnAudioLoad()
+    this.setState({ audio: new Audio(this.state.media_url)})
   }
 
-  setListenersOnAudioLoad() {
-    console.log(this.state.audio)
-    this.state.audio.addEventListener('pause', this.setStatesOnPause)
-    this.state.audio.addEventListener('play', this.setStatesOnPlay)
-    this.state.audio.addEventListener('timeupdate',
+  componentDidMount() {
+    this.state.audio.load()
+    this.state.audio.addEventListener('onpause',
+      this.setState({ playing: false }))
+    this.state.audio.addEventListener('onplaying',
+      this.setState({ playing: true }))
+    this.state.audio.addEventListener('ontimeupdate',
       (t) => { this.setState({ timePlayed: t }) }
     )
   }
 
-  componentWillMount() {
-    this.setAudio()
-    console.log(this.state)
-  }
-
   // PLAYING
 
-  setStatesOnPlay() {
-    this.state.playing = true
-    this.statea.nextAction= 'pause'
-  }
-
-  setStatesOnPause() {
-    this.state.playing = false
-    this.state.nextAction = 'play'
-  }
 
   togglePlayState() {
-    this.state.playing ? this.state.audio.pause() : this.state.audio.play()
+    var audio = this.state.audio
+    console.log(this.state.playing)
+    this.state.playing ? audio.pause() : audio.play()
   }
 
   render() {
