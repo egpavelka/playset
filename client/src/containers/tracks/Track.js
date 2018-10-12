@@ -30,7 +30,6 @@ class Track extends Component {
   }
 
   componentDidMount() {
-    this.state.audio.load()
     this.state.audio.addEventListener('onpause',
       this.setState({ playing: false }))
     this.state.audio.addEventListener('onplaying',

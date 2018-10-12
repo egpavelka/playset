@@ -17752,3 +17752,78 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
 
 
+Started POST "/graphql" for ::1 at 2018-10-08 21:45:51 -0400
+  [1m[35m (28.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (84.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (26.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrack Update (46.1ms)[0m  [1m[33mUPDATE "tracks" SET "media_url" = $1, "updated_at" = $2 WHERE "tracks"."id" = $3[0m  [["media_url", "https://t4.bcbits.com/stream/57b176f44829455fcd3c3b9f097ac431/mp3-128/3368595737?p=0&ts=1539135955&t=cb608bfcc813ea5e8ebe047ddbec07ffd414e4ad&token=1539135955_5bf4c8330c07cd8ba990f87fc6621e9e35d7aef2"], ["updated_at", "2018-10-09 01:45:56.144237"], ["id", 1]]
+  [1m[35m (62.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3161ms (Views: 0.3ms | ActiveRecord: 257.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png" for ::1 at 2018-10-08 21:45:56 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+  [1m[36mActiveStorage::Blob Load (193.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (769.5ms) [0m[34mGenerated URL for file at key: HZHZsB4iMnJUvLAuBTZzSkE3 (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDE6NTA6NTYuNzk5WiIsInB1ciI6ImJsb2Jfa2V5In19--d9449c70a325f0e52e0a9c82575c62550c6ae24d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDE6NTA6NTYuNzk5WiIsInB1ciI6ImJsb2Jfa2V5In19--d9449c70a325f0e52e0a9c82575c62550c6ae24d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png
+Completed 302 Found in 1075ms (ActiveRecord: 197.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDE6NTA6NTYuNzk5WiIsInB1ciI6ImJsb2Jfa2V5In19--d9449c70a325f0e52e0a9c82575c62550c6ae24d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png" for ::1 at 2018-10-08 21:45:57 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"1_Cosmos%2C Don%27t Wake Me_Grabbing Clouds Records and Tapes.png\"; filename*=UTF-8''1_Cosmos%2C%20Don%27t%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDE6NTA6NTYuNzk5WiIsInB1ciI6ImJsb2Jfa2V5In19--d9449c70a325f0e52e0a9c82575c62550c6ae24d", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+[36m  Disk Storage (120.0ms) [0m[34mDownloaded file from key: HZHZsB4iMnJUvLAuBTZzSkE3[0m
+Completed 200 OK in 121ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-10-08 22:07:50 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 772ms (Views: 0.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png" for ::1 at 2018-10-08 22:07:51 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (4.0ms) [0m[34mGenerated URL for file at key: HZHZsB4iMnJUvLAuBTZzSkE3 (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MTI6NTEuOTg4WiIsInB1ciI6ImJsb2Jfa2V5In19--3a19d9b92483716d61b554228edfeb2dfe4f6d8d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MTI6NTEuOTg4WiIsInB1ciI6ImJsb2Jfa2V5In19--3a19d9b92483716d61b554228edfeb2dfe4f6d8d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png
+Completed 302 Found in 34ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MTI6NTEuOTg4WiIsInB1ciI6ImJsb2Jfa2V5In19--3a19d9b92483716d61b554228edfeb2dfe4f6d8d/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png" for ::1 at 2018-10-08 22:07:52 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"1_Cosmos%2C Don%27t Wake Me_Grabbing Clouds Records and Tapes.png\"; filename*=UTF-8''1_Cosmos%2C%20Don%27t%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MTI6NTEuOTg4WiIsInB1ciI6ImJsb2Jfa2V5In19--3a19d9b92483716d61b554228edfeb2dfe4f6d8d", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+[36m  Disk Storage (8.0ms) [0m[34mDownloaded file from key: HZHZsB4iMnJUvLAuBTZzSkE3[0m
+Completed 200 OK in 9ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-10-08 22:31:27 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (1.0ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 1052ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png" for ::1 at 2018-10-08 22:31:28 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: HZHZsB4iMnJUvLAuBTZzSkE3 (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MzY6MjguNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--fd1832ddf056750b8cbd267aa991af9895f2985c/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MzY6MjguNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--fd1832ddf056750b8cbd267aa991af9895f2985c/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MzY6MjguNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--fd1832ddf056750b8cbd267aa991af9895f2985c/1_Cosmos,%20Don't%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%221_Cosmos%252C+Don%2527t+Wake+Me_Grabbing+Clouds+Records+and+Tapes.png%22%3B+filename%2A%3DUTF-8%27%271_Cosmos%252C%2520Don%2527t%2520Wake%2520Me_Grabbing%2520Clouds%2520Records%2520and%2520Tapes.png" for ::1 at 2018-10-08 22:31:28 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"1_Cosmos%2C Don%27t Wake Me_Grabbing Clouds Records and Tapes.png\"; filename*=UTF-8''1_Cosmos%2C%20Don%27t%20Wake%20Me_Grabbing%20Clouds%20Records%20and%20Tapes.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFJV2toYWMwSTBhVTF1U2xWMlRFRjFRbFJhZWxOclJUTUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTAtMDlUMDI6MzY6MjguNDkzWiIsInB1ciI6ImJsb2Jfa2V5In19--fd1832ddf056750b8cbd267aa991af9895f2985c", "filename"=>"1_Cosmos, Don't Wake Me_Grabbing Clouds Records and Tapes"}
+[36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: HZHZsB4iMnJUvLAuBTZzSkE3[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
