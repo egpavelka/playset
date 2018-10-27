@@ -1,31 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import Track from './Track'
 
-export default class Playbar extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      playing: false,
-      currentTrack: nil,
-      trackList: nil
+const SHOW_PLAYBAR_TRACK = gql`
+  {
+    tracks @client {
+      id
+      service
+      media_url
+      title
+      artist
+      album
+      year
     }
+    currentTrack @client
   }
+`
+class Playbar extends Component {
 
-  componentDidMount() {
-    window.addEventListener('play', (e) => {
-      if (window.currentlyPlaying && window.currentlyPlaying != e.target) {
-        window.currentlyPlaying.pause()
-      }
-      window.currentlyPlaying = e.target
-      console.log(window.currentlyPlaying)
-    })
-  }
 
   render() {
-
     return (
-      <div class="playbar"></div>
+ 
+      
     )
   }
 }
+
+export default Playbar
