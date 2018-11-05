@@ -32,13 +32,12 @@ const TrackList = () => (
              media_url={ track.media_url }
              media_query_url={ track.media_query_url }
              title= { track.title }
-             artist={ track.artist }             
+             artist={ track.artist }
              album={ track.album }
              year={ track.year }
              album_art_url={ track.album_art_url }
            />
          ))
-         
       }}
     </Query>
   </CardDeck>

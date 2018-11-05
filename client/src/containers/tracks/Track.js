@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 // import AudioPlayer from './AudioPlayer'
 import { Card, CardFooter, CardImg, CardImgOverlay, CardSubtitle, CardText, CardTitle } from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import { soundcloudPublicClientId } from '../../secrets'
 class Track extends Component {
   state = {
@@ -53,7 +51,6 @@ class Track extends Component {
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />
         <CardImgOverlay>
-          <FontAwesomeIcon className='play-button' icon={ faPlayCircle } onClick ={ this.togglePlayState() }/>
           <CardTitle>
             { this.props.title }
           </CardTitle>
@@ -68,7 +65,6 @@ class Track extends Component {
           { this.props.service }
         </CardFooter>
       </Card>
-      
     )
   }
 }

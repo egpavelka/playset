@@ -3,8 +3,8 @@ Types::TrackType = GraphQL::ObjectType.define do
 
   field :id, !types.ID
   field :url, !types.String
-  field :media_url, !types.String
-  field :media_query_url, !types.String
+  field :media_url, types.String
+  field :media_query_url, types.String
   field :service, !types.String
   field :media_type, !types.String
   field :title, !types.String

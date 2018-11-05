@@ -24,8 +24,8 @@ const CREATE_TRACK_MUTATION = gql`
   mutation CreateTrackMutation(
     $url: String!,
     $service: String!,
-    $mediaUrl: String!,
-    $mediaQueryUrl: String!,
+    $mediaUrl: String,
+    $mediaQueryUrl: String,
     $mediaType: String!,
     $title: String!
     $artist: String!,

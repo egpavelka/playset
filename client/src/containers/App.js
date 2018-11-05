@@ -1,5 +1,6 @@
 import React from 'react'
 import MainMenu from '../components/menus/MainMenu'
+import Playbar from '../containers/tracks/Playbar'
 import { Switch, Route } from 'react-router-dom'
 import { Container } from 'reactstrap'
 
@@ -25,6 +26,7 @@ const App = () => (
         <Route exact path="/" component={ TrackList } />
       </Switch>
     </Container>
+    <Playbar />
   </div>
 )
 
