@@ -2,29 +2,16 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import Track from './Track'
-import gql from 'graphql-tag'
-import { Mutation, Query } from 'react-apollo'
 
-const SHOW_PLAYBAR_TRACK = gql`
-  {
-    tracks @client {
-      id
-      service
-      media_url
-      title
-      artist
-      album
-      year
-    }
-    currentTrack @client
-  }
-`
+import { Mutation, Query } from 'react-apollo'
+import { GET_CURRENT_TRACK } from './graphql/trackClientState'
+
 class Playbar extends Component {
 
 
   render() {
     return (
-      <Query query={ SHOW_PLAYBAR_TRACK }>
+      <Query query={ GET_CURRENT_TRACK }>
         {( loading, error, data ) => {
            if (loading) return "Loading..."
            if (error) return `Error! ${ error.message }`

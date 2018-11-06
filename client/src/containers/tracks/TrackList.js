@@ -1,24 +1,9 @@
 import React from 'react'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import { CardDeck } from 'reactstrap'
 import Track from './Track'
+import { Query } from 'react-apollo'
+import { GET_TRACKS } from './graphql/trackQueries'
 
-const GET_TRACKS = gql`
-  {
-    tracks {
-      id
-      service
-      media_url
-      media_query_url
-      title
-      artist
-      album
-      year
-      album_art_url
-    }
-  }
-`
 const TrackList = () => (
   <CardDeck>
     <Query query={ GET_TRACKS } className='card-deckx'>
@@ -44,3 +29,4 @@ const TrackList = () => (
 )
 
 export default TrackList
+

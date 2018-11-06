@@ -1,53 +1,9 @@
 import React from 'react'
 import { Button, Form } from 'reactstrap'
 import FormInput from '../../components/forms/FormInput'
-import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
+import { NEW_TRACK_MUTATION, CREATE_TRACK_MUTATION } from './graphql/trackMutations'
 
-const NEW_TRACK_MUTATION = gql`
-  mutation NewTrackMutation($url: String!) {
-    new_track(url: $url) {
-      url
-      service
-      media_url
-      media_query_url
-      media_type
-      title
-      artist
-      album
-      year
-      album_art_origin
-    }
-  }
-`
-const CREATE_TRACK_MUTATION = gql`
-  mutation CreateTrackMutation(
-    $url: String!,
-    $service: String!,
-    $mediaUrl: String,
-    $mediaQueryUrl: String,
-    $mediaType: String!,
-    $title: String!
-    $artist: String!,
-    $album: String,
-    $year: String,
-    $albumArtOrigin: String) {
-      create_track(
-        url: $url,
-        service: $service,
-        media_type: $mediaType,
-        media_url: $mediaUrl,
-        media_query_url: $mediaQueryUrl,
-        title: $title,
-        artist: $artist,
-        album: $album,
-        year: $year,
-        album_art_origin: $albumArtOrigin
-      ) {
-          url
-        }
-    }
-`
 class CreateTrack extends React.Component {
   state = {
     valid: false,
@@ -69,14 +25,13 @@ class CreateTrack extends React.Component {
       <Form>
         <h4>{ valid ? 'Verify track information' : 'Submit track link'}</h4>
         {!valid && (
-           <FormInput fieldName='url'                  
+           <FormInput fieldName='url'
                       value={ url }
                       update={ e => this.setState(
                           { url: e.target.value })}/>
         )}
         {valid && (
            <section>
-             
              <FormInput fieldName='title'
                         value={ title }
                         update={ e => this.setState(

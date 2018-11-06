@@ -18768,3 +18768,133 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 3ms (ActiveRecord: 0.0ms)
 
 
+Started POST "/graphql" for ::1 at 2018-11-06 01:47:15 -0500
+Started POST "/graphql" for ::1 at 2018-11-06 01:47:15 -0500
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks @client {\n    id\n    service\n    media_url\n    title\n    artist\n    album\n    year\n    __typename\n  }\n  currentTrack @client\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks @client {\n    id\n    service\n    media_url\n    title\n    artist\n    album\n    year\n    __typename\n  }\n  currentTrack @client\n}\n"}}
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mTrack Load (93.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrack Update (37.0ms)[0m  [1m[33mUPDATE "tracks" SET "media_url" = $1, "updated_at" = $2 WHERE "tracks"."id" = $3[0m  [["media_url", "https://t4.bcbits.com/stream/122aa87c1a46b2334a16c5d9303dbfca/mp3-128/1079575302?p=0&ts=1541573257&t=5039a19ecb1f2d2b5695a83cdceb14816f48e6ba&token=1541573257_5b54221e877785d4b593a2e9f9e4c823fa453085"], ["updated_at", "2018-11-06 06:47:19.534734"], ["id", 3]]
+  [1m[35m (45.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3242ms (Views: 0.8ms | ActiveRecord: 177.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b450bb95c144b314d04db661188c5ffec10cc311/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png" for ::1 at 2018-11-06 01:47:19 -0500
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b450bb95c144b314d04db661188c5ffec10cc311", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686/3_Dysphoria_Blood%20Sister.png" for ::1 at 2018-11-06 01:47:19 -0500
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686", "filename"=>"3_Dysphoria_Blood Sister"}
+  [1m[36mActiveStorage::Blob Load (8.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (22.3ms) [0m[34mGenerated URL for file at key: ka4N9u32X5ETshYhWhr7Dhnp (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzEwWiIsInB1ciI6ImJsb2Jfa2V5In19--af7e655a5f303895a4c6d87f30acd9a639270fdc/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzEwWiIsInB1ciI6ImJsb2Jfa2V5In19--af7e655a5f303895a4c6d87f30acd9a639270fdc/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png
+Completed 302 Found in 51ms (ActiveRecord: 8.1ms)
+
+
+  [1m[36mActiveStorage::Blob Load (21.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: 8mznPCpmjkSkhzrfu3k36rqx (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzM0WiIsInB1ciI6ImJsb2Jfa2V5In19--5948c10e05873ed7991f21889f190cbb5854dacf/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzM0WiIsInB1ciI6ImJsb2Jfa2V5In19--5948c10e05873ed7991f21889f190cbb5854dacf/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png
+Completed 302 Found in 48ms (ActiveRecord: 21.8ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzEwWiIsInB1ciI6ImJsb2Jfa2V5In19--af7e655a5f303895a4c6d87f30acd9a639270fdc/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png" for ::1 at 2018-11-06 01:47:19 -0500
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzM0WiIsInB1ciI6ImJsb2Jfa2V5In19--5948c10e05873ed7991f21889f190cbb5854dacf/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png" for ::1 at 2018-11-06 01:47:19 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Terrible Thing_AG %26 Brad Gordon.png\"; filename*=UTF-8''4_Terrible%20Thing_AG%20%26%20Brad%20Gordon.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzEwWiIsInB1ciI6ImJsb2Jfa2V5In19--af7e655a5f303895a4c6d87f30acd9a639270fdc", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Dysphoria_Blood Sister.png\"; filename*=UTF-8''3_Dysphoria_Blood%20Sister.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMDY6NTI6MTkuNzM0WiIsInB1ciI6ImJsb2Jfa2V5In19--5948c10e05873ed7991f21889f190cbb5854dacf", "filename"=>"3_Dysphoria_Blood Sister"}
+[36m  Disk Storage (39.2ms) [0m[34mDownloaded file from key: ka4N9u32X5ETshYhWhr7Dhnp[0m
+Completed 200 OK in 40ms (ActiveRecord: 0.0ms)
+
+
+[36m  Disk Storage (48.9ms) [0m[34mDownloaded file from key: 8mznPCpmjkSkhzrfu3k36rqx[0m
+Completed 200 OK in 49ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-11-06 04:56:32 -0500
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 17383ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b450bb95c144b314d04db661188c5ffec10cc311/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png" for ::1 at 2018-11-06 04:56:50 -0500
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686/3_Dysphoria_Blood%20Sister.png" for ::1 at 2018-11-06 04:56:50 -0500
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b450bb95c144b314d04db661188c5ffec10cc311", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: ka4N9u32X5ETshYhWhr7Dhnp (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6b2ac0ff067b7d005a4bc773fb42c3b0d067686", "filename"=>"3_Dysphoria_Blood Sister"}
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: 8mznPCpmjkSkhzrfu3k36rqx (http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png)[0m
+Redirected to http://localhost:5100/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png" for ::1 at 2018-11-06 04:56:50 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Terrible Thing_AG %26 Brad Gordon.png\"; filename*=UTF-8''4_Terrible%20Thing_AG%20%26%20Brad%20Gordon.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+[36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: ka4N9u32X5ETshYhWhr7Dhnp[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png" for ::1 at 2018-11-06 04:56:50 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Dysphoria_Blood Sister.png\"; filename*=UTF-8''3_Dysphoria_Blood%20Sister.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436", "filename"=>"3_Dysphoria_Blood Sister"}
+[36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: 8mznPCpmjkSkhzrfu3k36rqx[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-11-06 04:57:32 -0500
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 959ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png" for ::1 at 2018-11-06 04:57:33 -0500
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png" for ::1 at 2018-11-06 04:57:33 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Terrible Thing_AG %26 Brad Gordon.png\"; filename*=UTF-8''4_Terrible%20Thing_AG%20%26%20Brad%20Gordon.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+Processing by ActiveStorage::DiskController#show as PNG
+[36m  Disk Storage (3.0ms) [0m[34mDownloaded file from key: ka4N9u32X5ETshYhWhr7Dhnp[0m
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms)
+
+
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Dysphoria_Blood Sister.png\"; filename*=UTF-8''3_Dysphoria_Blood%20Sister.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436", "filename"=>"3_Dysphoria_Blood Sister"}
+[36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: 8mznPCpmjkSkhzrfu3k36rqx[0m
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/graphql" for ::1 at 2018-11-06 04:58:13 -0500
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  tracks {\n    id\n    service\n    media_url\n    media_query_url\n    title\n    artist\n    album\n    year\n    album_art_url\n    __typename\n  }\n}\n"}}
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks"[0m
+Completed 200 OK in 805ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7/4_Terrible%20Thing_AG%20&%20Brad%20Gordon.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%224_Terrible+Thing_AG+%2526+Brad+Gordon.png%22%3B+filename%2A%3DUTF-8%27%274_Terrible%2520Thing_AG%2520%2526%2520Brad%2520Gordon.png" for ::1 at 2018-11-06 04:58:14 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"4_Terrible Thing_AG %26 Brad Gordon.png\"; filename*=UTF-8''4_Terrible%20Thing_AG%20%26%20Brad%20Gordon.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFyWVRST09YVXpNbGcxUlZSemFGbG9WMmh5TjBSb2JuQUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDI0WiIsInB1ciI6ImJsb2Jfa2V5In19--c58654d60312f5fa36b68acb64056dca9fbf16f7", "filename"=>"4_Terrible Thing_AG & Brad Gordon"}
+[36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: ka4N9u32X5ETshYhWhr7Dhnp[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436/3_Dysphoria_Blood%20Sister.png?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%223_Dysphoria_Blood+Sister.png%22%3B+filename%2A%3DUTF-8%27%273_Dysphoria_Blood%2520Sister.png" for ::1 at 2018-11-06 04:58:14 -0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"3_Dysphoria_Blood Sister.png\"; filename*=UTF-8''3_Dysphoria_Blood%20Sister.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDA0YlhwdVVFTndiV3ByVTJ0b2VuSm1kVE5yTXpaeWNYZ0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMDZUMTA6MDE6NTAuNDM4WiIsInB1ciI6ImJsb2Jfa2V5In19--e4db2f13ec2e9b7ece8e1607ed9a3c2dbb4b4436", "filename"=>"3_Dysphoria_Blood Sister"}
+[36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: 8mznPCpmjkSkhzrfu3k36rqx[0m
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import AudioPlayer from './AudioPlayer'
 import { Card, CardFooter, CardImg, CardImgOverlay, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import { soundcloudPublicClientId } from '../../secrets'
+
 class Track extends Component {
   state = {
     media_url: this.props.media_url,
@@ -51,15 +52,9 @@ class Track extends Component {
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />
         <CardImgOverlay>
-          <CardTitle>
-            { this.props.title }
-          </CardTitle>
-          <CardSubtitle>
-            { this.props.artist }
-          </CardSubtitle>
-          <CardText>
-            { this.props.album }
-          </CardText>
+          <CardTitle>{ this.props.title }</CardTitle>
+          <CardSubtitle>{ this.props.artist }</CardSubtitle>
+          <CardText>{ this.props.album }</CardText>
         </CardImgOverlay>
         <CardFooter className="text-muted">
           { this.props.service }

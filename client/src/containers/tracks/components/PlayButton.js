@@ -7,11 +7,12 @@ import gql from 'graphql-tag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
-const CurrentPlayButton = ({}) => (
+() => {
+  if data.currentTrack 
+}
+
+const PlayButton = ({ track, next_action }) => (
     <Query query={ GET_CURRENT_TRACK_STATE }>
-    <FontAwesomeIcon
-     className='play-button'
-  icon={ faPlayCircle }
-  onClick ={() => client.writeData({ data: {}}) }/>
+    <FontAwesomeIcon className='play-button' icon={ faPlayCircle } onClick ={() => client.writeData({ data: { currentTrack: track }}) }/>
     </Query>
 )
