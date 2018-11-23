@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { NavItem, NavLink } from 'reactstrap'
+import { NavItem } from 'reactstrap'
 
+// don't use NavLink from reactstrap--it nests an <a> within <Link>
 const MainNavLink = props => (
     <NavItem>
-      <Link to={ props.endpoint }>
-        <NavLink>{ props.title }</NavLink>
+      <Link to={ props.endpoint } className='nav-link'>
+        { props.title }
       </Link>
     </NavItem>
 )

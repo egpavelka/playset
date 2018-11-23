@@ -3,16 +3,13 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-
+import { GET_CURRENT_TRACK_STATE } from '../graphql/trackClientState'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
-() => {
-  if data.currentTrack 
-}
 
-const PlayButton = ({ track, next_action }) => (
+const PlayButton = ({ track }) => (
     <Query query={ GET_CURRENT_TRACK_STATE }>
-    <FontAwesomeIcon className='play-button' icon={ faPlayCircle } onClick ={() => client.writeData({ data: { currentTrack: track }}) }/>
+    <FontAwesomeIcon className='play-button' icon={ faPlayCircle } onClick ={() => Client.writeData({ data: { currentTrack: track }}) }/>
     </Query>
 )

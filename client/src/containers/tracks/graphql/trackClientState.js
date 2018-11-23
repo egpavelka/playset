@@ -1,27 +1,64 @@
 import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
+import compose from 'recompose/compose'
 
-export const GET_CURRENT_TRACK = gql`
-  {
-    tracks @client {
-      id
-      service
-      media_url
-      title
-      artist
-      album
-      year
-    }
+const GET_CURRENT_TRACK = gql`
+  query getCurrentTrack {
     currentTrack @client
   }
 `
-export const SET_CURRENT_TRACK = gql``
+const SET_CURRENT_TRACK = gql`
+  mutation setCurrentTrack($track: String) {
+    setCurrentTrack(track: $track) @client
+  }
+`
 
-export const CLEAR_CURRENT_TRACK = gql``
+const CLEAR_CURRENT_TRACK = gql`
+  mutation clearCurrentTrack {
+    clearCurrentTrack @client
+  }
+`
 
-export const setCurrentTrack = (_obj, { item }, { cache }) => {
-  cache.writeQuery({ query, data: { currentTrack: item} })
+const setCurrentTrack = (_obj, { track }, { cache }) => {
+  const query = GET_CURRENT_TRACK
+  const { currentTrack } = cache.readQuery({ query })
+  cache.writeQuery({ query, data: { currentTrack: track }})
+
+  console.log({ currentTrack })
+
+  return null
 }
 
-export const clearCurrentTrack = (_obj, { item }, { cache }) => {
-  cache.writeQuery({ query, data: { currentTrack: null } })
+const clearCurrentTrack = (_obj, _args, { cache }) => {
+  cache.writeQuery({ query: GET_CURRENT_TRACK, data: null })
+
+  return null
+}
+
+const currentTrackHandler = {
+  props: ({ ownProps, data: { currentTrack = null}}) => ({
+    ...ownProps,
+    currentTrack
+  })
+}
+
+const withCurrentTrack = compose(
+  graphql(GET_CURRENT_TRACK, currentTrackHandler),
+  graphql(SET_CURRENT_TRACK, { name: 'setCurrentTrackMutation'}),
+  graphql(CLEAR_CURRENT_TRACK, { name: 'clearCurrentTrackMutation'})
+)
+
+const store = {
+  defaults: {
+    currentTrack: null
+  },
+  mutations: {
+    setCurrentTrack,
+    clearCurrentTrack
+  }
+}
+
+export {
+  store,
+  withCurrentTrack
 }
