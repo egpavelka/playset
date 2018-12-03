@@ -1,13 +1,10 @@
 import React from 'react'
-import MainMenu from '../components/menus/MainMenu'
-import TrackBar from '../containers/tracks/TrackBar'
+import MainMenu from './components/menus/MainMenu'
 import { Switch, Route } from 'react-router-dom'
 import { Container } from 'reactstrap'
 
 // Routes
-import Login from './users/Login'
-import CreateTrack from './tracks/CreateTrack'
-import TrackList from '../containers/tracks/TrackList'
+import { Login, CreateTrack, TrackList, TrackBar } from './containers'
 
 // FontAwesome base
 import { library } from '@fortawesome/fontawesome-svg-core'

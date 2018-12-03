@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 // import AudioPlayer from './AudioPlayer'
 import { Card, CardFooter, CardImg, CardImgOverlay, CardSubtitle, CardText, CardTitle } from 'reactstrap'
-import { soundcloudPublicClientId } from '../../secrets'
+import { soundcloudPublicClientId } from '../../../secrets'
+import { withCurrentTrack } from '../../../apollo'
+import compose from 'recompose/compose'
+import withState from 'recompose/withState'
 
-class Track extends Component {
+export default class Track extends Component {
   state = {
     media_url: this.props.media_url,
     loaded: false,
     playing: false,
-    nextAction: 'play',
-    timePlayed: 0
+    nextAction: 'play'
   }
 
   setSoundcloudUrl() {
@@ -47,11 +49,18 @@ class Track extends Component {
     this.state.playing ? audio.pause() : audio.play()
   }
 
-  render() {
+  render({
+    currentTrack,
+    setCurrentTrack
+  }) {
     return (
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />
-        <CardImgOverlay>
+        <CardImgOverlay
+          onClick={(e) => {
+          setCurrentTrack({variables: { track: "help"})
+          }}
+        >
           <CardTitle>{ this.props.title }</CardTitle>
           <CardSubtitle>{ this.props.artist }</CardSubtitle>
           <CardText>{ this.props.album }</CardText>
@@ -63,5 +72,3 @@ class Track extends Component {
     )
   }
 }
-
-export default Track

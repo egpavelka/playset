@@ -10,4 +10,9 @@ Types::QueryType = GraphQL::ObjectType.define do
     resolve -> (obj, args, ctx) { Track.all }
   end
 
+  field :track, !types[Types::TrackType] do
+    argument :id, types.ID
+    resolve -> (obj, args, ctx) { Track.where(id: args[:id]) }
+  end
+
 end

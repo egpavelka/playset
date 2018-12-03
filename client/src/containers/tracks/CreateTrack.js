@@ -2,9 +2,10 @@ import React from 'react'
 import { Button, Form } from 'reactstrap'
 import FormInput from '../../components/forms/FormInput'
 import { Mutation } from 'react-apollo'
-import { NEW_TRACK_MUTATION, CREATE_TRACK_MUTATION } from './graphql/trackMutations'
+import { NEW_TRACK_MUTATION,
+         CREATE_TRACK_MUTATION } from '../../apollo'
 
-class CreateTrack extends React.Component {
+export class CreateTrack extends React.Component {
   state = {
     valid: false,
     url: '',
@@ -76,5 +77,3 @@ class CreateTrack extends React.Component {
     }
   }
 }
-
-export default CreateTrack

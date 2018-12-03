@@ -2,35 +2,13 @@ import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../../constants'
 import { Button, Form } from 'reactstrap'
 import FormInput from '../../components/forms/FormInput'
-import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
+import { LOGIN_MUTATION,
+         SIGNUP_MUTATION } from '../../apollo'
 
-const SIGNUP_MUTATION = gql`
-  mutation SignupMutation($username: String!, $email: String!, $name: String!, $password: String!) {
-    signup(authProvider: {
-      username: {
-        username: $username,
-        password: $password
-      }
-    },
-      email: $email,
-      name: $name) {
-        id
-      }
-  }
-`
 
-const LOGIN_MUTATION = gql`
-  mutation LoginMutation($username: String!, $password: String!) {
-    login(username: {
-        username: $username,
-        password: $password }) {
-      token
-    }
-  }
-`
 
-class Login extends Component {
+export class Login extends Component {
   state = {
     login: true,
     username: '',
@@ -96,5 +74,3 @@ class Login extends Component {
     console.log(localStorage)
   }
 }
-
-export default Login

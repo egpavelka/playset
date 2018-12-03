@@ -1,10 +1,10 @@
 import React from 'react'
-import { CardDeck } from 'reactstrap'
-import Track from './Track'
 import { Query } from 'react-apollo'
-import { GET_TRACKS } from './graphql/trackQueries'
+import { CardDeck } from 'reactstrap'
+import Track from './components/Track'
+import { GET_TRACKS } from '../../apollo'
 
-const TrackList = () => (
+export const TrackList = () => (
   <CardDeck>
     <Query query={ GET_TRACKS } className='card-deckx'>
       {({ loading, error, data })  => {
@@ -28,6 +28,4 @@ const TrackList = () => (
     </Query>
   </CardDeck>
 )
-
-export default TrackList
 
