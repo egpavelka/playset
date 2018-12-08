@@ -1,2 +1,2 @@
 react: cd client && npm start
-rails: cd api && rails s
+django: cd playsette && python manage.py runserver

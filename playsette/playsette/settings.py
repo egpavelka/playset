@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'graphene_django',
     'users',
     'tracks'
@@ -115,6 +116,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend'
 ]
 
+# Support cross-origin requests
+CORS_ORIGIN_WHITELIST=('localhost')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -137,4 +140,7 @@ STATIC_URL = '/static/'
 
 GRAPHENE = {
     'SCHEMA': 'playsette.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware'
+    ]
 }

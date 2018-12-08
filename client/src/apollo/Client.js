@@ -12,8 +12,7 @@ import { setCurrentTrack,
 const cache = new InMemoryCache()
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:5100/graphql',
-  credentials: 'same-origin'
+  uri: 'http://localhost:8000/graphql'
 })
 
 /* SET UP CLIENT WITH CACHE */

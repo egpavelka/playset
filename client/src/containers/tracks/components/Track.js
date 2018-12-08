@@ -56,11 +56,7 @@ export default class Track extends Component {
     return (
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />
-        <CardImgOverlay
-          onClick={(e) => {
-          setCurrentTrack({variables: { track: "help"})
-          }}
-        >
+        <CardImgOverlay>
           <CardTitle>{ this.props.title }</CardTitle>
           <CardSubtitle>{ this.props.artist }</CardSubtitle>
           <CardText>{ this.props.album }</CardText>
