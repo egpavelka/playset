@@ -4,17 +4,11 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-.bundle
+# Ignore python virtualenv
+venv/
 
 # Ignore all logfiles and tempfiles.
-api/log/*
-api/tmp/*
-!api/log/*
-!api/tmp/*
-api/vendor/cache/*
-api/config/credentials.yml.enc
-*.byebug_history
+
 *.#*
 
 _LEGACY_/
