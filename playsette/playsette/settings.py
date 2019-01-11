@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'graphql_jwt.middleware.JSONWebTokenMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'playsette.urls'
@@ -117,7 +120,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Support cross-origin requests
-CORS_ORIGIN_WHITELIST=('localhost')
+CORS_ORIGIN_WHITELIST=(
+    'localhost:5000'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
