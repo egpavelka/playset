@@ -25,9 +25,6 @@ SECRET_KEY = '512hw2$hoc-9d!qis0x@yp=gwi&f%ugkx#+ra4148$z*o(%cre'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,9 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'graphql_jwt.middleware.JSONWebTokenMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'playsette.urls'
@@ -120,9 +116,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Support cross-origin requests
-CORS_ORIGIN_WHITELIST=(
-    'localhost:5000'
-)
+CORS_ORIGIN_WHITELIST = [
+    '127.0.0.0/*'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
