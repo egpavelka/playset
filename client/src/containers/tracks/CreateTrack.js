@@ -71,7 +71,7 @@ export class CreateTrack extends React.Component {
     if(!this.state.valid) {
       var info = data.new_track
 
-      this.setState({ valid: true, url: info.url, mediaUrl: info.media_url, mediaQueryUrl: info.media_query_url, mediaType: info.media_type, service: info.service, title: info.title, artist: info.artist, album: info.album, year: info.year, albumArtOrigin: info.album_art_origin })
+      this.setState({ valid: true, url: info.url, mediaUrl: info.mediaUrl, mediaQueryUrl: info.mediaQueryUrl, mediaType: info.media_type, service: info.service, title: info.title, artist: info.artist, album: info.album, year: info.year, albumArtOrigin: info.albumArtOrigin })
     } else {
       this.props.history.push('/')
     }

@@ -117,7 +117,7 @@ AUTHENTICATION_BACKENDS = [
 
 # Support cross-origin requests
 # CORS_ORIGIN_WHITELIST = [
-#     '127.0.0.0/*'
+#     'localhost:5000'
 # ]
 CORS_ORIGIN_ALLOW_ALL = True
 

@@ -5,14 +5,14 @@ export const NEW_TRACK_MUTATION = gql`
     new_track(url: $url) {
       url
       service
-      media_url
-      media_query_url
-      media_type
+      mediaUrl
+      mediaQueryUrl
+      mediaType
       title
       artist
       album
       year
-      album_art_origin
+      albumArtOrigin
     }
   }
 `
@@ -31,14 +31,14 @@ export const CREATE_TRACK_MUTATION = gql`
       create_track(
         url: $url,
         service: $service,
-        media_type: $mediaType,
-        media_url: $mediaUrl,
-        media_query_url: $mediaQueryUrl,
+        mediaType: $mediaType,
+        mediaUrl: $mediaUrl,
+        mediaQueryUrl: $mediaQueryUrl,
         title: $title,
         artist: $artist,
         album: $album,
         year: $year,
-        album_art_origin: $albumArtOrigin
+        albumArtOrigin: $albumArtOrigin
       ) {
           url
         }
