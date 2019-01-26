@@ -49,10 +49,7 @@ export default class Track extends Component {
     this.state.playing ? audio.pause() : audio.play()
   }
 
-  render({
-    currentTrack,
-    setCurrentTrack
-  }) {
+  render() {
     return (
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />

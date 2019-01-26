@@ -10,6 +10,7 @@ class UserType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
+    me = graphene.Field(UserType)
     users = graphene.List(UserType)
 
     def resolve_users(self, info, **kwargs):
@@ -19,6 +20,8 @@ class Query(graphene.ObjectType):
         user = info.context.user
         if user.is_anonymous:
             raise Exception('Not logged in')
+
+        return user
 
 
 class CreateUser(graphene.Mutation):
