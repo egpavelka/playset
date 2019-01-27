@@ -116,10 +116,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Support cross-origin requests
-# CORS_ORIGIN_WHITELIST = [
-#     'localhost:5000'
-# ]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'localhost:5000'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
