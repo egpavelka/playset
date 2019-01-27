@@ -6,6 +6,9 @@ import { withCurrentTrack } from '../../../apollo'
 import compose from 'recompose/compose'
 import withState from 'recompose/withState'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
+
 export default class Track extends Component {
   state = {
     media_url: this.props.media_url,
@@ -54,6 +57,7 @@ export default class Track extends Component {
       <Card inverse>
         <CardImg width="100%" src={ this.props.album_art_url } />
         <CardImgOverlay>
+          <FontAwesomeIcon className='play-button' icon={ faPlayCircle } />
           <CardTitle>{ this.props.title }</CardTitle>
           <CardSubtitle>{ this.props.artist }</CardSubtitle>
           <CardText>{ this.props.album }</CardText>
