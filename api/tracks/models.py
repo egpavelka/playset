@@ -1,6 +1,11 @@
 from django.db import models
 from users.models import CustomUser
 
+from django.core.files import file
+from os.path import basename
+from urllib.request import urlretrieve, urlcleanup
+from urllib.parse import urlsplit
+
 DEFAULT_USER_ID = 1
 
 class Track(models.Model):
