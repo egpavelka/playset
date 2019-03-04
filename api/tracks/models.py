@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import CustomUser
 
-from django.core.files import file
+# from django.core.files import file
 from os.path import basename
 from urllib.request import urlretrieve, urlcleanup
 from urllib.parse import urlsplit
