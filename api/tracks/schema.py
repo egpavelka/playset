@@ -22,7 +22,7 @@ class CreateTrack(graphene.Mutation):
     service = graphene.String(required=True)
     media_url = graphene.String()
     media_query_url = graphene.String()
-    media_type = gopenraphene.String(required=True)
+    media_type = graphene.String(required=True)
     title = graphene.String()
     artist = graphene.String()
     album = graphene.String()

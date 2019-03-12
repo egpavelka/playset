@@ -11,15 +11,19 @@ venv/
 
 *.#*
 
-_LEGACY_/
+_LEGACY_
+venv
+__pycache__
+[Ll]ib
+[Bb]in
+[Cc]ache
 
 # Ignore projectile/org files
 .projectile
-*.org
 
 # Ignore JS
 client/yarn.lock
-client/node_modules/
+client/node_modules
 client/.jsbeautifyrc
-client/src/assets/fonts/
+client/src/assets/fonts
 client/src/secrets.js
