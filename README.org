@@ -1,0 +1,28 @@
+#+TITLE: Playsette
+#+DESCRIPTION: Music discovery through user submissions and aggregation of other social media links.
+
+* Dev notes
+** In E
+* TODO
+** Components
+*** Track playback
+**** Current track
+***** UI updates to playbar and track in list
+*** Design
+**** □ Fonts on tracks
+**** □ Menus
+**** □ User profiles
+**** □ Forms
+**** ◪ Playbar
+*** Track aggregation
+*** Scrobbling
+*** Metadata lookup
+*** Users
+** Errors 
+*** ■ 'GET TRACKS' mutation returns empty dataset in TrackList.js
+:CLOSED: [2018-11-22 Thu 05:20]
+:PROPERTIES:
+:notes: identical query works in graphiql, so this is client-side
+:solution: httpLink had been left out of Client link (ApolloLink from stateLink
+and httpLink), so server wasn't linked--why was there no error?
+*** □ User authentication is broken since move to apollo-link-state
