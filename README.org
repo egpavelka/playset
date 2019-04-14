@@ -2,27 +2,217 @@
 #+DESCRIPTION: Music discovery through user submissions and aggregation of other social media links.
 
 * Dev notes
-** In E
-* TODO
+* Tasks
+** General
+*** ● fix playbar appearance -- trim width to match tracks or widen to fit screen
+CLOSED: [2018-03-04 Sun 03:23]
+*** ● switch input:focus background to very light grey diagonal stripes, grey border of equal width
+CLOSED: [2018-03-08 Thu 01:33] DEADLINE: <2018-03-08 Thu>
+*** ○ automated emails for signing up, password retrieval, etc.
+*** ○ youtube algorithm
+*** ○ video playback position
+*** ○ redux framework for playback management
+DEADLINE: <2018-03-11 Sun>
+*** ○ finalize logo/header
+*** ○ finalize menus
 ** Components
 *** Track playback
 **** Current track
 ***** UI updates to playbar and track in list
 *** Design
-**** □ Fonts on tracks
-**** □ Menus
-**** □ User profiles
-**** □ Forms
-**** ◪ Playbar
+**** ○ Fonts on tracks
+**** ○ Menus
+**** ○ User profiles
+**** ○ Forms
+**** ◑ Playbar
 *** Track aggregation
 *** Scrobbling
 *** Metadata lookup
 *** Users
 ** Errors 
-*** ■ 'GET TRACKS' mutation returns empty dataset in TrackList.js
+*** ● 'GET TRACKS' mutation returns empty dataset in TrackList.js
 :CLOSED: [2018-11-22 Thu 05:20]
 :PROPERTIES:
 :notes: identical query works in graphiql, so this is client-side
 :solution: httpLink had been left out of Client link (ApolloLink from stateLink
 and httpLink), so server wasn't linked--why was there no error?
-*** □ User authentication is broken since move to apollo-link-state
+*** ○ User authentication is broken since move to apollo-link-state
+* Focus: Media Player - React/Redux
+** Actions
+*** playerActions
+*** trackActions
+**** playTrack
+**** setAudio
+Check if track is Soundcloud--if so, make call to get direct audio url--and
+create audio object from url, set as trackAudio state; then call *setListenersOnAudioLoad*
+**** setListenersOnAudioLoad
+Set listeners for each track for pause, play, timeupdate
+**** setSoundcloudUrl
+Make call to get direct audio url
+*** trackListActions
+** Application
+*** bootstrap
+**** Switch between embed and upload submission forms using show/hide divs; consider switching to react router
+**** Set up dropdown menus and tooltips
+*** infinite scroll
+*** tracks
+**** this also has functions for switching between submission forms?
+**** in embedded submission form, check links when input field changes for youtube or vimeo links, and assign value 'video' to hidden element track playback if present; else assign 'audio'
+** Components
+*** track >
+*** App
+**** const App
+**** const mapStateToProps
+**** const mapDispatchTo Props
+**** map default connect(mapStateToProps, mapDispatchToProps)(App)
+*** AudioPlayer
+- [] Refactor for Redux
+**** States
+***** isPlaying
+default false
+***** audioLoaded
+default false
+***** timePlayed
+default 0
+***** nextAction
+default 'play'
+**** setSoundcloudUrl
+**** setAudio
+**** setListenersOnAudioLoad
+**** componentWillMount
+call setAudio
+**** setStatesOnPlay
+**** setStatesOnPause
+**** togglePlayState
+*** Likes
+*** Playbar
+**** States
+***** playing
+default false
+***** currentTrack
+default nil
+***** trackList
+default nil
+*** Track
+**** States
+***** isLiked
+***** colorScheme
+**** setColorScheme
+**** componentWillMount
+*** TrackList
+** Constants
+*** actionTypes
+*** secrets
+** Packs
+*** react
+*** server render
+** Reducers
+*** initialState
+*** playerReducer
+*** rootReducer
+*** trackReducer
+** Routes
+*** routes
+** Store
+*** configureStore
+** main.js
+
+
+
+* Outlines
+** Descriptive
+General structure of application
+*** Tracks
+**** Submission
+**** Playback
+**** Likes and comments
+*** Users
+**** Registration
+**** Sessions
+**** Profiles
+**** Submissions and likes
+**** Following and followers
+*** Static pages
+**** About
+**** Home
+**** Contact
+** Rails object structure
+*** Tracks
+**** Title
+**** Artist
+**** Album
+**** Year
+**** Album art group
+***** album art file name
+***** album art content type
+***** album art file size
+***** album art updated at
+**** Media group
+***** media type
+****** Embedded
+****** Upload
+***** media id
+**** Playback
+**** Published
+**** Created at
+**** Updted at
+**** User id
+**** Media path
+**** Indices
+***** media type, media id
+***** user id
+*** Embeddeds
+**** Source path
+**** Source service
+**** Created at
+**** Updated at
+**** User id
+**** Indices
+***** User id
+*** Uploads
+**** Audio file group
+***** Audio file name
+***** Audio content type
+***** Audio file size
+***** Audio updated at
+**** Created at
+**** Updated at
+*** Users
+**** Username
+**** Email
+**** Name
+**** Password digest
+**** Remember digest
+**** Activated
+**** Activated at
+**** Profile bio
+**** Admin
+**** Reset digest
+**** Reset sent at
+**** Created at
+**** Updated at
+**** Avatar file group
+***** Avatar file name
+***** Avatar content sign
+***** Avatar file size
+***** Avatar updated at
+*** Follows
+**** Follower id
+**** Followed id
+**** Created at
+**** Updated at
+**** Indices
+***** Followed id
+***** Follower id, followed id
+***** Follower id
+*** Likes
+**** User id
+**** Likeable group
+***** Likeable type
+***** Likeable id
+**** Created at
+**** Updated at
+**** Indices
+***** Likeable type, likeable id
+***** User id
+*** Comments
