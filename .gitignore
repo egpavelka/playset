@@ -4,9 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore python virtualenv
-venv/
-
 # Ignore all logfiles and tempfiles.
 
 *.#*
@@ -27,4 +24,3 @@ client/node_modules
 client/.jsbeautifyrc
 client/src/assets/fonts
 client/src/secrets.js
-venv/

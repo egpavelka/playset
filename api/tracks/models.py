@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import CustomUser
+from django.conf import settings
 
 # from django.core.files import file
 from os.path import basename
@@ -20,5 +20,10 @@ class Track(models.Model):
     year = models.CharField(max_length=4, null=True)
     album_art_origin = models.URLField(null=True)
     album_art = models.ImageField(null=True)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=DEFAULT_USER_ID)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=DEFAULT_USER_ID)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Like(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=DEFAULT_USER_ID)
+    track = models.ForeignKey('tracks.Track', related_name='likes', on_delete=models.CASCADE)
